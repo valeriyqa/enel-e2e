@@ -6,7 +6,7 @@ namespace JuiceBoxQA.UITests
     using System;
 
     [TestClass]
-    public partial class AuthorizationTests
+    public class AuthorizationTests
     {
         private IWebDriver driver;
         private string login = "alexander.burdeyniy@gmail.com";
@@ -35,7 +35,7 @@ namespace JuiceBoxQA.UITests
 
         public void CorrectLogin()
         {
-            var loginPage = new EmotorwerksLoginPage(driver);
+            var loginPage = new AuthorizationPage(driver);
 
             loginPage.Open();
             loginPage.LoginAs(login, password);
