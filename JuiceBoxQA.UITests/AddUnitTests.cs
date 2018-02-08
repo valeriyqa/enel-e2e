@@ -19,7 +19,7 @@ namespace JuiceBoxQA.UITests
         [TestCleanup()]
         public void UITestCleanup()
         {
-            //driver.Quit();
+            driver.Quit();
         }
 
         [TestInitialize()]
@@ -28,7 +28,7 @@ namespace JuiceBoxQA.UITests
             string login = "alexander.burdeyniy@gmail.com";
             string password = "Rjcvjc2020";
 
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(@"C:\chromedriver");
             var loginPage = new AuthorizationPage(driver);
             unitsPage = new MyJuiceNetDevicePage(driver);
             addUnitsPage = new AddJuiceNetDevicePage(driver);
