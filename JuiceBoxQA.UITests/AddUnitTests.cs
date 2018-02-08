@@ -19,7 +19,7 @@ namespace JuiceBoxQA.UITests
         [TestCleanup()]
         public void UITestCleanup()
         {
-            driver.Quit();
+            //driver.Quit();
         }
 
         [TestInitialize()]
