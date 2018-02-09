@@ -1,39 +1,56 @@
-﻿namespace JuiceBoxQA.UITests
+﻿using JuiceBoxQA.UITests.Globals;
+using JuiceBoxQA.UITests.Helpers;
+using OpenQA.Selenium;
+using TechTalk.SpecFlow;
+
+namespace JuiceBoxQA.UITests.Pages
 {
-    using OpenQA.Selenium;
-
-    public class AuthorizationPage
+    public class AuthorizationPage : JBLoadableComponent<AuthorizationPage>
     {
-        IWebDriver drv;
+        private IWebDriver drv;
 
-        string DefaultUrl = "https://dashboard.emotorwerks.com/Account/Login";
+        private By loginField = By.Id("Email");
+        private By passwordField = By.Id("Password");
+        private By submitButton = By.XPath("//button[text()='Login']");
 
-        public IWebElement LoginField { get { return drv.FindElement(By.Id("Email")); } }
-        public IWebElement PasswordField { get { return drv.FindElement(By.Id("Password")); } }
-        public IWebElement SubmitButton { get { return drv.FindElement(By.XPath("//button[text()='Login']")); } }
-
-        public AuthorizationPage(IWebDriver drv)
+        public AuthorizationPage()
         {
-            this.drv = drv;
+            drv = ScenarioContext.Current.Get<IWebDriver>();
+            if (!(drv.Url.Equals(Constants.JuiceNetLoginPage)))
+            {
+                drv.Navigate().GoToUrl(Constants.JuiceNetLoginPage);
+            }
         }
 
-        public void Open()
+        protected override void ExecuteLoad()
         {
-            Open(DefaultUrl);
         }
 
-        public void Open(string url)
+        protected override bool EvaluateLoadedStatus()
         {
-            //Navigate to the site
-            drv.Navigate().GoToUrl(url);
+            if (!JBElements.WaitForElementOnPageLoad(drv, loginField))
+            {
+                UnableToLoadMessage = "Could not load login page within the designated timeout period";
+                return false;
+            }
+            return true;
         }
 
-        public void LoginAs(string email, string password)
+        public AuthorizationPage SetUsername(string username)
         {
-            Open();
-            LoginField.SendKeys(email);
-            PasswordField.SendKeys(password);
-            SubmitButton.Submit();
+            JBElements.SendKeys(drv, loginField, username);
+            return this;
+        }
+
+        public AuthorizationPage SetPassword(string password)
+        {
+            JBElements.SendKeys(drv, passwordField, password);
+            return this;
+        }
+
+        public void ClickSubmitButton()
+        {
+            JBElements.Click(drv, submitButton);
         }
     }
 }

@@ -14,4 +14,9 @@ Global
 		{D067FA65-A373-4D58-8C2B-7395478CD30C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D067FA65-A373-4D58-8C2B-7395478CD30C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		BaseDirectory = ..
+		Policies = $0
+		$0.StandardHeader = $1
+	EndGlobalSection
 EndGlobal

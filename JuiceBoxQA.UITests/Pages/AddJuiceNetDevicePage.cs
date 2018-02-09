@@ -1,43 +1,37 @@
-﻿namespace JuiceBoxQA.UITests
+﻿using JuiceBoxQA.UITests.Helpers;
+using OpenQA.Selenium;
+using TechTalk.SpecFlow;
+
+namespace JuiceBoxQA.UITests.Pages
 {
-    using OpenQA.Selenium;
-
-    public class AddJuiceNetDevicePage
+    public class AddJuiceNetDevicePage : JBLoadableComponent<AddJuiceNetDevicePage>
     {
-        IWebDriver drv;
+        private IWebDriver drv;
 
-        string DefaultUrl = "https://dashboard.emotorwerks.com/Portal/AddUnit";
+        private By textlabelErrorMessage = By.XPath("//p[@class='error']");
 
-        public IWebElement NewUnitIdForm { get { return drv.FindElement(By.XPath("//form[@action='/Portal/AddUnit']")); } }
-        public IWebElement NewUnitIdField { get { return drv.FindElement(By.Id("inputUnitID")); } }
-        public IWebElement DangerTextArea { get { return drv.FindElement(By.XPath("//*[@class='validation-summary-errors text-danger']")); } }
-
-
-        public AddJuiceNetDevicePage(IWebDriver drv)
+        public AddJuiceNetDevicePage()
         {
-            this.drv = drv;
+            drv = ScenarioContext.Current.Get<IWebDriver>();
         }
 
-        public void Open()
+        protected override void ExecuteLoad()
         {
-            Open(DefaultUrl);
         }
 
-        public void Open(string url)
+        protected override bool EvaluateLoadedStatus()
         {
-            //Navigate to the page
-            drv.Navigate().GoToUrl(url);
+            if (!JBElements.WaitForElementOnPageLoad(drv, textlabelErrorMessage))
+            {
+                UnableToLoadMessage = "Could not load Login error page within the designated timeout period";
+                return false;
+            }
+            return true;
         }
 
-        public void AddUnit(string unitId)
+        public string GetErrorMessage()
         {
-            NewUnitIdField.SendKeys(unitId);
-            NewUnitIdForm.Submit();
-        }
-
-        public string GetDangerText()
-        {
-            return DangerTextArea.Text;
+            return JBElements.GetElementText(drv, textlabelErrorMessage);
         }
     }
 }

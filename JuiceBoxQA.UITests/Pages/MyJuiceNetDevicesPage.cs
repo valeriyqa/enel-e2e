@@ -1,53 +1,63 @@
-﻿namespace JuiceBoxQA.UITests
+﻿using System;
+using JuiceBoxQA.UITests.Globals;
+using JuiceBoxQA.UITests.Helpers;
+using OpenQA.Selenium;
+using TechTalk.SpecFlow;
+
+namespace JuiceBoxQA.UITests.Pages
 {
-    using OpenQA.Selenium;
-
-    public class MyJuiceNetDevicePage
+    public class MyJuiceNetDevicesPage : JBLoadableComponent<MyJuiceNetDevicesPage>
     {
-        IWebDriver drv;
+        private IWebDriver drv;
 
-        string DefaultUrl = "https://dashboard.emotorwerks.com/Portal";
+        private By updateUnitListButton = By.Id("update-unit-list-button");
+        private By addUnitCircleButton = By.XPath("(//button[@data-target='#AddUnitModal'])[1]");
+        private By addUnitSquareButton = By.XPath("(//button[@data-target='#AddUnitModal'])[2]");
+        private By newUnitIdForm = By.XPath("//form[@action='/Portal/AddUnit']");
+        private By newUnitIdField = By.Id("inputUnitID");
 
-        public IWebElement UpdateUnitListButton { get { return drv.FindElement(By.Id("update-unit-list-button")); } }
-        public IWebElement AddUnitCircleButton { get { return drv.FindElement(By.XPath("(//button[@data-target='#AddUnitModal'])[1]")); } }
-        public IWebElement AddUnitSquareButton { get { return drv.FindElement(By.XPath("(//button[@data-target='#AddUnitModal'])[2]")); } }
-
-        public IWebElement NewUnitIdForm { get { return drv.FindElement(By.XPath("//form[@action='/Portal/AddUnit']")); } }
-        public IWebElement NewUnitIdField { get { return drv.FindElement(By.Id("inputUnitID")); } }
-
-        public MyJuiceNetDevicePage(IWebDriver drv)
+        public MyJuiceNetDevicesPage()
         {
-            this.drv = drv;
+            drv = ScenarioContext.Current.Get<IWebDriver>();
         }
 
-        public void Open()
+        protected override void ExecuteLoad()
         {
-            Open(DefaultUrl);
         }
 
-        public void Open(string url)
+        protected override bool EvaluateLoadedStatus()
         {
-            //Navigate to the page
-            drv.Navigate().GoToUrl(url);
+            if (!JBElements.WaitForElementOnPageLoad(drv, updateUnitListButton))
+            {
+                UnableToLoadMessage = "Could not load My JuiceNet Devices Page page within the designated timeout period";
+                return false;
+            }
+            return true;
         }
 
-        public void UpdateUnitList()
+        public MyJuiceNetDevicesPage UpdateUnitList()
         {
-            UpdateUnitListButton.Click();
+            JBElements.Click(drv, updateUnitListButton);
+            return this;
         }
 
         public void AddUnitByCircleButton(string unitId)
         {
-            AddUnitCircleButton.Click();
-            NewUnitIdField.SendKeys(unitId);
-            NewUnitIdForm.Submit();
+            JBElements.Click(drv, addUnitCircleButton);
+            JBElements.SendKeys(drv, newUnitIdField, unitId);
+            JBElements.Submit(drv, newUnitIdForm);
         }
 
         public void AddUnitBySquareButton(string unitId)
         {
-            AddUnitSquareButton.Click();
-            NewUnitIdField.SendKeys(unitId);
-            NewUnitIdForm.Submit();
+            JBElements.Click(drv, addUnitSquareButton);
+            JBElements.SendKeys(drv, newUnitIdField, unitId);
+            JBElements.Submit(drv, newUnitIdForm);
+        }
+
+        internal bool IsAt()
+        {
+            throw new NotImplementedException();
         }
     }
 }
