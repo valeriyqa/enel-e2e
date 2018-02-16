@@ -23,7 +23,7 @@ namespace JuiceBoxQA.UITests
         [TestInitialize()]
         public void UITestInitialize()
         {
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(@"C:\chromedriver");
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
