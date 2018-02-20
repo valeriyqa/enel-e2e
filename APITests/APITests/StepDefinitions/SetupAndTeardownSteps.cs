@@ -4,22 +4,20 @@ using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports.Reporter.Configuration;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using TechTalk.SpecFlow;
-using UITests.Globals;
-using UITests.Helpers;
+using static APITests.Globals.Constants;
+using static APITests.Helpers.LogTraceListener;
 
 #endregion
 
-namespace UITests.StepDefinitions
+namespace APITests.StepDefinitions
 {
     [Binding]
     public class SetupAndTeardownSteps
     {
         private static ExtentReports _extentReports;
+        private static ExtentTest _extentTest;
         private static ExtentHtmlReporter _htmlReporter;
-
-        private static IWebDriver _driver;
 
         [BeforeFeature]
         public static void InitializeReport()
@@ -27,7 +25,7 @@ namespace UITests.StepDefinitions
             _extentReports = new ExtentReports();
 
             _htmlReporter =
-                new ExtentHtmlReporter(Constants.ReportingFolder + FeatureContext.Current.FeatureInfo.Title + ".html");
+                new ExtentHtmlReporter(ReportingFolder + FeatureContext.Current.FeatureInfo.Title + ".html");
 
             _htmlReporter.Configuration().Theme = Theme.Dark;
 
@@ -36,18 +34,19 @@ namespace UITests.StepDefinitions
             FeatureContext.Current.Set(_extentReports);
         }
 
-        [BeforeScenario("browser")]
-        public static void InitializeDriver()
+        [BeforeScenario]
+        public static void InitializeReportTest()
         {
-            _driver = DriverMethods.GetDriver();
+            _extentTest = FeatureContext.Current.Get<ExtentReports>()
+                .CreateTest(ScenarioContext.Current.ScenarioInfo.Title);
 
-            ScenarioContext.Current.Set(_driver);
+            ScenarioContext.Current.Set(_extentTest);
         }
 
         [BeforeStep]
         public static void LogCurrentStep()
         {
-            ScenarioContext.Current.Get<ExtentTest>().Info(LogTraceListener.LastGherkinMessage);
+            ScenarioContext.Current.Get<ExtentTest>().Info(LastGherkinMessage);
         }
 
         [AfterScenario]
@@ -76,12 +75,6 @@ namespace UITests.StepDefinitions
             }
 
             ScenarioContext.Current.Clear();
-        }
-
-        [AfterScenario("browser")]
-        public static void CloseBrowser()
-        {
-            _driver.Quit();
         }
 
         [AfterFeature]

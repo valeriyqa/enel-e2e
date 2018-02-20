@@ -12,7 +12,7 @@ namespace UITests.Pages
     {
         private readonly IWebDriver _driver;
 
-        private readonly By textlabelPageHeader = By.XPath("//h2[text()='My JuiceNet Devices ']");
+        private readonly By _textlabelPageHeader = By.XPath("//h2[text()='My JuiceNet Devices ']");
 
         public AccountsOverviewPage()
         {
@@ -25,7 +25,7 @@ namespace UITests.Pages
 
         protected override bool EvaluateLoadedStatus()
         {
-            if (!OTAElements.WaitForElementOnPageLoad(_driver, textlabelPageHeader))
+            if (!JBElements.WaitForElementOnPageLoad(_driver, _textlabelPageHeader))
             {
                 UnableToLoadMessage = "Could not load Accounts Overview page within the designated timeout period";
                 return false;
@@ -36,7 +36,7 @@ namespace UITests.Pages
 
         public bool IsAt()
         {
-            return OTAElements.CheckElementIsVisible(_driver, textlabelPageHeader);
+            return JBElements.CheckElementIsVisible(_driver, _textlabelPageHeader);
         }
     }
 }

@@ -11,11 +11,10 @@ namespace UITests.Pages
 {
     public class LoginPage : OTALoadableComponent<LoginPage>
     {
+        private readonly By _buttonLogin = By.XPath("//button[text()='Login']");
         private readonly IWebDriver _driver;
-        private readonly By buttonLogin = By.XPath("//button[text()='Login']");
-        private readonly By textfieldPassword = By.Id("Password");
-
-        private readonly By textfieldUsername = By.Id("Email");
+        private readonly By _textfieldPassword = By.Id("Password");
+        private readonly By _textfieldUsername = By.Id("Email");
 
         public LoginPage()
         {
@@ -30,30 +29,26 @@ namespace UITests.Pages
 
         protected override bool EvaluateLoadedStatus()
         {
-            if (!OTAElements.WaitForElementOnPageLoad(_driver, textfieldUsername))
-            {
-                UnableToLoadMessage = "Could not load login page within the designated timeout period";
-                return false;
-            }
-
-            return true;
+            if (JBElements.WaitForElementOnPageLoad(_driver, _textfieldUsername)) return true;
+            UnableToLoadMessage = "Could not load login page within the designated timeout period";
+            return false;
         }
 
         public LoginPage SetUsername(string username)
         {
-            OTAElements.SendKeys(_driver, textfieldUsername, username);
+            JBElements.SendKeys(_driver, _textfieldUsername, username);
             return this;
         }
 
         public LoginPage SetPassword(string password)
         {
-            OTAElements.SendKeys(_driver, textfieldPassword, password);
+            JBElements.SendKeys(_driver, _textfieldPassword, password);
             return this;
         }
 
         public void ClickLoginButton()
         {
-            OTAElements.Click(_driver, buttonLogin);
+            JBElements.Click(_driver, _buttonLogin);
         }
     }
 }

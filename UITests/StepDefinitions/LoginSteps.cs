@@ -14,9 +14,9 @@ namespace UITests.StepDefinitions
     [Binding]
     public class LoginSteps
     {
-        private readonly IWebDriver driver = ScenarioContext.Current.Get<IWebDriver>();
+        private readonly IWebDriver _driver = ScenarioContext.Current.Get<IWebDriver>();
 
-        private readonly ExtentTest test = ScenarioContext.Current.Get<ExtentTest>();
+        private readonly ExtentTest _test = ScenarioContext.Current.Get<ExtentTest>();
 
         [Given(@"I have a registered user (.*) with username (.*) and password (.*)")]
         public void GivenIHaveARegisteredUserWithUsernameAndPassword(string firstName, string username, string password)
@@ -56,14 +56,14 @@ namespace UITests.StepDefinitions
         [Then(@"he should land on the Accounts Overview page")]
         public void ThenHeShouldLandOnTheAccountsOverviewPage()
         {
-            OTAAssert.AssertTrue(driver, test, new AccountsOverviewPage().Load().IsAt(),
+            JbAssert.AssertTrue(_driver, _test, new AccountsOverviewPage().Load().IsAt(),
                 "User landed on the Accounts Overview page after a successful login");
         }
 
         [Then(@"he should see an error message stating that the login request was denied")]
         public void ThenHeShouldSeeAnErrorMessageStatingThatTheLoginRequestWasDenied()
         {
-            OTAAssert.AssertEquals(driver, test, new LoginErrorPage().Load().GetErrorMessage(),
+            JbAssert.AssertEquals(_driver, _test, new LoginErrorPage().Load().GetErrorMessage(),
                 "The username and password could not be verified.",
                 "Error message indicating an unsuccessful login is displayed");
         }

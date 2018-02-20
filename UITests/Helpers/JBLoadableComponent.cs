@@ -46,7 +46,7 @@ namespace UITests.Helpers
         {
             get
             {
-                var isLoaded = false;
+                bool isLoaded;
                 try
                 {
                     isLoaded = EvaluateLoadedStatus();

@@ -12,7 +12,7 @@ namespace UITests.Pages
     {
         private readonly IWebDriver _driver;
 
-        private readonly By textlabelErrorMessage = By.XPath("//*[@class='validation-summary-errors text-danger']");
+        private readonly By _textlabelErrorMessage = By.XPath("//*[@class='validation-summary-errors text-danger']");
 
         public LoginErrorPage()
         {
@@ -25,7 +25,7 @@ namespace UITests.Pages
 
         protected override bool EvaluateLoadedStatus()
         {
-            if (!OTAElements.WaitForElementOnPageLoad(_driver, textlabelErrorMessage))
+            if (!JBElements.WaitForElementOnPageLoad(_driver, _textlabelErrorMessage))
             {
                 UnableToLoadMessage = "Could not load Login error page within the designated timeout period";
                 return false;
@@ -36,7 +36,7 @@ namespace UITests.Pages
 
         public string GetErrorMessage()
         {
-            return OTAElements.GetElementText(_driver, textlabelErrorMessage);
+            return JBElements.GetElementText(_driver, _textlabelErrorMessage);
         }
     }
 }

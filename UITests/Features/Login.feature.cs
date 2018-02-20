@@ -1,129 +1,116 @@
-﻿#region Designer generated code
+﻿#region
 
-#region
-
+using System.CodeDom.Compiler;
+using System.Globalization;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 #endregion
 
-#pragma warning disable
 namespace UITests.Features
 {
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
-    [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Login")]
-    public partial class LoginFeature
+    [GeneratedCode("TechTalk.SpecFlow", "2.1.0.0")]
+    [CompilerGenerated]
+    [TestFixture]
+    [Description("Login")]
+    public class Login
     {
-        [NUnit.Framework.SetUpAttribute()]
-        public virtual void TestInitialize()
+        [SetUp]
+        public void TestInitialize()
         {
         }
 
-        [NUnit.Framework.TearDownAttribute()]
-        public virtual void ScenarioTearDown()
+        [TearDown]
+        public void ScenarioTearDown()
         {
-            testRunner.OnScenarioEnd();
+            _testRunner.OnScenarioEnd();
         }
 
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private ITestRunner _testRunner;
 
-        [NUnit.Framework.OneTimeSetUp()]
-        public virtual void FeatureSetup()
+        public Login(ITestRunner testRunner)
         {
-            testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(
-                new System.Globalization.CultureInfo("en-US"), "Login",
+            _testRunner = testRunner;
+        }
+
+        [OneTimeSetUp]
+        public void FeatureSetup()
+        {
+            _testRunner = TestRunnerManager.GetTestRunner();
+
+            var featureInfo = new FeatureInfo(new CultureInfo("en-US"), "Login",
                 "\tIn order to access restricted site options\r\n\tAs a registered JuiceNet user\r\n\tI w" +
-                "ant to be able to log in", ProgrammingLanguage.CSharp, ((string[]) (null)));
-            testRunner.OnFeatureStart(featureInfo);
+                "ant to be able to log in", ProgrammingLanguage.CSharp, null);
+
+            _testRunner.OnFeatureStart(featureInfo);
         }
 
-        [NUnit.Framework.OneTimeTearDown()]
-        public virtual void FeatureTearDown()
+        [OneTimeTearDown]
+        public void FeatureTearDown()
         {
-            testRunner.OnFeatureEnd();
-            testRunner = null;
+            _testRunner.OnFeatureEnd();
+            _testRunner = null;
         }
 
-        public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        private void ScenarioSetup(ScenarioInfo scenarioInfo)
         {
-            testRunner.OnScenarioStart(scenarioInfo);
+            _testRunner.OnScenarioStart(scenarioInfo);
         }
 
-        public virtual void ScenarioCleanup()
+        private void ScenarioCleanup()
         {
-            testRunner.CollectScenarioErrors();
+            _testRunner.CollectScenarioErrors();
         }
 
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Login using incorrect password")]
-        [NUnit.Framework.CategoryAttribute("browser")]
-        public virtual void LoginUsingIncorrectPassword()
+        [Test]
+        [Description("Login using incorrect password")]
+        [Category("browser")]
+        public void LoginUsingIncorrectPassword()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(
-                "Login using incorrect password", new string[]
-                {
-                    "browser"
-                });
-#line 19
-            this.ScenarioSetup(scenarioInfo);
-#line 20
-            testRunner.Given("I have a registered user John with username john and password demo", ((string) (null)),
-                ((TechTalk.SpecFlow.Table) (null)), "Given ");
-#line 21
-            testRunner.And("he is on the JuiceNet home page", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)),
+            _testRunner.Given("I have a registered user John with username john and password demo", null,
+                null, "Given ");
+
+            _testRunner.And("he is on the JuiceNet home page", null, null,
                 "And ");
-#line 22
-            testRunner.When("he logs in using an invalid password", ((string) (null)),
-                ((TechTalk.SpecFlow.Table) (null)), "When ");
-#line 23
-            testRunner.Then("he should see an error message stating that the login request was denied",
-                ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
+
+            _testRunner.When("he logs in using an invalid password", null,
+                null, "When ");
+
+            _testRunner.Then("he should see an error message stating that the login request was denied",
+                null, null, "Then ");
+
+            ScenarioCleanup();
         }
 
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Login using valid credentials")]
-        [NUnit.Framework.CategoryAttribute("browser")]
-        [NUnit.Framework.TestCaseAttribute("John", "alexander.burdeyniy@gmail.com", "Rjcvjc2020", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("Bob", "parasoft", "demo", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("Alex", "alex", "demo", new string[0])]
-        public virtual void LoginUsingValidCredentials(string firstname, string username, string password,
-            string[] exampleTags)
+        [Test]
+        [Description("Login using valid credentials")]
+        [Category("browser")]
+        [TestCase("John", "alexander.burdeyniy@gmail.com", "Rjcvjc2020", new string[0])]
+        public void LoginUsingValidCredentials(string firstname, string username, string password, string[] exampleTags)
         {
-            string[] @__tags = new string[]
-            {
-                "browser"
-            };
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
+            var tags = new[] {"browser"};
 
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo =
-                new TechTalk.SpecFlow.ScenarioInfo("Login using valid credentials", @__tags);
+            if (exampleTags != null) tags = tags.Concat(exampleTags).ToArray();
+            var scenarioInfo = new ScenarioInfo("Login using valid credentials", tags);
 #line 7
-            this.ScenarioSetup(scenarioInfo);
+            ScenarioSetup(scenarioInfo);
 #line 8
-            testRunner.Given(
-                string.Format("I have a registered user {0} with username {1} and password {2}", firstname, username,
-                    password), ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "Given ");
+            _testRunner.Given(
+                $"I have a registered user {firstname} with username {username} and password {password}", null, null,
+                "Given ");
 #line 9
-            testRunner.And("he is on the JuiceNet home page", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)),
+            _testRunner.And("he is on the JuiceNet home page", null, null,
                 "And ");
 #line 10
-            testRunner.When("he logs in using his credentials", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)),
+            _testRunner.When("he logs in using his credentials", null, null,
                 "When ");
 #line 11
-            testRunner.Then("he should land on the Accounts Overview page", ((string) (null)),
-                ((TechTalk.SpecFlow.Table) (null)), "Then ");
+            _testRunner.Then("he should land on the Accounts Overview page", null,
+                null, "Then ");
 #line hidden
-            this.ScenarioCleanup();
+            ScenarioCleanup();
         }
     }
 }
-#pragma warning restore
-
-#endregion

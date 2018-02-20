@@ -12,7 +12,7 @@ using UITests.Globals;
 
 namespace UITests.Helpers
 {
-    public class OTAElements
+    public static class JBElements
     {
         // Tries to send the given input string to the element specified taking into account the predefined timeout
         // Catches and handles exceptions that might occur
