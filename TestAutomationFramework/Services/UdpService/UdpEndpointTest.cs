@@ -7,6 +7,7 @@ namespace TestAutomationFramework.Services
 {
     public class UdpEndpointTest
     {
+        //Todo add properties and logger
         const string host = "emwjuicebox.cloudapp.net";
         const int port = 8042;
 

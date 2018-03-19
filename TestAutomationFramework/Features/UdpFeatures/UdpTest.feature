@@ -10,3 +10,4 @@ Scenario: Test UDP endpoint
 		| TestUdpEndpoint_State_Connected |
 		| TestUdpEndpoint_State_Charging  |
 		| TestUdpEndpoint_RawData         |
+
