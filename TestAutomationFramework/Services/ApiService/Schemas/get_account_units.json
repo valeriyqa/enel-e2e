@@ -1,0 +1,36 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JSON Schema for get_account_units API test",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "unit_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "token",
+          "unit_id"
+        ]
+      }
+    }
+  },
+  "required": [
+    "success",
+    "units"
+  ]
+}
