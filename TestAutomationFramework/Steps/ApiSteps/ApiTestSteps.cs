@@ -21,7 +21,7 @@ namespace TestAutomationFramework.Steps.API
         public void GivenIHaveSentCorrectRequestToTheServer()
         {
             System.Console.WriteLine("Api Start");
-            string data = "{\r\n  \"cmd\": \"check_device\",\r\n  \"ID\": \"0100000199990047469017016501\"\r\n}";
+            //string data = "{\r\n  \"cmd\": \"check_device\",\r\n  \"ID\": \"0100000199990047469017016501\"\r\n}";
 
 
             var client = new RestClient("http://emwjuicebox.cloudapp.net/box_pin");
