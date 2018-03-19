@@ -1,0 +1,25 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JSON Schema for check_device API test",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "ID": {
+      "type": "string"
+    },
+    "secured": {
+      "type": "boolean"
+    },
+    "time_last_ping": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "success",
+    "ID",
+    "secured",
+    "time_last_ping"
+  ]
+}
