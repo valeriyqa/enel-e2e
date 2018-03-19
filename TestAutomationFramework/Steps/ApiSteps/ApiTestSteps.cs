@@ -29,18 +29,29 @@ namespace TestAutomationFramework.Steps.API
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("undefined", "{\r\n  \"cmd\": \"check_device\",\r\n  \"ID\": \"0100000199990047469017016501\"\r\n}", ParameterType.RequestBody);
-            //IRestResponse response = client.Execute(request);
+            IRestResponse response = client.Execute(request);
 
-            //System.Console.WriteLine("Test status: " + response.StatusCode);
-            //System.Console.WriteLine(response.Content);
+            System.Console.WriteLine("Test status: " + response.StatusCode);
+            System.Console.WriteLine(response.Content);
 
-            //testResp.success = response.IsSuccessful;
+            testResp.success = response.IsSuccessful;
+            //
+            //Example how to desealize response to the object
+
+            IRestResponse<CheckDeviceStats> response2 = client.Execute<CheckDeviceStats>(request);
+            var success = response2.Data.success;
+            var ID = response2.Data.ID;
+            var Secured = response2.Data.Secured;
+            var Time_last_ping = response2.Data.Time_last_ping;
+
+            System.Console.WriteLine("success = " + success);
+            System.Console.WriteLine("ID = " + ID);
+            System.Console.WriteLine("Secured = " + Secured);
+            System.Console.WriteLine("Time_last_ping = " + Time_last_ping);
+
             //
 
-            RestResponse<CheckDeviceStats> response2 = client.Execute(request);
-            var name = response2.Data.Name;
 
-            //
 
 
             System.Console.WriteLine("Api End");
