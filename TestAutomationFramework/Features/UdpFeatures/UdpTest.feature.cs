@@ -66,25 +66,23 @@ namespace TestAutomationFramework.Features.UdpFeatures
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Test UDP endpoint")]
         [NUnit.Framework.CategoryAttribute("udp")]
-        public virtual void TestUDPEndpoint()
+        [NUnit.Framework.TestCaseAttribute("TestUdpEndpoint_State_Standby", null)]
+        [NUnit.Framework.TestCaseAttribute("TestUdpEndpoint_State_Connected", null)]
+        [NUnit.Framework.TestCaseAttribute("TestUdpEndpoint_State_Charging", null)]
+        [NUnit.Framework.TestCaseAttribute("TestUdpEndpoint_RawData", null)]
+        public virtual void TestUDPEndpoint(string udpData, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test UDP endpoint", new string[] {
-                        "udp"});
+            string[] @__tags = new string[] {
+                    "udp"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test UDP endpoint", @__tags);
 #line 6
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UdpData"});
-            table1.AddRow(new string[] {
-                        "TestUdpEndpoint_State_Standby"});
-            table1.AddRow(new string[] {
-                        "TestUdpEndpoint_State_Connected"});
-            table1.AddRow(new string[] {
-                        "TestUdpEndpoint_State_Charging"});
-            table1.AddRow(new string[] {
-                        "TestUdpEndpoint_RawData"});
 #line 7
- testRunner.Given("I send udp packages with next UdpData", ((string)(null)), table1, "Given ");
+ testRunner.Given(string.Format("I send udp packages with next \"{0}\"", udpData), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             this.ScenarioCleanup();
         }
