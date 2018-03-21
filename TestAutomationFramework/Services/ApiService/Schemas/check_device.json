@@ -1,6 +1,7 @@
 ﻿{
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "JSON Schema for check_device API test",
+
   "type": "object",
   "properties": {
     "success": {
