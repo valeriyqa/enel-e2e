@@ -10,6 +10,7 @@ namespace TestAutomationFramework.Steps
     public class LoginSteps
     {
         private IWebDriver _driver;
+        private string address = Hooks.webHost;
 
         public LoginSteps(IWebDriver driver)
         {
@@ -20,7 +21,7 @@ namespace TestAutomationFramework.Steps
         public void GivenINavigateToApplication()
         {
             Console.WriteLine("I navigate to application");
-            _driver.Navigate().GoToUrl("https://dashboard.emotorwerks.com/Account/Login");
+            _driver.Navigate().GoToUrl(address + "Account/Login");
         }
 
         [Given(@"I enter username and password")]

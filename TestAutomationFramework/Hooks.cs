@@ -10,6 +10,10 @@ namespace TestAutomationFramework
     [Binding]
     public class Hooks
     {
+        public static string apiHost;
+        public static string udpHost;
+        public static string webHost;
+
         private readonly IObjectContainer _objectContainer;
 
         private IWebDriver _driver;
@@ -19,47 +23,12 @@ namespace TestAutomationFramework
             _objectContainer = objectContainer;
         }
 
-        [BeforeScenario]
-        public void GetVariables()
+        [BeforeTestRun]
+        public static void GetVariables()
         {
-            string udpAndApiHost = "https://www.google.com.ua";
-            string webHost = "www.google.com";
-
-            try
-            {
-                udpAndApiHost = Environment.GetEnvironmentVariable("udpAndApiHost");
-                webHost = Environment.GetEnvironmentVariable("webHost");
-            }
-            catch (Exception)
-            {
-
-                Console.WriteLine("Unable to get enviroment variables");
-            }
-
-            Console.WriteLine(udpAndApiHost);
-            Console.WriteLine(webHost);
-            try
-            {
-                Uri uri = new Uri(udpAndApiHost);
-                Uri uri2 = new Uri(webHost);
-
-                Console.WriteLine("Scheme = " + uri.Scheme);
-                Console.WriteLine("Delimiter = " + Uri.SchemeDelimiter);
-                Console.WriteLine("Host = " + uri.Host);
-                Console.WriteLine("Port = " + uri.Port);
-                Console.WriteLine("Path = " + uri.AbsolutePath);
-
-                Console.WriteLine("Scheme = " + uri2.Scheme);
-                Console.WriteLine("Delimiter = " + Uri.SchemeDelimiter);
-                Console.WriteLine("Host = " + uri2.Host);
-                Console.WriteLine("Port = " + uri2.Port);
-                Console.WriteLine("Path = " + uri2.AbsolutePath);
-            }
-            catch (Exception)
-            {
-
-                Console.WriteLine("Incorrect URL format");
-            }
+            apiHost = Tools.InitializeVariables.GetFromEnvironment("apiHost");
+            udpHost = Tools.InitializeVariables.GetFromEnvironment("udpHost");
+            webHost = Tools.InitializeVariables.GetFromEnvironment("webHost");
         }
 
         [BeforeScenario("web")]
@@ -75,6 +44,5 @@ namespace TestAutomationFramework
         {
             _driver.Quit();
         }
-
     }
 }
