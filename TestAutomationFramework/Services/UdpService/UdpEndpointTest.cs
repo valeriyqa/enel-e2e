@@ -8,7 +8,7 @@ namespace TestAutomationFramework.Services
     public class UdpEndpointTest
     {
         //Todo add properties and logger
-        const string host = "emwjuicebox.cloudapp.net";
+        string host = Hooks.udpHost;
         const int port = 8042;
 
         void TxRxRaw(string packet)

@@ -99,6 +99,7 @@
     <Compile Include="Steps\ApiSteps\ApiTestSteps.cs" />
     <Compile Include="Steps\UdpSteps\UdpTestSteps.cs" />
     <Compile Include="Steps\UiSteps\LoginSteps.cs" />
+    <Compile Include="Tools\InitializeVariables.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

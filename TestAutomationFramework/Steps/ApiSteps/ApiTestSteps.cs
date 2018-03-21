@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using RestSharp;
+using System;
 using TechTalk.SpecFlow;
 using static TestAutomationFramework.Services.API.Models;
 
@@ -8,6 +9,7 @@ namespace TestAutomationFramework.Steps.API
     [Binding]
     class ApiTestSteps
     {
+        private string address = Hooks.apiHost;
         //Example how to pass data between scenarios with POCO
         public readonly GetAccountUnitsStats testResp;
 
@@ -15,16 +17,16 @@ namespace TestAutomationFramework.Steps.API
         {
             this.testResp = testRes;
         }
+
         //
 
         [Given(@"I have sent correct request to the server")]
         public void GivenIHaveSentCorrectRequestToTheServer()
         {
-            System.Console.WriteLine("Api Start");
-            //string data = "{\r\n  \"cmd\": \"check_device\",\r\n  \"ID\": \"0100000199990047469017016501\"\r\n}";
+            Console.WriteLine("Api Start");
+            Console.WriteLine(address);
 
-
-            var client = new RestClient("http://emwjuicebox.cloudapp.net/box_pin");
+            var client = new RestClient(address + "box_pin");
             var request = new RestRequest(Method.POST);
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Content-Type", "application/json");
@@ -44,10 +46,10 @@ namespace TestAutomationFramework.Steps.API
             var Secured = response2.Data.Secured;
             var Time_last_ping = response2.Data.Time_last_ping;
 
-            System.Console.WriteLine("success = " + success);
-            System.Console.WriteLine("ID = " + ID);
-            System.Console.WriteLine("Secured = " + Secured);
-            System.Console.WriteLine("Time_last_ping = " + Time_last_ping);
+            Console.WriteLine("success = " + success);
+            Console.WriteLine("ID = " + ID);
+            Console.WriteLine("Secured = " + Secured);
+            Console.WriteLine("Time_last_ping = " + Time_last_ping);
 
             //
 
