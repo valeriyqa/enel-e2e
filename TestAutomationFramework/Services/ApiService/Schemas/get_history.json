@@ -1,21 +1,45 @@
 ﻿{
-  "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "JSON Schema for my JSON file format",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JSON Schema for get_history API test",
 
   "type": "object",
-
   "properties": {
-    "name": {
-      "type": "string",
-      "description": "This shows up in tooltips for the 'name' property."
+    "success": {
+      "type": "boolean"
     },
-    "versions": {
+    "sessions": {
       "type": "array",
-      "description": "An array of version numbers.",
-      "minItems": 1,
       "items": {
-        "type": "number"
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "time_start": {
+            "type": "integer"
+          },
+          "time_end": {
+            "type": "integer"
+          },
+          "duration": {
+            "type": "integer"
+          },
+          "wh_energy": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "time_start",
+          "time_end",
+          "duration",
+          "wh_energy"
+        ]
       }
     }
-  }
+  },
+  "required": [
+    "success",
+    "sessions"
+  ]
 }

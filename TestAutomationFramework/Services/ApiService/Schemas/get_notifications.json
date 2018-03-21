@@ -1,20 +1,82 @@
 ﻿{
-  "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "JSON Schema for my JSON file format",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JSON Schema for get_notifications API test",
+  //This shcema is not finished and should be updated with several "required" sections
 
   "type": "object",
-
   "properties": {
-    "name": {
-      "type": "string",
-      "description": "This shows up in tooltips for the 'name' property."
+    "success": {
+      "type": "boolean"
     },
-    "versions": {
-      "type": "array",
-      "description": "An array of version numbers.",
-      "minItems": 1,
-      "items": {
-        "type": "number"
+    "notifications": {
+      "type": "object",
+      "properties": {
+        "start_charging": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            }
+          }
+        },
+        "stop_charging": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            }
+          }
+        },
+        "charging_delayed_due_to_ToU": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            }
+          }
+        },
+        "is_back_online": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            }
+          }
+        },
+        "is_offline": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            }
+          }
+        },
+        "is_not_plugged_in_by": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            }
+          }
+        }
       }
     }
   }
