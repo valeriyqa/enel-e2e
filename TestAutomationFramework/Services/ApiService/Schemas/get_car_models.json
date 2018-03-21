@@ -1,0 +1,81 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JSON Schema for get_car_models API test",
+
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "model_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "make": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "year": {
+            "type": "integer"
+          },
+          "range_m": {
+            "type": "integer"
+          },
+          "range_city_m": {
+            "type": "integer"
+          },
+          "range_highway_m": {
+            "type": "integer"
+          },
+          "battery_size_wh": {
+            "type": "integer"
+          },
+          "charging_rate_w": {
+            "type": "integer"
+          },
+          "images": {
+            "type": "object",
+            "properties": {
+              "default": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "default"
+            ]
+          }
+        },
+        "required": [
+          "model_id",
+          "description",
+          "make",
+          "model",
+          "year",
+          "range_m",
+          "range_city_m",
+          "range_highway_m",
+          "battery_size_wh",
+          "charging_rate_w",
+          "images"
+        ]
+      }
+    }
+  },
+  "required": [
+    "success",
+    "version",
+    "models"
+  ]
+}
