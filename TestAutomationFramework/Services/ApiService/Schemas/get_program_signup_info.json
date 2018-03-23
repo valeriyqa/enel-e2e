@@ -1,20 +1,55 @@
 ﻿{
-  "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "JSON Schema for my JSON file format",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JSON Schema for get_program_signup_info API test",
+  //This shcema is not finished and should be updated with several "required" sections
 
   "type": "object",
-
   "properties": {
-    "name": {
-      "type": "string",
-      "description": "This shows up in tooltips for the 'name' property."
+    "success": {
+      "type": "integer"
     },
-    "versions": {
-      "type": "array",
-      "description": "An array of version numbers.",
-      "minItems": 1,
-      "items": {
-        "type": "number"
+    "step1": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "bill_first_name": {
+          "type": "string"
+        },
+        "bill_last_name": {
+          "type": "string"
+        },
+        "name_is_different_in_bill": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone_number": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "null"
+        },
+        "post_code": {
+          "type": "string"
+        },
+        "service_address": {
+          "type": "string"
+        },
+        "service_city": {
+          "type": "string"
+        }
       }
     }
   }

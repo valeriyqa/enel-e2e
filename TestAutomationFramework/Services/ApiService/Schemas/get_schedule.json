@@ -1,21 +1,66 @@
 ﻿{
-  "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "JSON Schema for my JSON file format",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JSON Schema for get_schedule API test",
 
   "type": "object",
-
   "properties": {
-    "name": {
-      "type": "string",
-      "description": "This shows up in tooltips for the 'name' property."
+    "type": {
+      "type": "string"
     },
-    "versions": {
-      "type": "array",
-      "description": "An array of version numbers.",
-      "minItems": 1,
-      "items": {
-        "type": "number"
-      }
+    "weekday": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "car_ready_by": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "car_ready_by"
+      ]
+    },
+    "weekend": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "car_ready_by": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "car_ready_by"
+      ]
+    },
+    "info_timestamp": {
+      "type": "integer"
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "ID": {
+      "type": "string"
     }
-  }
+  },
+  "required": [
+    "type",
+    "weekday",
+    "weekend",
+    "info_timestamp",
+    "success",
+    "ID"
+  ]
 }

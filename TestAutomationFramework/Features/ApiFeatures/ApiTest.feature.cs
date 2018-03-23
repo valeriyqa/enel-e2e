@@ -31,7 +31,7 @@ namespace TestAutomationFramework.Features.ApiFeatures
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "API", "\tIn order to test API functionality\r\n\twe have to add some description here", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "API", "\tIn order to test API functionality\r\n\twe run next scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,18 +64,35 @@ namespace TestAutomationFramework.Features.ApiFeatures
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Testing API")]
+        [NUnit.Framework.DescriptionAttribute("Test API services")]
         [NUnit.Framework.CategoryAttribute("api")]
-        public virtual void TestingAPI()
+        [NUnit.Framework.TestCaseAttribute("get_account_units", null)]
+        [NUnit.Framework.TestCaseAttribute("get_state", null)]
+        [NUnit.Framework.TestCaseAttribute("check_device", null)]
+        [NUnit.Framework.TestCaseAttribute("get_timezones", null)]
+        [NUnit.Framework.TestCaseAttribute("get_server_info", null)]
+        [NUnit.Framework.TestCaseAttribute("get_car_models", null)]
+        [NUnit.Framework.TestCaseAttribute("get_history", null)]
+        [NUnit.Framework.TestCaseAttribute("get_schedule", null)]
+        [NUnit.Framework.TestCaseAttribute("get_info", null)]
+        [NUnit.Framework.TestCaseAttribute("get_notifications", null)]
+        [NUnit.Framework.TestCaseAttribute("get_utilitybill_url", null)]
+        [NUnit.Framework.TestCaseAttribute("get_program_signup_info", null)]
+        public virtual void TestAPIServices(string restAPI, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Testing API", new string[] {
-                        "api"});
+            string[] @__tags = new string[] {
+                    "api"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test API services", @__tags);
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.Given("I have sent correct request to the server", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("I send \"{0}\" request", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.Then("I should receive corresponding response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should receive correct response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

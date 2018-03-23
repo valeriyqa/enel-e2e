@@ -7,7 +7,6 @@ namespace TestAutomationFramework.Services
 {
     public class UdpEndpointTest
     {
-        //Todo add properties and logger
         string host = Hooks.udpHost;
         const int port = 8042;
 
@@ -63,11 +62,6 @@ namespace TestAutomationFramework.Services
         public void TestUdpEndpoint_RawData()
         {
             TxRxRaw("011111112:v07,s0121,u00000,V2201,L123,S2,T35,M40,m40,t10,i45,e-1,f6000,X0,Y0,E0,A0320,p1000!DPQ:");
-        }
-
-        public void TestUdpEndpoint_EmptyData()
-        {
-            TxRxRaw("");
         }
     }
 }
