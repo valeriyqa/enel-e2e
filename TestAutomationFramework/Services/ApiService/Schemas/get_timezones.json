@@ -1,21 +1,53 @@
 ﻿{
-  "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "JSON Schema for my JSON file format",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JSON Schema for get_timezones API test",
 
   "type": "object",
-
   "properties": {
-    "name": {
-      "type": "string",
-      "description": "This shows up in tooltips for the 'name' property."
-    },
-    "versions": {
+    "timezones": {
       "type": "array",
-      "description": "An array of version numbers.",
-      "minItems": 1,
       "items": {
-        "type": "number"
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "base_utc_offset": {
+            "type": "integer"
+          },
+          "now_utc_offset": {
+            "type": "integer"
+          },
+          "standard_name": {
+            "type": "string"
+          },
+          "daylight_name": {
+            "type": "string"
+          },
+          "supports_daylight": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "display_name",
+          "base_utc_offset",
+          "now_utc_offset",
+          "standard_name",
+          "daylight_name",
+          "supports_daylight"
+        ]
       }
+    },
+    "success": {
+      "type": "boolean"
     }
-  }
+  },
+  "required": [
+    "timezones",
+    "success"
+  ]
 }

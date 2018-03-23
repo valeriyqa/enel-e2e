@@ -1,21 +1,134 @@
 ﻿{
-  "$schema": "http://json-schema.org/draft-04/schema",
-  "title": "JSON Schema for my JSON file format",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JSON Schema for get_state API test",
+  //This shcema is not finished and should be updated with several "required" sections
 
   "type": "object",
-
   "properties": {
-    "name": {
-      "type": "string",
-      "description": "This shows up in tooltips for the 'name' property."
+    "ID": {
+      "type": "string"
     },
-    "versions": {
-      "type": "array",
-      "description": "An array of version numbers.",
-      "minItems": 1,
-      "items": {
-        "type": "number"
+    "info_timestamp": {
+      "type": "integer"
+    },
+    "show_override": {
+      "type": "boolean"
+    },
+    "state": {
+      "type": "string"
+    },
+    "charging": {
+      "type": "object",
+      "properties": {
+        "amps_limit": {
+          "type": "integer"
+        },
+        "amps_current": {
+          "type": "number"
+        },
+        "voltage": {
+          "type": "integer"
+        },
+        "wh_energy": {
+          "type": "integer"
+        },
+        "savings": {
+          "type": "integer"
+        },
+        "watt_power": {
+          "type": "integer"
+        },
+        "seconds_charging": {
+          "type": "integer"
+        },
+        "wh_energy_at_plugin": {
+          "type": "integer"
+        },
+        "wh_energy_to_add": {
+          "type": "integer"
+        },
+        "flags": {
+          "type": "integer"
+        },
+        "co2": {
+          "type": "object",
+          "properties": {
+            "nonstop": {
+              "type": "integer"
+            },
+            "actual": {
+              "type": "integer"
+            }
+          }
+        }
       }
+    },
+    "lifetime": {
+      "type": "object",
+      "properties": {
+        "wh_energy": {
+          "type": "integer"
+        },
+        "savings": {
+          "type": "integer"
+        },
+        "co2": {
+          "type": "object",
+          "properties": {
+            "nonstop": {
+              "type": "integer"
+            },
+            "actual": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "charging_time_left": {
+      "type": "integer"
+    },
+    "plug_unplug_time": {
+      "type": "integer"
+    },
+    "target_time": {
+      "type": "integer"
+    },
+    "override_time": {
+      "type": "integer"
+    },
+    "default_target_time": {
+      "type": "integer"
+    },
+    "time_last_ping": {
+      "type": "integer"
+    },
+    "utc_time": {
+      "type": "integer"
+    },
+    "unit_time": {
+      "type": "integer"
+    },
+    "update_interval": {
+      "type": "integer"
+    },
+    "temperature": {
+      "type": "integer"
+    },
+    "frequency": {
+      "type": "integer"
+    },
+    "triggers_all": {
+      "type": "integer"
+    },
+    "triggers_blocking": {
+      "type": "integer"
+    },
+    "car_id": {
+      "type": "integer"
+    },
+    "success": {
+      "type": "boolean"
     }
   }
 }
