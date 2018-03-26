@@ -23,7 +23,7 @@
           }
         },
         "required": [
-          "name",
+          //"name",
           "token",
           "unit_id"
         ]
