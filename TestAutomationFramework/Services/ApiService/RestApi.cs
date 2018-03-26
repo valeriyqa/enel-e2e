@@ -11,49 +11,21 @@ namespace TestAutomationFramework.Services
     {
         public IRestResponse GetRestApiResponse(string restApi)
         {
-            string url = "http://emwjuicebox.cloudapp.net/box_pin/";
-            string tokenv = "197ec3927726422b970d88f57dac2a43";
-            string unit_idv = "0100000199990047469017016501";
-            string device_idv = "linker";
-            string account_tokenv = "4dd4e4c7-2304-4a05-88a6-3ffabc900660";
-
-            return GetRestApiResponse(restApi, url, tokenv, unit_idv, device_idv, account_tokenv);
+            string uriHost = "http://emwjuicebox.cloudapp.net";
+            string uriPath = GetUriPath4RestApi(restApi);
+            Method methodType = GetMethodType4RestApi(restApi);
+            JObject request = GetJRequest(restApi);
+            return GetRestApiResponse(restApi, uriHost, uriPath, methodType, request);
         }
 
-        public IRestResponse GetRestApiResponse(string restApi, string url, string tokenv, string unit_idv, string device_idv, string account_tokenv)
+        public IRestResponse GetRestApiResponse(string restApi, string uriHost, string uriPath, Method methodType, JObject request)
         {
-            var client = new RestClient(url);
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("Cache-Control", "no-cache");
-            request.AddHeader("Content-Type", "application/json");
-
-            switch (restApi)
-            {
-                case "get_timezones":
-                case "get_server_info":
-                case "get_car_models":
-                    request.AddJsonBody(new { cmd = restApi });
-                    break;
-                case "check_device":
-                    request.AddJsonBody(new { cmd = restApi, ID = unit_idv });
-                    break;
-                case "get_account_units": //
-                    request.AddJsonBody(new { cmd = restApi, account_token = account_tokenv, device_id = device_idv });
-                    break;
-                case "get_state":
-                case "get_history": //
-                case "get_schedule": //
-                case "get_info":
-                case "get_notifications":
-                case "get_utilitybill_url": //
-                case "get_program_signup_info": //
-                    request.AddJsonBody(new { cmd = restApi, account_token = account_tokenv, token = tokenv, device_id = device_idv });
-                    break;
-                default:
-                    throw new ArgumentException("Unknown Rest API request: ", restApi);
-            }
-
-            return client.Execute(request);
+            var _client = new RestClient(uriHost);
+            var _request = new RestRequest(uriPath, methodType);
+            _request.AddHeader("Cache-Control", "no-cache");
+            _request.AddHeader("Content-Type", "application/json");
+            _request.AddParameter("undefined", request, ParameterType.RequestBody);
+            return _client.Execute(_request);
         }
 
         public JObject responseToJObject(IRestResponse response)
@@ -61,14 +33,14 @@ namespace TestAutomationFramework.Services
             return JsonConvert.DeserializeObject<JObject>(response.Content);
         }
 
-        public JSchema GetJSchema(string fileName)
+        public JSchema GetJSchema(string restApi)
         {
-            if (Path.GetExtension(fileName).Equals(""))
+            if (Path.GetExtension(restApi).Equals(""))
             {
-                fileName = fileName + ".json";
+                restApi = restApi + ".json";
             }
 
-            string pathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\Schemas\", fileName);
+            string pathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\Schemas\", restApi);
 
             JSchema schema;
             try
@@ -78,10 +50,61 @@ namespace TestAutomationFramework.Services
             }
             catch (Exception)
             {
-                Console.WriteLine("Unable to get schema from file: " + fileName);
+                Console.WriteLine("Unable to get schema from file: " + restApi);
                 return null;
             }
             return schema;
+        }
+
+        private JObject GetJRequest(string restApi)
+        {
+            if (Path.GetExtension(restApi).Equals(""))
+            {
+                restApi = restApi + ".json";
+            }
+
+            string pathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\Requests\", restApi);
+
+            JObject request;
+            try
+            {
+                request = JObject.Parse(File.ReadAllText(pathFile));
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Unable to get request from file: " + restApi);
+                return null;
+            }
+            return request;
+        }
+
+        private Method GetMethodType4RestApi(string restApi)
+        {
+            return Method.POST;
+        }
+
+        private string GetUriPath4RestApi(string restApi)
+        {
+            switch (restApi)
+            {
+                case "check_device":
+                case "get_account_units":
+                case "get_car_models":
+                case "get_server_info":
+                case "get_timezones":
+                    return "box_pin";
+                case "get_history":
+                case "get_info":
+                case "get_notifications":
+                case "get_program_signup_info":
+                case "get_schedule":
+                case "get_state":
+                case "get_utilitybill_url":
+                    return "box_api_secure";
+                default:
+                    throw new ArgumentException("Unable to get path for: ", restApi);
+            }
         }
     }
 }

@@ -118,6 +118,18 @@
       <LastGenOutput>Login.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Services\ApiService\Requests\check_device.json" />
+    <None Include="Services\ApiService\Requests\get_account_units.json" />
+    <None Include="Services\ApiService\Requests\get_car_models.json" />
+    <None Include="Services\ApiService\Requests\get_history.json" />
+    <None Include="Services\ApiService\Requests\get_info.json" />
+    <None Include="Services\ApiService\Requests\get_notifications.json" />
+    <None Include="Services\ApiService\Requests\get_program_signup_info.json" />
+    <None Include="Services\ApiService\Requests\get_schedule.json" />
+    <None Include="Services\ApiService\Requests\get_server_info.json" />
+    <None Include="Services\ApiService\Requests\get_state.json" />
+    <None Include="Services\ApiService\Requests\get_timezones.json" />
+    <None Include="Services\ApiService\Requests\get_utilitybill_url.json" />
     <None Include="Services\ApiService\Schemas\check_device.json" />
     <None Include="Services\ApiService\Schemas\get_account_units.json" />
     <None Include="Services\ApiService\Schemas\get_car_models.json" />
@@ -153,4 +165,9 @@
   <Import Project="..\packages\MSTest.TestAdapter.1.2.0\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.2.0\build\net45\MSTest.TestAdapter.targets')" />
   <Import Project="..\packages\SpecFlow.2.3.1\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.3.1\build\SpecFlow.targets')" />
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Services_4ApiService_4Requests_4get_3utilitybill_3url_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3timezones_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3state_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3server_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3schedule_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
