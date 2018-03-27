@@ -130,17 +130,22 @@
     <None Include="Services\ApiService\Requests\get_state.json" />
     <None Include="Services\ApiService\Requests\get_timezones.json" />
     <None Include="Services\ApiService\Requests\get_utilitybill_url.json" />
+    <None Include="Services\ApiService\Requests\json1.json" />
     <None Include="Services\ApiService\Schemas\check_device.json" />
     <None Include="Services\ApiService\Schemas\get_account_units.json" />
     <None Include="Services\ApiService\Schemas\get_car_models.json" />
     <None Include="Services\ApiService\Schemas\get_history.json" />
+    <None Include="Services\ApiService\Schemas\get_info - Copy.json" />
     <None Include="Services\ApiService\Schemas\get_info.json" />
+    <None Include="Services\ApiService\Schemas\get_notifications - Copy.json" />
     <None Include="Services\ApiService\Schemas\get_notifications.json" />
+    <None Include="Services\ApiService\Schemas\get_program_signup_info - Copy.json" />
     <None Include="Services\ApiService\Schemas\get_program_signup_info.json" />
     <None Include="Services\ApiService\Schemas\get_schedule.json" />
     <None Include="Services\ApiService\Schemas\get_server_info.json" />
     <None Include="Services\ApiService\Schemas\get_state.json" />
     <None Include="Services\ApiService\Schemas\get_timezones.json" />
+    <None Include="Services\ApiService\Schemas\get_utilitybill_url - Copy.json" />
     <None Include="Services\ApiService\Schemas\get_utilitybill_url.json" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +154,9 @@
   <ItemGroup>
     <Folder Include="POM\Elements\" />
     <Folder Include="POM\Pages\" />
+    <Folder Include="Services\ApiService\Requests\alpha\" />
+    <Folder Include="Services\ApiService\Requests\beta\" />
+    <Folder Include="Services\ApiService\Requests\prod\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
