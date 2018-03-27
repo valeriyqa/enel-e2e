@@ -1,0 +1,140 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JSON Schema for get_info API test",
+  //This shcema is not finished and should be updated with several "required" sections
+
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "string"
+    },
+    "country_code": {
+      "type": "string"
+    },
+    "IP": {
+      "type": "string"
+    },
+    "gascost": {
+      "type": "integer"
+    },
+    "mpg": {
+      "type": "integer"
+    },
+    "ecost": {
+      "type": "integer"
+    },
+    "whpermile": {
+      "type": "integer"
+    },
+    "timeZoneId": {
+      "type": "string"
+    },
+    "amps_wire_rating": {
+      "type": "integer"
+    },
+    "amps_unit_rating": {
+      "type": "integer"
+    },
+    "info_timestamp": {
+      "type": "integer"
+    },
+    "garage_id": {
+      "type": "string"
+    },
+    "cars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "car_id": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "battery_range_m": {
+            "type": "integer"
+          },
+          "battery_size_wh": {
+            "type": "integer"
+          },
+          "charging_rate_w": {
+            "type": "integer"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "model_info": {
+            "type": "object",
+            "properties": {
+              "model_id": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "make": {
+                "type": "string"
+              },
+              "model": {
+                "type": "string"
+              },
+              "year": {
+                "type": "integer"
+              },
+              "range_m": {
+                "type": "integer"
+              },
+              "range_city_m": {
+                "type": "integer"
+              },
+              "range_highway_m": {
+                "type": "integer"
+              },
+              "battery_size_wh": {
+                "type": "integer"
+              },
+              "charging_rate_w": {
+                "type": "integer"
+              },
+              "images": {
+                "type": "object",
+                "properties": {
+                  "default": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "user_control_allowed": {
+          "type": "boolean"
+        },
+        "charge_control_type": {
+          "type": "string"
+        }
+      }
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "ID": {
+      "type": "string"
+    }
+  }
+}

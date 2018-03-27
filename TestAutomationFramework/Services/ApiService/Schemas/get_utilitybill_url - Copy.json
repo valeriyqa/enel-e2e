@@ -1,6 +1,7 @@
 ﻿{
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "JSON Schema for get_utilitybill_url API test",
+  //This shcema is not finished and should be updated with several "required" sections
 
   "type": "object",
   "properties": {
@@ -12,11 +13,6 @@
     },
     "downloadFrom": {
       "type": "string"
-    },
-    "required": [
-      "success",
-      "uploadTo",
-      "downloadFrom"
-    ]
+    }
   }
 }
