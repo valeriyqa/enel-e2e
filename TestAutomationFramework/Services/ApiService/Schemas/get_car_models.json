@@ -1,5 +1,5 @@
 ﻿{
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema",
   "title": "JSON Schema for get_car_models API test",
 
   "type": "object",

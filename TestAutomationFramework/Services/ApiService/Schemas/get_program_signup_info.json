@@ -1,7 +1,6 @@
 ﻿{
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema",
   "title": "JSON Schema for get_program_signup_info API test",
-  //This shcema is not finished and should be updated with several "required" sections
 
   "type": "object",
   "properties": {
@@ -50,7 +49,26 @@
         "service_city": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "first_name",
+        "last_name",
+        "bill_first_name",
+        "bill_last_name",
+        "name_is_different_in_bill",
+        "email",
+        "phone_number",
+        "address",
+        "city",
+        "state",
+        "post_code",
+        "service_address",
+        "service_city"
+      ]
     }
-  }
+  },
+  "required": [
+    "success",
+    "step1"
+  ]
 }

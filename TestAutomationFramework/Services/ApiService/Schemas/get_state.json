@@ -1,7 +1,6 @@
 ﻿{
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema",
   "title": "JSON Schema for get_state API test",
-  //This shcema is not finished and should be updated with several "required" sections
 
   "type": "object",
   "properties": {
@@ -54,14 +53,31 @@
           "type": "object",
           "properties": {
             "nonstop": {
-              "type": "integer"
+              "type": "number"
             },
             "actual": {
-              "type": "integer"
+              "type": "number"
             }
-          }
+          },
+          "required": [
+            "nonstop",
+            "actual"
+          ]
         }
-      }
+      },
+      "required": [
+        "amps_limit",
+        "amps_current",
+        "voltage",
+        "wh_energy",
+        "savings",
+        "watt_power",
+        "seconds_charging",
+        "wh_energy_at_plugin",
+        "wh_energy_to_add",
+        "flags",
+        "co2"
+      ]
     },
     "lifetime": {
       "type": "object",
@@ -76,14 +92,23 @@
           "type": "object",
           "properties": {
             "nonstop": {
-              "type": "integer"
+              "type": "number"
             },
             "actual": {
-              "type": "integer"
+              "type": "number"
             }
-          }
+          },
+          "required": [
+            "nonstop",
+            "actual"
+          ]
         }
-      }
+      },
+      "required": [
+        "wh_energy",
+        "savings",
+        "co2"
+      ]
     },
     "charging_time_left": {
       "type": "integer"
@@ -118,6 +143,9 @@
     "frequency": {
       "type": "integer"
     },
+    "message": {
+      "type": "string"
+    },
     "triggers_all": {
       "type": "integer"
     },
@@ -130,5 +158,29 @@
     "success": {
       "type": "boolean"
     }
-  }
+  },
+  "required": [
+    "ID",
+    "info_timestamp",
+    "show_override",
+    "state",
+    "charging",
+    "lifetime",
+    "charging_time_left",
+    "plug_unplug_time",
+    "target_time",
+    "override_time",
+    "default_target_time",
+    "time_last_ping",
+    "utc_time",
+    "unit_time",
+    "update_interval",
+    "temperature",
+    "frequency",
+    "message",
+    "triggers_all",
+    "triggers_blocking",
+    "car_id",
+    "success"
+  ]
 }
