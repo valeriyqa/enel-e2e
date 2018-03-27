@@ -135,17 +135,13 @@
     <None Include="Services\ApiService\Schemas\get_account_units.json" />
     <None Include="Services\ApiService\Schemas\get_car_models.json" />
     <None Include="Services\ApiService\Schemas\get_history.json" />
-    <None Include="Services\ApiService\Schemas\get_info - Copy.json" />
     <None Include="Services\ApiService\Schemas\get_info.json" />
-    <None Include="Services\ApiService\Schemas\get_notifications - Copy.json" />
     <None Include="Services\ApiService\Schemas\get_notifications.json" />
-    <None Include="Services\ApiService\Schemas\get_program_signup_info - Copy.json" />
     <None Include="Services\ApiService\Schemas\get_program_signup_info.json" />
     <None Include="Services\ApiService\Schemas\get_schedule.json" />
     <None Include="Services\ApiService\Schemas\get_server_info.json" />
     <None Include="Services\ApiService\Schemas\get_state.json" />
     <None Include="Services\ApiService\Schemas\get_timezones.json" />
-    <None Include="Services\ApiService\Schemas\get_utilitybill_url - Copy.json" />
     <None Include="Services\ApiService\Schemas\get_utilitybill_url.json" />
   </ItemGroup>
   <ItemGroup>
@@ -175,7 +171,7 @@
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets')" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties Services_4ApiService_4Requests_4get_3utilitybill_3url_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3timezones_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3state_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3server_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3schedule_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" />
+      <UserProperties Services_4ApiService_4Schemas_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3utilitybill_3url_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3timezones_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3state_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3server_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3schedule_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
