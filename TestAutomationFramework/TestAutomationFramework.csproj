@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExcelDataReader, Version=3.4.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.4.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.4.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.4.0\lib\net45\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="ImpromptuInterface, Version=6.2.2.0, Culture=neutral, PublicKeyToken=0b1781c923b2975b, processorArchitecture=MSIL">
       <HintPath>..\packages\ImpromptuInterface.6.2.2\lib\net40\ImpromptuInterface.dll</HintPath>
     </Reference>
@@ -60,11 +66,15 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
     <Reference Include="TechTalk.SpecFlow, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.2.3.1\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
@@ -102,6 +112,7 @@
     <Compile Include="Steps\UdpSteps\UdpTestSteps.cs" />
     <Compile Include="Steps\UiSteps\LoginSteps.cs" />
     <Compile Include="Tools\InitializeVariables.cs" />
+    <Compile Include="Tools\LoadTableFromFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -118,19 +129,46 @@
       <LastGenOutput>Login.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="Services\ApiService\Requests\check_device.json" />
-    <None Include="Services\ApiService\Requests\get_account_units.json" />
-    <None Include="Services\ApiService\Requests\get_car_models.json" />
-    <None Include="Services\ApiService\Requests\get_history.json" />
-    <None Include="Services\ApiService\Requests\get_info.json" />
-    <None Include="Services\ApiService\Requests\get_notifications.json" />
-    <None Include="Services\ApiService\Requests\get_program_signup_info.json" />
-    <None Include="Services\ApiService\Requests\get_schedule.json" />
-    <None Include="Services\ApiService\Requests\get_server_info.json" />
-    <None Include="Services\ApiService\Requests\get_state.json" />
-    <None Include="Services\ApiService\Requests\get_timezones.json" />
-    <None Include="Services\ApiService\Requests\get_utilitybill_url.json" />
-    <None Include="Services\ApiService\Requests\json1.json" />
+    <None Include="Resource\environment.xlsx" />
+    <None Include="Resource\restApi.xlsx" />
+    <None Include="Services\ApiService\Requests\alpha\check_device.json" />
+    <None Include="Services\ApiService\Requests\alpha\get_account_units.json" />
+    <None Include="Services\ApiService\Requests\alpha\get_car_models.json" />
+    <None Include="Services\ApiService\Requests\alpha\get_history.json" />
+    <None Include="Services\ApiService\Requests\alpha\get_info.json" />
+    <None Include="Services\ApiService\Requests\alpha\get_notifications.json" />
+    <None Include="Services\ApiService\Requests\alpha\get_program_signup_info.json" />
+    <None Include="Services\ApiService\Requests\alpha\get_schedule.json" />
+    <None Include="Services\ApiService\Requests\alpha\get_server_info.json" />
+    <None Include="Services\ApiService\Requests\alpha\get_state.json" />
+    <None Include="Services\ApiService\Requests\alpha\get_timezones.json" />
+    <None Include="Services\ApiService\Requests\alpha\get_utilitybill_url.json" />
+    <None Include="Services\ApiService\Requests\alpha\json1.json" />
+    <None Include="Services\ApiService\Requests\beta\check_device.json" />
+    <None Include="Services\ApiService\Requests\beta\get_account_units.json" />
+    <None Include="Services\ApiService\Requests\beta\get_car_models.json" />
+    <None Include="Services\ApiService\Requests\beta\get_history.json" />
+    <None Include="Services\ApiService\Requests\beta\get_info.json" />
+    <None Include="Services\ApiService\Requests\beta\get_notifications.json" />
+    <None Include="Services\ApiService\Requests\beta\get_program_signup_info.json" />
+    <None Include="Services\ApiService\Requests\beta\get_schedule.json" />
+    <None Include="Services\ApiService\Requests\beta\get_server_info.json" />
+    <None Include="Services\ApiService\Requests\beta\get_state.json" />
+    <None Include="Services\ApiService\Requests\beta\get_timezones.json" />
+    <None Include="Services\ApiService\Requests\beta\get_utilitybill_url.json" />
+    <None Include="Services\ApiService\Requests\prod\check_device.json" />
+    <None Include="Services\ApiService\Requests\prod\get_account_units.json" />
+    <None Include="Services\ApiService\Requests\prod\get_car_models.json" />
+    <None Include="Services\ApiService\Requests\prod\get_history.json" />
+    <None Include="Services\ApiService\Requests\prod\get_info.json" />
+    <None Include="Services\ApiService\Requests\prod\get_notifications.json" />
+    <None Include="Services\ApiService\Requests\prod\get_program_signup_info.json" />
+    <None Include="Services\ApiService\Requests\prod\get_schedule.json" />
+    <None Include="Services\ApiService\Requests\prod\get_server_info.json" />
+    <None Include="Services\ApiService\Requests\prod\get_state.json" />
+    <None Include="Services\ApiService\Requests\prod\get_timezones.json" />
+    <None Include="Services\ApiService\Requests\prod\get_utilitybill_url.json" />
+    <None Include="Services\ApiService\Requests\prod\json1.json" />
     <None Include="Services\ApiService\Schemas\check_device.json" />
     <None Include="Services\ApiService\Schemas\get_account_units.json" />
     <None Include="Services\ApiService\Schemas\get_car_models.json" />
@@ -150,9 +188,6 @@
   <ItemGroup>
     <Folder Include="POM\Elements\" />
     <Folder Include="POM\Pages\" />
-    <Folder Include="Services\ApiService\Requests\alpha\" />
-    <Folder Include="Services\ApiService\Requests\beta\" />
-    <Folder Include="Services\ApiService\Requests\prod\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -171,7 +206,7 @@
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets')" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties Services_4ApiService_4Schemas_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3utilitybill_3url_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3timezones_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3state_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3server_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3schedule_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Requests_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" />
+      <UserProperties Services_4ApiService_4Schemas_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

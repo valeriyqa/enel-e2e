@@ -1,42 +1,43 @@
 ﻿using System;
+using System.Collections;
+using System.IO;
+using static TestAutomationFramework.Tools.LoadTableFromFile;
 
 namespace TestAutomationFramework.Tools
 {
     public static class InitializeVariables
     {
-        public static string GetFromEnvironment(string variable)
+        public static string GetEnvironment(string variable)
         {
-            string _variable = null;
+            //Set default environment here. Can be "alpha", "beta" or "prod".
+            string defaultEnv = "prod";
             try
             {
-                _variable = Environment.GetEnvironmentVariable(variable);
+                string env = Environment.GetEnvironmentVariable(variable);
+                if (env.Equals(""))
+                {
+                    Console.WriteLine("Empy variable: " + variable);
+                    Console.WriteLine("Set enviroment to default: " + defaultEnv);
+                    return defaultEnv;
+                }
+                else
+                {
+                    return env;
+                }
             }
             catch (Exception)
             {
-                Console.WriteLine("Unable to get enviroment variable: " + variable);
+                Console.WriteLine("Unable to get variable: " + variable);
+                Console.WriteLine("Set enviroment to default: " + defaultEnv);
+                return defaultEnv;
             }
-            if (null == _variable || _variable.Equals(""))
-            {
-                switch (variable)
-                {
-                    case "apiHost":
-                        _variable = "http://emwjuicebox.cloudapp.net/";
-                        Console.WriteLine("Set value to default: " + _variable);
-                        break;
-                    case "udpHost":
-                        _variable = "emwjuicebox.cloudapp.net";
-                        Console.WriteLine("Set value to default: " + _variable);
-                        break;
-                    case "webHost":
-                        _variable = "https://dashboard.emotorwerks.com/";
-                        Console.WriteLine("Set value to default: " + _variable);
-                        break;
-                    default:
-                        Console.WriteLine("Unable to get default value: " + variable);
-                        break;
-                }
-            }
-            return _variable;
+        }
+
+        public static IDictionary LoadVariablesFromFile(string fileName, string sheetName, string useColumnAsKey)
+        {
+            string workEnvironment = GetEnvironment("environment");
+            string pathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resource\", fileName);
+            return GetDictionary(LoadDataTable(pathFile, sheetName), useColumnAsKey, workEnvironment);
         }
     }
 }

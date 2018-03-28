@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
-using System.IO;
 using RestSharp;
 using System;
+using System.IO;
 
 namespace TestAutomationFramework.Services
 {
@@ -11,7 +11,7 @@ namespace TestAutomationFramework.Services
     {
         public IRestResponse GetRestApiResponse(string restApi)
         {
-            string uriHost = "http://emwjuicebox.cloudapp.net";
+            string uriHost = Hooks.globalVariables["apiAddress"].ToString();
             string uriPath = GetUriPath4RestApi(restApi);
             Method methodType = GetMethodType4RestApi(restApi);
             JObject request = GetJRequest(restApi);
@@ -63,7 +63,7 @@ namespace TestAutomationFramework.Services
                 restApi = restApi + ".json";
             }
 
-            string pathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\Requests\", restApi);
+            string pathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\Requests\prod\", restApi);
 
             JObject request;
             try

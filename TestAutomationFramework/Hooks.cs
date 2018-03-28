@@ -3,20 +3,23 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 using TechTalk.SpecFlow;
+using static TestAutomationFramework.Tools.InitializeVariables;
+using static TestAutomationFramework.Tools.LoadTableFromFile;
+
+
 
 namespace TestAutomationFramework
 {
     [Binding]
     public class Hooks
     {
-        public static string apiHost;
-        public static string udpHost;
-        public static string webHost;
-
         private readonly IObjectContainer _objectContainer;
-
         private IWebDriver _driver;
+        public static IDictionary globalVariables;
 
         public Hooks(IObjectContainer objectContainer)
         {
@@ -26,9 +29,7 @@ namespace TestAutomationFramework
         [BeforeTestRun]
         public static void GetVariables()
         {
-            apiHost = Tools.InitializeVariables.GetFromEnvironment("apiHost");
-            udpHost = Tools.InitializeVariables.GetFromEnvironment("udpHost");
-            webHost = Tools.InitializeVariables.GetFromEnvironment("webHost");
+            globalVariables = LoadVariablesFromFile("environment.xlsx", "Variables", "Variable");
         }
 
         [BeforeScenario("web")]

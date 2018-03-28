@@ -177,10 +177,10 @@
     "update_interval",
     "temperature",
     "frequency",
-    "message",
+    //"message",
     "triggers_all",
     "triggers_blocking",
-    "car_id",
+    //"car_id",
     "success"
   ]
 }

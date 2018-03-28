@@ -7,7 +7,7 @@ namespace TestAutomationFramework.Services
 {
     public class UdpEndpointTest
     {
-        string host = Hooks.udpHost;
+        string host = Hooks.globalVariables["udpAddress"].ToString();
         const int port = 8042;
 
         void TxRxRaw(string packet)
