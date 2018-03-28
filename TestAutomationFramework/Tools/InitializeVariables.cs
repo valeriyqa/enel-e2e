@@ -14,15 +14,16 @@ namespace TestAutomationFramework.Tools
             try
             {
                 string env = Environment.GetEnvironmentVariable(variable);
-                if (env.Equals(""))
+                switch (env)
                 {
-                    Console.WriteLine("Empy variable: " + variable);
-                    Console.WriteLine("Set enviroment to default: " + defaultEnv);
-                    return defaultEnv;
-                }
-                else
-                {
-                    return env;
+                    case "alpha":
+                    case "beta":
+                    case "prod":
+                        return env;
+                    default:
+                        Console.WriteLine("Variable have illegal value: " + env);
+                        Console.WriteLine("Set enviroment to default: " + defaultEnv);
+                        return defaultEnv;
                 }
             }
             catch (Exception)

@@ -14,7 +14,7 @@ namespace TestAutomationFramework.Services
             string uriHost = Hooks.globalVariables["apiAddress"].ToString();
             string uriPath = GetUriPath4RestApi(restApi);
             Method methodType = GetMethodType4RestApi(restApi);
-            JObject request = GetJRequest(restApi);
+            JObject request = JObject.Parse(Hooks.apiRequests[restApi].ToString());
             return GetRestApiResponse(restApi, uriHost, uriPath, methodType, request);
         }
 
@@ -56,6 +56,7 @@ namespace TestAutomationFramework.Services
             return schema;
         }
 
+        //Obsolete, now we don't load json requests from separate files, rather we load data from Excel
         private JObject GetJRequest(string restApi)
         {
             if (Path.GetExtension(restApi).Equals(""))
