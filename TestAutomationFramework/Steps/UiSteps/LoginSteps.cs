@@ -10,7 +10,7 @@ namespace TestAutomationFramework.Steps
     public class LoginSteps
     {
         private IWebDriver _driver;
-        private string address = Hooks.webHost;
+        private string address = Hooks.globalVariables["dashboardAddress"].ToString();
 
         public LoginSteps(IWebDriver driver)
         {

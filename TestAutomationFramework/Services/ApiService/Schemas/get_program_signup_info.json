@@ -32,13 +32,13 @@
           "type": "string"
         },
         "address": {
-          "type": "string"
+          "type": [ "string", "null" ] //Null is ok?
         },
         "city": {
-          "type": "string"
+          "type": [ "string", "null" ] //Null is ok?
         },
         "state": {
-          "type": "null"
+          "type": [ "string", "null" ] //Null is ok?
         },
         "post_code": {
           "type": "string"
