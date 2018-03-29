@@ -1,0 +1,26 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "JSON Schema for add_unit API test",
+
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "unit_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "success",
+    "unit_id",
+    "name",
+    "token"
+  ]
+}

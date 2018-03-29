@@ -1,0 +1,34 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "JSON Schema for reset_ownership API test",
+
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "ID": {
+      "type": "string"
+    },
+    "device_id": {
+      "type": "string"
+    },
+    "user_message": {
+      "type": "string"
+    },
+    "session": {
+      "type": "string"
+    },
+    "next_step": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "success",
+    "ID",
+    "device_id",
+    "user_message",
+    "session",
+    "next_step"
+  ]
+}

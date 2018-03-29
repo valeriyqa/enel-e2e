@@ -92,16 +92,40 @@ namespace TestAutomationFramework.Services
                 case "check_device":
                 case "get_account_units":
                 case "get_car_models":
+                case "get_reset_pin":
                 case "get_server_info":
                 case "get_timezones":
+                case "logout":
+                case "pair_device":
+                case "register_pushes":
+                case "reset_ownership":
                     return "box_pin";
+                case "add_account_unit":
+                case "add_car":
+                case "add_unit":
+                case "delete_account_unit":
+                case "delete_car":
+                case "delete_program_signup_info":
                 case "get_history":
                 case "get_info":
                 case "get_notifications":
+                case "get_plot":
                 case "get_program_signup_info":
                 case "get_schedule":
+                case "get_share_pin":
                 case "get_state":
                 case "get_utilitybill_url":
+                case "select_car":
+                case "set_charging_time":
+                case "set_garage":
+                case "set_info":
+                case "set_limit":
+                case "set_notifications":
+                case "set_override":
+                case "set_program_signup_info":
+                case "set_schedule":
+                case "share_device":
+                case "update_car":
                     return "box_api_secure";
                 default:
                     throw new ArgumentException("Unable to get path for: ", restApi);
