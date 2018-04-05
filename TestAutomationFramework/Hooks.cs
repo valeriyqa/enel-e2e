@@ -43,6 +43,10 @@ namespace TestAutomationFramework
         [AfterScenario("web")]
         public void CleanUp()
         {
+            //if (ScenarioContext.Current.TestError != null)
+            //{
+            //    WebBrowser.Driver.CaptureScreenShot(ScenarioContext.Current.ScenarioInfo.Title);
+            //}
             _driver.Quit();
         }
     }

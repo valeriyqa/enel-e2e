@@ -5,37 +5,82 @@ using System;
 using System.Net;
 using TechTalk.SpecFlow;
 using TestAutomationFramework.Services;
+using Newtonsoft.Json.Linq;
 
 namespace TestAutomationFramework.Steps.API
 {
+    public class ApiData // the POCO for sharing person data
+    {
+        public IRestResponse response;
+        public string restApi;
+        public JObject jObject;
+    }
+
     [Binding]
     class ApiTestSteps
     {
-        private IRestResponse _response;
-        private string _restApi;
+        private readonly ApiData apiData;
+        public ApiTestSteps(ApiData apiData) // use it as ctor parameter
+        {
+            this.apiData = apiData;
+        }
 
         [Given(@"I send ""(.*)"" request")]
-        public void GivenISendRequest(string restApi)
+        public void ISendRequest(string restApi)
         {
-            Console.WriteLine("Start RestAPI test for the request: " + restApi);
-            _response = new RestApi().GetRestApiResponse(restApi);
-            _restApi = restApi;
-         }
+            apiData.restApi = restApi;
 
-        [Then(@"I should receive correct response")]
-        public void ThenIShouldReceiveCorrectResponse()
+            Console.WriteLine("Send RestAPI request: " + restApi);
+            apiData.response = new RestApi().GetRestApiResponse(restApi);
+            apiData.jObject = new RestApi().responseToJObject(apiData.response);
+        }
+
+        [Then(@"response should be valid to schema")]
+        public void ResponseShouldBeValidToSchema()
         {
-            var _jobject = new RestApi().responseToJObject(_response);
-            var _schema = new RestApi().GetJSchema(_restApi);
+            var schema = new RestApi().GetJSchema(apiData.restApi);
 
-            Console.WriteLine("_response = " + _response.Content);
+            Console.WriteLine("Response equat to " + apiData.response.Content);
 
-            Assert.That(_jobject.IsValid(_schema));
-            Assert.AreEqual(_response.IsSuccessful, true);
-            Assert.AreEqual(_response.StatusCode, HttpStatusCode.OK);
-            Assert.AreEqual((bool)_jobject.Property("success"), true);
-            Assert.AreEqual(_jobject.Property("error_code"), null);
-            Assert.AreEqual(_jobject.Property("error_message"), null);
+            Assert.That(apiData.jObject.IsValid(schema));
+            Assert.AreEqual(apiData.response.IsSuccessful, true);
+            Assert.AreEqual(apiData.response.StatusCode, HttpStatusCode.OK);
+        }
+
+        [Given(@"property ""(.*)"" should be equal to ""(.*)""")]
+        [Then(@"property ""(.*)"" should be equal to ""(.*)""")]
+        public void PropertyShouldBeEqualTo(string propertyName, string result)
+        {
+            if (result.ToLower().Equals("null"))
+            {
+                Assert.AreEqual(apiData.jObject.Property(propertyName), null);
+            }
+            else if (bool.TryParse(result, out bool bResult))
+            {
+                Assert.AreEqual((bool)apiData.jObject.Property(propertyName), bResult);
+            }
+            else if (Int32.TryParse(result, out int iResult))
+            {
+                Assert.AreEqual((int)apiData.jObject.Property(propertyName), iResult);
+            }
+            else if (double.TryParse(result, out double dResult))
+            {
+                Assert.AreEqual((double)apiData.jObject.Property(propertyName), dResult);
+            }
+            else if (DateTime.TryParse(result, out DateTime dtResult))
+            {
+                Assert.AreEqual((DateTime)apiData.jObject.Property(propertyName), dtResult);
+            }
+            else
+            {
+                Assert.AreEqual(apiData.jObject.Property(propertyName), result);
+            }
+        }
+
+        [Given(@"property ""(.*)"" should be equal to string ""(.*)""")]
+        public void PropertyShouldBeEqualToString(string propertyName, string result)
+        {
+            Assert.AreEqual(apiData.jObject.Property(propertyName), result);
         }
     }
 }

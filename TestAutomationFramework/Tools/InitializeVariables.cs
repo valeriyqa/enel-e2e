@@ -5,12 +5,12 @@ using static TestAutomationFramework.Tools.LoadTableFromFile;
 
 namespace TestAutomationFramework.Tools
 {
-    public static class InitializeVariables
+    class InitializeVariables
     {
         public static string GetEnvironment(string variable)
         {
             //Set default environment here. Can be "alpha", "beta" or "prod".
-            string defaultEnv = "prod";
+            string defaultEnv = "alpha";
             try
             {
                 string env = Environment.GetEnvironmentVariable(variable);
