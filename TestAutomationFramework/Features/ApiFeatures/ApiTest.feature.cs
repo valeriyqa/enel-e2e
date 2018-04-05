@@ -31,7 +31,7 @@ namespace TestAutomationFramework.Features.ApiFeatures
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "API", "\tIn order to test basic API functionality\r\n\twe run next scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "API", "\tIn order to test API functionality we run next scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -63,8 +63,14 @@ namespace TestAutomationFramework.Features.ApiFeatures
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 4
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Test API services")]
+        [NUnit.Framework.DescriptionAttribute("General test for API services without preconditions")]
         [NUnit.Framework.CategoryAttribute("api")]
         [NUnit.Framework.TestCaseAttribute("get_account_units", null)]
         [NUnit.Framework.TestCaseAttribute("get_state", null)]
@@ -78,7 +84,7 @@ namespace TestAutomationFramework.Features.ApiFeatures
         [NUnit.Framework.TestCaseAttribute("get_notifications", null)]
         [NUnit.Framework.TestCaseAttribute("get_utilitybill_url", null)]
         [NUnit.Framework.TestCaseAttribute("get_program_signup_info", null)]
-        public virtual void TestAPIServices(string restAPI, string[] exampleTags)
+        public virtual void GeneralTestForAPIServicesWithoutPreconditions(string restAPI, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "api"};
@@ -86,13 +92,21 @@ namespace TestAutomationFramework.Features.ApiFeatures
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test API services", @__tags);
-#line 6
-this.ScenarioSetup(scenarioInfo);
-#line 7
- testRunner.Given(string.Format("I send \"{0}\" request", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("General test for API services without preconditions", @__tags);
 #line 8
- testRunner.Then("I should receive correct response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
+#line 9
+ testRunner.Given(string.Format("I send \"{0}\" request", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 10
+ testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 11
+ testRunner.And("property \"success\" should be equal to \"True\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.And("property \"error_code\" should be equal to \"null\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.And("property \"error_message\" should be equal to \"null\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

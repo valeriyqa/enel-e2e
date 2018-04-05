@@ -1,12 +1,16 @@
 ﻿Feature: API
-	In order to test API functionality
-	we run next scenarios
+	In order to test API functionality we run next scenarios
+
+Background: Before running the tests, we need to make sure that the environment is ready
+	#Given I prepare my environment
 
 @api
-Scenario Outline: Test API services
+Scenario Outline: General test for API services without preconditions
 	Given I send "<RestAPI>" request
-	Then I should receive correct response
-
+	Then response should be valid to schema
+	And property "success" should be equal to "True"
+	And property "error_code" should be equal to "null"
+	And property "error_message" should be equal to "null"
 	Examples: 
 		| RestAPI                 |
 		| get_account_units       |
