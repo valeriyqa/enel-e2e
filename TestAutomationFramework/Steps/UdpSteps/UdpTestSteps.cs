@@ -12,6 +12,7 @@ namespace TestAutomationFramework.Steps.UdpSteps
         public void GivenISendUdpPackagesWithNextData(string udpData)
         {
             var testName = new UdpEndpointTest();
+
             Console.WriteLine("Start Udp test for: " + udpData);
             MethodInfo methodName = typeof(UdpEndpointTest).GetMethod(udpData);
             methodName.Invoke(testName, null);

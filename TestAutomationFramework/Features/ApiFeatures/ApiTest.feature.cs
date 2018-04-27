@@ -71,6 +71,7 @@ namespace TestAutomationFramework.Features.ApiFeatures
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("General test for API services without preconditions")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.CategoryAttribute("api")]
         [NUnit.Framework.TestCaseAttribute("get_account_units", null)]
         [NUnit.Framework.TestCaseAttribute("get_state", null)]
@@ -87,7 +88,8 @@ namespace TestAutomationFramework.Features.ApiFeatures
         public virtual void GeneralTestForAPIServicesWithoutPreconditions(string restAPI, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "api"};
+                    "api",
+                    "ignore"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -98,7 +100,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line 9
- testRunner.Given(string.Format("I send \"{0}\" request", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.When(string.Format("I send \"{0}\" request", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
  testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11

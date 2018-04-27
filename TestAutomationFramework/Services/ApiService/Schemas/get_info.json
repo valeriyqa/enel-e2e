@@ -29,7 +29,7 @@
       "type": "integer"
     },
     "ecost": {
-      "type": "integer"
+      "type": "number"
     },
     "whpermile": {
       "type": "integer"

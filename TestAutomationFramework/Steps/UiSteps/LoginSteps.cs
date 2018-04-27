@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using JsonConfig;
+using OpenQA.Selenium;
 using System;
 using System.Threading;
 using TechTalk.SpecFlow;
@@ -9,19 +10,19 @@ namespace TestAutomationFramework.Steps
     [Binding]
     public class LoginSteps
     {
-        private IWebDriver _driver;
-        private string address = Hooks.globalVariables["dashboardAddress"].ToString();
+        private IWebDriver driver;
+        private string host = Config.Global.environment.dashboard_address;
 
         public LoginSteps(IWebDriver driver)
         {
-            _driver = driver;
+            this.driver = driver;
         }
 
         [Given(@"I navigate to application")]
         public void GivenINavigateToApplication()
         {
             Console.WriteLine("I navigate to application");
-            _driver.Navigate().GoToUrl(address + "Account/Login");
+            driver.Navigate().GoToUrl(host + "Account/Login");
         }
 
         [Given(@"I enter username and password")]
@@ -29,15 +30,15 @@ namespace TestAutomationFramework.Steps
         {
             Console.WriteLine("I enter username and password");
             dynamic data = table.CreateDynamicInstance();
-            _driver.FindElement(By.Id("Email")).SendKeys((String)data.UserName);
-            _driver.FindElement(By.Id("Password")).SendKeys((String)data.Password);
+            driver.FindElement(By.Id("Email")).SendKeys((String)data.UserName);
+            driver.FindElement(By.Id("Password")).SendKeys((String)data.Password);
         }
 
         [Given(@"I click login")]
         public void GivenIClickLogin()
         {
             Console.WriteLine("I click login");
-            _driver.FindElement(By.ClassName("btn-primary")).Submit();
+            driver.FindElement(By.ClassName("btn-primary")).Submit();
             Thread.Sleep(2000);
         }
 
