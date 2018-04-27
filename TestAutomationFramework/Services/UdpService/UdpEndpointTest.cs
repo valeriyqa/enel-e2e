@@ -1,5 +1,6 @@
-﻿using System;
+﻿using JsonConfig;
 using Newtonsoft.Json;
+using System;
 using System.Threading;
 using TestAutomationFramework.Services.UdpService.Device;
 
@@ -7,7 +8,7 @@ namespace TestAutomationFramework.Services
 {
     public class UdpEndpointTest
     {
-        string host = Hooks.globalVariables["udpAddress"].ToString();
+        private string host = Config.Global.environment.udp_address;
         const int port = 8042;
 
         void TxRxRaw(string packet)

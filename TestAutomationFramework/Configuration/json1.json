@@ -1,0 +1,30 @@
+﻿{
+  "cmd": "set_notifications",
+  "token": "3ffbf508342447a788f5380ab382f57f",
+  "device_id": "Test device",
+  "charging_delayed_due_to_ToU": {
+    "email": false,
+    "push": false
+  },
+  "start_charging": {
+    "email": false,
+    "push": false
+  },
+  "stop_charging": {
+    "email": false,
+    "push": false
+  },
+  "is_offline": {
+    "email": false,
+    "push": false
+  },
+  "is_back_online": {
+    "email": false,
+    "push": false
+  },
+  "is_not_plugged_in_by": {
+    "email": false,
+    "push": false,
+    "time": 0
+  }
+}

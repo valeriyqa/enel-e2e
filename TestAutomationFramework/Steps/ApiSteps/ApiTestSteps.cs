@@ -1,48 +1,50 @@
-﻿using Newtonsoft.Json.Schema;
+﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 using NUnit.Framework;
 using RestSharp;
 using System;
 using System.Net;
 using TechTalk.SpecFlow;
-using TestAutomationFramework.Services;
-using Newtonsoft.Json.Linq;
+using TechTalk.SpecFlow.Assist;
+using TestAutomationFramework.Services.ApiService;
 
 namespace TestAutomationFramework.Steps.API
 {
-    public class ApiData // the POCO for sharing person data
-    {
-        public IRestResponse response;
-        public string restApi;
-        public JObject jObject;
-    }
-
     [Binding]
     class ApiTestSteps
     {
+        //The POCO for sharing data
+        public class ApiData
+        {
+            public IRestResponse response;
+            public string requestCmd;
+            public JObject jObject;
+        }
+
         private readonly ApiData apiData;
-        public ApiTestSteps(ApiData apiData) // use it as ctor parameter
+        public ApiTestSteps(ApiData apiData)
         {
             this.apiData = apiData;
         }
 
-        [Given(@"I send ""(.*)"" request")]
-        public void ISendRequest(string restApi)
+        [When(@"I send ""(.*)"" request")]
+        public void ISendRequest(string requestCmd)
         {
-            apiData.restApi = restApi;
+            apiData.requestCmd = requestCmd;
 
-            Console.WriteLine("Send RestAPI request: " + restApi);
-            apiData.response = new RestApi().GetRestApiResponse(restApi);
-            apiData.jObject = new RestApi().responseToJObject(apiData.response);
+            Console.WriteLine("Send RestAPI request: " + requestCmd);
+            //apiData.response = new RestApi().GetRestApiResponse(requestCmd);
+            //apiData.jObject = new RestApi().responseToJObject(apiData.response);
         }
 
         [Then(@"response should be valid to schema")]
         public void ResponseShouldBeValidToSchema()
         {
-            var schema = new RestApi().GetJSchema(apiData.restApi);
+            //var schema = new RestApi().GetJSchema(apiData.restApi);
 
             Console.WriteLine("Response equat to " + apiData.response.Content);
 
-            Assert.That(apiData.jObject.IsValid(schema));
+            //Assert.That(apiData.jObject.IsValid(schema));
             Assert.AreEqual(apiData.response.IsSuccessful, true);
             Assert.AreEqual(apiData.response.StatusCode, HttpStatusCode.OK);
         }
@@ -82,5 +84,122 @@ namespace TestAutomationFramework.Steps.API
         {
             Assert.AreEqual(apiData.jObject.Property(propertyName), result);
         }
+
+        /////////////////////////////////////////////////////////////////////////////////////
+        [Given(@"I add unit to account with next preconditions:")]
+        public void GivenIAddUnitToAccountWithNextPreconditions(Table dataTable)
+        {
+            //var requestsForAlltSystem = dataTable.CreateSet<Models.AddAccountUnit>();
+            //foreach (var row in requestsForAlltSystem)
+            //{
+
+            //}
+
+            //public static IDictionary LoadVariablesFromFile(string fileName, string sheetName, string useColumnAsKey)
+            //{
+            //    string workEnvironment = GetEnvironment("environment");
+            //    string pathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resource\", fileName);
+            //    return GetDictionary(LoadDataTable(pathFile, sheetName), useColumnAsKey, workEnvironment);
+            //}
+
+
+
+            //[Given(@"I add unit to account")]
+            //public void GivenIAddUnitToAccount()
+            //{
+            //    apiData.response = new RestApi().GetRestApiResponse("add_account_unit");
+            //    if (apiData.response.Content.)
+            //    {
+
+            //    }
+            //    apiData.jObject = new RestApi().responseToJObject(apiData.response);
+
+        }
+
+        [Then(@"I delete unit from account")]
+        public void IDeleteUnitFromAccount()
+        {
+            Console.WriteLine("I delete unit from account");
+        }
+
+
+        [Given(@"program signup info is not set")]
+        public void ProgramSignupInfoIsNotSet()
+        {
+            Console.WriteLine("program signup info is not set");
+        }
+
+        [Then(@"unit history should be empty")]
+        public void UnitHistoryShouldBeEmpty()
+        {
+            Console.WriteLine("unit history should be empty");
+        }
+
+        [Then(@"no cars should be associated with unit")]
+        public void NoCarsShouldBeAssociatedWithUnit()
+        {
+            Console.WriteLine("no cars should be associated with unit");
+        }
+
+        [Then(@"response should be valid to schema ""(.*)""")]
+        public void ResponseShouldBeValidToSchema(string shemaName)
+        {
+            Console.WriteLine("response should be valid to schema");
+        }
+
+        [Then(@"unit should be ""(.*)""")]
+        public void UnitShouldBeProcessed(string action)
+        {
+            switch (action.ToLower())
+            {
+                case "added":
+                    Console.WriteLine("unit should be added");
+                    break;
+                case "deleted":
+                    Console.WriteLine("unit should be deleted");
+                    break;
+                default:
+                    throw new Exception("Illegal value of variable " + action);
+            }
+        }
+
+        [Then(@"program signup info should be ""(.*)""")]
+        public void ProgramSignupInfoShouldBeProcessed(string action)
+        {
+            switch (action.ToLower())
+            {
+                case "added":
+                    Console.WriteLine("program signup info should be added");
+                    break;
+                case "deleted":
+                    Console.WriteLine("program signup info should be deleted");
+                    break;
+                default:
+                    throw new Exception("Illegal value of variable " + action);
+            }
+        }
+
+        [Then(@"car should be ""(.*)""")]
+        public void CarShouldBeProcessed(string action)
+        {
+            switch (action.ToLower())
+            {
+                case "added":
+                    Console.WriteLine("car should be added");
+                    break;
+                case "selected":
+                    Console.WriteLine("car should be selected");
+                    break;
+                case "updated":
+                    Console.WriteLine("car should be updated");
+                    break;
+                case "deleted":
+                    Console.WriteLine("car should be deleted");
+                    break;
+                default:
+                    throw new Exception("Illegal value of variable " + action);
+            }
+        }
+
     }
 }

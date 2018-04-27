@@ -4,9 +4,9 @@
 Background: Before running the tests, we need to make sure that the environment is ready
 	#Given I prepare my environment
 
-@api
+@api @ignore
 Scenario Outline: General test for API services without preconditions
-	Given I send "<RestAPI>" request
+	When I send "<RestAPI>" request
 	Then response should be valid to schema
 	And property "success" should be equal to "True"
 	And property "error_code" should be equal to "null"

@@ -48,6 +48,12 @@
     <Reference Include="ImpromptuInterface, Version=6.2.2.0, Culture=neutral, PublicKeyToken=0b1781c923b2975b, processorArchitecture=MSIL">
       <HintPath>..\packages\ImpromptuInterface.6.2.2\lib\net40\ImpromptuInterface.dll</HintPath>
     </Reference>
+    <Reference Include="JsonConfig, Version=1.0.5359.16918, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JsonConfig.1.0.0\lib\JsonConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx, Version=2.0.1209.2802, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+      <HintPath>..\packages\JsonFx.2.0.1209.2802\lib\net40\JsonFx.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -91,6 +97,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApiTest.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\ApiFeatures\ForTestOnly.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ForTestOnly.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ApiFeatures\PositiveApiTests.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PositiveApiTests.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\UdpFeatures\UdpTest.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,27 +119,37 @@
     </Compile>
     <Compile Include="Hooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\prod.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>prod.settings</DependentUpon>
-    </Compile>
+    <Compile Include="Services\ApiService\Models.cs" />
     <Compile Include="Services\ApiService\RestApi.cs" />
     <Compile Include="Services\UdpService\Device\DeviceState.cs" />
     <Compile Include="Services\UdpService\Device\ProtConvert.cs" />
     <Compile Include="Services\UdpService\Device\UdpClientEx.cs" />
     <Compile Include="Services\UdpService\UdpEndpointTest.cs" />
     <Compile Include="Steps\ApiSteps\ApiTestSteps.cs" />
+    <Compile Include="Steps\ApiSteps\TestTest.cs" />
     <Compile Include="Steps\UdpSteps\UdpTestSteps.cs" />
     <Compile Include="Steps\UiSteps\LoginSteps.cs" />
-    <Compile Include="Tools\InitializeVariables.cs" />
+    <Compile Include="Tools\ConvertDateTime.cs" />
     <Compile Include="Tools\LoadTableFromFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Configuration\beta.conf" />
+    <None Include="Configuration\json1.json" />
+    <None Include="Configuration\stage.conf" />
+    <None Include="Configuration\prod.conf" />
+    <EmbeddedResource Include="Configuration\_requests.conf" />
     <None Include="Features\ApiFeatures\ApiTest.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ApiTest.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ApiFeatures\ForTestOnly.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ForTestOnly.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ApiFeatures\PositiveApiTests.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PositiveApiTests.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\UdpFeatures\UdpTest.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -134,10 +160,6 @@
       <LastGenOutput>Login.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\prod.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>prod.Designer.cs</LastGenOutput>
-    </None>
     <None Include="Resource\environment.xlsx" />
     <None Include="Resource\restApi.xlsx" />
     <None Include="Services\ApiService\Schemas\add_unit.json" />
@@ -176,6 +198,7 @@
     <None Include="Services\ApiService\Schemas\get_state.json" />
     <None Include="Services\ApiService\Schemas\get_timezones.json" />
     <None Include="Services\ApiService\Schemas\get_utilitybill_url.json" />
+    <None Include="Configuration\alpha.conf" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -201,7 +224,7 @@
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets')" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties Services_4ApiService_4Schemas_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" />
+      <UserProperties Services_4ApiService_4Schemas_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
