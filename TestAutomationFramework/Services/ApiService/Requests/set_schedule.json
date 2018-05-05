@@ -1,0 +1,17 @@
+﻿{
+  "cmd": "set_schedule",
+  "device_id": "",
+  "token": "",
+  "type": "custom",
+  "account_token": "",
+  "weekday": {
+    "start": 1380,
+    "end": 420,
+    "car_ready_by": 0
+  },
+  "weekend": {
+    "start": 1380,
+    "end": 480,
+    "car_ready_by": 0
+  }
+}

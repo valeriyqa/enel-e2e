@@ -1,0 +1,30 @@
+﻿{
+  "cmd": "set_notifications",
+  "token": "string",
+  "device_id": "string",
+  "charging_delayed_due_to_ToU": {
+    "email": true,
+    "push": true
+  },
+  "start_charging": {
+    "email": true,
+    "push": true
+  },
+  "stop_charging": {
+    "email": true,
+    "push": true
+  },
+  "is_offline": {
+    "email": true,
+    "push": true
+  },
+  "is_back_online": {
+    "email": true,
+    "push": true
+  },
+  "is_not_plugged_in_by": {
+    "email": true,
+    "push": true,
+    "time": 0
+  }
+}

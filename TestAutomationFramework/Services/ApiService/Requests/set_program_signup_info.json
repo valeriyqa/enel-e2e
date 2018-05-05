@@ -1,0 +1,23 @@
+﻿{
+  "cmd": "set_program_signup_info",
+  "token": "",
+  "device_id": "",
+  "userinfo": {
+    "first_name": "Andriy",
+    "last_name": "Fedorenko",
+    "name_is_different_in_bill": "",
+    "bill_first_name": "Andriy",
+    "bill_last_name": "Fedorenko",
+    "email": "ANnnndriy@emotorwerks.com",
+    "phone_number": "4154568956",
+    "address": "linekr idet domioi",
+    "city": "cool stuff",
+    "service_address": "ninto ne znaet",
+    "service_city": "San Carol",
+    "state": "Null",
+    "post_code": "95128",
+    "images": [
+      "string"
+    ]
+  }
+}

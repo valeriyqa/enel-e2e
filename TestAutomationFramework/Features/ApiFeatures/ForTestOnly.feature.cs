@@ -65,6 +65,7 @@ namespace TestAutomationFramework.Features.ApiFeatures
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("TestScenario")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.CategoryAttribute("api")]
         [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
         [NUnit.Framework.TestCaseAttribute("add_car", null)]
@@ -105,7 +106,8 @@ namespace TestAutomationFramework.Features.ApiFeatures
         public virtual void TestScenario(string aPI, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "api"};
+                    "api",
+                    "ignore"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -115,6 +117,21 @@ namespace TestAutomationFramework.Features.ApiFeatures
 this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.Given(string.Format("I wont to send \"{0}\"", aPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("OneMoreTest")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        public virtual void OneMoreTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("OneMoreTest", new string[] {
+                        "api"});
+#line 49
+this.ScenarioSetup(scenarioInfo);
+#line 50
+ testRunner.Given("I want to test fignia", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             this.ScenarioCleanup();
         }

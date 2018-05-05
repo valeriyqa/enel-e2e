@@ -1,0 +1,9 @@
+﻿{
+  "cmd": "get_plot",
+  "device_id": "",
+  "token": "",
+  "account_token": "",
+  "attribute": "power",
+  "intervals": 100,
+  "session_id": 5678321
+}

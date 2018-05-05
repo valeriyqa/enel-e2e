@@ -1,105 +1,122 @@
 ﻿using JsonConfig;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Reflection;
 
 namespace TestAutomationFramework.Services.ApiService
 {
     public class RestApi
     {
-        //public IRestResponse SendRestApiRequest(string requestCmd)
-        //{
-        //    return SendRestApiRequest(requestCmd, new Dictionary<string, Object> { });
-        //}
-
-        //public IRestResponse SendRestApiRequest(string requestCmd, Dictionary<string, Object> paramPairs)
-        //{
-        //    //Dynamically create request object using predefined models by model name
-        //    var modelName = SnakeCaseToCamelCase(requestCmd + "_request");
-        //    var objectByModel = Activator.CreateInstance(Type.GetType("TestAutomationFramework.Services.ApiService." + modelName));
-        //    var type = objectByModel.GetType();
-
-        //    //Populate request fields
-        //    PropertyInfo[] properties = type.GetProperties();
-        //    foreach (PropertyInfo property in properties)
-        //    {
-        //        PropertyInfo currentProperty = type.GetProperty(property.Name);
-
-        //        //try to set property from dictionary
-        //        if (paramPairs.ContainsKey(currentProperty.Name))
-        //        {
-        //            currentProperty.SetValue(objectByModel, paramPairs[currentProperty.Name], null);
-        //        }
-        //        //try to set property from global settings
-        //        else if ((Config.Global.api_settings).ContainsKey(currentProperty.Name))
-        //        {
-        //            currentProperty.SetValue(objectByModel, (Config.Global.api_settings)[currentProperty.Name], null);
-        //        }
-        //        //try to set property from requests
-        //        else if ((Config.Global).ContainsKey(requestCmd))
-        //        {
-        //            currentProperty.SetValue(objectByModel, (Config.Global)[requestCmd][currentProperty.Name], null);
-        //        }
-        //    }
-
-        //    //Send request and return result
-        //    var client = new RestClient(Config.Global.environment.api_address + GetUrlPath4RestApi(requestCmd));
-        //    var request = new RestRequest(Method.POST);
-        //    request.AddHeader("Cache-Control", "no-cache");
-        //    request.AddHeader("Content-Type", "application/json");
-        //    request.AddJsonBody(objectByModel);
-
-        //    return client.Execute(request);
-        //}
-
-        public Object generateApiRequest(string requestCmd)
+        public static IRestResponse SendApiRequest(Object apiRequestBody)
         {
-            return generateApiRequest(requestCmd, new Dictionary<string, Object> { });
+            string requestCmd = apiRequestBody.GetType().GetProperty("cmd").GetValue(apiRequestBody, null).ToString();
+            Console.WriteLine(requestCmd);
+            var client = new RestClient(Config.Global.environment.api_address + GetUrlPath4RestApi(requestCmd));
+            var request = new RestRequest(GetMethodType4RestApi(requestCmd));
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(apiRequestBody);
+            return client.Execute(request);
         }
 
-        public Object generateApiRequest(string requestCmd, Dictionary<string, Object> paramPairs)
+        public static Object GetApiRequest(string requestCmd)
         {
-            //Dynamically create request object using predefined models by model name
+            return GetApiRequest(requestCmd, new Dictionary<string, Object> { });
+        }
+
+        public static Object GetApiRequest(string requestCmd, Dictionary<string, Object> paramPairs)
+        {
+            var pathToModelObjects = "TestAutomationFramework.Services.ApiService";
+            var pathToRequests = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\Requests\");
             var modelName = SnakeCaseToCamelCase(requestCmd);
-            var objectByModel = Activator.CreateInstance(Type.GetType("TestAutomationFramework.Services.ApiService." + modelName));
-            var type = objectByModel.GetType();
+            var jObject = Activator.CreateInstance(Type.GetType(pathToModelObjects + "." + modelName));
 
-            //Populate request fields
-            PropertyInfo[] properties = type.GetProperties();
-            foreach (PropertyInfo property in properties)
+            //Populate request with default data, from corresponding json file
+            jObject = JsonConvert.DeserializeObject(File.ReadAllText(pathToRequests + requestCmd + ".json"), jObject.GetType());
+
+            //Add data from system settings
+            foreach (dynamic property in Config.Global.api_settings)
             {
-                PropertyInfo currentProperty = type.GetProperty(property.Name);
-
-                if (currentProperty.PropertyType.Namespace.Equals("TestAutomationFramework.Services.ApiService"))
+                try
                 {
-                    currentProperty.SetValue(objectByModel, generateApiRequest(currentProperty.PropertyType.Name), null);
-                    //SendRestApiRequest(currentProperty.PropertyType.Name);
+                    jObject.GetType().GetProperty(property.Key).SetValue(jObject, property.Value);
                 }
-                
-                //try to set property from dictionary
-                else if (paramPairs.ContainsKey(currentProperty.Name))
+                catch (Exception)
                 {
-                    Console.WriteLine("Section 1");
-                    currentProperty.SetValue(objectByModel, paramPairs[currentProperty.Name], null);
-                }
-                //try to set property from global settings
-                else if ((Config.Global.api_settings).ContainsKey(currentProperty.Name))
-                {
-                    Console.WriteLine("Section 2");
-                    currentProperty.SetValue(objectByModel, (Config.Global.api_settings)[currentProperty.Name], null);
-                }
-                //try to set property from requests
-                else if ((Config.Global).ContainsKey(requestCmd))
-                {
-                    currentProperty.SetValue(objectByModel, (Config.Global)[requestCmd][currentProperty.Name], null);
                 }
             }
 
-            return objectByModel;
+            //Add data from dictionary
+            foreach (var item in paramPairs)
+            {
+                try
+                {
+                    jObject.GetType().GetProperty(item.Key).SetValue(jObject, item.Value);
+                }
+                catch (Exception)
+                {
+                }
+            }
 
+            return jObject;
+        }
+
+        public static JObject ResponseToJObject(IRestResponse response)
+        {
+            return JsonConvert.DeserializeObject<JObject>(response.Content);
+        }
+
+        public static JSchema GetJSchema(string requestCmd)
+        {
+            if (Path.GetExtension(requestCmd).Equals(""))
+            {
+                requestCmd = requestCmd + ".json";
+            }
+
+            string pathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\Schemas\", requestCmd);
+
+            JSchema schema;
+            try
+            {
+                schema = JSchema.Parse(File.ReadAllText(pathFile));
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Unable to get schema from file: " + requestCmd);
+                return null;
+            }
+            return schema;
+        }
+
+        public static Object ConvertTypeByName(string value)
+        {
+            if (value.ToLower().Equals("null"))
+            {
+                return null;
+            }
+            else if (bool.TryParse(value, out bool bResult))
+            {
+                return bResult;
+            }
+            else if (Int32.TryParse(value, out int iResult))
+            {
+                return iResult;
+            }
+            else if (double.TryParse(value, out double dResult))
+            {
+                return dResult;
+            }
+            else if (DateTime.TryParse(value, out DateTime dtResult))
+            {
+                return dtResult;
+            }
+            return value;
         }
 
         private static string SnakeCaseToCamelCase(string snakeCase)
@@ -109,14 +126,15 @@ namespace TestAutomationFramework.Services.ApiService
                 s.Substring(1, s.Length - 1)).Aggregate(string.Empty, (s1, s2) => s1 + s2);
         }
 
-        private Method GetMethodType4RestApi(string restApi)
+        //This method will be useful, when we start use not only post method
+        private static Method GetMethodType4RestApi(string requestCmd)
         {
             return Method.POST;
         }
 
-        private string GetUrlPath4RestApi(string restApi)
+        private static string GetUrlPath4RestApi(string requestCmd)
         {
-            switch (restApi)
+            switch (requestCmd)
             {
                 case "add_unit":
                 case "check_device":
@@ -157,7 +175,16 @@ namespace TestAutomationFramework.Services.ApiService
                 case "update_car":
                     return "box_api_secure";
                 default:
-                    throw new ArgumentException("Unable to get path for: ", restApi);
+                    throw new ArgumentException("Unable to get path for: ", requestCmd);
+            }
+        }
+
+        //For test purpose only
+        private static void PrintAllProperties(Object objectName)
+        {
+            foreach (var prop in objectName.GetType().GetProperties())
+            {
+                Console.WriteLine("{0}={1}", prop.Name, prop.GetValue(objectName, null));
             }
         }
     }
