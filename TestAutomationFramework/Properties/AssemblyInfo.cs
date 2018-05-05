@@ -1,3 +1,4 @@
+using NCrunch.Framework;
 using NUnit.Framework;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -22,3 +23,4 @@ using System.Runtime.InteropServices;
 
 // Use to run tests in parallel mode
 [assembly: Parallelizable(ParallelScope.Fixtures)]
+

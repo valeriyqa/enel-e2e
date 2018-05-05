@@ -3,7 +3,7 @@
 	As a math idiot
 	I want to ...
 
-@api
+@api @ignore
 Scenario Outline: TestScenario
 	Given I wont to send "<API>"
 	Examples: 
@@ -44,3 +44,7 @@ Scenario Outline: TestScenario
 		| set_schedule               |
 		| share_device               |
 		| update_car                 |
+
+@api
+Scenario: OneMoreTest
+	Given I want to test fignia

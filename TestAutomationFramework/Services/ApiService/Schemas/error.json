@@ -1,0 +1,22 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "JSON Schema for error response",
+
+  "type": "object",
+  "properties": {
+    "error_message": {
+      "type": "string"
+    },
+    "error_code": {
+      "type": "integer"
+    },
+    "success": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "error_message",
+    "error_code",
+    "success"
+  ]
+}

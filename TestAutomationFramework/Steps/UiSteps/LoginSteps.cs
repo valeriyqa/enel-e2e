@@ -10,7 +10,7 @@ namespace TestAutomationFramework.Steps
     [Binding]
     public class LoginSteps
     {
-        private IWebDriver driver;
+        private readonly IWebDriver driver;
         private string host = Config.Global.environment.dashboard_address;
 
         public LoginSteps(IWebDriver driver)

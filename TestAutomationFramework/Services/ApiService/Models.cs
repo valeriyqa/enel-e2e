@@ -305,7 +305,7 @@ namespace TestAutomationFramework.Services.ApiService
         public SetInfoImages images { get; set; }
     }
 
-    public class SetInfoCar
+    public class SetInfoCars
     {
         public int car_id { get; set; }
         public string description { get; set; }
@@ -344,7 +344,7 @@ namespace TestAutomationFramework.Services.ApiService
         public int amps_unit_rating { get; set; }
         public int info_timestamp { get; set; }
         public string garage_id { get; set; }
-        public List<SetInfoCar> cars { get; set; }
+        public List<SetInfoCars> cars { get; set; }
         public SetInfoPolicy policy { get; set; }
     }
 
@@ -652,7 +652,7 @@ namespace TestAutomationFramework.Services.ApiService
         public GetInfoImages images { get; set; }
     }
 
-    public class GetInfoCar
+    public class GetInfoCars
     {
         public int car_id { get; set; }
         public string description { get; set; }
@@ -687,7 +687,7 @@ namespace TestAutomationFramework.Services.ApiService
         public int amps_unit_rating { get; set; }
         public int info_timestamp { get; set; }
         public string garage_id { get; set; }
-        public List<GetInfoCar> cars { get; set; }
+        public List<GetInfoCars> cars { get; set; }
         public int minimal_charge { get; set; }
         public double efficiency { get; set; }
         public GetInfoPolicy policy { get; set; }

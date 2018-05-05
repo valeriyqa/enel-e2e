@@ -63,29 +63,14 @@ namespace TestAutomationFramework.Features.ApiFeatures
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void FeatureBackground()
-        {
-#line 4
-#line hidden
-        }
-        
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("General test for API services without preconditions")]
+        [NUnit.Framework.DescriptionAttribute("Basic test for requests without parameters")]
         [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.CategoryAttribute("api")]
-        [NUnit.Framework.TestCaseAttribute("get_account_units", null)]
-        [NUnit.Framework.TestCaseAttribute("get_state", null)]
-        [NUnit.Framework.TestCaseAttribute("check_device", null)]
-        [NUnit.Framework.TestCaseAttribute("get_timezones", null)]
-        [NUnit.Framework.TestCaseAttribute("get_server_info", null)]
         [NUnit.Framework.TestCaseAttribute("get_car_models", null)]
-        [NUnit.Framework.TestCaseAttribute("get_history", null)]
-        [NUnit.Framework.TestCaseAttribute("get_schedule", null)]
-        [NUnit.Framework.TestCaseAttribute("get_info", null)]
-        [NUnit.Framework.TestCaseAttribute("get_notifications", null)]
-        [NUnit.Framework.TestCaseAttribute("get_utilitybill_url", null)]
-        [NUnit.Framework.TestCaseAttribute("get_program_signup_info", null)]
-        public virtual void GeneralTestForAPIServicesWithoutPreconditions(string restAPI, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("get_server_info", null)]
+        [NUnit.Framework.TestCaseAttribute("get_timezones", null)]
+        public virtual void BasicTestForRequestsWithoutParameters(string restAPI, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "api",
@@ -94,21 +79,359 @@ namespace TestAutomationFramework.Features.ApiFeatures
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("General test for API services without preconditions", @__tags);
-#line 8
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic test for requests without parameters", @__tags);
+#line 5
 this.ScenarioSetup(scenarioInfo);
-#line 4
-this.FeatureBackground();
-#line 9
+#line 6
  testRunner.When(string.Format("I send \"{0}\" request", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
+#line 7
  testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 11
+#line 8
  testRunner.And("property \"success\" should be equal to \"True\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
+#line 9
  testRunner.And("property \"error_code\" should be equal to \"null\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 13
+#line 10
  testRunner.And("property \"error_message\" should be equal to \"null\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add/delete program signup info")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        public virtual void AddDeleteProgramSignupInfo()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete program signup info", new string[] {
+                        "api",
+                        "ignore"});
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line 20
+ testRunner.Given("program signup info is not set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 21
+ testRunner.When("I send \"set_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 22
+ testRunner.And("I send \"get_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+ testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "PropertyName",
+                        "Value"});
+            table1.AddRow(new string[] {
+                        "success",
+                        "True"});
+            table1.AddRow(new string[] {
+                        "first_name",
+                        "Oleksii"});
+            table1.AddRow(new string[] {
+                        "last_name",
+                        "Khabarov"});
+            table1.AddRow(new string[] {
+                        "bill_first_name",
+                        ""});
+            table1.AddRow(new string[] {
+                        "bill_last_name",
+                        ""});
+            table1.AddRow(new string[] {
+                        "name_is_different_in_bill",
+                        ""});
+            table1.AddRow(new string[] {
+                        "email",
+                        "oleksii.khabarov@emotorwerks.com"});
+            table1.AddRow(new string[] {
+                        "phone_number",
+                        ""});
+            table1.AddRow(new string[] {
+                        "address",
+                        "null"});
+            table1.AddRow(new string[] {
+                        "city",
+                        "null"});
+            table1.AddRow(new string[] {
+                        "state",
+                        "null"});
+            table1.AddRow(new string[] {
+                        "post_code",
+                        "94070"});
+            table1.AddRow(new string[] {
+                        "service_address",
+                        ""});
+            table1.AddRow(new string[] {
+                        "service_city",
+                        "service_city"});
+#line 24
+ testRunner.And("property \"<PropertyName>\" should be equal to \"<Value>\"", ((string)(null)), table1, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Incorrect token test")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
+        [NUnit.Framework.TestCaseAttribute("add_car", null)]
+        [NUnit.Framework.TestCaseAttribute("delete_account_unit", null)]
+        [NUnit.Framework.TestCaseAttribute("delete_car", null)]
+        [NUnit.Framework.TestCaseAttribute("delete_program_signup_info", null)]
+        [NUnit.Framework.TestCaseAttribute("get_history", null)]
+        [NUnit.Framework.TestCaseAttribute("get_info", null)]
+        [NUnit.Framework.TestCaseAttribute("get_notifications", null)]
+        [NUnit.Framework.TestCaseAttribute("get_plot", null)]
+        [NUnit.Framework.TestCaseAttribute("get_program_signup_info", null)]
+        [NUnit.Framework.TestCaseAttribute("get_schedule", null)]
+        [NUnit.Framework.TestCaseAttribute("get_share_pin", null)]
+        [NUnit.Framework.TestCaseAttribute("get_state", null)]
+        [NUnit.Framework.TestCaseAttribute("get_utilitybill_url", null)]
+        [NUnit.Framework.TestCaseAttribute("select_car", null)]
+        [NUnit.Framework.TestCaseAttribute("set_charging_time", null)]
+        [NUnit.Framework.TestCaseAttribute("set_garage", null)]
+        [NUnit.Framework.TestCaseAttribute("set_info", null)]
+        [NUnit.Framework.TestCaseAttribute("set_limit", null)]
+        [NUnit.Framework.TestCaseAttribute("set_notifications", null)]
+        [NUnit.Framework.TestCaseAttribute("set_override", null)]
+        [NUnit.Framework.TestCaseAttribute("set_program_signup_info", null)]
+        [NUnit.Framework.TestCaseAttribute("set_schedule", null)]
+        [NUnit.Framework.TestCaseAttribute("update_car", null)]
+        public virtual void IncorrectTokenTest(string restAPI, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "api",
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrect token test", @__tags);
+#line 44
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Property",
+                        "Value"});
+            table2.AddRow(new string[] {
+                        "token",
+                        "incorrect_token"});
+#line 45
+ testRunner.When(string.Format("I send \"{0}\" request with next \"<Property>\" \"<Value>\"", restAPI), ((string)(null)), table2, "When ");
+#line 48
+ testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 49
+ testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 50
+ testRunner.And("property \"error_code\" should be equal to \"1007\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+ testRunner.And("property \"error_message\" should be equal to \"Invalid session token. Please reente" +
+                    "r password.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Missing token test")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
+        [NUnit.Framework.TestCaseAttribute("add_car", null)]
+        [NUnit.Framework.TestCaseAttribute("delete_account_unit", null)]
+        [NUnit.Framework.TestCaseAttribute("delete_car", null)]
+        [NUnit.Framework.TestCaseAttribute("delete_program_signup_info", null)]
+        [NUnit.Framework.TestCaseAttribute("get_history", null)]
+        [NUnit.Framework.TestCaseAttribute("get_info", null)]
+        [NUnit.Framework.TestCaseAttribute("get_notifications", null)]
+        [NUnit.Framework.TestCaseAttribute("get_plot", null)]
+        [NUnit.Framework.TestCaseAttribute("get_program_signup_info", null)]
+        [NUnit.Framework.TestCaseAttribute("get_schedule", null)]
+        [NUnit.Framework.TestCaseAttribute("get_share_pin", null)]
+        [NUnit.Framework.TestCaseAttribute("get_state", null)]
+        [NUnit.Framework.TestCaseAttribute("get_utilitybill_url", null)]
+        [NUnit.Framework.TestCaseAttribute("select_car", null)]
+        [NUnit.Framework.TestCaseAttribute("set_charging_time", null)]
+        [NUnit.Framework.TestCaseAttribute("set_garage", null)]
+        [NUnit.Framework.TestCaseAttribute("set_info", null)]
+        [NUnit.Framework.TestCaseAttribute("set_limit", null)]
+        [NUnit.Framework.TestCaseAttribute("set_notifications", null)]
+        [NUnit.Framework.TestCaseAttribute("set_override", null)]
+        [NUnit.Framework.TestCaseAttribute("set_program_signup_info", null)]
+        [NUnit.Framework.TestCaseAttribute("set_schedule", null)]
+        [NUnit.Framework.TestCaseAttribute("update_car", null)]
+        public virtual void MissingTokenTest(string restAPI, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "api",
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing token test", @__tags);
+#line 81
+this.ScenarioSetup(scenarioInfo);
+#line 82
+ testRunner.When(string.Format("I send \"{0}\" request with next \"token\" \"null\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 83
+ testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 84
+ testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 85
+ testRunner.And("property \"error_code\" should be equal to \"1007\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 86
+ testRunner.And("property \"error_message\" should be equal to \"Invalid session token. Please reente" +
+                    "r password.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Incorrect account token test")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
+        [NUnit.Framework.TestCaseAttribute("add_unit", null)]
+        [NUnit.Framework.TestCaseAttribute("delete_account_unit", null)]
+        [NUnit.Framework.TestCaseAttribute("delete_program_signup_info", null)]
+        [NUnit.Framework.TestCaseAttribute("get_account_units", null)]
+        [NUnit.Framework.TestCaseAttribute("get_program_signup_info", null)]
+        [NUnit.Framework.TestCaseAttribute("get_share_pin", null)]
+        [NUnit.Framework.TestCaseAttribute("get_utilitybill_url", null)]
+        [NUnit.Framework.TestCaseAttribute("register_pushes", null)]
+        public virtual void IncorrectAccountTokenTest(string restAPI, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "api",
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrect account token test", @__tags);
+#line 115
+this.ScenarioSetup(scenarioInfo);
+#line 116
+ testRunner.When(string.Format("I send \"{0}\" request with next \"account_token\" \"incorrect_token\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 117
+ testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 118
+ testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 119
+ testRunner.And("property \"error_code\" should be equal to \"1009\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 120
+ testRunner.And("property \"error_message\" should be equal to \"User have not permissions to unit. C" +
+                    "heck account token.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Missing account token test")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
+        [NUnit.Framework.TestCaseAttribute("delete_account_unit", null)]
+        [NUnit.Framework.TestCaseAttribute("get_account_units", null)]
+        [NUnit.Framework.TestCaseAttribute("register_pushes", null)]
+        public virtual void MissingAccountTokenTest(string restAPI, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "api",
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing account token test", @__tags);
+#line 151
+this.ScenarioSetup(scenarioInfo);
+#line 152
+ testRunner.When(string.Format("I send \"{0}\" request with next \"account_token\" \"null\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 153
+ testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 154
+ testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 155
+ testRunner.And("property \"error_code\" should be equal to \"1009\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 156
+ testRunner.And("property \"error_message\" should be equal to \"Missing Account token\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add/delete new unit to the system")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        public virtual void AddDeleteNewUnitToTheSystem()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete new unit to the system", new string[] {
+                        "ignore"});
+#line 187
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add/delete car to the system")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        public virtual void AddDeleteCarToTheSystem()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete car to the system", new string[] {
+                        "ignore"});
+#line 190
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add/delete Utility bill")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        public virtual void AddDeleteUtilityBill()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete Utility bill", new string[] {
+                        "ignore"});
+#line 193
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Ownership operations")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        public virtual void OwnershipOperations()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Ownership operations", new string[] {
+                        "ignore"});
+#line 196
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Share device operations")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        public virtual void ShareDeviceOperations()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Share device operations", new string[] {
+                        "ignore"});
+#line 199
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Logout from the system")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        public virtual void LogoutFromTheSystem()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Logout from the system", new string[] {
+                        "ignore"});
+#line 202
+this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
