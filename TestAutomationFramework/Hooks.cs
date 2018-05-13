@@ -3,8 +3,11 @@ using JsonConfig;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Remote;
 using System;
 using System.IO;
+using System.Reflection;
 using System.Threading;
 using TechTalk.SpecFlow;
 
@@ -14,7 +17,7 @@ namespace TestAutomationFramework
     public class Hooks
     {
         private readonly IObjectContainer objectContainer;
-        private IWebDriver driver;
+        private RemoteWebDriver driver;
 
         public Hooks(IObjectContainer objectContainer)
         {
@@ -61,9 +64,8 @@ namespace TestAutomationFramework
         {
             if (Config.Global.launcher.start_web)
             {
-                //driver = new FirefoxDriver();
-                driver = new ChromeDriver(@"C:\chromedriver");
-                objectContainer.RegisterInstanceAs<IWebDriver>(driver);
+                SelectBrowser(BrowserType.Chrome);
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             }
             else
             {
@@ -78,6 +80,40 @@ namespace TestAutomationFramework
             {
                 driver.Quit();
             }
+        }
+
+        private void SelectBrowser(BrowserType browserType)
+        {
+            switch (browserType)
+            {
+                case BrowserType.Chrome:
+                    ChromeOptions options = new ChromeOptions();
+                    //options.AddArgument("--headless");
+                    options.AddArguments("--start-maximized");
+                    driver = new ChromeDriver(@"C:\chromedriver", options);
+                    objectContainer.RegisterInstanceAs(driver);
+                    break;
+                case BrowserType.Firefox:
+                    var driverDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                    FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(driverDir, "geckodriver.exe");
+                    service.FirefoxBinaryPath = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
+                    service.HideCommandPromptWindow = true;
+                    service.SuppressInitialDiagnosticInformation = true;
+                    driver = new FirefoxDriver(service);
+                    objectContainer.RegisterInstanceAs(driver);
+                    break;
+                case BrowserType.Edge:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        enum BrowserType
+        {
+            Chrome,
+            Firefox,
+            Edge
         }
     }
 }

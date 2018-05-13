@@ -9,6 +9,7 @@ using TestAutomationFramework.Steps.API;
 using System.Reflection;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace TestAutomationFramework.Steps.ApiSteps
 {
@@ -57,7 +58,7 @@ namespace TestAutomationFramework.Steps.ApiSteps
         [Given(@"I wont to send ""(.*)""")]
         public void GivenIWontToSend(string requestCommand)
         {
-            var zyka = new RestApi();
+            //var zyka = new RestApi();
             //var answer1 = zyka.generateApiRequest(requestCommand);
 
             //var answer2 = zyka.generateApiRequest(requestCommand, new Dictionary<string, Object> { { "token", "zzz" }, { "ID", "yyy" } });
@@ -71,6 +72,7 @@ namespace TestAutomationFramework.Steps.ApiSteps
         {
             //var jObject = RestApi.getApiRequest("set_info", new Dictionary<string, Object> { { "token", "zzz" }, { "ID", "yyy" } });
             var response = RestApi.SendApiRequest(RestApi.GetApiRequest("get_program_signup_info"));
+            Console.WriteLine(response.ErrorMessage);
 
             //Print response
             //var type = response.GetType();
@@ -81,20 +83,20 @@ namespace TestAutomationFramework.Steps.ApiSteps
             //}
             Dictionary<string, string> myDict = new Dictionary<string, string>
             {
-                //{ "success", "True" },
-                { "first_name", "Oleksii" },
-                { "last_name", "Khabarov" },
-                //{ "bill_first_name", "" },
-                //{ "bill_last_name", "" },
-                //{ "name_is_different_in_bill", "" },
-                { "email", "oleksii.khabarov@emotorwerks.com" },
-                //{ "phone_number", "" },
-                //{ "address", "null" },
-                //{ "city", "null" },
-                //{ "state", "null" },
-                { "post_code", "94070" },
-                //{ "service_address", "" },
-                { "service_city", "service_city" }
+                { "success", "True" },
+                { "step1.first_name", "Oleksii" },
+                { "step1.last_name", "Khabarov" },
+                { "step1.bill_first_name", "" },
+                { "step1.bill_last_name", "" },
+                { "step1.name_is_different_in_bill", "" },
+                { "step1.email", "oleksii.khabarov@emotorwerks.com" },
+                { "step1.phone_number", "" },
+                { "step1.address", null },
+                { "step1.city", null },
+                { "step1.state", null },
+                { "step1.post_code", "94070" },
+                { "step1.service_address", "" },
+                { "step1.service_city", "service_city" }
             };
 
             //foreach (var item in myDict)
@@ -102,13 +104,24 @@ namespace TestAutomationFramework.Steps.ApiSteps
             //    Console.WriteLine(item.Key + "->" + item.Value);
             //}
 
+            Console.WriteLine("!!!");
             var jObject = JsonConvert.DeserializeObject<GetProgramSignupInfoResponse>(response.Content);
 
 
-
+            //Console.WriteLine();
             //foreach (var item in myDict)
             //{
             //    //Console.WriteLine(jObject.GetType().GetProperty(item.Key).Name);
+            //    Object zzz = GetPropertyValue(jObject, item.Key);
+            //    if (zzz == null)
+            //    {
+            //        Console.WriteLine(item.Key + "=null");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine(item.Key + "=" + GetPropertyValue(jObject, item.Key));
+            //    }
+
 
             //}
 
@@ -123,6 +136,9 @@ namespace TestAutomationFramework.Steps.ApiSteps
             //{
             //    Console.WriteLine(item.Name + "=" + item.Value);
             //}
+
+            //Type t = typeof(AnyType);
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
         }
     }

@@ -1,46 +1,58 @@
 ﻿Feature: API
 	In order to test API functionality we run next scenarios
 
-@api @ignore
+@api 
 Scenario Outline: Basic test for requests without parameters
 	When I send "<RestAPI>" request
 	Then response should be valid to schema
 	And property "success" should be equal to "True"
-	And property "error_code" should be equal to "null"
-	And property "error_message" should be equal to "null"
 	Examples: 
 		| RestAPI         |
 		| get_car_models  |
 		| get_server_info |
 		| get_timezones   |
 
-#Should be fixed
-@api @ignore
+@api 
 Scenario: Add/delete program signup info
 	Given program signup info is not set
 	When I send "set_program_signup_info" request
 	And I send "get_program_signup_info" request
 	Then response should be valid to schema
 	And property "<PropertyName>" should be equal to "<Value>"
-		| PropertyName              | Value                            |
-		| success                   | True                             |
-		| first_name                | Oleksii                          |
-		| last_name                 | Khabarov                         |
-		| bill_first_name           |                                  |
-		| bill_last_name            |                                  |
-		| name_is_different_in_bill |                                  |
-		| email                     | oleksii.khabarov@emotorwerks.com |
-		| phone_number              |                                  |
-		| address                   | null                             |
-		| city                      | null                             |
-		| state                     | null                             |
-		| post_code                 | 94070                            |
-		| service_address           |                                  |
-		| service_city              | service_city                     |
+		| PropertyName                    | Value                |
+		| success                         | 1                    |
+		| step1.first_name                | FirstName            |
+		| step1.last_name                 | LastName             |
+		| step1.bill_first_name           | Billfirstname        |
+		| step1.bill_last_name            | Billlastname         |
+		| step1.email                     | testuser@example.com |
+		| step1.phone_number              | 123-456-78-90        |
+		| step1.address                   | Test home address    |
+		| step1.city                      | TestCity             |
+		| step1.state                     | California           |
+		| step1.service_address           | Test service address |
+		| step1.service_city              | San Carol            |
+	And property "step1.post_code" should be equal to "95128" string
+	When I send "delete_program_signup_info" request
+	And I send "get_program_signup_info" request
+	Then response should be valid to schema
+	And property "<PropertyName>" should be equal to "<Value>"
+		| PropertyName                    | Value                            |
+		| success                         | 1                                |
+		| step1.first_name                | Oleksii                          |
+		| step1.last_name                 | Khabarov                         |
+		| step1.bill_first_name           |                                  |
+		| step1.name_is_different_in_bill |                                  |
+		| step1.email                     | oleksii.khabarov@emotorwerks.com |
+		| step1.phone_number              |                                  |
+		| step1.address                   | null                             |
+		| step1.city                      | null                             |
+		| step1.state                     | null                             |
+		| step1.service_address           |                                  |
+		| step1.service_city              |                                  |
+	And property "step1.post_code" should be equal to "94070" string
 
-
-#Use table to set multiple properties (example)
-@api @ignore
+@api 
 Scenario Outline: Incorrect token test
 	When I send "<RestAPI>" request with next "<Property>" "<Value>"
 		| Property | Value           |
@@ -76,8 +88,7 @@ Scenario Outline: Incorrect token test
 		| set_schedule               |
 		| update_car                 |
 
-#If you want to set only one property, you can set it directly in variables (example)
-@api @ignore
+@api 
 Scenario Outline: Missing token test
 	When I send "<RestAPI>" request with next "token" "null"
 	Then response should be valid to schema "error"
@@ -111,7 +122,7 @@ Scenario Outline: Missing token test
 		| set_schedule               |
 		| update_car                 |
 
-@api @ignore
+@api 
 Scenario Outline: Incorrect account token test
 	When I send "<RestAPI>" request with next "account_token" "incorrect_token"
 	Then response should be valid to schema "error"
@@ -147,7 +158,7 @@ Scenario Outline: Incorrect account token test
 		#| share_device               |1003
 		#| update_car                 |1002
 
-@api @ignore
+@api 
 Scenario Outline: Missing account token test
 	When I send "<RestAPI>" request with next "account_token" "null"
 	Then response should be valid to schema "error"
@@ -158,7 +169,7 @@ Scenario Outline: Missing account token test
 		| RestAPI                    |
 		| add_account_unit           |
 		#| add_car                    |1001
-		#| add_unit                   |User have not permissions to unit. Check account token.
+		#| add_unit                   |User have not permissions to unit. Check account token. (consistency)
 		| delete_account_unit        |
 		#| delete_car                 |1002
 		#| delete_program_signup_info |User have not permissions to unit. Check account token.

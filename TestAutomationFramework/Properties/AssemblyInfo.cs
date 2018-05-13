@@ -1,4 +1,3 @@
-using NCrunch.Framework;
 using NUnit.Framework;
 using System.Reflection;
 using System.Runtime.CompilerServices;

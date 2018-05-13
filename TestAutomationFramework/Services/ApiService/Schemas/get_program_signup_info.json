@@ -23,7 +23,7 @@
           "type": "string"
         },
         "name_is_different_in_bill": {
-          "type": "string"
+          "type": [ "string", "boolean" ]
         },
         "email": {
           "type": "string"
@@ -41,7 +41,7 @@
           "type": [ "string", "null" ] //Null is ok?
         },
         "post_code": {
-          "type": "string"
+          "type": [ "string", "integer" ]
         },
         "service_address": {
           "type": "string"

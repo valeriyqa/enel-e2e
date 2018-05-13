@@ -1,23 +1,24 @@
 ﻿{
   "cmd": "set_program_signup_info",
+  "account_token": "",
   "token": "",
   "device_id": "",
   "userinfo": {
-    "first_name": "Andriy",
-    "last_name": "Fedorenko",
-    "name_is_different_in_bill": "",
-    "bill_first_name": "Andriy",
-    "bill_last_name": "Fedorenko",
-    "email": "ANnnndriy@emotorwerks.com",
-    "phone_number": "4154568956",
-    "address": "linekr idet domioi",
-    "city": "cool stuff",
-    "service_address": "ninto ne znaet",
+    "first_name": "FirstName",
+    "last_name": "LastName",
+    "name_is_different_in_bill": true,
+    "bill_first_name": "Billfirstname",
+    "bill_last_name": "Billlastname",
+    "email": "testuser@example.com",
+    "phone_number": "123-456-78-90",
+    "address": "Test home address",
+    "city": "TestCity",
+    "service_address": "Test service address",
     "service_city": "San Carol",
-    "state": "Null",
+    "state": "California",
     "post_code": "95128",
     "images": [
-      "string"
+      "http://i0.kym-cdn.com/photos/images/original/000/096/044/trollface.jpg"
     ]
   }
 }
