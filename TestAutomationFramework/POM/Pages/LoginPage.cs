@@ -1,34 +1,23 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 
-//namespace TestAutomationFramework.POM.Pages
-//{
-//    class LoginPage
-//    {
-//        private readonly RemoteWebDriver _driver;
+namespace TestAutomationFramework.POM.Pages
+{
+    class LoginPage
+    {
+        private readonly RemoteWebDriver driver;
+        public LoginPage(RemoteWebDriver driver) => this.driver = driver;
 
-//        public LoginPage(RemoteWebDriver driver) => _driver = driver;
+        IWebElement emailField => driver.FindElementById("Email");
+        IWebElement passwordField => driver.FindElementByName("Password");
+        IWebElement loginButton => driver.FindElementByClassName("btn-primary");
 
+        public void LoginToApplication(string userEmail, string userPassword)
+        {
+            emailField.SendKeys(userEmail);
+            passwordField.SendKeys(userPassword);
+            loginButton.Submit();
+        }
 
-//        IWebElement txtUserName => _driver.FindElementByName("UserName");
-//        IWebElement txtPassword => _driver.FindElementByName("Password");
-//        IWebElement btnLogin => _driver.FindElementByName("Login");
-
-
-
-
-//        public void EnterUserNameAndPassword(string userName, string password)
-//        {
-//            txtUserName.SendKeys(userName);
-//            txtPassword.SendKeys(password);
-//        }
-
-//        public void ClickLogin()
-//        {
-//            btnLogin.Click();
-//        }
-//    }
-//}
+    }
+}

@@ -442,6 +442,7 @@ namespace TestAutomationFramework.Services.ApiService
     public class SetProgramSignupInfo
     {
         public string cmd { get; set; }
+        public string account_token { get; set; }
         public string token { get; set; }
         public string device_id { get; set; }
         public SetProgramSignupInfoUserinfo userinfo { get; set; }

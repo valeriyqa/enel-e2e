@@ -1,21 +1,34 @@
 ﻿using JsonConfig;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace TestAutomationFramework.Services.ApiService
 {
     public class RestApi
     {
+        public static Object GetPropertyValue(Object source, string path)
+        {
+            string[] bits = path.Split('.');
+            Type type = source.GetType(); // Or pass this in
+            Object result = source;
+            foreach (string bit in bits)
+            {
+                PropertyInfo prop = type.GetProperty(bit);
+                type = prop.PropertyType;
+                result = prop.GetValue(result, null);
+            }
+            return result;
+        }
+
         public static IRestResponse SendApiRequest(Object apiRequestBody)
         {
             string requestCmd = apiRequestBody.GetType().GetProperty("cmd").GetValue(apiRequestBody, null).ToString();
-            Console.WriteLine(requestCmd);
             var client = new RestClient(Config.Global.environment.api_address + GetUrlPath4RestApi(requestCmd));
             var request = new RestRequest(GetMethodType4RestApi(requestCmd));
             request.AddHeader("Cache-Control", "no-cache");
@@ -66,9 +79,21 @@ namespace TestAutomationFramework.Services.ApiService
             return jObject;
         }
 
-        public static JObject ResponseToJObject(IRestResponse response)
+        public static Object ResponseToObject(string requestCmd, IRestResponse response)
         {
-            return JsonConvert.DeserializeObject<JObject>(response.Content);
+            var pathToModelObjects = "TestAutomationFramework.Services.ApiService";
+            var pathToRequests = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\Requests\");
+            var modelName = SnakeCaseToCamelCase(requestCmd + "Response");
+            dynamic jObject;
+            try
+            {
+                jObject = Activator.CreateInstance(Type.GetType(pathToModelObjects + "." + modelName));
+            }
+            catch (Exception)
+            {
+                jObject = Activator.CreateInstance(Type.GetType(pathToModelObjects + ".GeneralResponse"));
+            }
+            return JsonConvert.DeserializeObject(response.Content, jObject.GetType());
         }
 
         public static JSchema GetJSchema(string requestCmd)

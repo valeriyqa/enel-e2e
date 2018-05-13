@@ -1,13 +1,12 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 using NUnit.Framework;
 using RestSharp;
-using RestSharp.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 using TestAutomationFramework.Services.ApiService;
 
 namespace TestAutomationFramework.Steps.API
@@ -20,7 +19,7 @@ namespace TestAutomationFramework.Steps.API
         {
             public IRestResponse response;
             public string requestCmd;
-            public JObject jObject;
+            public Object respObject;
         }
 
         private readonly ApiData apiData;
@@ -29,34 +28,44 @@ namespace TestAutomationFramework.Steps.API
             this.apiData = apiData;
         }
 
-        [When(@"I send ""(.*)"" request")]
+        [When(@"I send ""(.*)"" request")] //done
         public void ISendRequest(string requestCmd)
         {
-            Console.WriteLine("Send RestAPI request: " + requestCmd);
-            
             apiData.requestCmd = requestCmd;
             apiData.response = RestApi.SendApiRequest(RestApi.GetApiRequest(requestCmd));
-            apiData.jObject = RestApi.ResponseToJObject(apiData.response);
+            if (apiData.response.Content.Contains("\"success\": false"))
+            {
+                apiData.respObject = RestApi.ResponseToObject("GeneralError", apiData.response);
+            }
+            else
+            {
+                apiData.respObject = RestApi.ResponseToObject(requestCmd, apiData.response);
+            }
         }
 
-        [When(@"I send ""(.*)"" request with next ""(.*)"" ""(.*)""")]
+        [When(@"I send ""(.*)"" request with next ""(.*)"" ""(.*)""")] //done
         public void WhenISendRequestWithNext(string requestCmd, string propertyName, string propertyValue)
         {
-            Console.WriteLine("Send RestAPI request: " + requestCmd + " with additional properties (no table)");
-
-            var dictionary = new Dictionary<string, Object>();
-            dictionary.Add(propertyName, RestApi.ConvertTypeByName(propertyValue));
+            var dictionary = new Dictionary<string, Object>
+            {
+                { propertyName, RestApi.ConvertTypeByName(propertyValue) }
+            };
 
             apiData.requestCmd = requestCmd;
             apiData.response = RestApi.SendApiRequest(RestApi.GetApiRequest(requestCmd, dictionary));
-            apiData.jObject = RestApi.ResponseToJObject(apiData.response);
+            if (apiData.response.Content.Contains("\"success\": false"))
+            {
+                apiData.respObject = RestApi.ResponseToObject("GeneralError", apiData.response);
+            }
+            else
+            {
+                apiData.respObject = RestApi.ResponseToObject(requestCmd, apiData.response);
+            }
         }
 
-        [When(@"I send ""(.*)"" request with next (.*) (.*)")]
+        [When(@"I send ""(.*)"" request with next (.*) (.*)")] //done
         public void WhenISendRequestWithNext(string requestCmd, string propertyName, string propertyValue, Table table)
         {
-            Console.WriteLine("Send RestAPI request: " + requestCmd + " with additional properties");
-
             var dictionary = new Dictionary<string, Object>();
             foreach (var row in table.Rows)
             {
@@ -65,60 +74,61 @@ namespace TestAutomationFramework.Steps.API
 
             apiData.requestCmd = requestCmd;
             apiData.response = RestApi.SendApiRequest(RestApi.GetApiRequest(requestCmd, dictionary));
-            apiData.jObject = RestApi.ResponseToJObject(apiData.response);
-
+            if (apiData.response.Content.Contains("\"success\": false"))
+            {
+                apiData.respObject = RestApi.ResponseToObject("GeneralError", apiData.response);
+            }
+            else
+            {
+                apiData.respObject = RestApi.ResponseToObject(requestCmd, apiData.response);
+            }
         }
 
-        [Then(@"response should be valid to schema")]
+        [Then(@"response should be valid to schema")] //done
         public void ResponseShouldBeValidToSchema()
         {
-            Console.WriteLine("Response: " + apiData.response.Content);
-
             Assert.AreEqual(apiData.response.IsSuccessful, true);
             Assert.AreEqual(apiData.response.StatusCode, HttpStatusCode.OK);
-            Assert.That(apiData.jObject.IsValid(RestApi.GetJSchema(apiData.requestCmd)));
+            Assert.That(JsonConvert.DeserializeObject<JObject>(apiData.response.Content).IsValid(RestApi.GetJSchema(apiData.requestCmd)));
         }
 
-        [Then(@"response should be valid to schema ""(.*)""")]
+        [Then(@"response should be valid to schema ""(.*)""")] //done
         public void ResponseShouldBeValidToSchema(string shemaName)
         {
-            Console.WriteLine("Response should be valid to schema: " + shemaName);
-            Console.WriteLine(apiData.response.Content);
-
             Assert.AreEqual(apiData.response.IsSuccessful, true);
             Assert.AreEqual(apiData.response.StatusCode, HttpStatusCode.OK);
-            Assert.That(apiData.jObject.IsValid(RestApi.GetJSchema(shemaName)));
+            Assert.That(JsonConvert.DeserializeObject<JObject>(apiData.response.Content).IsValid(RestApi.GetJSchema(shemaName)));
         }
 
         //Assert that property equal to expected result.
         //This method will convert data to the corresponding type before assertion.
-        [Given(@"property ""(.*)"" should be equal to ""(.*)""")]
+        [Given(@"property ""(.*)"" should be equal to ""(.*)""")] //done
         [Then(@"property ""(.*)"" should be equal to ""(.*)""")]
         public void PropertyShouldBeEqualTo(string propertyName, string value)
         {
             if (value.ToLower().Equals("null"))
             {
-                Assert.AreEqual(apiData.jObject.Property(propertyName), null);
+                Assert.AreEqual(RestApi.GetPropertyValue(apiData.respObject, propertyName), null);
             }
             else if (bool.TryParse(value, out bool bResult))
             {
-                Assert.AreEqual((bool)apiData.jObject.Property(propertyName), bResult);
+                Assert.AreEqual((bool)RestApi.GetPropertyValue(apiData.respObject, propertyName), bResult);
             }
             else if (Int32.TryParse(value, out int iResult))
             {
-                Assert.AreEqual((int)apiData.jObject.Property(propertyName), iResult);
+                Assert.AreEqual((int)RestApi.GetPropertyValue(apiData.respObject, propertyName), iResult);
             }
             else if (double.TryParse(value, out double dResult))
             {
-                Assert.AreEqual((double)apiData.jObject.Property(propertyName), dResult);
+                Assert.AreEqual((double)RestApi.GetPropertyValue(apiData.respObject, propertyName), dResult);
             }
             else if (DateTime.TryParse(value, out DateTime dtResult))
             {
-                Assert.AreEqual((DateTime)apiData.jObject.Property(propertyName), dtResult);
+                Assert.AreEqual((DateTime)RestApi.GetPropertyValue(apiData.respObject, propertyName), dtResult);
             }
             else
             {
-                Assert.AreEqual((string)apiData.jObject.Property(propertyName), value);
+                Assert.AreEqual((string)RestApi.GetPropertyValue(apiData.respObject, propertyName), value);
             }
         }
 
@@ -130,50 +140,44 @@ namespace TestAutomationFramework.Steps.API
             {
                 if (row[1].ToLower().Equals("null"))
                 {
-                    Console.WriteLine("1Property: " + apiData.jObject.Property(row[0]) + " Name: " + row[0] + " Value: " + row[1]);
-                    Assert.AreEqual(apiData.jObject.Property(row[0]), null);
+                    Assert.AreEqual(RestApi.GetPropertyValue(apiData.respObject, row[0]), null);
                 }
                 else if (bool.TryParse(row[1], out bool bResult))
                 {
-                    Console.WriteLine("2Property: " + apiData.jObject.Property(row[0]) + " Name: " + row[0] + " Value: " + row[1]);
-                    Assert.AreEqual((bool)apiData.jObject.Property(row[0]), bResult);
+                    Assert.AreEqual((bool)RestApi.GetPropertyValue(apiData.respObject, row[0]), bResult);
                 }
-                else if (Int32.TryParse(row[1], out int iResult))
+                else if (Int32.TryParse(row[1], out Int32 iResult))
                 {
-                    Console.WriteLine("3Property: " + apiData.jObject.Property(row[0]) + " Name: " + row[0] + " Value: " + row[1]);
-                    Assert.AreEqual((int)apiData.jObject.Property(row[0]), iResult);
+                    Assert.AreEqual((Int32)RestApi.GetPropertyValue(apiData.respObject, row[0]), iResult);
                 }
                 else if (double.TryParse(row[1], out double dResult))
                 {
-                    Console.WriteLine("4Property: " + apiData.jObject.Property(row[0]) + " Name: " + row[0] + " Value: " + row[1]);
-                    Assert.AreEqual((double)apiData.jObject.Property(row[0]), dResult);
+                    Assert.AreEqual((double)RestApi.GetPropertyValue(apiData.respObject, row[0]), dResult);
                 }
                 else if (DateTime.TryParse(row[1], out DateTime dtResult))
                 {
-                    Console.WriteLine("5Property: " + apiData.jObject.Property(row[0]) + " Name: " + row[0] + " Value: " + row[1]);
-                    Assert.AreEqual((DateTime)apiData.jObject.Property(row[0]), dtResult);
+                    Assert.AreEqual((DateTime)RestApi.GetPropertyValue(apiData.respObject, row[0]), dtResult);
                 }
                 else
                 {
-                    Console.WriteLine("6Property: " + apiData.jObject.Property(row[0]) + " Name: " + row[0] + " Value: " + row[1]);
-                    Assert.AreEqual((string)apiData.jObject.Property(row[0]), row[1]);
+                    Assert.AreEqual((string)RestApi.GetPropertyValue(apiData.respObject, row[0]), row[1]);
                 }
             }
         }
 
         //Assert that property equal to expected result.
         //This method, will always use string data type.
-        [Given(@"property ""(.*)"" should be equal to string ""(.*)""")]
-        [Then(@"property ""(.*)"" should be equal to string ""( .*)""")]
-        public void PropertyShouldBeEqualToString(string propertyName, string result)
+        [Given(@"property ""(.*)"" should be equal to ""(.*)"" string")]
+        [Then(@"property ""(.*)"" should be equal to ""(.*)"" string")]
+        public void ThenPropertyShouldBeEqualToString(string propertyName, string result)
         {
-            Assert.AreEqual((string)apiData.jObject.Property(propertyName), result);
+            Assert.AreEqual((string)RestApi.GetPropertyValue(apiData.respObject, propertyName), result);
         }
 
-        [Given(@"program signup info is not set")]
+
+        [Given(@"program signup info is not set")] //done
         public void ProgramSignupInfoIsNotSet()
         {
-            Console.WriteLine("program signup info is not set");
             RestApi.SendApiRequest(RestApi.GetApiRequest("delete_program_signup_info"));
         }
 
