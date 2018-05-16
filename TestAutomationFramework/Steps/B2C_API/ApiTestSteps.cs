@@ -41,10 +41,11 @@ namespace TestAutomationFramework.Steps.API
             {
                 apiData.respObject = RestApi.ResponseToObject(requestCmd, apiData.response);
             }
+            Console.WriteLine(apiData.response.Content);
         }
 
         [When(@"I send ""(.*)"" request with next ""(.*)"" ""(.*)""")] //done
-        public void WhenISendRequestWithNext(string requestCmd, string propertyName, string propertyValue)
+        public void ISendRequestWithNext(string requestCmd, string propertyName, string propertyValue)
         {
             var dictionary = new Dictionary<string, Object>
             {
@@ -64,7 +65,7 @@ namespace TestAutomationFramework.Steps.API
         }
 
         [When(@"I send ""(.*)"" request with next (.*) (.*)")] //done
-        public void WhenISendRequestWithNext(string requestCmd, string propertyName, string propertyValue, Table table)
+        public void ISendRequestWithNext(string requestCmd, string propertyName, string propertyValue, Table table)
         {
             var dictionary = new Dictionary<string, Object>();
             foreach (var row in table.Rows)
@@ -134,7 +135,7 @@ namespace TestAutomationFramework.Steps.API
 
         [Given(@"property ""(.*)"" should be equal to ""(.*)""")]
         [Then(@"property ""(.*)"" should be equal to ""(.*)""")]
-        public void ThenPropertyShouldBeEqualTo(string propertyName, string value, Table table)
+        public void PropertyShouldBeEqualTo(string propertyName, string value, Table table)
         {
             foreach (var row in table.Rows)
             {
@@ -169,7 +170,7 @@ namespace TestAutomationFramework.Steps.API
         //This method, will always use string data type.
         [Given(@"property ""(.*)"" should be equal to ""(.*)"" string")]
         [Then(@"property ""(.*)"" should be equal to ""(.*)"" string")]
-        public void ThenPropertyShouldBeEqualToString(string propertyName, string result)
+        public void PropertyShouldBeEqualToString(string propertyName, string result)
         {
             Assert.AreEqual((string)RestApi.GetPropertyValue(apiData.respObject, propertyName), result);
         }
@@ -180,6 +181,29 @@ namespace TestAutomationFramework.Steps.API
         {
             RestApi.SendApiRequest(RestApi.GetApiRequest("delete_program_signup_info"));
         }
+
+
+
+
+
+        [Given(@"JuiceBox unit is not added")]
+        public void JuiceBoxUnitIsNotAdded()
+        {
+            RestApi.SendApiRequest(RestApi.GetApiRequest("delete_account_unit"));
+        }
+
+        [Then(@"response should contain device number is ""(.*)""")]
+        public void ThenResponseShouldContainDeviceNumberIs(string shouldExist)
+        {
+            Assert.AreEqual(apiData.response.Content.Contains("\"unit_id\": \"373708002\""), bool.Parse(shouldExist));
+        }
+
+        [Then(@"response should contain device with ""(.*)"" is ""(.*)""")]
+        public void ThenResponseShouldContainDeviceWithIs(string deviceNumber, string shouldExist)
+        {
+            Assert.AreEqual(apiData.response.Content.Contains("\"unit_id\": \"" + deviceNumber + "\""), bool.Parse(shouldExist));
+        }
+
 
         /////////////////////////////////////////////////////////////////////////////////////
         [Given(@"I add unit to account with next preconditions:")]

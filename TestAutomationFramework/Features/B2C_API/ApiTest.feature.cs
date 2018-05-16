@@ -91,21 +91,52 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add/delete unit to the system")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        public virtual void AddDeleteUnitToTheSystem()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete unit to the system", new string[] {
+                        "api"});
+#line 16
+this.ScenarioSetup(scenarioInfo);
+#line 17
+ testRunner.Given("JuiceBox unit is not added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 18
+ testRunner.When("I send \"add_account_unit\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.And("I send \"get_account_units\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
+ testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 21
+ testRunner.And("response should contain device number is \"True\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+ testRunner.When("I send \"delete_account_unit\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 23
+ testRunner.And("I send \"get_account_units\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 25
+ testRunner.And("response should contain device number is \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add/delete program signup info")]
         [NUnit.Framework.CategoryAttribute("api")]
         public virtual void AddDeleteProgramSignupInfo()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete program signup info", new string[] {
                         "api"});
-#line 16
+#line 29
 this.ScenarioSetup(scenarioInfo);
-#line 17
+#line 30
  testRunner.Given("program signup info is not set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 18
+#line 31
  testRunner.When("I send \"set_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 19
+#line 32
  testRunner.And("I send \"get_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
+#line 33
  testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -147,15 +178,15 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "step1.service_city",
                         "San Carol"});
-#line 21
+#line 34
  testRunner.And("property \"<PropertyName>\" should be equal to \"<Value>\"", ((string)(null)), table1, "And ");
-#line 35
+#line 48
  testRunner.And("property \"step1.post_code\" should be equal to \"95128\" string", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 36
+#line 49
  testRunner.When("I send \"delete_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 37
+#line 50
  testRunner.And("I send \"get_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 38
+#line 51
  testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -197,9 +228,9 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "step1.service_city",
                         ""});
-#line 39
+#line 52
  testRunner.And("property \"<PropertyName>\" should be equal to \"<Value>\"", ((string)(null)), table2, "And ");
-#line 53
+#line 66
  testRunner.And("property \"step1.post_code\" should be equal to \"94070\" string", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -241,7 +272,7 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrect token test", @__tags);
-#line 56
+#line 69
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -250,15 +281,15 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "token",
                         "incorrect_token"});
-#line 57
+#line 70
  testRunner.When(string.Format("I send \"{0}\" request with next \"<Property>\" \"<Value>\"", restAPI), ((string)(null)), table3, "When ");
-#line 60
+#line 73
  testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 61
+#line 74
  testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 62
+#line 75
  testRunner.And("property \"error_code\" should be equal to \"1007\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 63
+#line 76
  testRunner.And("property \"error_message\" should be equal to \"Invalid session token. Please reente" +
                     "r password.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -301,17 +332,17 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing token test", @__tags);
-#line 92
+#line 105
 this.ScenarioSetup(scenarioInfo);
-#line 93
+#line 106
  testRunner.When(string.Format("I send \"{0}\" request with next \"token\" \"null\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 94
+#line 107
  testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 95
+#line 108
  testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 96
+#line 109
  testRunner.And("property \"error_code\" should be equal to \"1007\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 97
+#line 110
  testRunner.And("property \"error_message\" should be equal to \"Invalid session token. Please reente" +
                     "r password.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -339,17 +370,17 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrect account token test", @__tags);
-#line 126
+#line 139
 this.ScenarioSetup(scenarioInfo);
-#line 127
+#line 140
  testRunner.When(string.Format("I send \"{0}\" request with next \"account_token\" \"incorrect_token\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 128
+#line 141
  testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 129
+#line 142
  testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 130
+#line 143
  testRunner.And("property \"error_code\" should be equal to \"1009\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 131
+#line 144
  testRunner.And("property \"error_message\" should be equal to \"User have not permissions to unit. C" +
                     "heck account token.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -372,17 +403,17 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing account token test", @__tags);
-#line 162
+#line 175
 this.ScenarioSetup(scenarioInfo);
-#line 163
+#line 176
  testRunner.When(string.Format("I send \"{0}\" request with next \"account_token\" \"null\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 164
+#line 177
  testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 165
+#line 178
  testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 166
+#line 179
  testRunner.And("property \"error_code\" should be equal to \"1009\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 167
+#line 180
  testRunner.And("property \"error_message\" should be equal to \"Missing Account token\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -395,7 +426,7 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete new unit to the system", new string[] {
                         "ignore"});
-#line 198
+#line 211
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -408,7 +439,7 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete car to the system", new string[] {
                         "ignore"});
-#line 201
+#line 214
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -421,7 +452,7 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete Utility bill", new string[] {
                         "ignore"});
-#line 204
+#line 217
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -434,7 +465,7 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Ownership operations", new string[] {
                         "ignore"});
-#line 207
+#line 220
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -447,7 +478,7 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Share device operations", new string[] {
                         "ignore"});
-#line 210
+#line 223
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -460,7 +491,7 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Logout from the system", new string[] {
                         "ignore"});
-#line 213
+#line 226
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();

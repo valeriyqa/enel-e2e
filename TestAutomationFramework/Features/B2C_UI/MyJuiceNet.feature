@@ -2,7 +2,7 @@
 	In order to verify JuiceNet functionality
 	we run next scenarios
 
-@web @ignore
+@web 
 Scenario: Add/Delete JuiceNet Device
 	Note! We collect add and delete scenarios together to avoid parallel execution collision,
 	when separate scenarios may perform mutually exclusive actions.

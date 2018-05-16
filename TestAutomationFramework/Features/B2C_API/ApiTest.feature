@@ -12,6 +12,19 @@ Scenario Outline: Basic test for requests without parameters
 		| get_server_info |
 		| get_timezones   |
 
+@api
+Scenario: Add/delete unit to the system
+	Given JuiceBox unit is not added
+	When I send "add_account_unit" request
+	And I send "get_account_units" request
+	Then response should be valid to schema
+	And response should contain device number is "True"
+	When I send "delete_account_unit" request
+	And I send "get_account_units" request
+	Then response should be valid to schema
+	And response should contain device number is "False"
+
+# Unit should be added
 @api 
 Scenario: Add/delete program signup info
 	Given program signup info is not set
@@ -231,20 +244,6 @@ Scenario: Logout from the system
 #	And response should be valid to schema "<ShemaName>"
 #	When I send "delete_account_unit" request
 #	Then unit should be "deleted"	
-#
-#@api @ignore
-#Scenario: Add/delete program signup info
-#	Given I add unit to account with next preconditions:
-#		| System | Account Token                         | Device Id   | Token                            |
-#		| alpha  | a0c7b2bc-9492-41a3-8124-99e035816550  | Test device | 3ffbf508342447a788f5380ab382f57f |
-#		| beta   | a0c7b2bc-9492-41a3-8124-99e035816550  | Test device | 3ffbf508342447a788f5380ab382f57f |
-#		| prod   | a0c7b2bc-9492-41a3-8124-99e035816550  | Test device | 3ffbf508342447a788f5380ab382f57f |
-#	And program signup info is not set
-#	When I send "set_program_signup_info" request
-#	Then program signup info should be "added"
-#	When I send "delete_program_signup_info" request
-#	Then program signup info should be "deleted"
-#	And I delete unit from account
 #
 #@api @ignore
 #Scenario: Add/delete car	
