@@ -1,7 +1,6 @@
-﻿Feature: AdminUtilities
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+﻿Feature: B2C Admin Utilities feature
+	In order to verify Admin Utilities functionality
+	we run next scenarios
 
 @mytag
 Scenario: Add two numbers

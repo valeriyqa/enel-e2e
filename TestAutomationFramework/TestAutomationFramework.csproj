@@ -102,6 +102,66 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\B2B_UI\AllowedCurrent.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllowedCurrent.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\B2B_UI\ManageDevices.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManageDevices.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\B2B_UI\ManageUsers.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManageUsers.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\B2B_UI\Payment.feature.cs">
+      <DependentUpon>Payment.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\B2B_UI\Rates.feature.cs">
+      <DependentUpon>Rates.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\B2B_UI\BoxMonitor.feature.cs">
+      <DependentUpon>BoxMonitor.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\B2B_UI\AdminOfReseller.feature.cs">
+      <DependentUpon>AdminOfReseller.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\B2B_UI\Permissions.feature.cs">
+      <DependentUpon>Permissions.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\B2B_UI\PublicAccess.feature.cs">
+      <DependentUpon>PublicAccess.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\B2B_UI\TimeOfUse.feature.cs">
+      <DependentUpon>TimeOfUse.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\B2B_UI\Locations.feature.cs">
+      <DependentUpon>Locations.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\B2B_UI\Reseller.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reseller.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\B2C_API\ApiTest.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,12 +217,12 @@
     <Compile Include="Services\UdpService\Device\ProtConvert.cs" />
     <Compile Include="Services\UdpService\Device\UdpClientEx.cs" />
     <Compile Include="Services\UdpService\UdpEndpointTest.cs" />
-    <Compile Include="Steps\ApiSteps\ApiTestSteps.cs" />
-    <Compile Include="Steps\ApiSteps\TestTest.cs" />
-    <Compile Include="Steps\UdpSteps\UdpTestSteps.cs" />
-    <Compile Include="Steps\UiSteps\LoginSteps.cs" />
-    <Compile Include="Steps\UiSteps\MyJuiceNet.cs" />
-    <Compile Include="Steps\UiSteps\RegistrationAndLogInSteps.cs" />
+    <Compile Include="Steps\B2C_API\ApiTestSteps.cs" />
+    <Compile Include="Steps\B2C_API\TestTest.cs" />
+    <Compile Include="Steps\B2C_UDP\UdpTestSteps.cs" />
+    <Compile Include="Steps\B2C_UI\LoginSteps.cs" />
+    <Compile Include="Steps\B2C_UI\MyJuiceNet.cs" />
+    <Compile Include="Steps\B2C_UI\RegistrationAndLogInSteps.cs" />
     <Compile Include="Tools\ConvertDateTime.cs" />
     <Compile Include="Tools\LoadTableFromFile.cs" />
     <Compile Include="Tools\LoadUsersFromConf.cs" />
@@ -172,6 +232,54 @@
     <EmbeddedResource Include="Configuration\beta.conf" />
     <EmbeddedResource Include="Configuration\stage.conf" />
     <EmbeddedResource Include="Configuration\prod.conf" />
+    <None Include="Features\B2B_UI\AllowedCurrent.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AllowedCurrent.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\ManageDevices.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ManageDevices.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\ManageUsers.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ManageUsers.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\Payment.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Payment.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\Rates.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Rates.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\BoxMonitor.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BoxMonitor.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\AdminOfReseller.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AdminOfReseller.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\Permissions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Permissions.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\PublicAccess.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PublicAccess.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\TimeOfUse.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TimeOfUse.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\Locations.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Locations.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\Reseller.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Reseller.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\B2C_API\ApiTest.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ApiTest.feature.cs</LastGenOutput>
@@ -289,6 +397,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="POM\Elements\" />
+    <Folder Include="Steps\B2B_UI\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -305,7 +414,7 @@
   </Target>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties Services_4ApiService_4Schemas_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" />
+      <UserProperties Services_4ApiService_4Schemas_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" />
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="..\packages\MSTest.TestAdapter.1.2.1\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.2.1\build\net45\MSTest.TestAdapter.targets')" />
