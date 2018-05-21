@@ -18,8 +18,8 @@ namespace TestAutomationFramework.Features.B2C_UI
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("MyJuiceNet")]
-    public partial class MyJuiceNetFeature
+    [NUnit.Framework.DescriptionAttribute("B2C MyJuiceNet")]
+    public partial class B2CMyJuiceNetFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,7 +31,7 @@ namespace TestAutomationFramework.Features.B2C_UI
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "MyJuiceNet", "\tIn order to verify JuiceNet functionality\r\n\twe run next scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "B2C MyJuiceNet", "\tIn order to verify JuiceNet functionality\r\n\twe run next scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,11 +64,13 @@ namespace TestAutomationFramework.Features.B2C_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add/Delete JuiceNet Device")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_ Add/Delete JuiceNet Device")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void AddDeleteJuiceNetDevice()
+        public virtual void B2C_Web_AddDeleteJuiceNetDevice()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/Delete JuiceNet Device", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_ Add/Delete JuiceNet Device", new string[] {
+                        "b2c",
                         "web"});
 #line 6
 this.ScenarioSetup(scenarioInfo);

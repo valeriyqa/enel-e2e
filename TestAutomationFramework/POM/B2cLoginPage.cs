@@ -3,10 +3,10 @@ using OpenQA.Selenium.Remote;
 
 namespace TestAutomationFramework.POM.Pages
 {
-    class LoginPage
+    class B2cLoginPage
     {
         private readonly RemoteWebDriver driver;
-        public LoginPage(RemoteWebDriver driver) => this.driver = driver;
+        public B2cLoginPage(RemoteWebDriver driver) => this.driver = driver;
 
         IWebElement emailField => driver.FindElementById("Email");
         IWebElement passwordField => driver.FindElementByName("Password");

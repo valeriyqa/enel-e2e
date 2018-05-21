@@ -64,16 +64,14 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Set Public Access for Location")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Set Public Access for Location")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void SetPublicAccessForLocation()
+        public virtual void B2B_Web_SetPublicAccessForLocation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set Public Access for Location", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Set Public Access for Location", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -81,16 +79,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check the inheritance of Public Access from Location to Sublocation")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Check the inheritance of Public Access from Location to Sublocation")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void CheckTheInheritanceOfPublicAccessFromLocationToSublocation()
+        public virtual void B2B_Web_CheckTheInheritanceOfPublicAccessFromLocationToSublocation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check the inheritance of Public Access from Location to Sublocation", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Check the inheritance of Public Access from Location to Sublocation", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 9
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -98,16 +94,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check the inheritance of Public Access from Location for Device")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Check the inheritance of Public Access from Location for Device")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void CheckTheInheritanceOfPublicAccessFromLocationForDevice()
+        public virtual void B2B_Web_CheckTheInheritanceOfPublicAccessFromLocationForDevice()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check the inheritance of Public Access from Location for Device", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Check the inheritance of Public Access from Location for Device", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 12
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -115,16 +109,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Start charging from emulator with Public Access on")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Start charging from emulator with Public Access on")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void StartChargingFromEmulatorWithPublicAccessOn()
+        public virtual void B2B_Web_StartChargingFromEmulatorWithPublicAccessOn()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Start charging from emulator with Public Access on", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Start charging from emulator with Public Access on", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line hidden

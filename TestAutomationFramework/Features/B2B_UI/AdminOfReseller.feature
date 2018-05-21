@@ -2,11 +2,11 @@
 	In order to verify Admin Of Reseller feature functionality
 	we run next scenarios
 
-@b2b @web @ignore
-Scenario: Checking the dashboard elements
+@b2b @web
+Scenario: B2B_Web_ Checking the dashboard elements
 
-@b2b @web @ignore
-Scenario: Manage Groups - Add User Group
+@b2b @web
+Scenario: B2B_Web_ Manage Groups - Add User Group
 
-@b2b @web @ignore
-Scenario: Manage Groups - Delete User Group
+@b2b @web
+Scenario: B2B_Web_ Manage Groups - Delete User Group

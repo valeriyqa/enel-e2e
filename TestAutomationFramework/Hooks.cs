@@ -19,6 +19,14 @@ namespace TestAutomationFramework
         private readonly IObjectContainer objectContainer;
         private RemoteWebDriver driver;
 
+        ////
+        //private readonly ScenarioContext scenarioContext;
+        //public Hooks(IObjectContainer objectContainer, ScenarioContext scenarioContext)
+        //{
+        //    this.objectContainer = objectContainer;
+        //    this.scenarioContext = scenarioContext;
+        //}
+
         public Hooks(IObjectContainer objectContainer)
         {
             this.objectContainer = objectContainer;
@@ -34,11 +42,32 @@ namespace TestAutomationFramework
             }
             catch (Exception)
             {
-                environment = "prod";
+                environment = "b2c_prod";
+                //environment = "b2b_alpha";
             }
             string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
             ConfigObject sConfig = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
             Config.SetDefaultConfig(sConfig);
+        }
+
+        [BeforeScenario("b2b")]
+        public void InitializeB2B()
+        {
+            if (!Config.Global.environment.system_type.Equals("b2b"))
+            {
+                //Assert.Ignore();
+                Assert.Inconclusive();
+            }
+        }
+
+        [BeforeScenario("b2c")]
+        public void InitializeB2C()
+        {
+            if (!Config.Global.environment.system_type.Equals("b2c"))
+            {
+                //Assert.Ignore();
+                Assert.Inconclusive();
+            }
         }
 
         [BeforeScenario("api")]
@@ -46,7 +75,8 @@ namespace TestAutomationFramework
         {
             if (!Config.Global.launcher.start_api)
             {
-                Assert.Ignore();
+                //Assert.Ignore();
+                Assert.Inconclusive();
             }
         }
 
@@ -55,7 +85,8 @@ namespace TestAutomationFramework
         {
             if (!Config.Global.launcher.start_udp)
             {
-                Assert.Ignore();
+                //Assert.Ignore();
+                Assert.Inconclusive();
             }
         }
 
@@ -69,16 +100,44 @@ namespace TestAutomationFramework
             }
             else
             {
-                Assert.Ignore();
+                //Assert.Ignore();
+                Assert.Inconclusive();
             }
         }
+
+        //[BeforeScenario("web")]
+        //public void InitializeWeb()
+        //{
+        //    if (Config.Global.launcher.start_web && 
+        //        Array.IndexOf(scenarioContext.ScenarioInfo.Tags, Config.Global.environment.system_type) > -1)
+        //    {
+        //        Console.WriteLine("start_web = " + Config.Global.launcher.start_web);
+        //        Console.WriteLine("system_type = " + Config.Global.environment.system_type);
+        //        Console.WriteLine(Array.IndexOf(scenarioContext.ScenarioInfo.Tags, Config.Global.environment.system_type));
+        //        Console.WriteLine();
+        //        SelectBrowser(BrowserType.Chrome);
+        //        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+        //    }
+        //    else
+        //    {
+        //        //Assert.Ignore();
+        //        Assert.Inconclusive();
+        //    }
+        //}
 
         [AfterScenario("web")]
         public void CleanUp()
         {
             if (Config.Global.launcher.start_web)
             {
-                driver.Quit();
+                try
+                {
+                    driver.Quit();
+                }
+                catch (Exception)
+                {
+                }
+
             }
         }
 

@@ -18,8 +18,8 @@ namespace TestAutomationFramework.Features.B2C_UI
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Registration And LogIn Operations")]
-    public partial class RegistrationAndLogInOperationsFeature
+    [NUnit.Framework.DescriptionAttribute("B2C Registration And LogIn Operations")]
+    public partial class B2CRegistrationAndLogInOperationsFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,7 +31,7 @@ namespace TestAutomationFramework.Features.B2C_UI
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Registration And LogIn Operations", "\tIn order to verify Registration And LogIn functionality\r\n\twe run next scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "B2C Registration And LogIn Operations", "\tIn order to verify Registration And LogIn functionality\r\n\twe run next scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,14 +64,14 @@ namespace TestAutomationFramework.Features.B2C_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Registration with email")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_ Registration with email")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void RegistrationWithEmail()
+        public virtual void B2C_Web_RegistrationWithEmail()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Registration with email", new string[] {
-                        "web",
-                        "ignore"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_ Registration with email", new string[] {
+                        "b2c",
+                        "web"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7

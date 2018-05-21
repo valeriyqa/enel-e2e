@@ -45,7 +45,7 @@ namespace TestAutomationFramework.Services.ApiService
         public static Object GetApiRequest(string requestCmd, Dictionary<string, Object> paramPairs)
         {
             var pathToModelObjects = "TestAutomationFramework.Services.ApiService";
-            var pathToRequests = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\Requests\");
+            var pathToRequests = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\B2cRequests\");
             var modelName = SnakeCaseToCamelCase(requestCmd);
             var jObject = Activator.CreateInstance(Type.GetType(pathToModelObjects + "." + modelName));
 
@@ -82,7 +82,7 @@ namespace TestAutomationFramework.Services.ApiService
         public static Object ResponseToObject(string requestCmd, IRestResponse response)
         {
             var pathToModelObjects = "TestAutomationFramework.Services.ApiService";
-            var pathToRequests = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\Requests\");
+            var pathToRequests = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\B2cRequests\");
             var modelName = SnakeCaseToCamelCase(requestCmd + "Response");
             dynamic jObject;
             try
@@ -103,7 +103,7 @@ namespace TestAutomationFramework.Services.ApiService
                 requestCmd = requestCmd + ".json";
             }
 
-            string pathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\Schemas\", requestCmd);
+            string pathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Services\ApiService\B2cSchemas\", requestCmd);
 
             JSchema schema;
             try

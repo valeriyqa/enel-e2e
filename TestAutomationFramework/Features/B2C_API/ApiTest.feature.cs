@@ -64,20 +64,22 @@ namespace TestAutomationFramework.Features.B2C_API
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Basic test for requests without parameters")]
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Basic test for requests without parameters")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
         [NUnit.Framework.TestCaseAttribute("get_car_models", null)]
         [NUnit.Framework.TestCaseAttribute("get_server_info", null)]
         [NUnit.Framework.TestCaseAttribute("get_timezones", null)]
-        public virtual void BasicTestForRequestsWithoutParameters(string restAPI, string[] exampleTags)
+        public virtual void B2C_API_BasicTestForRequestsWithoutParameters(string restAPI, string[] exampleTags)
         {
             string[] @__tags = new string[] {
+                    "b2c",
                     "api"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic test for requests without parameters", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Basic test for requests without parameters", @__tags);
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
@@ -91,11 +93,13 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add/delete unit to the system")]
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Add/delete unit to the system")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
-        public virtual void AddDeleteUnitToTheSystem()
+        public virtual void B2C_API_AddDeleteUnitToTheSystem()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete unit to the system", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Add/delete unit to the system", new string[] {
+                        "b2c",
                         "api"});
 #line 16
 this.ScenarioSetup(scenarioInfo);
@@ -122,21 +126,23 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add/delete program signup info")]
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Add/delete program signup info")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
-        public virtual void AddDeleteProgramSignupInfo()
+        public virtual void B2C_API_AddDeleteProgramSignupInfo()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete program signup info", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Add/delete program signup info", new string[] {
+                        "b2c",
                         "api"});
-#line 29
-this.ScenarioSetup(scenarioInfo);
 #line 30
- testRunner.Given("program signup info is not set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 31
- testRunner.When("I send \"set_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("program signup info is not set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 32
- testRunner.And("I send \"get_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I send \"set_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 33
+ testRunner.And("I send \"get_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
  testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -178,15 +184,15 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "step1.service_city",
                         "San Carol"});
-#line 34
+#line 35
  testRunner.And("property \"<PropertyName>\" should be equal to \"<Value>\"", ((string)(null)), table1, "And ");
-#line 48
- testRunner.And("property \"step1.post_code\" should be equal to \"95128\" string", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
- testRunner.When("I send \"delete_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("property \"step1.post_code\" should be equal to \"95128\" string", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
- testRunner.And("I send \"get_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I send \"delete_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 51
+ testRunner.And("I send \"get_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
  testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -228,16 +234,17 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "step1.service_city",
                         ""});
-#line 52
+#line 53
  testRunner.And("property \"<PropertyName>\" should be equal to \"<Value>\"", ((string)(null)), table2, "And ");
-#line 66
+#line 67
  testRunner.And("property \"step1.post_code\" should be equal to \"94070\" string", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Incorrect token test")]
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Incorrect token test")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
         [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
         [NUnit.Framework.TestCaseAttribute("add_car", null)]
@@ -263,16 +270,17 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("set_program_signup_info", null)]
         [NUnit.Framework.TestCaseAttribute("set_schedule", null)]
         [NUnit.Framework.TestCaseAttribute("update_car", null)]
-        public virtual void IncorrectTokenTest(string restAPI, string[] exampleTags)
+        public virtual void B2C_API_IncorrectTokenTest(string restAPI, string[] exampleTags)
         {
             string[] @__tags = new string[] {
+                    "b2c",
                     "api"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrect token test", @__tags);
-#line 69
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Incorrect token test", @__tags);
+#line 70
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -281,15 +289,15 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "token",
                         "incorrect_token"});
-#line 70
+#line 71
  testRunner.When(string.Format("I send \"{0}\" request with next \"<Property>\" \"<Value>\"", restAPI), ((string)(null)), table3, "When ");
-#line 73
- testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 74
- testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 75
- testRunner.And("property \"error_code\" should be equal to \"1007\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 76
+ testRunner.And("property \"error_code\" should be equal to \"1007\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 77
  testRunner.And("property \"error_message\" should be equal to \"Invalid session token. Please reente" +
                     "r password.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -297,7 +305,8 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Missing token test")]
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Missing token test")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
         [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
         [NUnit.Framework.TestCaseAttribute("add_car", null)]
@@ -323,26 +332,27 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("set_program_signup_info", null)]
         [NUnit.Framework.TestCaseAttribute("set_schedule", null)]
         [NUnit.Framework.TestCaseAttribute("update_car", null)]
-        public virtual void MissingTokenTest(string restAPI, string[] exampleTags)
+        public virtual void B2C_API_MissingTokenTest(string restAPI, string[] exampleTags)
         {
             string[] @__tags = new string[] {
+                    "b2c",
                     "api"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing token test", @__tags);
-#line 105
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Missing token test", @__tags);
 #line 106
- testRunner.When(string.Format("I send \"{0}\" request with next \"token\" \"null\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 107
- testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When(string.Format("I send \"{0}\" request with next \"token\" \"null\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 108
- testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 109
- testRunner.And("property \"error_code\" should be equal to \"1007\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 110
+ testRunner.And("property \"error_code\" should be equal to \"1007\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 111
  testRunner.And("property \"error_message\" should be equal to \"Invalid session token. Please reente" +
                     "r password.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -350,7 +360,8 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Incorrect account token test")]
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Incorrect account token test")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
         [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
         [NUnit.Framework.TestCaseAttribute("add_unit", null)]
@@ -361,26 +372,27 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("get_share_pin", null)]
         [NUnit.Framework.TestCaseAttribute("get_utilitybill_url", null)]
         [NUnit.Framework.TestCaseAttribute("register_pushes", null)]
-        public virtual void IncorrectAccountTokenTest(string restAPI, string[] exampleTags)
+        public virtual void B2C_API_IncorrectAccountTokenTest(string restAPI, string[] exampleTags)
         {
             string[] @__tags = new string[] {
+                    "b2c",
                     "api"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrect account token test", @__tags);
-#line 139
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Incorrect account token test", @__tags);
 #line 140
- testRunner.When(string.Format("I send \"{0}\" request with next \"account_token\" \"incorrect_token\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 141
- testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When(string.Format("I send \"{0}\" request with next \"account_token\" \"incorrect_token\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 142
- testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 143
- testRunner.And("property \"error_code\" should be equal to \"1009\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 144
+ testRunner.And("property \"error_code\" should be equal to \"1009\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 145
  testRunner.And("property \"error_message\" should be equal to \"User have not permissions to unit. C" +
                     "heck account token.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -388,110 +400,124 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Missing account token test")]
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Missing account token test")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
         [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
         [NUnit.Framework.TestCaseAttribute("delete_account_unit", null)]
         [NUnit.Framework.TestCaseAttribute("get_account_units", null)]
         [NUnit.Framework.TestCaseAttribute("register_pushes", null)]
-        public virtual void MissingAccountTokenTest(string restAPI, string[] exampleTags)
+        public virtual void B2C_API_MissingAccountTokenTest(string restAPI, string[] exampleTags)
         {
             string[] @__tags = new string[] {
+                    "b2c",
                     "api"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing account token test", @__tags);
-#line 175
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Missing account token test", @__tags);
 #line 176
- testRunner.When(string.Format("I send \"{0}\" request with next \"account_token\" \"null\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 177
- testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When(string.Format("I send \"{0}\" request with next \"account_token\" \"null\"", restAPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 178
- testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 179
- testRunner.And("property \"error_code\" should be equal to \"1009\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("property \"success\" should be equal to \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 180
+ testRunner.And("property \"error_code\" should be equal to \"1009\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 181
  testRunner.And("property \"error_message\" should be equal to \"Missing Account token\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add/delete new unit to the system")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        public virtual void AddDeleteNewUnitToTheSystem()
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Add/delete new unit to the system")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        public virtual void B2C_API_AddDeleteNewUnitToTheSystem()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete new unit to the system", new string[] {
-                        "ignore"});
-#line 211
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Add/delete new unit to the system", new string[] {
+                        "b2c",
+                        "api"});
+#line 212
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add/delete car to the system")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        public virtual void AddDeleteCarToTheSystem()
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Add/delete car to the system")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        public virtual void B2C_API_AddDeleteCarToTheSystem()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete car to the system", new string[] {
-                        "ignore"});
-#line 214
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Add/delete car to the system", new string[] {
+                        "b2c",
+                        "api"});
+#line 215
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add/delete Utility bill")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        public virtual void AddDeleteUtilityBill()
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Add/delete Utility bill")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        public virtual void B2C_API_AddDeleteUtilityBill()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add/delete Utility bill", new string[] {
-                        "ignore"});
-#line 217
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Add/delete Utility bill", new string[] {
+                        "b2c",
+                        "api"});
+#line 218
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Ownership operations")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        public virtual void OwnershipOperations()
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Ownership operations")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        public virtual void B2C_API_OwnershipOperations()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Ownership operations", new string[] {
-                        "ignore"});
-#line 220
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Ownership operations", new string[] {
+                        "b2c",
+                        "api"});
+#line 221
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Share device operations")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        public virtual void ShareDeviceOperations()
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Share device operations")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        public virtual void B2C_API_ShareDeviceOperations()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Share device operations", new string[] {
-                        "ignore"});
-#line 223
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Share device operations", new string[] {
+                        "b2c",
+                        "api"});
+#line 224
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Logout from the system")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        public virtual void LogoutFromTheSystem()
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ Logout from the system")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("api")]
+        public virtual void B2C_API_LogoutFromTheSystem()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Logout from the system", new string[] {
-                        "ignore"});
-#line 226
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Logout from the system", new string[] {
+                        "b2c",
+                        "api"});
+#line 227
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();

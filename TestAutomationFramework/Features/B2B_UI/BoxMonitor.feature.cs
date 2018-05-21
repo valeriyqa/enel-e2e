@@ -65,16 +65,14 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Device get offline status if not active for 10 minutes")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Device get offline status if not active for 10 minutes")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void DeviceGetOfflineStatusIfNotActiveFor10Minutes()
+        public virtual void B2B_Web_DeviceGetOfflineStatusIfNotActiveFor10Minutes()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Device get offline status if not active for 10 minutes", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Device get offline status if not active for 10 minutes", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -82,16 +80,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Reservation for charging")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Reservation for charging")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void ReservationForCharging()
+        public virtual void B2B_Web_ReservationForCharging()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Reservation for charging", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Reservation for charging", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 9
 this.ScenarioSetup(scenarioInfo);
 #line hidden

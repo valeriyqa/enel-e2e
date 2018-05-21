@@ -64,16 +64,14 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Manage Devices - Add Device(Valid ID)")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Devices - Add Device(Valid ID)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void ManageDevices_AddDeviceValidID()
+        public virtual void B2B_Web_ManageDevices_AddDeviceValidID()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Manage Devices - Add Device(Valid ID)", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Devices - Add Device(Valid ID)", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -81,16 +79,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Manage Devices - Add Device(Already added Unit ID)")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Devices - Add Device(Already added Unit ID)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void ManageDevices_AddDeviceAlreadyAddedUnitID()
+        public virtual void B2B_Web_ManageDevices_AddDeviceAlreadyAddedUnitID()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Manage Devices - Add Device(Already added Unit ID)", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Devices - Add Device(Already added Unit ID)", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 9
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -98,16 +94,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Manage Devices - Add Device(Incorrect Unit ID)")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Devices - Add Device(Incorrect Unit ID)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void ManageDevices_AddDeviceIncorrectUnitID()
+        public virtual void B2B_Web_ManageDevices_AddDeviceIncorrectUnitID()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Manage Devices - Add Device(Incorrect Unit ID)", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Devices - Add Device(Incorrect Unit ID)", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 12
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -115,16 +109,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Manage Devices - Link device to Location")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Devices - Link device to Location")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void ManageDevices_LinkDeviceToLocation()
+        public virtual void B2B_Web_ManageDevices_LinkDeviceToLocation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Manage Devices - Link device to Location", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Devices - Link device to Location", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -132,16 +124,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Manage Devices - Unlink Device")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Devices - Unlink Device")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void ManageDevices_UnlinkDevice()
+        public virtual void B2B_Web_ManageDevices_UnlinkDevice()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Manage Devices - Unlink Device", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Devices - Unlink Device", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 18
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -149,16 +139,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Manage Devices - Link device to Sublocation")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Devices - Link device to Sublocation")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void ManageDevices_LinkDeviceToSublocation()
+        public virtual void B2B_Web_ManageDevices_LinkDeviceToSublocation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Manage Devices - Link device to Sublocation", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Devices - Link device to Sublocation", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 21
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -166,16 +154,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Manage Devices - Charging")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Devices - Charging")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void ManageDevices_Charging()
+        public virtual void B2B_Web_ManageDevices_Charging()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Manage Devices - Charging", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Devices - Charging", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 24
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -183,16 +169,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Manage devices - Reset ownership")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage devices - Reset ownership")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void ManageDevices_ResetOwnership()
+        public virtual void B2B_Web_ManageDevices_ResetOwnership()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Manage devices - Reset ownership", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage devices - Reset ownership", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 27
 this.ScenarioSetup(scenarioInfo);
 #line hidden

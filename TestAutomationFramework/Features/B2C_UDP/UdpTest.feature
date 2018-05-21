@@ -2,8 +2,8 @@
 	In order to test UDP functionality
 	we run next scenarios
 
-@udp
-Scenario Outline: Test UDP endpoint
+@b2c @udp
+Scenario Outline: B2C_UDP_ Test UDP endpoint
 	Given I send udp packages with next "<UdpData>"
 
 	Examples: 

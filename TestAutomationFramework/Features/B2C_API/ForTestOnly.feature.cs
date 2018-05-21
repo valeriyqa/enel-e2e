@@ -64,73 +64,17 @@ namespace TestAutomationFramework.Features.B2C_API
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TestScenario")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2C_API_ OneMoreTest")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
-        [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
-        [NUnit.Framework.TestCaseAttribute("add_car", null)]
-        [NUnit.Framework.TestCaseAttribute("add_unit", null)]
-        [NUnit.Framework.TestCaseAttribute("check_device", null)]
-        [NUnit.Framework.TestCaseAttribute("delete_account_unit", null)]
-        [NUnit.Framework.TestCaseAttribute("delete_car", null)]
-        [NUnit.Framework.TestCaseAttribute("delete_program_signup_info", null)]
-        [NUnit.Framework.TestCaseAttribute("get_account_units", null)]
-        [NUnit.Framework.TestCaseAttribute("get_car_models", null)]
-        [NUnit.Framework.TestCaseAttribute("get_history", null)]
-        [NUnit.Framework.TestCaseAttribute("get_info", null)]
-        [NUnit.Framework.TestCaseAttribute("get_notifications", null)]
-        [NUnit.Framework.TestCaseAttribute("get_plot", null)]
-        [NUnit.Framework.TestCaseAttribute("get_program_signup_info", null)]
-        [NUnit.Framework.TestCaseAttribute("get_reset_pin", null)]
-        [NUnit.Framework.TestCaseAttribute("get_schedule", null)]
-        [NUnit.Framework.TestCaseAttribute("get_server_info", null)]
-        [NUnit.Framework.TestCaseAttribute("get_share_pin", null)]
-        [NUnit.Framework.TestCaseAttribute("get_state", null)]
-        [NUnit.Framework.TestCaseAttribute("get_timezones", null)]
-        [NUnit.Framework.TestCaseAttribute("get_utilitybill_url", null)]
-        [NUnit.Framework.TestCaseAttribute("logout", null)]
-        [NUnit.Framework.TestCaseAttribute("pair_device", null)]
-        [NUnit.Framework.TestCaseAttribute("register_pushes", null)]
-        [NUnit.Framework.TestCaseAttribute("reset_ownership", null)]
-        [NUnit.Framework.TestCaseAttribute("select_car", null)]
-        [NUnit.Framework.TestCaseAttribute("set_charging_time", null)]
-        [NUnit.Framework.TestCaseAttribute("set_garage", null)]
-        [NUnit.Framework.TestCaseAttribute("set_info", null)]
-        [NUnit.Framework.TestCaseAttribute("set_limit", null)]
-        [NUnit.Framework.TestCaseAttribute("set_notifications", null)]
-        [NUnit.Framework.TestCaseAttribute("set_override", null)]
-        [NUnit.Framework.TestCaseAttribute("set_program_signup_info", null)]
-        [NUnit.Framework.TestCaseAttribute("set_schedule", null)]
-        [NUnit.Framework.TestCaseAttribute("share_device", null)]
-        [NUnit.Framework.TestCaseAttribute("update_car", null)]
-        public virtual void TestScenario(string aPI, string[] exampleTags)
+        public virtual void B2C_API_OneMoreTest()
         {
-            string[] @__tags = new string[] {
-                    "api",
-                    "ignore"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TestScenario", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ OneMoreTest", new string[] {
+                        "b2c",
+                        "api"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
- testRunner.Given(string.Format("I wont to send \"{0}\"", aPI), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("OneMoreTest")]
-        [NUnit.Framework.CategoryAttribute("api")]
-        public virtual void OneMoreTest()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("OneMoreTest", new string[] {
-                        "api"});
-#line 49
-this.ScenarioSetup(scenarioInfo);
-#line 50
  testRunner.Given("I want to test fignia", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             this.ScenarioCleanup();

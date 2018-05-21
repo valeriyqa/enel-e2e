@@ -1,9 +1,9 @@
-﻿Feature: MyJuiceNet
+﻿Feature: B2C MyJuiceNet
 	In order to verify JuiceNet functionality
 	we run next scenarios
 
-@web 
-Scenario: Add/Delete JuiceNet Device
+@b2c @web 
+Scenario: B2C_Web_ Add/Delete JuiceNet Device
 	Note! We collect add and delete scenarios together to avoid parallel execution collision,
 	when separate scenarios may perform mutually exclusive actions.
 

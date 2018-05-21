@@ -64,21 +64,23 @@ namespace TestAutomationFramework.Features.B2C_UDP
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Test UDP endpoint")]
+        [NUnit.Framework.DescriptionAttribute("B2C_UDP_ Test UDP endpoint")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("udp")]
         [NUnit.Framework.TestCaseAttribute("TestUdpEndpoint_State_Standby", null)]
         [NUnit.Framework.TestCaseAttribute("TestUdpEndpoint_State_Connected", null)]
         [NUnit.Framework.TestCaseAttribute("TestUdpEndpoint_State_Charging", null)]
         [NUnit.Framework.TestCaseAttribute("TestUdpEndpoint_RawData", null)]
-        public virtual void TestUDPEndpoint(string udpData, string[] exampleTags)
+        public virtual void B2C_UDP_TestUDPEndpoint(string udpData, string[] exampleTags)
         {
             string[] @__tags = new string[] {
+                    "b2c",
                     "udp"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test UDP endpoint", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_UDP_ Test UDP endpoint", @__tags);
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
