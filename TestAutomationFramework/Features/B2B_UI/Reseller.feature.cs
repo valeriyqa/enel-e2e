@@ -64,16 +64,14 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Log in as a reseller (Positive)")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Log in as a reseller (Positive)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void LogInAsAResellerPositive()
+        public virtual void B2B_Web_LogInAsAResellerPositive()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Log in as a reseller (Positive)", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Log in as a reseller (Positive)", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -81,16 +79,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Log in as a reseller (Negative)")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Log in as a reseller (Negative)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void LogInAsAResellerNegative()
+        public virtual void B2B_Web_LogInAsAResellerNegative()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Log in as a reseller (Negative)", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Log in as a reseller (Negative)", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 9
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -98,16 +94,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add New Client")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Add New Client")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void AddNewClient()
+        public virtual void B2B_Web_AddNewClient()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add New Client", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Add New Client", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 12
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -115,16 +109,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Log in as a client")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Log in as a client")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void LogInAsAClient()
+        public virtual void B2B_Web_LogInAsAClient()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Log in as a client", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Log in as a client", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -132,16 +124,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Update client information")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Update client information")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void UpdateClientInformation()
+        public virtual void B2B_Web_UpdateClientInformation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update client information", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Update client information", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 18
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -149,16 +139,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Reset password")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Reset password")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void ResetPassword()
+        public virtual void B2B_Web_ResetPassword()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Reset password", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Reset password", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 21
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -166,16 +154,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Logout")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Logout")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void Logout()
+        public virtual void B2B_Web_Logout()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Logout", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Logout", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 24
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -183,16 +169,14 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Forgot password (login form)")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Forgot password (login form)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void ForgotPasswordLoginForm()
+        public virtual void B2B_Web_ForgotPasswordLoginForm()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Forgot password (login form)", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Forgot password (login form)", new string[] {
                         "b2b",
-                        "web",
-                        "ignore"});
+                        "web"});
 #line 27
 this.ScenarioSetup(scenarioInfo);
 #line hidden

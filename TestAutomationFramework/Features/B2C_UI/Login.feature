@@ -1,15 +1,6 @@
-﻿Feature: Login
+﻿Feature: B2C Login
 	Check if login functionality works
 
-#@web 
-#Scenario: Login user as Administrator
-#	Given I navigate to application
-#	And I enter username and password
-#		| UserName                      | Password   |
-#		| alexander.burdeyniy@gmail.com | Rjcvjc2020 |
-#	And I click login
-#	Then I should see user logged into the application
-
-@web
-Scenario: Login to the application as registered user
+@b2c @web
+Scenario: B2C_Web_ Login to the application as registered user
 	Given I login to the application as "Oleksii"

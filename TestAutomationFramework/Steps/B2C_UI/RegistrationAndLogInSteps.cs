@@ -107,10 +107,10 @@ namespace TestAutomationFramework.Steps.UiSteps
         public void GivenILoginToTheApplicationAs(string userName)
         {
             driver.Navigate().GoToUrl(host + "Account/Login");
-            LoginPage loginPage = new LoginPage(driver);
+            B2cLoginPage loginPage = new B2cLoginPage(driver);
             Tools.LoadUsersFromConf.User currentUser = usersDictionary[userName];
             loginPage.LoginToApplication(currentUser.userEmail, currentUser.userPassword);
-            GeneralPage generalPage = new GeneralPage(driver);
+            B2cGeneralPage generalPage = new B2cGeneralPage(driver);
             Assert.AreEqual(generalPage.GetUserName(), currentUser.userDescription);
         }
     }

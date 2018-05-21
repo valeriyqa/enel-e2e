@@ -1,8 +1,8 @@
 ﻿Feature: API
 	In order to test API functionality we run next scenarios
 
-@api 
-Scenario Outline: Basic test for requests without parameters
+@b2c @api 
+Scenario Outline: B2C_API_ Basic test for requests without parameters
 	When I send "<RestAPI>" request
 	Then response should be valid to schema
 	And property "success" should be equal to "True"
@@ -12,8 +12,8 @@ Scenario Outline: Basic test for requests without parameters
 		| get_server_info |
 		| get_timezones   |
 
-@api
-Scenario: Add/delete unit to the system
+@b2c @api
+Scenario: B2C_API_ Add/delete unit to the system
 	Given JuiceBox unit is not added
 	When I send "add_account_unit" request
 	And I send "get_account_units" request
@@ -24,9 +24,10 @@ Scenario: Add/delete unit to the system
 	Then response should be valid to schema
 	And response should contain device number is "False"
 
-# Unit should be added
-@api 
-Scenario: Add/delete program signup info
+# Unit should be added before test. (Will be nice to create at least three separate devices for each system,
+# with unique ID. To have possibility run tests in the parallel mode.)
+@b2c @api 
+Scenario: B2C_API_ Add/delete program signup info
 	Given program signup info is not set
 	When I send "set_program_signup_info" request
 	And I send "get_program_signup_info" request
@@ -65,8 +66,8 @@ Scenario: Add/delete program signup info
 		| step1.service_city              |                                  |
 	And property "step1.post_code" should be equal to "94070" string
 
-@api 
-Scenario Outline: Incorrect token test
+@b2c @api 
+Scenario Outline: B2C_API_ Incorrect token test
 	When I send "<RestAPI>" request with next "<Property>" "<Value>"
 		| Property | Value           |
 		| token    | incorrect_token |
@@ -101,8 +102,8 @@ Scenario Outline: Incorrect token test
 		| set_schedule               |
 		| update_car                 |
 
-@api 
-Scenario Outline: Missing token test
+@b2c @api 
+Scenario Outline: B2C_API_ Missing token test
 	When I send "<RestAPI>" request with next "token" "null"
 	Then response should be valid to schema "error"
 	And property "success" should be equal to "False"
@@ -135,8 +136,8 @@ Scenario Outline: Missing token test
 		| set_schedule               |
 		| update_car                 |
 
-@api 
-Scenario Outline: Incorrect account token test
+@b2c @api 
+Scenario Outline: B2C_API_ Incorrect account token test
 	When I send "<RestAPI>" request with next "account_token" "incorrect_token"
 	Then response should be valid to schema "error"
 	And property "success" should be equal to "False"
@@ -171,8 +172,8 @@ Scenario Outline: Incorrect account token test
 		#| share_device               |1003
 		#| update_car                 |1002
 
-@api 
-Scenario Outline: Missing account token test
+@b2c @api 
+Scenario Outline: B2C_API_ Missing account token test
 	When I send "<RestAPI>" request with next "account_token" "null"
 	Then response should be valid to schema "error"
 	And property "success" should be equal to "False"
@@ -207,23 +208,23 @@ Scenario Outline: Missing account token test
 		#| share_device               |1003
 		#| update_car                 |1002
 
-@ignore
-Scenario: Add/delete new unit to the system
+@b2c @api 
+Scenario: B2C_API_ Add/delete new unit to the system
 
-@ignore
-Scenario: Add/delete car to the system
+@b2c @api 
+Scenario: B2C_API_ Add/delete car to the system
 
-@ignore
-Scenario: Add/delete Utility bill
+@b2c @api 
+Scenario: B2C_API_ Add/delete Utility bill
 
-@ignore
-Scenario: Ownership operations
+@b2c @api 
+Scenario: B2C_API_ Ownership operations
 
-@ignore
-Scenario: Share device operations
+@b2c @api 
+Scenario: B2C_API_ Share device operations
 
-@ignore
-Scenario: Logout from the system
+@b2c @api 
+Scenario: B2C_API_ Logout from the system
 
 
 

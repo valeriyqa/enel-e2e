@@ -3,10 +3,10 @@ using OpenQA.Selenium.Remote;
 
 namespace TestAutomationFramework.POM.Pages
 {
-    class GeneralPage
+    class B2cGeneralPage
     {
         private readonly RemoteWebDriver driver;
-        public GeneralPage(RemoteWebDriver driver) => this.driver = driver;
+        public B2cGeneralPage(RemoteWebDriver driver) => this.driver = driver;
 
         IWebElement userNameButton => driver.FindElementByXPath("//*[@id='wrapper']/nav/ul/li[3]/a");
 

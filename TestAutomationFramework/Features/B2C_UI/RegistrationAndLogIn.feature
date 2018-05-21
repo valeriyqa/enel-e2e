@@ -1,9 +1,9 @@
-﻿Feature: Registration And LogIn Operations
+﻿Feature: B2C Registration And LogIn Operations
 	In order to verify Registration And LogIn functionality
 	we run next scenarios
 
-@web @ignore
-Scenario: Registration with email
+@b2c @web
+Scenario: B2C_Web_ Registration with email
 	Given I navigate to "Account/Login" page
 	When I click on "Register new user with email" link
 	Then I should be navigated to the "Account/Register" page
