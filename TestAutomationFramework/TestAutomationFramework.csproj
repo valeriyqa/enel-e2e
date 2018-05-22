@@ -147,6 +147,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Features\B2B_UI\_test.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_test.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\B2B_UI\TimeOfUse.feature.cs">
       <DependentUpon>TimeOfUse.feature</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -208,7 +213,9 @@
       <DependentUpon>Reports.feature</DependentUpon>
     </Compile>
     <Compile Include="Hooks.cs" />
+    <Compile Include="POM\B2bGeneralPage.cs" />
     <Compile Include="POM\B2cGeneralPage.cs" />
+    <Compile Include="POM\B2bLoginPage.cs" />
     <Compile Include="POM\B2cLoginPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApiService\B2cModels.cs" />
@@ -217,12 +224,13 @@
     <Compile Include="Services\UdpService\Device\ProtConvert.cs" />
     <Compile Include="Services\UdpService\Device\UdpClientEx.cs" />
     <Compile Include="Services\UdpService\UdpEndpointTest.cs" />
-    <Compile Include="Steps\B2C_API\ApiTestSteps.cs" />
-    <Compile Include="Steps\B2C_API\TestTest.cs" />
-    <Compile Include="Steps\B2C_UDP\B2cUdpTestSteps.cs" />
-    <Compile Include="Steps\B2C_UI\LoginSteps.cs" />
-    <Compile Include="Steps\B2C_UI\MyJuiceNet.cs" />
-    <Compile Include="Steps\B2C_UI\RegistrationAndLogInSteps.cs" />
+    <Compile Include="Steps\UI\B2bUiLoginSteps.cs" />
+    <Compile Include="Steps\API\B2cApiTestSteps.cs" />
+    <Compile Include="Steps\API\B2cApiTestTest.cs" />
+    <Compile Include="Steps\UDP\B2cUdpTestSteps.cs" />
+    <Compile Include="Steps\UI\B2cUiLoginSteps.cs" />
+    <Compile Include="Steps\UI\B2cUiMyJuiceNet.cs" />
+    <Compile Include="Steps\UI\B2cUiRegistrationAndLogInSteps.cs" />
     <Compile Include="Tools\ConvertDateTime.cs" />
     <Compile Include="Tools\LoadTableFromFile.cs" />
     <Compile Include="Tools\LoadUsersFromConf.cs" />
@@ -268,6 +276,10 @@
     <None Include="Features\B2B_UI\PublicAccess.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PublicAccess.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\_test.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>_test.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\B2B_UI\TimeOfUse.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -396,9 +408,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Steps\B2B_UI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

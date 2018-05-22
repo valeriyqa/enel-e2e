@@ -6,18 +6,18 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
-using TestAutomationFramework.POM.Pages;
+using TestAutomationFramework.POM;
 
-namespace TestAutomationFramework.Steps.UiSteps
+namespace TestAutomationFramework.Steps.UI
 {
     [Binding]
-    class RegistrationAndLogInSteps
+    class B2cUiRegistrationAndLogInSteps
     {
         private readonly RemoteWebDriver driver;
         private string host = Config.Global.environment.dashboard_address;
         private Dictionary<string, Tools.LoadUsersFromConf.User> usersDictionary = Tools.LoadUsersFromConf.GetUsers();
 
-        public RegistrationAndLogInSteps(RemoteWebDriver driver) => this.driver = driver;
+        public B2cUiRegistrationAndLogInSteps(RemoteWebDriver driver) => this.driver = driver;
 
         [Given(@"I navigate to ""(.*)"" page")] //done
         public void GivenINavigateToPage(string page)
@@ -103,8 +103,19 @@ namespace TestAutomationFramework.Steps.UiSteps
             Console.WriteLine("I should be logged into the application");
         }
 
-        [Given(@"I login to the application as ""(.*)""")] //done
-        public void GivenILoginToTheApplicationAs(string userName)
+        //[Given(@"I login to the application as ""(.*)""")] //done
+        //public void GivenILoginToTheApplicationAs(string userName)
+        //{
+        //    driver.Navigate().GoToUrl(host + "Account/Login");
+        //    B2cLoginPage loginPage = new B2cLoginPage(driver);
+        //    Tools.LoadUsersFromConf.User currentUser = usersDictionary[userName];
+        //    loginPage.LoginToApplication(currentUser.userEmail, currentUser.userPassword);
+        //    B2cGeneralPage generalPage = new B2cGeneralPage(driver);
+        //    Assert.AreEqual(generalPage.GetUserName(), currentUser.userDescription);
+        //}
+
+        [Given(@"I login to the b2c system as ""(.*)""")]
+        public void GivenILoginToTheB2cSystemAs(string userName)
         {
             driver.Navigate().GoToUrl(host + "Account/Login");
             B2cLoginPage loginPage = new B2cLoginPage(driver);

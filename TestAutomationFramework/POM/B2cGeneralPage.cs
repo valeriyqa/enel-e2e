@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
-namespace TestAutomationFramework.POM.Pages
+namespace TestAutomationFramework.POM
 {
     class B2cGeneralPage
     {

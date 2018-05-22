@@ -8,7 +8,7 @@ Scenario: B2C_Web_ Add/Delete JuiceNet Device
 	when separate scenarios may perform mutually exclusive actions.
 
 	Given JuiceNet device is not added
-	And I login to the application as "Oleksii"
+	And I login to the b2c system as "Oleksii"
 	When I click on "Add JuiceNet Device" button
 	And I set field "inputUnitID" to "373708002"
 	And I click on "Add JuiceNet Device" button

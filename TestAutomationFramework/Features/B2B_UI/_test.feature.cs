@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace TestAutomationFramework.Features.B2C_UI
+namespace TestAutomationFramework.Features.B2B_UI
 {
     using TechTalk.SpecFlow;
     
@@ -18,20 +18,20 @@ namespace TestAutomationFramework.Features.B2C_UI
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("B2C Login")]
-    public partial class B2CLoginFeature
+    [NUnit.Framework.DescriptionAttribute("For test onlu")]
+    public partial class ForTestOnluFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Login.feature"
+#line 1 "_test.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "B2C Login", "\tCheck if login functionality works", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "For test onlu", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,18 +64,18 @@ namespace TestAutomationFramework.Features.B2C_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_ Login to the application as registered user")]
-        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.DescriptionAttribute("Test B2B system")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_LoginToTheApplicationAsRegisteredUser()
+        public virtual void TestB2BSystem()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_ Login to the application as registered user", new string[] {
-                        "b2c",
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test B2B system", new string[] {
+                        "b2b",
                         "web"});
-#line 5
-this.ScenarioSetup(scenarioInfo);
 #line 6
- testRunner.Given("I login to the b2c system as \"Oleksii\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
+#line 7
+ testRunner.Given("I login to the b2b system as \"Oleksii\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             this.ScenarioCleanup();
         }

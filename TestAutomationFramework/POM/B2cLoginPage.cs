@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
-namespace TestAutomationFramework.POM.Pages
+namespace TestAutomationFramework.POM
 {
     class B2cLoginPage
     {
@@ -14,7 +14,9 @@ namespace TestAutomationFramework.POM.Pages
 
         public void LoginToApplication(string userEmail, string userPassword)
         {
+            //emailField.Clear();
             emailField.SendKeys(userEmail);
+            //passwordField.Clear();
             passwordField.SendKeys(userPassword);
             loginButton.Submit();
         }
