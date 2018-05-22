@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using TestAutomationFramework.Services.ApiService;
 
-namespace TestAutomationFramework.Steps.UiSteps
+namespace TestAutomationFramework.Steps.UI
 {
     [Binding]
-    class MyJuiceNet
+    class B2cUiMyJuiceNet
     {
         private readonly RemoteWebDriver driver;
-        public MyJuiceNet(RemoteWebDriver driver) => this.driver = driver;
+        public B2cUiMyJuiceNet(RemoteWebDriver driver) => this.driver = driver;
 
 
         [Given(@"JuiceNet device is not added")] //done

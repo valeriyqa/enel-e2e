@@ -7,19 +7,19 @@ using System.Collections.Generic;
 using System.Threading;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
-using TestAutomationFramework.POM.Pages;
+using TestAutomationFramework.POM;
 
 
-namespace TestAutomationFramework.Steps
+namespace TestAutomationFramework.Steps.UI
 {
     [Binding]
-    public class LoginSteps
+    public class B2cUiLoginSteps
     {
         private readonly RemoteWebDriver driver;
         private string host = Config.Global.environment.dashboard_address;
         private Dictionary<string, Tools.LoadUsersFromConf.User> usersDictionary = Tools.LoadUsersFromConf.GetUsers();
 
-        public LoginSteps(RemoteWebDriver driver) => this.driver = driver;
+        public B2cUiLoginSteps(RemoteWebDriver driver) => this.driver = driver;
 
         //private readonly RemoteWebDriver driver;
 

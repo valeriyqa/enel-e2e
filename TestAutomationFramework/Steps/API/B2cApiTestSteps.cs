@@ -12,7 +12,7 @@ using TestAutomationFramework.Services.ApiService;
 namespace TestAutomationFramework.Steps.API
 {
     [Binding]
-    class ApiTestSteps
+    class B2cApiTestSteps
     {
         //The POCO for sharing data
         public class ApiData
@@ -23,7 +23,7 @@ namespace TestAutomationFramework.Steps.API
         }
 
         private readonly ApiData apiData;
-        public ApiTestSteps(ApiData apiData)
+        public B2cApiTestSteps(ApiData apiData)
         {
             this.apiData = apiData;
         }
@@ -181,10 +181,6 @@ namespace TestAutomationFramework.Steps.API
         {
             RestApi.SendApiRequest(RestApi.GetApiRequest("delete_program_signup_info"));
         }
-
-
-
-
 
         [Given(@"JuiceBox unit is not added")]
         public void JuiceBoxUnitIsNotAdded()

@@ -77,7 +77,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 10
  testRunner.Given("JuiceNet device is not added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 11
- testRunner.And("I login to the application as \"Oleksii\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I login to the b2c system as \"Oleksii\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
  testRunner.When("I click on \"Add JuiceNet Device\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13

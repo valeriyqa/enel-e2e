@@ -3,10 +3,11 @@ using System.Reflection;
 using TechTalk.SpecFlow;
 using TestAutomationFramework.Services;
 
-namespace TestAutomationFramework.Steps.UdpSteps
+namespace TestAutomationFramework.Steps.UDP
+
 {
     [Binding]
-    class UdpTestSteps
+    class B2cUdpTestSteps
     {
         [Given(@"I send udp packages with next ""(.*)""")]
         public void GivenISendUdpPackagesWithNextData(string udpData)
