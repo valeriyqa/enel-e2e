@@ -1,25 +1,39 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
+using Protractor;
 
 namespace TestAutomationFramework.POM
 {
     class B2bLoginPage
     {
-        private readonly RemoteWebDriver driver;
-        public B2bLoginPage(RemoteWebDriver driver) => this.driver = driver;
+        IWebElement LoginField => ngDriver.FindElement(NgBy.Model("model.username"));
+        IWebElement PasswordField => ngDriver.FindElement(NgBy.Model("model.password"));
+        IWebElement LoginButton => ngDriver.FindElement(By.Id("login-submit"));
 
-        IWebElement userNameField => driver.FindElementById("username");
-        IWebElement passwordField => driver.FindElementById("password");
-        IWebElement loginButton => driver.FindElementById("login-submit");
+        private readonly IWebDriver ngDriver;
+        public B2bLoginPage(IWebDriver driver) => ngDriver = new NgWebDriver(driver);
 
-        public void LoginToApplication(string userEmail, string userPassword)
+        public void SetLoginField(string query)
         {
-            userNameField.Clear();
-            userNameField.SendKeys(userEmail);
-            passwordField.Clear();
-            passwordField.SendKeys(userPassword);
-            loginButton.Submit();
+            LoginField.Clear();
+            LoginField.SendKeys(query);
         }
 
+        public void SetPasswordField(string query)
+        {
+            PasswordField.Clear();
+            PasswordField.SendKeys(query);
+        }
+
+        public void ClickLoginButton()
+        {
+            LoginButton.Click();
+        }
+
+        public void SubmitLoginForm(string userEmail, string userPassword)
+        {
+            SetLoginField(userEmail);
+            SetPasswordField(userPassword);
+            ClickLoginButton();
+        }
     }
 }

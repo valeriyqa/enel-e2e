@@ -74,6 +74,9 @@
     <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Protractor, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Protractor.0.11.0\lib\net40\Protractor.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=106.2.2.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.2.2\lib\net452\RestSharp.dll</HintPath>
     </Reference>
@@ -240,6 +243,7 @@
     <EmbeddedResource Include="Configuration\b2c_beta.conf" />
     <EmbeddedResource Include="Configuration\b2c_stage.conf" />
     <EmbeddedResource Include="Configuration\b2c_prod.conf" />
+    <None Include="Configuration\b2b_beta.conf" />
     <None Include="Configuration\b2b_alpha.conf" />
     <None Include="Features\B2B_UI\AllowedCurrent.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
