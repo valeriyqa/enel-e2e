@@ -5,6 +5,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
+using Protractor;
 using System;
 using System.IO;
 using System.Reflection;
@@ -18,6 +19,7 @@ namespace TestAutomationFramework
     {
         private readonly IObjectContainer objectContainer;
         private RemoteWebDriver driver;
+        //private NgWebDriver ngdriver;
 
         ////
         //private readonly ScenarioContext scenarioContext;
@@ -43,7 +45,8 @@ namespace TestAutomationFramework
             catch (Exception)
             {
                 //environment = "b2c_prod";
-                environment = "b2b_alpha";
+                //environment = "b2b_alpha";
+                environment = "b2b_beta";
             }
             string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
             ConfigObject sConfig = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
@@ -55,7 +58,6 @@ namespace TestAutomationFramework
         {
             if (!Config.Global.environment.system_type.Equals("b2b"))
             {
-                //Assert.Ignore();
                 Assert.Inconclusive();
             }
         }
@@ -65,7 +67,6 @@ namespace TestAutomationFramework
         {
             if (!Config.Global.environment.system_type.Equals("b2c"))
             {
-                //Assert.Ignore();
                 Assert.Inconclusive();
             }
         }
@@ -75,7 +76,6 @@ namespace TestAutomationFramework
         {
             if (!Config.Global.launcher.start_api)
             {
-                //Assert.Ignore();
                 Assert.Inconclusive();
             }
         }
@@ -85,7 +85,6 @@ namespace TestAutomationFramework
         {
             if (!Config.Global.launcher.start_udp)
             {
-                //Assert.Ignore();
                 Assert.Inconclusive();
             }
         }
@@ -96,14 +95,29 @@ namespace TestAutomationFramework
             if (Config.Global.launcher.start_web)
             {
                 SelectBrowser(BrowserType.Chrome);
+                driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(60);
                 //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             }
             else
             {
-                //Assert.Ignore();
                 Assert.Inconclusive();
             }
         }
+
+        //[BeforeScenario("web")]
+        //public void InitializeWeb()
+        //{
+        //    if (Config.Global.launcher.start_web)
+        //    {
+        //        SelectBrowser(BrowserType.Chrome);
+        //        driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(30);
+        //        //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+        //    }
+        //    else
+        //    {
+        //        Assert.Inconclusive();
+        //    }
+        //}
 
         //[BeforeScenario("web")]
         //public void InitializeWeb()
@@ -148,6 +162,9 @@ namespace TestAutomationFramework
                 case BrowserType.Chrome:
                     ChromeOptions options = new ChromeOptions();
                     //options.AddArgument("--headless");
+                    //options.AddArguments("--user-data-dir=C:/Users/" + Environment.UserName + "/AppData/Local/Google/Chrome/User Data");
+                    //options.AddArguments("--user-data-dir=/dev/null");
+                    //options.AddArguments("--incognito switch");
                     options.AddArguments("--start-maximized");
                     driver = new ChromeDriver(@"C:\chromedriver", options);
                     objectContainer.RegisterInstanceAs(driver);
@@ -155,7 +172,8 @@ namespace TestAutomationFramework
                 case BrowserType.Firefox:
                     var driverDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                     FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(driverDir, "geckodriver.exe");
-                    service.FirefoxBinaryPath = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
+                    //service.FirefoxBinaryPath = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
+                    service.FirefoxBinaryPath = @"C:\Program Files\Mozilla Firefox\firefox.exe";
                     service.HideCommandPromptWindow = true;
                     service.SuppressInitialDiagnosticInformation = true;
                     driver = new FirefoxDriver(service);
