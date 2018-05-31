@@ -19,15 +19,6 @@ namespace TestAutomationFramework
     {
         private readonly IObjectContainer objectContainer;
         private RemoteWebDriver driver;
-        //private NgWebDriver ngdriver;
-
-        ////
-        //private readonly ScenarioContext scenarioContext;
-        //public Hooks(IObjectContainer objectContainer, ScenarioContext scenarioContext)
-        //{
-        //    this.objectContainer = objectContainer;
-        //    this.scenarioContext = scenarioContext;
-        //}
 
         public Hooks(IObjectContainer objectContainer)
         {
@@ -95,7 +86,8 @@ namespace TestAutomationFramework
             if (Config.Global.launcher.start_web)
             {
                 SelectBrowser(BrowserType.Chrome);
-                driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(60);
+                driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(15);
+                //driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
                 //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             }
             else
@@ -103,21 +95,6 @@ namespace TestAutomationFramework
                 Assert.Inconclusive();
             }
         }
-
-        //[BeforeScenario("web")]
-        //public void InitializeWeb()
-        //{
-        //    if (Config.Global.launcher.start_web)
-        //    {
-        //        SelectBrowser(BrowserType.Chrome);
-        //        driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(30);
-        //        //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-        //    }
-        //    else
-        //    {
-        //        Assert.Inconclusive();
-        //    }
-        //}
 
         //[BeforeScenario("web")]
         //public void InitializeWeb()
