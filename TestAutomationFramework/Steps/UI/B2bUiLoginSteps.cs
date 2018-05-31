@@ -22,39 +22,35 @@ namespace TestAutomationFramework.Steps.UI
         public B2bUiLoginSteps(RemoteWebDriver driver) => this.driver = driver;
 
 
-        [Given(@"I login to the b2b system as ""(.*)""")]
-        public void GivenILoginToTheB2bSystemAs(string userName)
+        [Given(@"I login to the system as ""(.*)"" \(b2b\)")]
+        public void GivenILoginToTheB2bSystemAsB2B(string userName)
         {
             Tools.LoadUsersFromConf.User currentUser = usersDictionary[userName];
             driver.Navigate().GoToUrl(host);
 
             var loginPage = new B2bLoginPage(driver);
-            var generalPage = loginPage.SubmitLoginForm(currentUser.userEmail, currentUser.userPassword);
-            Console.WriteLine("!!!" + generalPage.GetUserEmail());
-            ////////System.Threading.Thread.Sleep(10000);
-            ////////var generalPage = new B2bGeneralPage(driver);
-            ////////Console.WriteLine("!!!" + generalPage.GetUserEmail());
+            loginPage.SubmitLoginForm(currentUser.userEmail, currentUser.userPassword);
 
-            ////////System.Threading.Thread.Sleep(10000);
-            //var ngDriver = new NgWebDriver(driver);
-            //var zzz = ngDriver.FindElement(By.CssSelector("[href*='my-account']")).Text;
+            var generalPage = new B2bGeneralPage(driver);
+            Console.WriteLine("User Email=" + generalPage.GetUserEmail());
+            Assert.AreEqual(generalPage.GetUserEmail(), currentUser.userEmail);
+        }
 
-            //Console.WriteLine("!" + zzz + "!");
+        [Given(@"I navigate to the ""(.*)"" page \(b2b\)")]
+        [When(@"I navigate to the ""(.*)"" page \(b2b\)")]
+        public void GivenINavigateToThePageB2B(string pageName)
+        {
+            var generalPage = new B2bGeneralPage(driver);
+            generalPage.ClickMenuByName(pageName);
+            Assert.AreEqual(driver.Url.Contains(pageName.ToLower()), true);
+        }
 
-            //ngDriver.Navigate().Refresh();
+        [When(@"I click on the ""(.*)"" button \(b2b\)")]
+        public void WhenIClickOnTheButtonB2b(string buttonName)
+        {
+            var generalPage = new B2bGeneralPage(driver);
+            generalPage.ClickButtonByName(buttonName);
 
-            //Console.WriteLine(1);
-            //System.Threading.Thread.Sleep(30000);
-            //wait.Until(wd => ngDriver.FindElement(By.ClassName("navbar-nav")));
-            //System.Threading.Thread.Sleep(30000);
-
-            //List<NgWebElement> menuList = ngDriver.FindElements(By.ClassName("menu-item-title")).ToList();
-            //System.Threading.Thread.Sleep(30000);
-            Console.WriteLine("aaaa");
-            //foreach (var element in menuList)
-            //{
-            //    Console.WriteLine("!!!" + element.Text);
-            //}
         }
     }
 }
