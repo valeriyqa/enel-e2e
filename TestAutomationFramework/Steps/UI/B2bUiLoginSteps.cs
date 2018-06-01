@@ -1,14 +1,10 @@
 ﻿using JsonConfig;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Support.UI;
-using Protractor;
 using System;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using TestAutomationFramework.POM;
-using System.Linq;
 
 namespace TestAutomationFramework.Steps.UI
 {
@@ -52,5 +48,34 @@ namespace TestAutomationFramework.Steps.UI
             generalPage.ClickButtonByName(buttonName);
 
         }
+
+        [When(@"I set input ""(.*)"" to the value ""(.*)"" \(b2b\)")]
+        public void WhenISetInputToTheValueB2b(string inputName, string inputValue)
+        {
+            var generalPage = new B2bGeneralPage(driver);
+            generalPage.SetInputByName(inputName, inputValue);
+        }
+
+        [When(@"I click the Same as parent checkbox \(b2b\)")]
+        public void WhenIClickTheSameAsParentCheckboxB2b()
+        {
+            var locationPage = new B2bLocationPage(driver);
+            locationPage.ClickSameAsParentCheckbox();
+        }
+
+        [When(@"I select ""(.*)"" on the Time zone selector \(b2b\)")]
+        public void WhenISelectOnTheTimeZoneSelectorB2b(string value)
+        {
+            var locationPage = new B2bLocationPage(driver);
+            locationPage.SelectTimeZoneByValue(value);
+        }
+
+        [When(@"I select ""(.*)"" on the Assign rate selector \(b2b\)")]
+        public void WhenISelectOnTheAssignRateSelectorB2b(string value)
+        {
+            var locationPage = new B2bLocationPage(driver);
+            locationPage.SelectAssignRateByValue(value);
+        }
+
     }
 }

@@ -1,15 +1,12 @@
 ﻿using BoDi;
 using JsonConfig;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
-using Protractor;
 using System;
 using System.IO;
 using System.Reflection;
-using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace TestAutomationFramework
@@ -86,9 +83,8 @@ namespace TestAutomationFramework
             if (Config.Global.launcher.start_web)
             {
                 SelectBrowser(BrowserType.Chrome);
-                driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(15);
                 //driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
-                //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             }
             else
             {

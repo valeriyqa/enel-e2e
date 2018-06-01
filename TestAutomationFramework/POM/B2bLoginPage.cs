@@ -1,16 +1,15 @@
 ﻿using OpenQA.Selenium;
-using Protractor;
 
 namespace TestAutomationFramework.POM
 {
     class B2bLoginPage
     {
-        IWebElement LoginField => ngDriver.FindElement(NgBy.Model("model.username"));
-        IWebElement PasswordField => ngDriver.FindElement(NgBy.Model("model.password"));
-        IWebElement LoginButton => ngDriver.FindElement(By.Id("login-submit"));
+        IWebElement LoginField => driver.FindElement(By.Id("username"));
+        IWebElement PasswordField => driver.FindElement(By.Id("password"));
+        IWebElement LoginButton => driver.FindElement(By.Id("login-submit"));
 
-        private readonly IWebDriver ngDriver;
-        public B2bLoginPage(IWebDriver driver) => ngDriver = new NgWebDriver(driver);
+        private readonly IWebDriver driver;
+        public B2bLoginPage(IWebDriver driver) => this.driver = driver;
 
         public void SetLoginField(string query)
         {
