@@ -77,31 +77,15 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
  testRunner.Given("I login to the system as \"Oleksii\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("I navigate to the \"Dashboard\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
- testRunner.And("I navigate to the \"Devices\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
- testRunner.When("I click on the \"Add Device\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
- testRunner.And("I navigate to the \"Users\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
- testRunner.When("I click on the \"Add User\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
  testRunner.And("I navigate to the \"Locations\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 14
+#line 9
  testRunner.When("I click on the \"Add Location\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 15
- testRunner.And("I navigate to the \"Groups\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.When("I click the Same as parent checkbox (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 16
- testRunner.When("I click on the \"Add User Group\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I select \"(UTC-07:00) Arizona\" on the Time zone selector (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 17
- testRunner.And("I navigate to the \"Reports\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
- testRunner.And("I navigate to the \"Rates\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
- testRunner.When("I click on the \"Add Rate\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 20
- testRunner.And("I navigate to the \"Help\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I select \"Free\" on the Assign rate selector (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }
