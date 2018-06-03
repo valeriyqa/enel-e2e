@@ -74,6 +74,19 @@ namespace TestAutomationFramework.Features.B2B_UI
                         "web"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
+#line 7
+ testRunner.Given("I login to the system as \"Oleksii\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.And("I navigate to the \"Locations\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+ testRunner.When("I click on the \"Add Location\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+ testRunner.And("I populate the Location form with correct data (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("I click on the \"Create\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.Then("Popup window with \"Location created successfully\" message and \"done\" status shoul" +
+                    "d be displayed (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -87,7 +100,7 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Locations - Delete Location", new string[] {
                         "b2b",
                         "web"});
-#line 9
+#line 15
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -102,7 +115,7 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Locations - Create sublocations", new string[] {
                         "b2b",
                         "web"});
-#line 12
+#line 18
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -117,23 +130,36 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Locations - Delete Sublocations", new string[] {
                         "b2b",
                         "web"});
-#line 15
+#line 21
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Add second location with existing Location name")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Locations - Add second location with existing Location name")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AddSecondLocationWithExistingLocationName()
+        public virtual void B2B_Web_Locations_AddSecondLocationWithExistingLocationName()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Add second location with existing Location name", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Locations - Add second location with existing Location name", new string[] {
                         "b2b",
                         "web"});
-#line 18
+#line 24
 this.ScenarioSetup(scenarioInfo);
+#line 25
+ testRunner.Given("I login to the system as \"Oleksii\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 26
+ testRunner.And("I navigate to the \"Locations\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+ testRunner.When("I click on the \"Add Location\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+ testRunner.And("I populate the Location form with correct data (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 29
+ testRunner.And("I click on the \"Create\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 30
+ testRunner.Then("Popup window with \"Location with name \'Test Location\' already exists\" message and" +
+                    " \"error\" status should be displayed (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

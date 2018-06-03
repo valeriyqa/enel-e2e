@@ -78,14 +78,6 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("I login to the system as \"Oleksii\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
  testRunner.And("I navigate to the \"Locations\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
- testRunner.When("I click on the \"Add Location\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
- testRunner.When("I click the Same as parent checkbox (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 16
- testRunner.When("I select \"(UTC-07:00) Arizona\" on the Time zone selector (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
- testRunner.When("I select \"Free\" on the Assign rate selector (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }
