@@ -101,5 +101,36 @@ namespace TestAutomationFramework.Steps.UI
             generalPage.AssertPopup(messageText, status);
         }
 
+        [When(@"I click on the ""(.*)"" link by name \(b2b\)")]
+        public void IClickOnTheLinkByNameB2b(string locationName)
+        {
+            var locationPage = new B2bLocationPage(driver);
+            locationPage.ClickLocationLinkByName(locationName);
+        }
+
+        [Then(@"Location with name ""(.*)"" exist in the table is ""(.*)"" \(b2b\)")]
+        public void ThenLocationWithNameExistInTheTableIsB2b(string locationName, string shouldExist)
+        {
+            var locationPage = new B2bLocationPage(driver);
+            Assert.AreEqual(locationPage.IsLocationExist(locationName), bool.Parse(shouldExist));
+        }
+
+        //[Then(@"JuiceNet device with Id ""(.*)"" should exist is ""(.*)""")]
+        //public void ThenJuiceNetDeviceWithIdShouldExistIs(string deviceId, string shouldExist)
+        //{
+        //    IList<IWebElement> all = driver.FindElements(By.ClassName("unit-info-container"));
+        //    bool elementExist = false;
+
+        //    foreach (IWebElement element in all)
+        //    {
+        //        if (element.GetAttribute("data-unitid").Equals(deviceId))
+        //        {
+        //            elementExist = true;
+        //            break;
+        //        }
+        //    }
+        //    Assert.AreEqual(bool.Parse(shouldExist), elementExist);
+        //}
+
     }
 }
