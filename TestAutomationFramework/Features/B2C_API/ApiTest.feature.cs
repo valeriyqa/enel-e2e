@@ -126,123 +126,6 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_API_ Add/delete program signup info")]
-        [NUnit.Framework.CategoryAttribute("b2c")]
-        [NUnit.Framework.CategoryAttribute("api")]
-        public virtual void B2C_API_AddDeleteProgramSignupInfo()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Add/delete program signup info", new string[] {
-                        "b2c",
-                        "api"});
-#line 30
-this.ScenarioSetup(scenarioInfo);
-#line 31
- testRunner.Given("program signup info is not set", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 32
- testRunner.When("I send \"set_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 33
- testRunner.And("I send \"get_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 34
- testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "PropertyName",
-                        "Value"});
-            table1.AddRow(new string[] {
-                        "success",
-                        "1"});
-            table1.AddRow(new string[] {
-                        "step1.first_name",
-                        "FirstName"});
-            table1.AddRow(new string[] {
-                        "step1.last_name",
-                        "LastName"});
-            table1.AddRow(new string[] {
-                        "step1.bill_first_name",
-                        "Billfirstname"});
-            table1.AddRow(new string[] {
-                        "step1.bill_last_name",
-                        "Billlastname"});
-            table1.AddRow(new string[] {
-                        "step1.email",
-                        "testuser@example.com"});
-            table1.AddRow(new string[] {
-                        "step1.phone_number",
-                        "123-456-78-90"});
-            table1.AddRow(new string[] {
-                        "step1.address",
-                        "Test home address"});
-            table1.AddRow(new string[] {
-                        "step1.city",
-                        "TestCity"});
-            table1.AddRow(new string[] {
-                        "step1.state",
-                        "California"});
-            table1.AddRow(new string[] {
-                        "step1.service_address",
-                        "Test service address"});
-            table1.AddRow(new string[] {
-                        "step1.service_city",
-                        "San Carol"});
-#line 35
- testRunner.And("property \"<PropertyName>\" should be equal to \"<Value>\"", ((string)(null)), table1, "And ");
-#line 49
- testRunner.And("property \"step1.post_code\" should be equal to \"95128\" string", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 50
- testRunner.When("I send \"delete_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 51
- testRunner.And("I send \"get_program_signup_info\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 52
- testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "PropertyName",
-                        "Value"});
-            table2.AddRow(new string[] {
-                        "success",
-                        "1"});
-            table2.AddRow(new string[] {
-                        "step1.first_name",
-                        "Oleksii"});
-            table2.AddRow(new string[] {
-                        "step1.last_name",
-                        "Khabarov"});
-            table2.AddRow(new string[] {
-                        "step1.bill_first_name",
-                        ""});
-            table2.AddRow(new string[] {
-                        "step1.name_is_different_in_bill",
-                        ""});
-            table2.AddRow(new string[] {
-                        "step1.email",
-                        "oleksii.khabarov@emotorwerks.com"});
-            table2.AddRow(new string[] {
-                        "step1.phone_number",
-                        ""});
-            table2.AddRow(new string[] {
-                        "step1.address",
-                        "null"});
-            table2.AddRow(new string[] {
-                        "step1.city",
-                        "null"});
-            table2.AddRow(new string[] {
-                        "step1.state",
-                        "null"});
-            table2.AddRow(new string[] {
-                        "step1.service_address",
-                        ""});
-            table2.AddRow(new string[] {
-                        "step1.service_city",
-                        ""});
-#line 53
- testRunner.And("property \"<PropertyName>\" should be equal to \"<Value>\"", ((string)(null)), table2, "And ");
-#line 67
- testRunner.And("property \"step1.post_code\" should be equal to \"94070\" string", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("B2C_API_ Incorrect token test")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
@@ -283,14 +166,14 @@ this.ScenarioSetup(scenarioInfo);
 #line 70
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property",
                         "Value"});
-            table3.AddRow(new string[] {
+            table1.AddRow(new string[] {
                         "token",
                         "incorrect_token"});
 #line 71
- testRunner.When(string.Format("I send \"{0}\" request with next \"<Property>\" \"<Value>\"", restAPI), ((string)(null)), table3, "When ");
+ testRunner.When(string.Format("I send \"{0}\" request with next \"<Property>\" \"<Value>\"", restAPI), ((string)(null)), table1, "When ");
 #line 74
  testRunner.Then("response should be valid to schema \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 75

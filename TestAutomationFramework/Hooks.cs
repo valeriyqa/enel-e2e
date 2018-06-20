@@ -32,9 +32,9 @@ namespace TestAutomationFramework
             }
             catch (Exception)
             {
-                //environment = "b2c_prod";
+                environment = "b2c_prod";
                 //environment = "b2b_alpha";
-                environment = "b2b_beta";
+                //environment = "b2b_beta";
             }
             string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
             ConfigObject sConfig = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
