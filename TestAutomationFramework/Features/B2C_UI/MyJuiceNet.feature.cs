@@ -62,43 +62,6 @@ namespace TestAutomationFramework.Features.B2C_UI
         {
             testRunner.CollectScenarioErrors();
         }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_ Add/Delete JuiceNet Device")]
-        [NUnit.Framework.CategoryAttribute("b2c")]
-        [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_AddDeleteJuiceNetDevice()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_ Add/Delete JuiceNet Device", new string[] {
-                        "b2c",
-                        "web"});
-#line 6
-this.ScenarioSetup(scenarioInfo);
-#line 10
- testRunner.Given("JuiceNet device is not added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 11
- testRunner.And("I login to the b2c system as \"Oleksii\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
- testRunner.When("I click on \"Add JuiceNet Device\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
- testRunner.And("I set field \"inputUnitID\" to \"373708002\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 14
- testRunner.And("I click on \"Add JuiceNet Device\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
- testRunner.And("I click on \"Browse My JuiceNet Devices\" link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
- testRunner.Then("JuiceNet device with Id \"373708002\" should exist is \"True\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 17
- testRunner.When("I click More Details for device with Id \"373708002\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 18
- testRunner.And("I click on \"Delete\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
- testRunner.And("I click on \"Yes, remove from my account\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
- testRunner.Then("JuiceNet device with Id \"373708002\" should exist is \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
     }
 }
 #pragma warning restore
