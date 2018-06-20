@@ -46,8 +46,9 @@ namespace TestAutomationFramework.POM
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(wd => driver.FindElement(By.ClassName("ui-treetable")));
 
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             IList<IWebElement> allLoactions = driver.FindElements(By.ClassName("location-node"));
-
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             foreach (IWebElement location in allLoactions)
             {
                 if (location.FindElement(By.ClassName("ui-treetable-label")).Text.Contains(locationName))

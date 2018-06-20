@@ -225,6 +225,9 @@
     <Compile Include="Services\UdpService\Device\ProtConvert.cs" />
     <Compile Include="Services\UdpService\Device\UdpClientEx.cs" />
     <Compile Include="Services\UdpService\UdpEndpointTest.cs" />
+    <Compile Include="Steps\UI\B2bUiDeviceSteps.cs" />
+    <Compile Include="Steps\UI\B2bUiGeneralSteps.cs" />
+    <Compile Include="Steps\UI\B2bUiLocationSteps.cs" />
     <Compile Include="Steps\UI\B2bUiLoginSteps.cs" />
     <Compile Include="Steps\API\B2cApiTestSteps.cs" />
     <Compile Include="Steps\API\B2cApiTestTest.cs" />
@@ -426,7 +429,7 @@
   </Target>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties Services_4ApiService_4Schemas_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" />
+      <UserProperties Services_4ApiService_4Schemas_4get_3car_3models_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4check_3device_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3account_3units_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3history_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3notifications_1json__JSONSchema="http://json-schema.org/draft-04/schema" Services_4ApiService_4Schemas_4get_3program_3signup_3info_1json__JSONSchema="http://json-schema.org/draft-04/schema" />
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.20.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.20.0\build\Selenium.Firefox.WebDriver.targets')" />

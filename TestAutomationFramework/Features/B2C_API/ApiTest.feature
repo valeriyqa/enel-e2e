@@ -26,45 +26,45 @@ Scenario: B2C_API_ Add/delete unit to the system
 
 # Unit should be added before test. (Will be nice to create at least three separate devices for each system,
 # with unique ID. To have possibility run tests in the parallel mode.)
-@b2c @api 
-Scenario: B2C_API_ Add/delete program signup info
-	Given program signup info is not set
-	When I send "set_program_signup_info" request
-	And I send "get_program_signup_info" request
-	Then response should be valid to schema
-	And property "<PropertyName>" should be equal to "<Value>"
-		| PropertyName                    | Value                |
-		| success                         | 1                    |
-		| step1.first_name                | FirstName            |
-		| step1.last_name                 | LastName             |
-		| step1.bill_first_name           | Billfirstname        |
-		| step1.bill_last_name            | Billlastname         |
-		| step1.email                     | testuser@example.com |
-		| step1.phone_number              | 123-456-78-90        |
-		| step1.address                   | Test home address    |
-		| step1.city                      | TestCity             |
-		| step1.state                     | California           |
-		| step1.service_address           | Test service address |
-		| step1.service_city              | San Carol            |
-	And property "step1.post_code" should be equal to "95128" string
-	When I send "delete_program_signup_info" request
-	And I send "get_program_signup_info" request
-	Then response should be valid to schema
-	And property "<PropertyName>" should be equal to "<Value>"
-		| PropertyName                    | Value                            |
-		| success                         | 1                                |
-		| step1.first_name                | Oleksii                          |
-		| step1.last_name                 | Khabarov                         |
-		| step1.bill_first_name           |                                  |
-		| step1.name_is_different_in_bill |                                  |
-		| step1.email                     | oleksii.khabarov@emotorwerks.com |
-		| step1.phone_number              |                                  |
-		| step1.address                   | null                             |
-		| step1.city                      | null                             |
-		| step1.state                     | null                             |
-		| step1.service_address           |                                  |
-		| step1.service_city              |                                  |
-	And property "step1.post_code" should be equal to "94070" string
+#@b2c @api 
+#Scenario: B2C_API_ Add/delete program signup info
+#	Given program signup info is not set
+#	When I send "set_program_signup_info" request
+#	And I send "get_program_signup_info" request
+#	Then response should be valid to schema
+#	And property "<PropertyName>" should be equal to "<Value>"
+#		| PropertyName                    | Value                |
+#		| success                         | 1                    |
+#		| step1.first_name                | FirstName            |
+#		| step1.last_name                 | LastName             |
+#		| step1.bill_first_name           | Billfirstname        |
+#		| step1.bill_last_name            | Billlastname         |
+#		| step1.email                     | testuser@example.com |
+#		| step1.phone_number              | 123-456-78-90        |
+#		| step1.address                   | Test home address    |
+#		| step1.city                      | TestCity             |
+#		| step1.state                     | California           |
+#		| step1.service_address           | Test service address |
+#		| step1.service_city              | San Carol            |
+#	And property "step1.post_code" should be equal to "95128" string
+#	When I send "delete_program_signup_info" request
+#	And I send "get_program_signup_info" request
+#	Then response should be valid to schema
+#	And property "<PropertyName>" should be equal to "<Value>"
+#		| PropertyName                    | Value                            |
+#		| success                         | 1                                |
+#		| step1.first_name                | Oleksii                          |
+#		| step1.last_name                 | Khabarov                         |
+#		| step1.bill_first_name           |                                  |
+#		| step1.name_is_different_in_bill |                                  |
+#		| step1.email                     | oleksii.khabarov@emotorwerks.com |
+#		| step1.phone_number              |                                  |
+#		| step1.address                   | null                             |
+#		| step1.city                      | null                             |
+#		| step1.state                     | null                             |
+#		| step1.service_address           |                                  |
+#		| step1.service_city              |                                  |
+#	And property "step1.post_code" should be equal to "94070" string
 
 @b2c @api 
 Scenario Outline: B2C_API_ Incorrect token test
