@@ -18,7 +18,7 @@ Scenario: B2C_Web_ Registration with email
 		| ConfirmPassword |
 	When I set field "Fullname" to "Vasia Pupkin"
 	#And I click on "buttonSubmit" button by Id
-	#And I confirm my email address
+	And I confirm my email address
 	##And I click on "Please Click here to Log in" link
 	#Then I should be logged into the application
 

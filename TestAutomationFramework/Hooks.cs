@@ -26,25 +26,40 @@ namespace TestAutomationFramework
         public static void InitializeEnvironmentSettings()
         {
             string environment;
-            try
-            {
-                environment = Environment.GetEnvironmentVariable("environment").ToLower();
-            }
-            catch (Exception)
-            {
-                environment = "b2c_prod";
-                //environment = "b2b_alpha";
-                //environment = "b2b_beta";
-            }
-            string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
-            ConfigObject sConfig = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
-            Config.SetDefaultConfig(sConfig);
-        }
+            bool isLocal = File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt"));
 
+            if (isLocal)
+            {
+                environment = "b2c_alpha";
+            }
+            else
+            {
+                environment = Environment.GetEnvironmentVariable("system").ToLower();
+            }
+
+            string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
+
+            ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
+            Config.SetDefaultConfig(configFromFile);
+
+            if (!isLocal)
+            {
+                var envVariablese = Environment.GetEnvironmentVariables();
+                string jsonString = "{\"environment\": {\"dashboard_address\": \"" + envVariablese["dashboard_address"] +
+                    "\", \"api_address\": \"" + envVariablese["api_address"] + 
+                    "\", \"udp_address\": \"" + envVariablese["udp_address"] + 
+                    "\" }, \"launcher\": {\"start_web\": \"" + envVariablese["start_web"] + 
+                    "\", \"start_api\": \"" + envVariablese["start_api"] + 
+                    "\", \"start_udp\": \"" + envVariablese["start_udp"] + "\"}}";
+                ConfigObject configFromJson = Config.ApplyJson(jsonString);
+                Config.SetUserConfig(configFromJson);
+            }
+        }
+        
         [BeforeScenario("b2b")]
         public void InitializeB2B()
         {
-            if (!Config.Global.environment.system_type.Equals("b2b"))
+            if (!Config.Global.environment.system.Contains("b2b"))
             {
                 Assert.Inconclusive();
             }
@@ -53,7 +68,7 @@ namespace TestAutomationFramework
         [BeforeScenario("b2c")]
         public void InitializeB2C()
         {
-            if (!Config.Global.environment.system_type.Equals("b2c"))
+            if (!Config.Global.environment.system.Contains("b2c"))
             {
                 Assert.Inconclusive();
             }
@@ -91,26 +106,6 @@ namespace TestAutomationFramework
                 Assert.Inconclusive();
             }
         }
-
-        //[BeforeScenario("web")]
-        //public void InitializeWeb()
-        //{
-        //    if (Config.Global.launcher.start_web && 
-        //        Array.IndexOf(scenarioContext.ScenarioInfo.Tags, Config.Global.environment.system_type) > -1)
-        //    {
-        //        Console.WriteLine("start_web = " + Config.Global.launcher.start_web);
-        //        Console.WriteLine("system_type = " + Config.Global.environment.system_type);
-        //        Console.WriteLine(Array.IndexOf(scenarioContext.ScenarioInfo.Tags, Config.Global.environment.system_type));
-        //        Console.WriteLine();
-        //        SelectBrowser(BrowserType.Chrome);
-        //        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-        //    }
-        //    else
-        //    {
-        //        //Assert.Ignore();
-        //        Assert.Inconclusive();
-        //    }
-        //}
 
         [AfterScenario("web")]
         public void CleanUp()

@@ -18,5 +18,16 @@ namespace TestAutomationFramework.Steps.UDP
             MethodInfo methodName = typeof(UdpEndpointTest).GetMethod(udpData);
             methodName.Invoke(testName, null);
         }
+
+        [Given(@"I send udp package ""(.*)"" to server ""(.*)"" with port ""(.*)""")]
+        public void GivenISendUdpPackageToServerWithPort(string udpPacket, string serverAddr, string portNum)
+        {
+            var testName = new UdpEndpointTest();
+
+            Console.WriteLine("Start Udp test for: " + udpPacket);
+            testName.TxRxRaw(udpPacket, serverAddr, Int32.Parse(portNum));
+
+        }
+
     }
 }
