@@ -21,6 +21,22 @@ namespace TestAutomationFramework.Services
             Thread.Sleep(2000);
         }
 
+        public void TxRxRaw(string packet, string host, int port)
+        {
+            var udpClient = new UdpClientEx(host, port);
+            string recStr = udpClient.TxRx(packet);
+            
+            Console.WriteLine(recStr);
+
+            var recState = ProtConvert.DeSerializeFromServer(recStr);
+
+            Console.WriteLine(recState);
+
+            Console.WriteLine(JsonConvert.SerializeObject(recState));
+            udpClient.Close();
+            Thread.Sleep(2000);
+        }
+
         public void TestUdpEndpoint_State_Standby()
         {
             var deviceState = new DeviceState

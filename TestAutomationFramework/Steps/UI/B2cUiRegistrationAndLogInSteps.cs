@@ -5,6 +5,7 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using TechTalk.SpecFlow;
 using TestAutomationFramework.POM;
 
@@ -95,6 +96,11 @@ namespace TestAutomationFramework.Steps.UI
         public void WhenIConfirmMyEmailAddress()
         {
             Console.WriteLine("I confirm my email address");
+            Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
+            Console.WriteLine(AppDomain.CurrentDomain.SetupInformation);
+            Console.WriteLine(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents"));
+            Console.WriteLine(File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt")));
+            Console.WriteLine(File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_not_local.txt")));
         }
 
         [Then(@"I should be logged into the application")]

@@ -106,6 +106,8 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Then("field \"<FieldId>\" should be masked", ((string)(null)), table2, "Then ");
 #line 19
  testRunner.When("I set field \"Fullname\" to \"Vasia Pupkin\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+ testRunner.And("I confirm my email address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
