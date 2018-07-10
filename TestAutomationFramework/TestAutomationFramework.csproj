@@ -102,6 +102,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\B2B_UDP\DirectUdpCommands.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DirectUdpCommands.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\B2B_UI\AllowedCurrent.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -225,6 +230,7 @@
     <Compile Include="Services\UdpService\Device\ProtConvert.cs" />
     <Compile Include="Services\UdpService\Device\UdpClientEx.cs" />
     <Compile Include="Services\UdpService\UdpEndpointTest.cs" />
+    <Compile Include="Steps\UDP\B2bUdpTestSteps.cs" />
     <Compile Include="Steps\UI\B2bUiDeviceSteps.cs" />
     <Compile Include="Steps\UI\B2bUiGeneralSteps.cs" />
     <Compile Include="Steps\UI\B2bUiLocationSteps.cs" />
@@ -246,6 +252,10 @@
     <EmbeddedResource Include="Configuration\b2c_prod.conf" />
     <None Include="Configuration\b2b_beta.conf" />
     <None Include="Configuration\b2b_alpha.conf" />
+    <None Include="Features\B2B_UDP\DirectUdpCommands.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DirectUdpCommands.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\B2B_UI\AllowedCurrent.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>AllowedCurrent.feature.cs</LastGenOutput>
