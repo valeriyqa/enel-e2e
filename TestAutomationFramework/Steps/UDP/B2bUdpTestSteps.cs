@@ -39,7 +39,6 @@ namespace TestAutomationFramework.Steps.UDP
                 }
                 catch (Exception)
                 {
-
                     Console.WriteLine("WARNING!!! No UPD response, step: " + step);
                 }
             }
