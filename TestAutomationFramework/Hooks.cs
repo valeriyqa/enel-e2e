@@ -45,20 +45,33 @@ namespace TestAutomationFramework
             ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
             Config.SetDefaultConfig(configFromFile);
 
+            //if (!isLocal)
+            //{
+            //    var envVariablese = Environment.GetEnvironmentVariables();
+            //    string jsonString = "{\"environment\": {\"dashboard_address\": \"" + envVariablese["dashboard_address"] +
+            //        "\", \"api_address\": \"" + envVariablese["api_address"] + 
+            //        "\", \"udp_address\": \"" + envVariablese["udp_address"] + 
+            //        "\" }, \"launcher\": {\"start_web\": \"" + envVariablese["start_web"] + 
+            //        "\", \"start_api\": \"" + envVariablese["start_api"] + 
+            //        "\", \"start_udp\": \"" + envVariablese["start_udp"] + "\"}}";
+            //    ConfigObject configFromJson = Config.ApplyJson(jsonString);
+            //    Config.SetUserConfig(configFromJson);
+            //}
+
             if (!isLocal)
             {
                 var envVariablese = Environment.GetEnvironmentVariables();
-                string jsonString = "{\"environment\": {\"dashboard_address\": \"" + envVariablese["dashboard_address"] +
-                    "\", \"api_address\": \"" + envVariablese["api_address"] + 
-                    "\", \"udp_address\": \"" + envVariablese["udp_address"] + 
-                    "\" }, \"launcher\": {\"start_web\": \"" + envVariablese["start_web"] + 
-                    "\", \"start_api\": \"" + envVariablese["start_api"] + 
-                    "\", \"start_udp\": \"" + envVariablese["start_udp"] + "\"}}";
+                string jsonString = "{\"environment\": {\"dashboard_address\": \"" + Environment.GetEnvironmentVariable("dashboard_address").ToLower() +
+                    "\", \"api_address\": \"" + Environment.GetEnvironmentVariable("api_address").ToLower() +
+                    "\", \"udp_address\": \"" + Environment.GetEnvironmentVariable("udp_address").ToLower() +
+                    "\" }, \"launcher\": {\"start_web\": \"" + Environment.GetEnvironmentVariable("start_web").ToLower() +
+                    "\", \"start_api\": \"" + Environment.GetEnvironmentVariable("start_api").ToLower() +
+                    "\", \"start_udp\": \"" + Environment.GetEnvironmentVariable("start_udp").ToLower() + "\"}}";
                 ConfigObject configFromJson = Config.ApplyJson(jsonString);
                 Config.SetUserConfig(configFromJson);
             }
         }
-        
+
         [BeforeScenario("b2b")]
         public void InitializeB2B()
         {
