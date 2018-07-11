@@ -27,6 +27,7 @@ namespace TestAutomationFramework
         {
             string environment;
             bool isLocal = File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt"));
+            Console.WriteLine("!!!" + isLocal);
 
             if (isLocal)
             {
@@ -36,8 +37,10 @@ namespace TestAutomationFramework
             {
                 environment = Environment.GetEnvironmentVariable("system_type").ToLower();
             }
+            Console.WriteLine("!!!" + environment);
 
             string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
+            Console.WriteLine("!!!" + systemConfigPath);
 
             ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
             Config.SetDefaultConfig(configFromFile);
