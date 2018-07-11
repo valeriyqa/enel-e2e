@@ -12,17 +12,17 @@ Scenario Outline: B2C_API_ Basic test for requests without parameters
 		| get_server_info |
 		| get_timezones   |
 
-@b2c @api
-Scenario: B2C_API_ Add/delete unit to the system
-	Given JuiceBox unit is not added
-	When I send "add_account_unit" request
-	And I send "get_account_units" request
-	Then response should be valid to schema
-	And response should contain device number is "True"
-	When I send "delete_account_unit" request
-	And I send "get_account_units" request
-	Then response should be valid to schema
-	And response should contain device number is "False"
+#@b2c @api
+#Scenario: B2C_API_ Add/delete unit to the system
+#	Given JuiceBox unit is not added
+#	When I send "add_account_unit" request
+#	And I send "get_account_units" request
+#	Then response should be valid to schema
+#	And response should contain device number is "True"
+#	When I send "delete_account_unit" request
+#	And I send "get_account_units" request
+#	Then response should be valid to schema
+#	And response should contain device number is "False"
 
 # Unit should be added before test. (Will be nice to create at least three separate devices for each system,
 # with unique ID. To have possibility run tests in the parallel mode.)
@@ -145,22 +145,22 @@ Scenario Outline: B2C_API_ Incorrect account token test
 	And property "error_message" should be equal to "User have not permissions to unit. Check account token."
 	Examples: 
 		| RestAPI                    |
-		| add_account_unit           |
+		#| add_account_unit           |
 		#| add_car                    |1001
 		| add_unit                   |
-		| delete_account_unit        |
+		#| delete_account_unit        |
 		#| delete_car                 |1002
-		| delete_program_signup_info |
+		#| delete_program_signup_info |
 		| get_account_units          |
 		#| get_history                |true
 		#| get_info                   |true
 		#| get_notifications          |1001
 		#| get_plot                   |1002
-		| get_program_signup_info    |
+		#| get_program_signup_info    |
 		#| get_schedule               |true
-		| get_share_pin              |
+		#| get_share_pin              |
 		#| get_state                  |true
-		| get_utilitybill_url        |
+		#| get_utilitybill_url        |
 		| register_pushes            |
 		#| reset_ownership            |1102
 		#| select_car                 |1002
@@ -181,10 +181,10 @@ Scenario Outline: B2C_API_ Missing account token test
 	And property "error_message" should be equal to "Missing Account token"
 	Examples: 
 		| RestAPI                    |
-		| add_account_unit           |
+		#| add_account_unit           |
 		#| add_car                    |1001
 		#| add_unit                   |User have not permissions to unit. Check account token. (consistency)
-		| delete_account_unit        |
+		#| delete_account_unit        |
 		#| delete_car                 |1002
 		#| delete_program_signup_info |User have not permissions to unit. Check account token.
 		| get_account_units          |

@@ -93,39 +93,6 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_API_ Add/delete unit to the system")]
-        [NUnit.Framework.CategoryAttribute("b2c")]
-        [NUnit.Framework.CategoryAttribute("api")]
-        public virtual void B2C_API_AddDeleteUnitToTheSystem()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_API_ Add/delete unit to the system", new string[] {
-                        "b2c",
-                        "api"});
-#line 16
-this.ScenarioSetup(scenarioInfo);
-#line 17
- testRunner.Given("JuiceBox unit is not added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 18
- testRunner.When("I send \"add_account_unit\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 19
- testRunner.And("I send \"get_account_units\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
- testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 21
- testRunner.And("response should contain device number is \"True\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 22
- testRunner.When("I send \"delete_account_unit\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 23
- testRunner.And("I send \"get_account_units\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 24
- testRunner.Then("response should be valid to schema", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 25
- testRunner.And("response should contain device number is \"False\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("B2C_API_ Incorrect token test")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
@@ -246,14 +213,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("B2C_API_ Incorrect account token test")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
-        [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
         [NUnit.Framework.TestCaseAttribute("add_unit", null)]
-        [NUnit.Framework.TestCaseAttribute("delete_account_unit", null)]
-        [NUnit.Framework.TestCaseAttribute("delete_program_signup_info", null)]
         [NUnit.Framework.TestCaseAttribute("get_account_units", null)]
-        [NUnit.Framework.TestCaseAttribute("get_program_signup_info", null)]
-        [NUnit.Framework.TestCaseAttribute("get_share_pin", null)]
-        [NUnit.Framework.TestCaseAttribute("get_utilitybill_url", null)]
         [NUnit.Framework.TestCaseAttribute("register_pushes", null)]
         public virtual void B2C_API_IncorrectAccountTokenTest(string restAPI, string[] exampleTags)
         {
@@ -286,8 +247,6 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("B2C_API_ Missing account token test")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("api")]
-        [NUnit.Framework.TestCaseAttribute("add_account_unit", null)]
-        [NUnit.Framework.TestCaseAttribute("delete_account_unit", null)]
         [NUnit.Framework.TestCaseAttribute("get_account_units", null)]
         [NUnit.Framework.TestCaseAttribute("register_pushes", null)]
         public virtual void B2C_API_MissingAccountTokenTest(string restAPI, string[] exampleTags)

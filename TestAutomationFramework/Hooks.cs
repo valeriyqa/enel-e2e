@@ -30,11 +30,11 @@ namespace TestAutomationFramework
 
             if (isLocal)
             {
-                environment = "b2b_alpha";
+                environment = "b2c_alpha";
             }
             else
             {
-                environment = Environment.GetEnvironmentVariable("system").ToLower();
+                environment = Environment.GetEnvironmentVariable("system_type").ToLower();
             }
 
             string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
@@ -59,7 +59,7 @@ namespace TestAutomationFramework
         [BeforeScenario("b2b")]
         public void InitializeB2B()
         {
-            if (!Config.Global.environment.system.Contains("b2b"))
+            if (!Config.Global.environment.system_type.Contains("b2b"))
             {
                 Assert.Inconclusive();
             }
@@ -68,7 +68,7 @@ namespace TestAutomationFramework
         [BeforeScenario("b2c")]
         public void InitializeB2C()
         {
-            if (!Config.Global.environment.system.Contains("b2c"))
+            if (!Config.Global.environment.system_type.Contains("b2c"))
             {
                 Assert.Inconclusive();
             }
