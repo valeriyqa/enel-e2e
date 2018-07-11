@@ -77,7 +77,7 @@ namespace TestAutomationFramework
         [BeforeScenario("api")]
         public void InitializeApi()
         {
-            if (!Config.Global.launcher.start_api)
+            if (!Boolean.Parse(Config.Global.launcher.start_api))
             {
                 Assert.Inconclusive();
             }
@@ -86,7 +86,7 @@ namespace TestAutomationFramework
         [BeforeScenario("udp")]
         public void InitializeUdp()
         {
-            if (!Config.Global.launcher.start_udp)
+            if (!Boolean.Parse(Config.Global.launcher.start_udp))
             {
                 Assert.Inconclusive();
             }
@@ -95,7 +95,7 @@ namespace TestAutomationFramework
         [BeforeScenario("web")]
         public void InitializeWeb()
         {
-            if (Config.Global.launcher.start_web)
+            if (Boolean.Parse(Config.Global.launcher.start_web))
             {
                 SelectBrowser(BrowserType.Chrome);
                 //driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
@@ -110,7 +110,7 @@ namespace TestAutomationFramework
         [AfterScenario("web")]
         public void CleanUp()
         {
-            if (Config.Global.launcher.start_web)
+            if (Boolean.Parse(Config.Global.launcher.start_web))
             {
                 try
                 {
