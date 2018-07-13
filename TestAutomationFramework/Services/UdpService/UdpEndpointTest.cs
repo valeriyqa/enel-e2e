@@ -11,14 +11,37 @@ namespace TestAutomationFramework.Services
         private string host = Config.Global.environment.udp_address;
         const int port = 8042;
 
+        //void TxRxRaw(string packet)
+        //{
+        //    var udpClient = new UdpClientEx(host, port);
+        //    string recStr = udpClient.TxRx(packet);
+        //    var recState = ProtConvert.DeSerializeFromServer(recStr);
+        //    Console.WriteLine(JsonConvert.SerializeObject(recState));
+        //    udpClient.Close();
+        //    Thread.Sleep(2000);
+        //}
+
         void TxRxRaw(string packet)
         {
             var udpClient = new UdpClientEx(host, port);
-            string recStr = udpClient.TxRx(packet);
-            var recState = ProtConvert.DeSerializeFromServer(recStr);
-            Console.WriteLine(JsonConvert.SerializeObject(recState));
-            udpClient.Close();
-            Thread.Sleep(2000);
+            var step = 0;
+            var resultNotFound = true;
+            while (step < 3 && resultNotFound)
+            {
+                step++;
+                try
+                {
+                    string recStr = udpClient.TxRx(packet);
+                    var recState = ProtConvert.DeSerializeFromServer(recStr);
+                    Console.WriteLine(JsonConvert.SerializeObject(recState));
+                    resultNotFound = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("WARNING!!! No UPD response, step: " + step);
+                }
+            }
+            //Thread.Sleep(2000);
         }
 
         public String GetRxRaw(string packet)
