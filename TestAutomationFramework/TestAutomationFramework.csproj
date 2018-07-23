@@ -230,7 +230,7 @@
     <Compile Include="Services\UdpService\Device\ProtConvert.cs" />
     <Compile Include="Services\UdpService\Device\UdpClientEx.cs" />
     <Compile Include="Services\UdpService\UdpEndpointTest.cs" />
-    <Compile Include="Steps\UDP\B2bUdpTestSteps.cs" />
+    <Compile Include="Steps\UDP\B2bTerminalTestSteps.cs" />
     <Compile Include="Steps\UI\B2bUiDeviceSteps.cs" />
     <Compile Include="Steps\UI\B2bUiGeneralSteps.cs" />
     <Compile Include="Steps\UI\B2bUiLocationSteps.cs" />

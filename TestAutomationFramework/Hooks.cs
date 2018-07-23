@@ -31,7 +31,8 @@ namespace TestAutomationFramework
 
             if (isLocal)
             {
-                environment = "b2c_alpha";
+                //environment = "b2c_alpha";
+                environment = "b2b_alpha";
             }
             else
             {
