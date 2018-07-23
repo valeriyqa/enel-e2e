@@ -64,36 +64,101 @@ namespace TestAutomationFramework.Features.B2B_UDP
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_UDP_ Test UDP and API")]
+        [NUnit.Framework.DescriptionAttribute("B2B_UDP_ Test UDP and API First authorization")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("udp")]
-        public virtual void B2B_UDP_TestUDPAndAPI()
+        public virtual void B2B_UDP_TestUDPAndAPIFirstAuthorization()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_UDP_ Test UDP and API", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_UDP_ Test UDP and API First authorization", new string[] {
                         "b2b",
                         "udp"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.When("I send udp package \"0817011001020457542118246997:v07,s0467,u63132,V2514,L00000885" +
-                    "08,S0,T17,M00,m40,t29,i64,e0000,f5999,X0,Y0!T40:\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I send UDP package with status \"Standby\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 8
  testRunner.Then("UDP response should contain \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 9
+ testRunner.When("I send authorization API request to terminal \"0000512174600755\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+ testRunner.Then("API response should be successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 11
+ testRunner.When("I send UDP package with status \"Connected\" to unit \"0817011001020457542118246997\"" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
+ testRunner.Then("UDP response should contain \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 13
+ testRunner.When("I send UDP package with status \"Charging\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
- testRunner.When("I send udp package \"0817011001020457542118246997:v07,s0934,u00596,V2512,L00000885" +
-                    "08,S0,T17,M00,m40,t29,i65,e0000,f5998,X0,Y0!MPW:\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 15
+ testRunner.When("I send UDP package with status \"Charging\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
+ testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 17
+ testRunner.When("I send UDP package with status \"Charging\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 18
+ testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 19
+ testRunner.When("I send UDP package with status \"Charging\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 20
+ testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 21
+ testRunner.When("I send UDP package with status \"Standby\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 22
  testRunner.Then("UDP response should contain \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 24
- testRunner.When("I send udp package \"0817011001020457542118246997:v07,s0360,u11696,V2494,L00000886" +
-                    "27,S0,T17,M40,m40,t29,i75,e0045,f5999,X0,Y0!5MH:\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 25
- testRunner.Then("UDP response should contain \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 26
- testRunner.When("I send udp package \"0817011001020457542118246997:v07,s0235,u14896,V2514,L00000886" +
-                    "27,S0,T17,M40,m40,t29,i76,e0000,f5998,X0,Y0!TNA:\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 23
+ testRunner.When("I verify device status via API request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_UDP_ Test UDP and API First plug")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("udp")]
+        public virtual void B2B_UDP_TestUDPAndAPIFirstPlug()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_UDP_ Test UDP and API First plug", new string[] {
+                        "b2b",
+                        "udp"});
 #line 27
+this.ScenarioSetup(scenarioInfo);
+#line 28
+ testRunner.When("I send UDP package with status \"Standby\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
  testRunner.Then("UDP response should contain \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 30
+ testRunner.When("I send UDP package with status \"Connected\" to unit \"0817011001020457542118246997\"" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 31
+ testRunner.Then("UDP response should contain \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 32
+ testRunner.When("I send authorization API request to terminal \"0000512174600755\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 33
+ testRunner.Then("API response should be successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 34
+ testRunner.When("I send UDP package with status \"Charging\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 35
+ testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 36
+ testRunner.When("I send UDP package with status \"Charging\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 37
+ testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 38
+ testRunner.When("I send UDP package with status \"Charging\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 39
+ testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 40
+ testRunner.When("I send UDP package with status \"Charging\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 41
+ testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 42
+ testRunner.When("I send UDP package with status \"Standby\" to unit \"0817011001020457542118246997\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 43
+ testRunner.Then("UDP response should contain \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 44
+ testRunner.When("I verify device status via API request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }

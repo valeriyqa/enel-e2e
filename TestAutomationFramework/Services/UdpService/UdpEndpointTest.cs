@@ -56,6 +56,20 @@ namespace TestAutomationFramework.Services
             //Thread.Sleep(2000);
         }
 
+        public string GetUdpPackage(string deviceChargeState, string unitId)
+        {
+            var deviceState = new DeviceState
+            {
+                UnitId = unitId,
+                Voltage = 2201,
+                ChargeState = (ChargeStateE)Enum.Parse(typeof(ChargeStateE), deviceChargeState),
+                Temperature = 35,
+                GridFrequency = 6000,
+                EnergyForSession = 2000
+            };
+            return ProtConvert.SerializeToServer(deviceState);
+        }
+
         public void TestUdpEndpoint_State_Standby()
         {
             var deviceState = new DeviceState

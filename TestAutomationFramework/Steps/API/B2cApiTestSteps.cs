@@ -85,15 +85,6 @@ namespace TestAutomationFramework.Steps.API
             }
         }
 
-        //for b2b scenario, probably should be moved to another class
-        [Then(@"API response should be successful")]
-        public void ThenAPIResponseShouldBeSuccessful()
-        {
-            Assert.AreEqual(apiData.response.IsSuccessful, true);
-            Assert.AreEqual(apiData.response.StatusCode, HttpStatusCode.OK);
-        }
-
-
         [Then(@"response should be valid to schema")] //done
         public void ResponseShouldBeValidToSchema()
         {
