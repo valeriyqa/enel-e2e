@@ -1,4 +1,5 @@
 ﻿using JsonConfig;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using RestSharp;
 using System;
@@ -67,10 +68,7 @@ namespace TestAutomationFramework.Steps.UDP
         [When(@"I send UDP package with status ""(.*)"" to unit ""(.*)""")]
         public void WhenISendUDPPackageWithStatusToUnit(string deviceChargeState, string unitId)
         {
-            if (deviceChargeState.Contains("Charging"))
-            {
-                System.Threading.Thread.Sleep(3000);
-            }
+            System.Threading.Thread.Sleep(3000);
 
             testData.unitId = unitId;
             var testName = new UdpEndpointTest();
@@ -91,6 +89,37 @@ namespace TestAutomationFramework.Steps.UDP
             }
         }
 
+        [Then(@"I wait till UDP package with status ""(.*)"" returns ""(.*)""")]
+        [Given(@"I wait till UDP package with status ""(.*)"" returns ""(.*)""")]
+        public void GivenIWaitTillUDPPackageWithStatusReturns(string deviceChargeState, string textString)
+        {
+            var testName = new UdpEndpointTest();
+            var step = 0;
+            var resultNotFound = true;
+            while (step < 3 && resultNotFound)
+            {
+                step++;
+                try
+                {
+                    testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage(deviceChargeState, testData.unitId));
+                    if (testData.requestRxUdp.Contains(textString))
+                    {
+                        resultNotFound = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("WARNING!!! UPD response is not contains \"" + textString + "\", step: " + step);
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("WARNING!!! No UPD response, step: " + step);
+                }
+            }
+            Assert.AreEqual(resultNotFound, false);
+        }
+
+
         [When(@"I send authorization API request to terminal ""(.*)""")]
         public void WhenISendAuthorizationAPIRequestToTerminal(string terminalId)
         {
@@ -99,17 +128,12 @@ namespace TestAutomationFramework.Steps.UDP
             
             var request = new RestRequest("api/v1/{id}/sessions", Method.POST);
 
-            request.AddParameter("unit", testData.unitId);
-
             Random generator = new Random();
             testData.token = generator.Next(0, 99999).ToString("D5") + generator.Next(0, 99999).ToString("D5");
-            ////request.AddParameter("unit", testData.unitId);
-            ////request.AddParameter("token", testData.token);
-            ////request.AddParameter("token", "1092824815");
 
+            request.AddParameter("unit", testData.unitId);
             request.AddParameter("token", testData.token);
-            request.AddUrlSegment("id", terminalId); 
-
+            request.AddUrlSegment("id", testData.terminalId); 
 
             testData.responseApi =  client.Execute(request);
         }
@@ -118,20 +142,25 @@ namespace TestAutomationFramework.Steps.UDP
         public void WhenIVerifyDeviceStatusViaAPIRequest()
         {
             var client = new RestClient(Config.Global.environment.api_address);
-            var request = new RestRequest("api/v1/" + testData.terminalId + "/sessions?token=" + testData.token, Method.GET);
+            var request = new RestRequest("api/v1/{id}/sessions?token={token}", Method.GET);
 
-            request.AddHeader("Cache-Control", "no-cache");
-            request.AddHeader("Content-Type", "text/xml");
+            request.AddUrlSegment("id", "0000512174600755");
+            request.AddUrlSegment("token", "1092824810");
+            //request.AddUrlSegment("id", testData.terminalId);
+            //request.AddUrlSegment("token", testData.token);
+
             testData.responseApi = client.Execute(request);
             Console.WriteLine(testData.responseApi.Content);
+
+            var testtest = JObject.Parse(testData.responseApi.Content.Trim(new Char[] { '[', ']' }));
+            Console.WriteLine(testtest.GetValue("status"));
         }
 
-        [Then(@"status should be ""(.*)""")]
-        public void ThenStatusShouldBe(string p0)
+        [Then(@"property ""(.*)"" should be ""(.*)""")]
+        public void ThenPropertyShouldBe(string propertyName, string status)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(JObject.Parse(testData.responseApi.Content.Trim(new Char[] { '[', ']' })).GetValue(propertyName).ToString(), status);
         }
-
 
     }
 }
