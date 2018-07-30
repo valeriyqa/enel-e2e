@@ -176,5 +176,30 @@ namespace TestAutomationFramework.Steps.UDP
             Assert.AreEqual(JObject.Parse(testData.responseApi.Content.Trim(new Char[] { '[', ']' })).GetValue("energy").ToString(), testData.energy.ToString());
         }
 
+        [Then(@"I send udp Charging packages to unit ""(.*)"" with energy ""(.*)""")]
+        [Given(@"I send udp Charging packages to unit ""(.*)"" with energy ""(.*)""")]
+        public void GivenISendUdpChargingPackagesToUnitWithEnergy(string unitId, int energy)
+        {
+            System.Threading.Thread.Sleep(3000);
+
+            testData.unitId = unitId;
+            var testName = new UdpEndpointTest();
+            var step = 0;
+            var resultNotFound = true;
+            while (step < 3 && resultNotFound)
+            {
+                step++;
+                try
+                {
+                    testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage("Charging", unitId, energy));
+                    resultNotFound = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("WARNING!!! No UPD response, step: " + step);
+                }
+            }
+        }
+
     }
 }

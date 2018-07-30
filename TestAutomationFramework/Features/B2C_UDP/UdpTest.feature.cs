@@ -88,6 +88,37 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2C_UDP_ Test session energy")]
+        [NUnit.Framework.CategoryAttribute("b2с")]
+        [NUnit.Framework.CategoryAttribute("udp")]
+        public virtual void B2C_UDP_TestSessionEnergy()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_UDP_ Test session energy", new string[] {
+                        "b2с",
+                        "udp"});
+#line 17
+this.ScenarioSetup(scenarioInfo);
+#line 18
+ testRunner.When("I send UDP package with status \"Standby\" to unit \"373701135\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.Then("I wait till UDP package with status \"Connected\" returns \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 20
+ testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1000\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 21
+ testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1015\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 22
+ testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1025\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 23
+ testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"5\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 24
+ testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"10\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 25
+ testRunner.When("I send UDP package with status \"Standby\" to unit \"373701135\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
