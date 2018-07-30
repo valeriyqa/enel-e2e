@@ -16,6 +16,7 @@ namespace TestAutomationFramework.Steps.UDP
         //The POCO for sharing data
         public class TestData
         {
+            public int energy = 0;
             public string terminalId;
             public string unitId;
             public string token;
@@ -61,6 +62,7 @@ namespace TestAutomationFramework.Steps.UDP
         [Then(@"API response should be successful")]
         public void ThenAPIResponseShouldBeSuccessful()
         {
+            Console.WriteLine(testData.responseApi.Content);
             Assert.AreEqual(testData.responseApi.IsSuccessful, true);
             Assert.AreEqual(testData.responseApi.StatusCode, HttpStatusCode.OK);
         }
@@ -79,7 +81,15 @@ namespace TestAutomationFramework.Steps.UDP
                 step++;
                 try
                 {
-                    testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage(deviceChargeState, unitId));
+                    if (deviceChargeState.Equals("Charging"))
+                    {
+                        testData.energy = testData.energy + new Random().Next(500, 1000);
+                        testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage(deviceChargeState, unitId, testData.energy));
+                    }
+                    else
+                    {
+                        testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage(deviceChargeState, unitId));
+                    }
                     resultNotFound = false;
                 }
                 catch (Exception)
@@ -139,15 +149,13 @@ namespace TestAutomationFramework.Steps.UDP
         }
 
         [When(@"I verify device status via API request")]
-        public void WhenIVerifyDeviceStatusViaAPIRequest()
+        public void WhenIVerChargingyDeviceStatusViaAPIRequest()
         {
             var client = new RestClient(Config.Global.environment.api_address);
             var request = new RestRequest("api/v1/{id}/sessions?token={token}", Method.GET);
 
-            request.AddUrlSegment("id", "0000512174600755");
-            request.AddUrlSegment("token", "1092824810");
-            //request.AddUrlSegment("id", testData.terminalId);
-            //request.AddUrlSegment("token", testData.token);
+            request.AddUrlSegment("id", testData.terminalId);
+            request.AddUrlSegment("token", testData.token);
 
             testData.responseApi = client.Execute(request);
             Console.WriteLine(testData.responseApi.Content);
@@ -160,6 +168,12 @@ namespace TestAutomationFramework.Steps.UDP
         public void ThenPropertyShouldBe(string propertyName, string status)
         {
             Assert.AreEqual(JObject.Parse(testData.responseApi.Content.Trim(new Char[] { '[', ']' })).GetValue(propertyName).ToString(), status);
+        }
+
+        [Then(@"energy status should be valild")]
+        public void ThenEnergyStatusShouldBeValild()
+        {
+            Assert.AreEqual(JObject.Parse(testData.responseApi.Content.Trim(new Char[] { '[', ']' })).GetValue("energy").ToString(), testData.energy.ToString());
         }
 
     }

@@ -11,16 +11,6 @@ namespace TestAutomationFramework.Services
         private string host = Config.Global.environment.udp_address;
         const int port = 8042;
 
-        //void TxRxRaw(string packet)
-        //{
-        //    var udpClient = new UdpClientEx(host, port);
-        //    string recStr = udpClient.TxRx(packet);
-        //    var recState = ProtConvert.DeSerializeFromServer(recStr);
-        //    Console.WriteLine(JsonConvert.SerializeObject(recState));
-        //    udpClient.Close();
-        //    Thread.Sleep(2000);
-        //}
-
         void TxRxRaw(string packet)
         {
             var udpClient = new UdpClientEx(host, port);
@@ -56,7 +46,7 @@ namespace TestAutomationFramework.Services
             //Thread.Sleep(2000);
         }
 
-        public string GetUdpPackage(string deviceChargeState, string unitId)
+        public string GetUdpPackage(string deviceChargeState, string unitId, int energy)
         {
             var deviceState = new DeviceState
             {
@@ -65,7 +55,20 @@ namespace TestAutomationFramework.Services
                 ChargeState = (ChargeStateE)Enum.Parse(typeof(ChargeStateE), deviceChargeState),
                 Temperature = 35,
                 GridFrequency = 6000,
-                EnergyForSession = 2000
+                EnergyForSession = energy
+            };
+            return ProtConvert.SerializeToServer(deviceState);
+        }
+
+        public string GetUdpPackage(string deviceChargeState, string unitId)
+        {
+            var deviceState = new DeviceState
+            {
+                UnitId = unitId,
+                Voltage = 2201,
+                ChargeState = (ChargeStateE)Enum.Parse(typeof(ChargeStateE), deviceChargeState),
+                Temperature = 35,
+                GridFrequency = 6000
             };
             return ProtConvert.SerializeToServer(deviceState);
         }
