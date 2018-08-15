@@ -88,69 +88,6 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_UDP_ Test session energy")]
-        [NUnit.Framework.CategoryAttribute("b2с")]
-        [NUnit.Framework.CategoryAttribute("udp")]
-        public virtual void B2C_UDP_TestSessionEnergy()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_UDP_ Test session energy", new string[] {
-                        "b2с",
-                        "udp"});
-#line 17
-this.ScenarioSetup(scenarioInfo);
-#line 18
- testRunner.When("I send UDP package with status \"Standby\" to unit \"373701135\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 19
- testRunner.Then("I wait till UDP package with status \"Connected\" returns \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 20
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1000\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 21
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1015\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 22
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1025\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 23
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1035\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 24
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1045\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 25
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1055\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 26
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1065\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 27
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1075\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 28
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1085\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 29
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"1095\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 30
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"2000\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 31
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"5\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 32
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"10\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 33
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"15\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 34
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"20\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 35
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"25\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 36
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"30\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 37
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"35\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 38
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 39
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"45\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 40
- testRunner.Then("I send udp Charging packages to unit \"373701135\" with energy \"50\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 41
- testRunner.When("I send UDP package with status \"Standby\" to unit \"373701135\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            this.ScenarioCleanup();
-        }
     }
 }
 #pragma warning restore

@@ -158,6 +158,7 @@ namespace TestAutomationFramework.Steps.UDP
             request.AddUrlSegment("token", testData.token);
 
             testData.responseApi = client.Execute(request);
+            Console.WriteLine(request.Credentials);
             Console.WriteLine(testData.responseApi.Content);
 
             var testtest = JObject.Parse(testData.responseApi.Content.Trim(new Char[] { '[', ']' }));
