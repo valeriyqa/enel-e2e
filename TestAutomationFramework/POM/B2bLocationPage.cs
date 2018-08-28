@@ -7,6 +7,7 @@ namespace TestAutomationFramework.POM
 {
     class B2bLocationPage
     {
+        //delete it
         IWebElement TimeZoneSelect => driver.FindElement(By.Id("mat-select-0"));
         IWebElement AssignRateSelect => driver.FindElement(By.Id("mat-select-1"));
         IWebElement SameAsParentCheckbox => driver.FindElement(By.Id("mat-checkbox-1"));
@@ -34,72 +35,28 @@ namespace TestAutomationFramework.POM
 
         public void ClickLocationLinkByName(string locationName)
         {
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(wd => driver.FindElement(By.ClassName("location-node")).FindElement(By.XPath("//a[contains(text(),'" + locationName + "')]")));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            wait.Until(wd => driver.FindElement(By.ClassName("ng-star-inserted")).FindElement(By.XPath("//a[contains(text(),'" + locationName + "')]")));
 
-            driver.FindElement(By.ClassName("location-node")).FindElement(By.XPath("//a[contains(text(),'" + locationName + "')]")).Click();
-            wait.Until(wd => driver.FindElement(By.ClassName("ui-treetable")));
+            driver.FindElement(By.ClassName("ng-star-inserted")).FindElement(By.XPath("//a[contains(text(),'" + locationName + "')]")).Click();
+            wait.Until(wd => driver.FindElement(By.XPath("//label[contains(text(), 'Rate Details')]")));
         }
 
         public bool IsLocationExist(string locationName)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(wd => driver.FindElement(By.ClassName("ui-treetable")));
-
+            wait.Until(wd => driver.FindElement(By.ClassName("ui-treetable-table")));
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
-            IList<IWebElement> allLoactions = driver.FindElements(By.ClassName("location-node"));
+            IList<IWebElement> allLoactions = driver.FindElements(By.XPath("//tbody //a[contains(@class,'ui-treetable-label')]"));
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             foreach (IWebElement location in allLoactions)
             {
-                if (location.FindElement(By.ClassName("ui-treetable-label")).Text.Contains(locationName))
+                if (location.Text.Contains(locationName))
                 {
                     return true;
                 }
             }
             return false;
         }
-
-
-
-        //public class Location
-        //{
-        //    public string locationName { get; set; }
-        //    public string parentName { get; set; }
-        //    public string[] childName { get; set; }
-        //    public int numberOfDevices { get; set; }
-        //    public int devicesInUse { get; set; }
-        //    public string locationAddress { get; set; }
-        //}
-
-        //public Dictionary<string, string> GetLocation(string locationName)
-        //{
-        //    return null;
-        //}
-
-        //public Dictionary<string, Location> GetAllLocations()
-        //{
-        //    var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        //    wait.Until(wd => LocationsTable);
-        //    IList<IWebElement> AllParent = driver.FindElements(By.ClassName("ui-treetable-data.ui-widget-content"));
-
-        //    return null;
-        //}
-
-
-        //        var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        //        wait.Until(wd => selector.GetAttribute("aria-owns").Length > 0);
-        //            selector.FindElement(By.ClassName("mat-select-trigger")).Click();
-        //        wait.Until(wd => driver.FindElement(By.ClassName("cdk-overlay-container")).FindElement(By.ClassName("ng-trigger")));
-
-        //            IList<IWebElement> AllDropDownList = driver.FindElements(By.XPath("//span[@class='mat-option-text']"));
-        //            foreach (var element in AllDropDownList)
-        //            {
-        //                if (element.Text.Contains(value))
-        //                {
-        //                    element.Click();
-        //                    System.Threading.Thread.Sleep(500);
-        //                    break;
-        //                }
-        //}
     }
 }

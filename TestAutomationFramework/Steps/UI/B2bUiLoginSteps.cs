@@ -28,8 +28,9 @@ namespace TestAutomationFramework.Steps.UI
             loginPage.SubmitLoginForm(currentUser.userEmail, currentUser.userPassword);
 
             var generalPage = new B2bGeneralPage(driver);
-            Console.WriteLine("User Email=" + generalPage.GetUserEmail());
-            Assert.AreEqual(generalPage.GetUserEmail(), currentUser.userEmail);
+            var result = generalPage.GetUserEmail();
+            Console.WriteLine("User Email=" + result);
+            Assert.AreEqual(result, currentUser.userEmail);
         }
 
         //probaby we have to make this method more general and move to the correspondig class

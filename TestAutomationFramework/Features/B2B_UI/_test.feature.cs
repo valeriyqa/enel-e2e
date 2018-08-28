@@ -75,7 +75,7 @@ namespace TestAutomationFramework.Features.B2B_UI
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.Given("I login to the system as \"Oleksii\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I login to the system as \"Web user\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
  testRunner.And("I navigate to the \"Devices\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

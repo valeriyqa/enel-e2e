@@ -9,7 +9,8 @@ namespace TestAutomationFramework.POM
     class B2bGeneralPage
     {
         IWebElement UserProfileButton => driver.FindElement(By.ClassName("user-profile-btn"));
-        IWebElement UserEmail => driver.FindElement(By.CssSelector("[href*='my-account']"));
+        //IWebElement UserEmail => driver.FindElement(By.CssSelector("[href*='my-account']"));
+        IWebElement UserEmail => driver.FindElement(By.XPath("//div[contains(@class,'mat-menu-content')]//div[not(@class)]"));
         IWebElement PopupWindow => driver.FindElement(By.ClassName("cdk-overlay-container")).FindElement(By.ClassName("mat-dialog-title"));
 
         private readonly IWebDriver driver;
@@ -18,12 +19,13 @@ namespace TestAutomationFramework.POM
         public string GetUserEmail()
         {
 
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(wd => driver.FindElement(By.TagName("iframe")));
-
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            wait.Until(wd => driver.FindElement(By.XPath("//div[@class='company-name menu']")));
             UserProfileButton.Click();
-            var result = UserEmail.Text;
-            UserProfileButton.Click();
+            var result = UserEmail.Text.Trim();
+            //wait.Until(ExpectedConditions.ElementToBeClickable(UserEmail));
+            //UserEmail.Click();
+            driver.FindElement(By.ClassName("cdk-overlay-container")).Click();
             return result;
         }
 
@@ -50,7 +52,7 @@ namespace TestAutomationFramework.POM
         {
             if (waitForFill)
             {
-                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
                 wait.Until(wd => driver.FindElement(By.XPath("//input[@formcontrolname='" + inputName + "']")).GetAttribute("value").Length > 0);
             }
             SetInputByName(inputName, inputValue);
@@ -80,8 +82,15 @@ namespace TestAutomationFramework.POM
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(wd => PopupWindow.Displayed);
 
+            Console.WriteLine("Assert icon");
             Assert.AreEqual(PopupWindow.FindElement(By.ClassName("mat-icon")).Text.Trim(), status);
+            Console.WriteLine("Assert Text");
             Assert.AreEqual(PopupWindow.FindElement(By.XPath("//h2")).Text.Trim(), message);
+        }
+
+        public void ClickCheckboxByNameInRow(string checkboxName, string rowName)
+        {
+            driver.FindElement(By.XPath("//div[contains(@class,'attribute-header')]//label[contains(text(), '" + rowName + "')]/../..//mat-checkbox[.//*[contains(text(),'" + checkboxName + "')]]")).Click();
         }
     }
 }

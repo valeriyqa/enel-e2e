@@ -4,7 +4,7 @@
 
 @b2b @web
 Scenario: Test B2B system
-	Given I login to the system as "Oleksii" (b2b)
+	Given I login to the system as "Web user" (b2b)
 	And I navigate to the "Devices" page (b2b)
 
 
