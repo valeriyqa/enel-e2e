@@ -83,23 +83,24 @@ this.ScenarioSetup(scenarioInfo);
 #line 10
  testRunner.Then("API response should be successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
- testRunner.Then("I wait till UDP package with status \"Connected\" returns \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I wait till UDP package with status \"Connected\" returns amperage higher than \"00\"" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 12
  testRunner.When("I send UDP package with status \"Charging\" to unit \"373705117\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
- testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("UDP response should contain amperage higher than \"00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 14
  testRunner.When("I send UDP package with status \"Charging\" to unit \"373705117\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
- testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("UDP response should contain amperage higher than \"00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 16
  testRunner.When("I send UDP package with status \"Charging\" to unit \"373705117\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 17
- testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("UDP response should contain amperage higher than \"00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 18
  testRunner.When("I send UDP package with status \"Charging\" to unit \"373705117\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
- testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("UDP response should contain amperage higher than \"00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 20
  testRunner.Then("I wait till UDP package with status \"Standby\" returns \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 21
@@ -135,27 +136,27 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I send authorization API request to terminal \"0000252525121990\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 32
  testRunner.Then("API response should be successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 33
- testRunner.Then("I wait till UDP package with status \"Charging\" returns \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 36
- testRunner.When("I send UDP package with status \"Charging\" to unit \"373705117\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 34
+ testRunner.Then("I wait till UDP package with status \"Charging\" returns amperage higher than \"00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 37
- testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 38
  testRunner.When("I send UDP package with status \"Charging\" to unit \"373705117\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 39
- testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 38
+ testRunner.Then("UDP response should contain amperage higher than \"00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 40
  testRunner.When("I send UDP package with status \"Charging\" to unit \"373705117\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 41
- testRunner.Then("UDP response should contain \"A40\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 42
- testRunner.Then("I wait till UDP package with status \"Standby\" returns \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("UDP response should contain amperage higher than \"00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 43
- testRunner.When("I verify device status via API request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I send UDP package with status \"Charging\" to unit \"373705117\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 44
+ testRunner.Then("UDP response should contain amperage higher than \"00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 46
+ testRunner.Then("I wait till UDP package with status \"Standby\" returns \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 47
+ testRunner.When("I verify device status via API request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 48
  testRunner.Then("property \"status\" should be \"finished\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 45
+#line 49
  testRunner.And("energy status should be valild", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

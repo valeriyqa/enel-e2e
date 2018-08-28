@@ -59,6 +59,13 @@ namespace TestAutomationFramework.Steps.UDP
             Assert.AreEqual(testData.requestRxUdp.Contains(textString), true);
         }
 
+        [Then(@"UDP response should contain amperage higher than ""(.*)""")]
+        public void ThenUDPResponseShouldContainAmperageHigherThan(string amperage)
+        {
+            Assert.IsTrue(Int32.Parse(testData.requestRxUdp.Substring(9, 2)) > Int32.Parse(amperage));
+        }
+
+
         [Then(@"API response should be successful")]
         public void ThenAPIResponseShouldBeSuccessful()
         {
@@ -76,7 +83,7 @@ namespace TestAutomationFramework.Steps.UDP
             var testName = new UdpEndpointTest();
             var step = 0;
             var resultNotFound = true;
-            while (step < 3 && resultNotFound)
+            while (step < 5 && resultNotFound)
             {
                 step++;
                 try
@@ -119,6 +126,35 @@ namespace TestAutomationFramework.Steps.UDP
                     else
                     {
                         Console.WriteLine("WARNING!!! UPD response is not contains \"" + textString + "\", step: " + step);
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("WARNING!!! No UPD response, step: " + step);
+                }
+            }
+            Assert.AreEqual(resultNotFound, false);
+        }
+
+        [Then(@"I wait till UDP package with status ""(.*)"" returns amperage higher than ""(.*)""")]
+        public void ThenIWaitTillUDPPackageWithStatusReturnsAmperageHigherThan(string deviceChargeState, string amperage)
+        {
+            var testName = new UdpEndpointTest();
+            var step = 0;
+            var resultNotFound = true;
+            while (step < 5 && resultNotFound)
+            {
+                step++;
+                try
+                {
+                    testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage(deviceChargeState, testData.unitId));
+                    if (Int32.Parse(testData.requestRxUdp.Substring(9, 2)) > Int32.Parse(amperage))
+                    {
+                        resultNotFound = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("WARNING!!! UPD response is not higher \"" + amperage + "\", step: " + step);
                     }
                 }
                 catch (Exception)

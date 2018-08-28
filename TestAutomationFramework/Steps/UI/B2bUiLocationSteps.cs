@@ -36,9 +36,10 @@ namespace TestAutomationFramework.Steps.UI
         public void IPopulateTheLocationFormWithCorrectDataB2b()
         {
             var locationPage = new B2bLocationPage(driver);
-            locationPage.ClickSameAsParentCheckbox();
+            //locationPage.ClickSameAsParentCheckbox();
 
             var generalPage = new B2bGeneralPage(driver);
+            generalPage.ClickCheckboxByNameInRow("Same as parent", "Address");
             generalPage.SetInputByName("name", "Test Location");
             generalPage.SetInputByName("address", "Test Address", true);
             generalPage.SetInputByName("city", "Test City", true);
@@ -53,5 +54,27 @@ namespace TestAutomationFramework.Steps.UI
             var locationPage = new B2bLocationPage(driver);
             Assert.AreEqual(locationPage.IsLocationExist(locationName), bool.Parse(shouldExist));
         }
+
+        [Given(@"I delete location ""(.*)"" if exist \(b2b\)")]
+        public void GivenIDeleteLocationIfExistBb(string locationName)
+        {
+            var locationPage = new B2bLocationPage(driver);
+            var generalPage = new B2bGeneralPage(driver);
+            if (locationPage.IsLocationExist(locationName))
+            {
+                System.Console.WriteLine("exist");
+                locationPage.ClickLocationLinkByName(locationName); 
+                generalPage.ClickButtonByName("Delete Location");
+                generalPage.ClickButtonByName("Remove");
+            }
+        }
+
+        [When(@"I click ""(.*)"" checkbox in row ""(.*)"" \(b2b\)")]
+        public void WhenIClickCheckboxInRowBb(string checkboxName, string rowName)
+        {
+            var generalPage = new B2bGeneralPage(driver);
+            generalPage.ClickCheckboxByNameInRow(checkboxName, rowName);
+        }
+
     }
 }
