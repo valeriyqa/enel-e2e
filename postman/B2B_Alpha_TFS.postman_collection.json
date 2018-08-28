@@ -1,13 +1,12 @@
 {
 	"info": {
-		"_postman_id": "9e4d3538-1d30-4819-adc5-d0274e1aade7",
-		"name": "B2B_Beta",
+		"_postman_id": "df8badf0-baf2-49ac-9596-14be54621294",
+		"name": "B2B_Alpha_TFS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Locations",
-			"description": null,
 			"item": [
 				{
 					"name": "createNewLocation",
@@ -834,7 +833,6 @@
 		},
 		{
 			"name": "Attribute",
-			"description": null,
 			"item": [
 				{
 					"name": "attributeValue(effectiveValue)",
@@ -1059,287 +1057,7 @@
 			]
 		},
 		{
-			"name": "Client",
-			"description": null,
-			"item": [
-				{
-					"name": "getClients",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "43796335-3888-46ef-900f-763e9a16a6b7",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"var schema = {",
-									"\"$schema\": \"http://json-schema.org/draft-04/schema#\",",
-									"  \"type\":\"array\",",
-									"  \"items\": ",
-									"  {",
-									"    \"type\": \"object\",",
-									"    \"properties\": ",
-									"    {  ",
-									"        \"id\": ",
-									"        {",
-									"            \"type\":\"string\"",
-									"        },",
-									"        \"name\": ",
-									"        {",
-									"            \"type\":\"string\"",
-									"        },",
-									"\"required\":",
-									"[",
-									"    \"id\",",
-									"    \"name\",",
-									"]",
-									"",
-									"        }  ",
-									"    }",
-									"};",
-									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"",
-									"",
-									"",
-									"",
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token-reseller}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}clients",
-							"host": [
-								"{{url}}clients"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "createClient",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "17fe28b6-19d3-43a8-b9d2-7815b5a19ee2",
-								"type": "text/javascript",
-								"exec": [
-									"var min",
-									"var max",
-									"function getRandomInt(min, max)",
-									"{",
-									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
-									"}",
-									"email= '6dofik+'+getRandomInt(1, 1000)+'@gmail.com'",
-									"client= 'TestClient'+getRandomInt(1,1000)",
-									"",
-									"pm.environment.set(\"random_email\", email);",
-									"pm.environment.set(\"random_client\", client);"
-								]
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "24f4b152-e723-44f7-bb7c-48f44aac7a3e",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.response.to.have.status(201);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token-reseller}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"{{random_client}}\",\r\n  \"email\": \"{{random_email}}\",\r\n  \"address\": {\r\n    \"address\": \"efwefwef\",\r\n    \"city\": \"strinwefweg\",\r\n    \"state\": \"string\",\r\n    \"zip\": \"20815\",\r\n    \"timeZone\": \"Mid-Atlantic Standard Time\"\r\n  }\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}clients",
-							"host": [
-								"{{url}}clients"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "detailsOfClientID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "27853d15-ae28-4939-be58-2726ba1946dc",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"var schema = {",
-									"\"$schema\": \"http://json-schema.org/draft-04/schema#\",",
-									"  \"items\": ",
-									"  {",
-									"    \"type\": \"object\",",
-									"    \"properties\": ",
-									"    {  ",
-									"        \"id\": ",
-									"        {",
-									"            \"type\":\"string\"",
-									"        },",
-									"        \"name\": ",
-									"        {",
-									"            \"type\":\"string\"",
-									"        },",
-									"        \"address\": {",
-									"            \"type\":\"object\",",
-									"            \"properties\":",
-									"            {",
-									"                \"address\": ",
-									"                {",
-									"                    \"type\":\"string\"",
-									"                }, ",
-									"                \"city\": ",
-									"                {",
-									"                    \"type\":\"string\"",
-									"                }, ",
-									"                \"state\": ",
-									"                {",
-									"                    \"type\":\"string\"",
-									"                }, ",
-									"                \"zip\": ",
-									"                {",
-									"                    \"type\":\"string\"",
-									"                }, ",
-									"                \"timeZone\": ",
-									"                {",
-									"                    \"type\":\"string\"",
-									"                }, ",
-									"                    ",
-									"                        \"type\": \"object\",",
-									"                        \"properties\": ",
-									"                        {",
-									"                            \"createdDate\": ",
-									"                            {",
-									"                                \"type\":\"string\"",
-									"                            }, ",
-									"                        ",
-									"\"required\":",
-									"[",
-									"    \"id\",",
-									"    \"name\",",
-									"    \"address\",",
-									"    \"address\",",
-									"    \"city\",",
-									"    \"state\",",
-									"    \"zip\",",
-									"    \"timeZone\",",
-									"    \"createdDate\"",
-									"]",
-									"                        ",
-									"                    }",
-									"                }",
-									"            }",
-									"        ",
-									"        }  ",
-									"    }",
-									"};",
-									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"address field is present\"]= responseBody.has(\"address\");",
-									"tests[\"address field is present\"]= responseBody.has(\"address\");",
-									"tests[\"city field is present\"]= responseBody.has(\"city\");",
-									"tests[\"state field is present\"]= responseBody.has(\"state\");",
-									"tests[\"zip field is present\"]= responseBody.has(\"zip\");",
-									"tests[\"timeZone field is present\"]= responseBody.has(\"timeZone\");",
-									"tests[\"createdDate field is present\"]= responseBody.has(\"createdDate\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token-reseller}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}clients/{{clientID}}",
-							"host": [
-								"{{url}}clients"
-							],
-							"path": [
-								"{{clientID}}"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL2picm9vbS1kZXYtYjJiLWlkZW50aXR5c2VydmVyLXdlYi5henVyZXdlYnNpdGVzLm5ldC9pZGVudGl0eSIsImF1ZCI6Imh0dHBzOi8vamJyb29tLWRldi1iMmItaWRlbnRpdHlzZXJ2ZXItd2ViLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5L3Jlc291cmNlcyIsImV4cCI6MTUxODcyOTQ2OCwibmJmIjoxNTE4MDA5NDY4LCJjbGllbnRfaWQiOiJKdWljZUJveC5XZWIuQ2xpZW50LlVpIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwiYXBpIl0sInN1YiI6ImQ3MDk2OTM2LTVjMzMtNDE0YS1hZTNlLTRkOTJkMTExZGQ0NSIsImF1dGhfdGltZSI6MTUxODAwOTQ2OCwiaWRwIjoiaWRzcnYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJtYXRpbmFrc3UrMUBnbWFpbC5jb20iLCJlbWFpbCI6Im1hdGluYWtzdSsxQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjoidHJ1ZSIsImdpdmVuX25hbWUiOiJtYXRpbmFrc3UrMUBnbWFpbC5jb20iLCJmYW1pbHlfbmFtZSI6Im5vdCBzdXBwb3J0ZWQiLCJhbXIiOlsicGFzc3dvcmQiXX0.TX3iV3vLXsUkGw_jMpk5ZKG14hIZrrbJFatDskp0Cjzww-qv3zYJgE8uhdUyiqhzhB7_vAP8Ws-k2sE09dLze6rh3NfwMdWXhOWRZVRs-fQLLjzK4NOTvJzHkq-NemGEz4pr0XIclMq_sVqrTtaWQT3FDehJNNlPZSZdsvbGNN6uEncifBWC-1a0IPfT-Fd3tFntualgWxNqTMmll3jOcjRansoRFT6sN-PJ-mu7CD29OfD8slOwD-bPqVviFjxc4cbs6q4H4xJViivTLH03XZeJnyrJ7exFz7qdIgYen2Q1mbjuRjenWCTVspAS7XpqYopFMilCokslUIL_u5541Q",
-						"type": "string"
-					}
-				]
-			}
-		},
-		{
 			"name": "Common",
-			"description": null,
 			"item": [
 				{
 					"name": "Timezone",
@@ -1419,8 +1137,63 @@
 			]
 		},
 		{
+			"name": "DeviceSession",
+			"item": [
+				{
+					"name": "detailsOfLastSession",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "614e46bd-9931-4495-a31f-97dcdbb6c5db",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n  \"devicesIds\" : \"eb7f8762-0b0d-4d07-be77-57bfc3abe4c1\"\n    }\n]\n"
+						},
+						"url": {
+							"raw": "{{url}}devices/sessions/last",
+							"host": [
+								"{{url}}devices"
+							],
+							"path": [
+								"sessions",
+								"last"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Filter",
-			"description": null,
 			"item": [
 				{
 					"name": "Calculate",
@@ -1540,7 +1313,6 @@
 		},
 		{
 			"name": "Object",
-			"description": null,
 			"item": [
 				{
 					"name": "physicalParentID",
@@ -1614,7 +1386,6 @@
 		},
 		{
 			"name": "Partner",
-			"description": null,
 			"item": [
 				{
 					"name": "autorizedPartner",
@@ -1698,7 +1469,6 @@
 		},
 		{
 			"name": "Permission",
-			"description": null,
 			"item": [
 				{
 					"name": "avaliblePermissionTypes",
@@ -2116,7 +1886,6 @@
 		},
 		{
 			"name": "Report",
-			"description": null,
 			"item": [
 				{
 					"name": "periodPerMonth",
@@ -2459,138 +2228,6 @@
 					"response": []
 				},
 				{
-					"name": "energyStatus",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "bff91b22-ae91-4ce6-aca0-41fb283d77e6",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"locations\": [\r\n    \"18b197c0-8d0c-4aca-ba7b-25ae61abed53\"\r\n  ],\r\n  \"buildings\": [\r\n    \"00000000-0000-0000-0000-000000000000\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}reports/locations/energy",
-							"host": [
-								"{{url}}reports"
-							],
-							"path": [
-								"locations",
-								"energy"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "aggregationStatus",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "81e99eea-9b29-44d3-9797-b1bcf17e43d6",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"var schema = {",
-									"\"$schema\": \"http://json-schema.org/draft-04/schema#\",",
-									"  \"type\":\"object\",",
-									"  \"locations\": ",
-									" {",
-									"    \"type\":\"object\",",
-									"    \"properties\":",
-									"    {",
-									"        \"total\":",
-									"        {",
-									"            \"type\":\"number\"",
-									"        },",
-									"        \"energyByLocation\":",
-									"        {",
-									"            \"type\":\"string\"",
-									"        },",
-									"        ",
-									"\"required\": [",
-									"            \"total\",",
-									"            \"energyByLocation\"",
-									"            ]",
-									"    }",
-									"}",
-									"};",
-									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"total field is present\"]= responseBody.has(\"total\");",
-									"tests[\"energyByLocation field is present\"]= responseBody.has(\"energyByLocation\");",
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"locations\": [\r\n    \"18b197c0-8d0c-4aca-ba7b-25ae61abed53\"\r\n  ],\r\n  \"buildings\": [\r\n    \"00000000-0000-0000-0000-000000000000\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}reports/locations/aggregation",
-							"host": [
-								"{{url}}reports"
-							],
-							"path": [
-								"locations",
-								"aggregation"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "reportUsersCount",
 					"event": [
 						{
@@ -2676,7 +2313,6 @@
 		},
 		{
 			"name": "Subject",
-			"description": null,
 			"item": [
 				{
 					"name": "filteredByQuery",
@@ -2762,7 +2398,6 @@
 		},
 		{
 			"name": "Account",
-			"description": null,
 			"item": [
 				{
 					"name": "accountInfo",
@@ -2906,7 +2541,6 @@
 		},
 		{
 			"name": "Users",
-			"description": null,
 			"item": [
 				{
 					"name": "createUser",
@@ -3226,7 +2860,6 @@
 		},
 		{
 			"name": "UserGroup",
-			"description": null,
 			"item": [
 				{
 					"name": "createGroup",
@@ -3624,6 +3257,256 @@
 					"response": []
 				},
 				{
+					"name": "deleteMemberFromUserGroup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "315eb471-0ea7-4ceb-a299-ff77d5544b68",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}user-groups/{{groupID}}/members/{{userID}}",
+							"host": [
+								"{{url}}user-groups"
+							],
+							"path": [
+								"{{groupID}}",
+								"members",
+								"{{userID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteMemberFromUserGroup (404 response)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "74964350-56b8-44b3-926b-b4526f03c3bd",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}user-groups/dbacd34f-8597-4f13-as65-0d7159c91f86/members/{{userID}}",
+							"host": [
+								"{{url}}user-groups"
+							],
+							"path": [
+								"dbacd34f-8597-4f13-as65-0d7159c91f86",
+								"members",
+								"{{userID}}"
+							]
+						},
+						"description": "Wrong group ID"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteMemberFromUserGroup (500 response)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0697d0af-0e4f-4308-b44e-84ccf89f1fcf",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 500\"] = responseCode.code === 500;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}user-groups/{{groupID}}/members/588008b6-e416-458a-b548-6d358ab8823a",
+							"host": [
+								"{{url}}user-groups"
+							],
+							"path": [
+								"{{groupID}}",
+								"members",
+								"588008b6-e416-458a-b548-6d358ab8823a"
+							]
+						},
+						"description": "Wrong user ID"
+					},
+					"response": []
+				},
+				{
+					"name": "listOfUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449bb00d-1ece-4f04-bf9a-318315e7230d",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var schema = ",
+									"{",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"   \"type\": \"array\",",
+									"      \"items\": {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"          \"id\": ",
+									"          {",
+									"            \"type\": \"string\"",
+									"          },",
+									"          \"email\": ",
+									"          {",
+									"            \"type\": \"string\"",
+									"          },",
+									"          \"name\": ",
+									"          {",
+									"            \"type\": \"string\"",
+									"          },",
+									"\"required\":",
+									"[",
+									"    \"id\",",
+									"    \"email\",",
+									"    \"name\"",
+									"]",
+									"",
+									"        }  ",
+									"    }",
+									"};",
+									"",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"name field is present\"]= responseBody.has(\"name\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}user-groups/{{groupID}}/users",
+							"host": [
+								"{{url}}user-groups"
+							],
+							"path": [
+								"{{groupID}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listOfUsers (404 response)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d302d23-238b-4cb0-9695-cfff8bfa7ba2",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}user-groups/dbacd34f-8597-4f13-as65-0d7159c91f86/users",
+							"host": [
+								"{{url}}user-groups"
+							],
+							"path": [
+								"dbacd34f-8597-4f13-as65-0d7159c91f86",
+								"users"
+							]
+						},
+						"description": "Wrong group ID"
+					},
+					"response": []
+				},
+				{
 					"name": "deleteSubLocation2",
 					"event": [
 						{
@@ -3702,6 +3585,787 @@
 							],
 							"path": [
 								"{{new_location_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rate",
+			"item": [
+				{
+					"name": "createRate",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4b3fc450-e2e3-43a0-813c-1152776b3dcc",
+								"type": "text/javascript",
+								"exec": [
+									"var min",
+									"var max",
+									"function getRandomInt(min, max)",
+									"{",
+									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
+									"}",
+									"test= 'TestRate'+getRandomInt(1, 1000)",
+									"",
+									"pm.environment.set(\"random_rate\", test);"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "62f699df-4cee-438a-a94b-04affa739994",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									" ",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); //true или false (метод)",
+									"",
+									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
+									"pm.environment.set(\"new_rate_id\", _str);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{random_rate}}\",\r\n  \"templateId\": \"{{template_id}}\",\r\n  \"templateState\": {\r\n    \"session\": 0,\r\n    \"hour\": 0,\r\n    \"kWh\": 0\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}rates",
+							"host": [
+								"{{url}}rates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filteredRateList",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "25ac322c-ea0e-4dff-9ea3-35faf309630e",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"locations\": [\r\n    \"{{new_location_id}}\"\r\n  ],\r\n  \"buildings\": [\r\n    \"{{new_sublocation_id}}\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}rates/list",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignRateToLoctation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "abb86327-9c38-4090-ade8-67449e150295",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rateId\": \"{{new_rate_id}}\",\r\n  \"targetId\": \"{{new_location_id}}\",\r\n  \"inherit\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}rates/assign-location",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"assign-location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignRateToSubLoctation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b69cedd3-98a4-4b73-9425-5fc88f7ef882",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rateId\": \"{{new_rate_id}}\",\r\n  \"targetId\": \"{{new_sublocation_id}}\",\r\n  \"inherit\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}rates/assign-sublocation",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"assign-sublocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignRateToDevice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rateId\": \"{{new_rate_id}}\",\r\n  \"targetId\": \"{{device_id}}\",\r\n  \"inherit\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}rates/assign-device",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"assign-device"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listOfRateTemplates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6ccb54d-1e23-4d3d-a495-3155acc08ce3",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var schema = {",
+									"\"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\":\"array\",",
+									"  \"items\": ",
+									"  {",
+									"    \"type\": \"object\",",
+									"    \"properties\": ",
+									"    {  ",
+									"        \"id\": ",
+									"        {",
+									"            \"type\":\"string\"",
+									"        },",
+									"        \"name\": ",
+									"        {",
+									"            \"type\":\"string\"",
+									"        },",
+									"        \"configurationTypeName\": ",
+									"        {",
+									"            \"type\":\"string\"",
+									"        },",
+									"        \"isDefaultFree\": ",
+									"        {",
+									"            \"type\":\"boolean\"",
+									"        },",
+									"\"required\":",
+									"[",
+									"    \"id\",",
+									"    \"name\",",
+									"    \"configurationTypeName\",",
+									"    \"isDefaultFree\"",
+									"]",
+									"",
+									"        }  ",
+									"    }",
+									"};",
+									"",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"configurationTypeName field is present\"]= responseBody.has(\"configurationTypeName\");",
+									"tests[\"isDefaultFree field is present\"]= responseBody.has(\"isDefaultFree\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/templates",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listOfClientTariffsExtended",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3d82a06-9305-4b1f-a2e9-ea1d41e2d789",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"locationsSublocationsCount field is present\"]= responseBody.has(\"locationsSublocationsCount\");",
+									"tests[\"devicesCount field is present\"]= responseBody.has(\"devicesCount\");",
+									"tests[\"created field is present\"]= responseBody.has(\"created\");",
+									"tests[\"updated field is present\"]= responseBody.has(\"updated\");",
+									"tests[\"name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"configurationType field is present\"]= responseBody.has(\"configurationType\");",
+									"tests[\"tariffInstanceId field is present\"]= responseBody.has(\"tariffInstanceId\");",
+									"tests[\"configurationJson field is present\"]= responseBody.has(\"configurationJson\");",
+									"tests[\"IsFree field is present\"]= responseBody.has(\"IsFree\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/list-extended",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"list-extended"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rateInfo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15832c40-1132-402e-87aa-691deec04278",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/{{device_id}}",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"{{device_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rateInfoByLoc/SubLoc/DevID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/object-rate/{{new_location_id}}",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"object-rate",
+								"{{new_location_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listOfClientTariffs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "03da334b-f768-451f-bab7-0bafa086533f",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"locationsSublocationsCount field is present\"]= responseBody.has(\"locationsSublocationsCount\");",
+									"tests[\"devicesCount field is present\"]= responseBody.has(\"devicesCount\");",
+									"tests[\"created field is present\"]= responseBody.has(\"created\");",
+									"tests[\"updated field is present\"]= responseBody.has(\"updated\");",
+									"tests[\"name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"configurationType field is present\"]= responseBody.has(\"configurationType\");",
+									"tests[\"tariffInstanceId field is present\"]= responseBody.has(\"tariffInstanceId\");",
+									"tests[\"configurationJson field is present\"]= responseBody.has(\"configurationJson\");",
+									"tests[\"IsFree field is present\"]= responseBody.has(\"IsFree\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates",
+							"host": [
+								"{{url}}rates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "devicesByRateID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85dc5b43-def6-436d-beaa-d3b807c70f41",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/{{new_rate_id}}/devices",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"{{new_rate_id}}",
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locationsByRateID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f18d744c-6963-417b-9847-8cfdcfb0d2a4",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/{{new_rate_id}}/locations",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"{{new_rate_id}}",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subLocationsByRateID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5375e5d-e5ae-44ba-9dfa-aa42f495da58",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/{{new_rate_id}}/sublocations",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"{{new_rate_id}}",
+								"sublocations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listOfUnassignedRates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "12b140cb-6246-4307-b2a1-86472cbbd298",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/unassigned",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"unassigned"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listOfRatesForUnlinkedDevices",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c95d893-7f92-4313-98e2-66ed3f5c227b",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/rates-unlinked-devices",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"rates-unlinked-devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "udpateRate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3304ed4d-ebc6-487a-9e84-b837c28a9ead",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"templateName\": \"{{random_rate}}\",\r\n  \"templateState\": {\r\n    \"session\": 1,\r\n    \"hour\": 2,\r\n    \"kWh\": 3\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}rates/{{new_rate_id}}",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"{{new_rate_id}}"
 							]
 						}
 					},
