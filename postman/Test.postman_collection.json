@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "438f25fd-6fe3-47c9-9940-76d18b15733d",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "accountInfo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9cf86fa-d623-4e29-80f4-d9170a9a7456",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"var schema = ",
+							"{",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+							"    \"type\": \"object\",",
+							"    \"properties\": ",
+							"        {",
+							"        \"id\": ",
+							"            {",
+							"            \"type\": \"string\"",
+							"            },",
+							"            \"identityId\": {",
+							"            \"type\": \"string\"",
+							"            },",
+							"            \"email\": ",
+							"            {",
+							"            \"type\": \"string\"",
+							"            },",
+							"            \"name\": ",
+							"            {",
+							"            \"type\": [ \"string\", \"null\" ]",
+							"            },",
+							"\"required\":",
+							"[",
+							"    \"id\",",
+							"    \"email\",",
+							"    \"name\",",
+							"    \"identityId\"",
+							"]",
+							"    }",
+							"};",
+							"",
+							"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+							"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+							"tests[\"Email field is present\"]= responseBody.has(\"email\");",
+							"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+							"tests[\"identityId field is present\"]= responseBody.has(\"identityId\");",
+							"",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}account",
+					"host": [
+						"{{url}}account"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
