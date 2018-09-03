@@ -1,12 +1,13 @@
 {
 	"info": {
-		"_postman_id": "df8badf0-baf2-49ac-9596-14be54621294",
+		"_postman_id": "7ff36fb2-710d-4b4c-ad82-4793faac1a75",
 		"name": "B2B_Alpha_TFS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Locations",
+			"description": null,
 			"item": [
 				{
 					"name": "createNewLocation",
@@ -356,7 +357,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/lookup",
 							"host": [
@@ -484,7 +488,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/{{new_location_id}}",
 							"host": [
@@ -684,7 +691,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/tree/extended",
 							"host": [
@@ -730,7 +740,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/{{new_location_id}}/devices/count",
 							"host": [
@@ -774,7 +787,10 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/{{new_sublocation_id2}}",
 							"host": [
@@ -816,7 +832,10 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/{{new_location_id2}}",
 							"host": [
@@ -833,6 +852,7 @@
 		},
 		{
 			"name": "Attribute",
+			"description": null,
 			"item": [
 				{
 					"name": "attributeValue(effectiveValue)",
@@ -928,7 +948,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}attributes/address/objects/{{new_location_id}}",
 							"host": [
@@ -1058,6 +1081,7 @@
 		},
 		{
 			"name": "Common",
+			"description": null,
 			"item": [
 				{
 					"name": "Timezone",
@@ -1124,7 +1148,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}timezones",
 							"host": [
@@ -1138,6 +1165,7 @@
 		},
 		{
 			"name": "DeviceSession",
+			"description": null,
 			"item": [
 				{
 					"name": "detailsOfLastSession",
@@ -1194,6 +1222,7 @@
 		},
 		{
 			"name": "Filter",
+			"description": null,
 			"item": [
 				{
 					"name": "Calculate",
@@ -1313,6 +1342,7 @@
 		},
 		{
 			"name": "Object",
+			"description": null,
 			"item": [
 				{
 					"name": "physicalParentID",
@@ -1367,7 +1397,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}objects/{{new_sublocation_id}}/parent/physical",
 							"host": [
@@ -1386,6 +1419,7 @@
 		},
 		{
 			"name": "Partner",
+			"description": null,
 			"item": [
 				{
 					"name": "autorizedPartner",
@@ -1452,7 +1486,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/partners",
 							"host": [
@@ -1469,6 +1506,7 @@
 		},
 		{
 			"name": "Permission",
+			"description": null,
 			"item": [
 				{
 					"name": "avaliblePermissionTypes",
@@ -1526,7 +1564,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/types",
 							"host": [
@@ -1671,7 +1712,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/types/1/subjects",
 							"host": [
@@ -1817,7 +1861,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/subjects",
 							"host": [
@@ -1864,7 +1911,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/types/2/check",
 							"host": [
@@ -1886,6 +1936,7 @@
 		},
 		{
 			"name": "Report",
+			"description": null,
 			"item": [
 				{
 					"name": "periodPerMonth",
@@ -2313,6 +2364,7 @@
 		},
 		{
 			"name": "Subject",
+			"description": null,
 			"item": [
 				{
 					"name": "filteredByQuery",
@@ -2375,7 +2427,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}subjects/?q={{user_email}}",
 							"host": [
@@ -2398,6 +2453,7 @@
 		},
 		{
 			"name": "Account",
+			"description": null,
 			"item": [
 				{
 					"name": "accountInfo",
@@ -2405,7 +2461,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "70fac654-a6a0-4ec9-b7bb-d4091626bc9f",
+								"id": "c9cf86fa-d623-4e29-80f4-d9170a9a7456",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2429,7 +2485,7 @@
 									"            },",
 									"            \"name\": ",
 									"            {",
-									"            \"type\": \"string\"",
+									"            \"type\": [ \"string\", \"null\" ]",
 									"            },",
 									"\"required\":",
 									"[",
@@ -2541,6 +2597,7 @@
 		},
 		{
 			"name": "Users",
+			"description": null,
 			"item": [
 				{
 					"name": "createUser",
@@ -2686,7 +2743,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/users",
 							"host": [
@@ -2763,7 +2823,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/users/{{user_id}}",
 							"host": [
@@ -2842,7 +2905,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/users/{{user_id}}",
 							"host": [
@@ -2860,6 +2926,7 @@
 		},
 		{
 			"name": "UserGroup",
+			"description": null,
 			"item": [
 				{
 					"name": "createGroup",
@@ -3243,7 +3310,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}user-groups/{{new_user_group_id2}}",
 							"host": [
@@ -3285,7 +3355,10 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}user-groups/{{groupID}}/members/{{userID}}",
 							"host": [
@@ -3327,7 +3400,10 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}user-groups/dbacd34f-8597-4f13-as65-0d7159c91f86/members/{{userID}}",
 							"host": [
@@ -3370,7 +3446,10 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}user-groups/{{groupID}}/members/588008b6-e416-458a-b548-6d358ab8823a",
 							"host": [
@@ -3450,7 +3529,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}user-groups/{{groupID}}/users",
 							"host": [
@@ -3491,7 +3573,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}user-groups/dbacd34f-8597-4f13-as65-0d7159c91f86/users",
 							"host": [
@@ -3535,7 +3620,10 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/{{new_sublocation_id}}",
 							"host": [
@@ -3577,7 +3665,10 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/{{new_location_id}}",
 							"host": [
@@ -3594,6 +3685,7 @@
 		},
 		{
 			"name": "Rate",
+			"description": null,
 			"item": [
 				{
 					"name": "createRate",
@@ -3923,7 +4015,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/templates",
 							"host": [
@@ -3975,7 +4070,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/list-extended",
 							"host": [
@@ -4017,7 +4115,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/{{device_id}}",
 							"host": [
@@ -4045,7 +4146,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/object-rate/{{new_location_id}}",
 							"host": [
@@ -4098,7 +4202,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates",
 							"host": [
@@ -4137,7 +4244,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/{{new_rate_id}}/devices",
 							"host": [
@@ -4180,7 +4290,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/{{new_rate_id}}/locations",
 							"host": [
@@ -4223,7 +4336,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/{{new_rate_id}}/sublocations",
 							"host": [
@@ -4266,7 +4382,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/unassigned",
 							"host": [
@@ -4308,7 +4427,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/rates-unlinked-devices",
 							"host": [
