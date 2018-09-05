@@ -41,6 +41,17 @@ namespace TestAutomationFramework.POM
 
             driver.FindElement(By.ClassName("ng-star-inserted")).FindElement(By.XPath("//a[contains(text(),'" + locationName + "')]")).Click();
             wait.Until(wd => driver.FindElement(By.XPath("//label[contains(text(), 'Rate Details')]")));
+            //should be deleted when "500 internal error" caused due to load timeout will be fixed.
+            try
+            {
+                wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3));
+                wait.Until(wd => driver.FindElement(By.XPath("//label[contains(text(), 'Assigned rate')]/../..//mat-checkbox[contains(@class,'mat-checkbox-checked')]")));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            //end.
         }
 
         public bool IsLocationExist(string locationName)

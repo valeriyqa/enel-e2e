@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "7ff36fb2-710d-4b4c-ad82-4793faac1a75",
-		"name": "B2B_Alpha_TFS",
+		"_postman_id": "01846532-9d52-412a-aeb9-5e2f7f51dced",
+		"name": "B2B_Alpha_TFS Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -15,14 +15,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "dab20f5b-a05d-4c3b-a0c1-1b2cfb2cf705",
+								"id": "940bd246-0cf6-4962-8ff2-b0a751893199",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									" ",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); //true или false (метод)",
+									"tests[\"Locations, createNewLocation, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Locations, createNewLocation, Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Locations, createNewLocation, Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); //true или false (метод)",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
 									"pm.environment.set(\"new_location_id\", _str);",
@@ -86,14 +86,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "31b73894-2d95-4259-9f01-8cc9e6d05eae",
+								"id": "2473485f-d09f-4546-a024-56682e81cce0",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									" ",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); //true или false (метод)",
+									"tests[\"Locations, createNewLocation2, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Locations, createNewLocation2, Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Locations, createNewLocation2, Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); //true или false (метод)",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
 									"pm.environment.set(\"new_location_id2\", _str);",
@@ -157,13 +157,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "408fea4a-aa15-4bd8-9e47-48b47e32c265",
+								"id": "7be17391-28ce-4865-bd71-1b1f289ea83d",
 								"type": "text/javascript",
 								"exec": [
 									" var jsonData = JSON.parse(responseBody);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Response has new_sublocation_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
+									"tests[\"Locations, createNewSubLocation, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Locations, createNewSubLocation, Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Locations, createNewSubLocation, Response has new_sublocation_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
 									"pm.environment.set(\"new_sublocation_id\", _str);",
@@ -228,13 +228,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ca9cda29-0475-44f7-9ed4-b49609f95a71",
+								"id": "92212c47-5849-4a59-8c65-da5c73c97278",
 								"type": "text/javascript",
 								"exec": [
 									" var jsonData = JSON.parse(responseBody);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Response has new_sublocation_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
+									"tests[\"Locations, createNewSubLocation2, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Locations, createNewSubLocation2, Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Locations, createNewSubLocation2, Response has new_sublocation_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
 									"pm.environment.set(\"new_sublocation_id2\", _str);",
@@ -299,7 +299,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ed7cd285-5f68-40ec-ada2-b86493e6b39d",
+								"id": "9cdfcf0f-0f25-4e5a-89f9-bb217c7b7eca",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -330,11 +330,11 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Locations, clientLocationLookup, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Locations, clientLocationLookup, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Locations, clientLocationLookup, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Locations, clientLocationLookup, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Locations, clientLocationLookup, Name field is present\"]= responseBody.has(\"name\");",
 									"",
 									"",
 									"",
@@ -379,7 +379,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "134a4273-1d06-41b7-bd99-82c0926269d0",
+								"id": "50d640b0-dd2c-4c05-98b7-2228426d2e50",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -459,18 +459,18 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"address field is present\"]= responseBody.has(\"address\");",
-									"tests[\"city field is present\"]= responseBody.has(\"city\");",
-									"tests[\"state field is present\"]= responseBody.has(\"state\");",
-									"tests[\"zip field is present\"]= responseBody.has(\"zip\");",
-									"tests[\"isRoot field is present\"]= responseBody.has(\"isRoot\");",
-									"tests[\"parentId field is present\"]= responseBody.has(\"parentId\");",
-									"tests[\"parentLocation field is present\"]= responseBody.has(\"parentLocation\");"
+									"tests[\"Locations, detailsOfLocation, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Locations, detailsOfLocation, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Locations, detailsOfLocation, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Locations, detailsOfLocation, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Locations, detailsOfLocation, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Locations, detailsOfLocation, address field is present\"]= responseBody.has(\"address\");",
+									"tests[\"Locations, detailsOfLocation, city field is present\"]= responseBody.has(\"city\");",
+									"tests[\"Locations, detailsOfLocation, state field is present\"]= responseBody.has(\"state\");",
+									"tests[\"Locations, detailsOfLocation, zip field is present\"]= responseBody.has(\"zip\");",
+									"tests[\"Locations, detailsOfLocation, isRoot field is present\"]= responseBody.has(\"isRoot\");",
+									"tests[\"Locations, detailsOfLocation, parentId field is present\"]= responseBody.has(\"parentId\");",
+									"tests[\"Locations, detailsOfLocation, parentLocation field is present\"]= responseBody.has(\"parentLocation\");"
 								]
 							}
 						}
@@ -510,7 +510,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4867f62f-158c-4eea-9b26-18eb03f85ff1",
+								"id": "f29e0f24-bc63-4ebc-9b16-59cc1f3844a3",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -655,19 +655,19 @@
 									"",
 									"    ",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"data field is present\"]= responseBody.has(\"data\");",
-									"tests[\"devicesCount field is present\"]= responseBody.has(\"devicesCount\");",
-									"tests[\"inUseDevicesCount field is present\"]= responseBody.has(\"inUseDevicesCount\");",
-									"tests[\"id field is present\"]= responseBody.has(\"id\");",
-									"tests[\"name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"address field is present\"]= responseBody.has(\"address\");",
-									"tests[\"isLocation field is present\"]= responseBody.has(\"isLocation\");",
-									"tests[\"children field is present\"]= responseBody.has(\"children\");",
-									"tests[\"inUse field is present\"]= responseBody.has(\"inUse\");",
-									"tests[\"isLocation field is present\"]= responseBody.has(\"isLocation\");",
+									"tests[\"Locations, locationsTree, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Locations, locationsTree, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Locations, locationsTree, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Locations, locationsTree, data field is present\"]= responseBody.has(\"data\");",
+									"tests[\"Locations, locationsTree, devicesCount field is present\"]= responseBody.has(\"devicesCount\");",
+									"tests[\"Locations, locationsTree, inUseDevicesCount field is present\"]= responseBody.has(\"inUseDevicesCount\");",
+									"tests[\"Locations, locationsTree, id field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Locations, locationsTree, name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Locations, locationsTree, address field is present\"]= responseBody.has(\"address\");",
+									"tests[\"Locations, locationsTree, isLocation field is present\"]= responseBody.has(\"isLocation\");",
+									"tests[\"Locations, locationsTree, children field is present\"]= responseBody.has(\"children\");",
+									"tests[\"Locations, locationsTree, inUse field is present\"]= responseBody.has(\"inUse\");",
+									"tests[\"Locations, locationsTree, isLocation field is present\"]= responseBody.has(\"isLocation\");",
 									"",
 									"",
 									"",
@@ -714,11 +714,11 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f78035c4-de00-4277-86a5-00b38a2a0ebb",
+								"id": "5c633887-f8f4-48b3-8b6a-2b5a9492b79b",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Locations, locationDevices, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Locations, locationDevices, Status code is 200\"] = responseCode.code === 200;",
 									"",
 									"",
 									"",
@@ -764,11 +764,11 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c5689cdb-3e7c-4043-b5ac-01adc9bd4c29",
+								"id": "3814356c-f1d9-4568-bdd5-f4bc61a026d3",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 204\"] = responseCode.code === 204;",
+									"tests[\"Locations, deleteSubLocation, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Locations, deleteSubLocation, Status code is 204\"] = responseCode.code === 204;",
 									""
 								]
 							}
@@ -809,11 +809,11 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "09935977-c257-4519-b422-bf505c05ba55",
+								"id": "21082299-d051-42fb-bc0a-6f5e4524c383",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 204\"] = responseCode.code === 204;",
+									"tests[\"Locations, deleteLocation, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Locations, deleteLocation, Status code is 204\"] = responseCode.code === 204;",
 									""
 								]
 							}
@@ -860,7 +860,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "07d39e59-a55b-416d-af43-a9e4abf7de72",
+								"id": "723aaa08-c69b-4c90-8889-a73d18e105a5",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -921,14 +921,14 @@
 									"    ",
 									"",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"state field is present\"]= responseBody.has(\"state\");",
-									"tests[\"zip field is present\"]= responseBody.has(\"zip\");",
-									"tests[\"city field is present\"]= responseBody.has(\"city\");",
-									"tests[\"address field is present\"]= responseBody.has(\"address\");",
-									"tests[\"timeZone field is present\"]= responseBody.has(\"timeZone\");",
+									"tests[\"Attribute, attributeValue(effectiveValue), Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Attribute, attributeValue(effectiveValue), Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Attribute, attributeValue(effectiveValue), Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Attribute, attributeValue(effectiveValue), state field is present\"]= responseBody.has(\"state\");",
+									"tests[\"Attribute, attributeValue(effectiveValue), zip field is present\"]= responseBody.has(\"zip\");",
+									"tests[\"Attribute, attributeValue(effectiveValue), city field is present\"]= responseBody.has(\"city\");",
+									"tests[\"Attribute, attributeValue(effectiveValue), address field is present\"]= responseBody.has(\"address\");",
+									"tests[\"Attribute, attributeValue(effectiveValue), timeZone field is present\"]= responseBody.has(\"timeZone\");",
 									"",
 									"pm.variables.get(\"variable_key\");"
 								]
@@ -982,10 +982,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b67eeec9-67c1-4f4c-be68-e2c9866852cf",
+								"id": "9befd37f-8e7b-4067-983e-f5950bfb0ffc",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 204\", function () {",
+									"pm.test(\"Attribute, appliesAttribute, Status code is 204\", function () {",
 									"    pm.response.to.have.status(204);",
 									"});",
 									"",
@@ -1036,10 +1036,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a5a78af7-be5c-43f7-b456-1cf34250b7b3",
+								"id": "e55a829b-8f2f-4c07-9164-a6057233695e",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 204\", function () {",
+									"pm.test(\"Attribute, removeAttribute, Status code is 204\", function () {",
 									"    pm.response.to.have.status(204);",
 									"});"
 								]
@@ -1089,7 +1089,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e25490f5-84f7-49a2-952c-8ed377e488a9",
+								"id": "c7d42b79-f13a-4944-a977-cbaa278d0f23",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1120,11 +1120,11 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Common, Timezone, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Common, Timezone, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Common, Timezone, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Common, Timezone, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Common, Timezone, Name field is present\"]= responseBody.has(\"name\");",
 									"",
 									"",
 									"",
@@ -1173,10 +1173,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "614e46bd-9931-4495-a31f-97dcdbb6c5db",
+								"id": "12602ccc-a6bb-4cd9-94cf-5598b4e1cc64",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test(\"DeviceSession, detailsOfLastSession, Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
 								]
@@ -1230,7 +1230,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e5ade162-f6df-4028-a062-06ce4d995914",
+								"id": "db6bb7af-6a33-4be4-b2b4-7e6cac717e52",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1292,13 +1292,13 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"locations field is present\"]= responseBody.has(\"locations\");",
-									"tests[\"buildings field is present\"]= responseBody.has(\"buildings\");",
+									"tests[\"Filter, Calculate, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Filter, Calculate, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Filter, Calculate, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Filter, Calculate, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Filter, Calculate, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Filter, Calculate, locations field is present\"]= responseBody.has(\"locations\");",
+									"tests[\"Filter, Calculate, buildings field is present\"]= responseBody.has(\"buildings\");",
 									""
 								]
 							}
@@ -1350,7 +1350,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "de45fddc-a1ba-4297-b9c9-faced6ec5f52",
+								"id": "95c36745-84ce-4cf1-b7fa-f8a029871b8a",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1375,9 +1375,9 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Object, physicalParentID, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Object, physicalParentID, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Object, physicalParentID, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
 									"",
 									""
 								]
@@ -1427,7 +1427,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6c03e772-1907-45d4-9da7-80708135b76f",
+								"id": "6ee6168c-f546-4924-9782-4f8c73b59471",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1462,12 +1462,12 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"id field is present\"]= responseBody.has(\"id\");",
-									"tests[\"name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"type field is present\"]= responseBody.has(\"type\");",
+									"tests[\"Partner, autorizedPartner, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Partner, autorizedPartner, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Partner, autorizedPartner, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Partner, autorizedPartner, id field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Partner, autorizedPartner, name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Partner, autorizedPartner, type field is present\"]= responseBody.has(\"type\");",
 									""
 								]
 							}
@@ -1514,7 +1514,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f824456b-ebe5-463c-a8f5-bc1e6d36ab6f",
+								"id": "52e577e6-dc40-4a0a-84d2-2b9c1f9ed1d4",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1541,11 +1541,11 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"id field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Permission, avaliblePermissionTypes, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Permission, avaliblePermissionTypes, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Permission, avaliblePermissionTypes, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Permission, avaliblePermissionTypes, id field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Permission, avaliblePermissionTypes, Name field is present\"]= responseBody.has(\"name\");",
 									""
 								]
 							}
@@ -1588,7 +1588,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ba551d55-fdd0-4a58-b9a9-f2b6ff3b98f4",
+								"id": "a372cd9f-9512-4bda-9ebc-f09797ec3f28",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1683,17 +1683,17 @@
 									"    }    ",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"permissionType field is present\"]= responseBody.has(\"permissionType\");",
-									"tests[\"id field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"subjects field is present\"]= responseBody.has(\"subjects\");",
-									"tests[\"deny field is present\"]= responseBody.has(\"deny\");",
-									"tests[\"allow field is present\"]= responseBody.has(\"allow\");",
-									"tests[\"value field is present\"]= responseBody.has(\"value\");",
-									"tests[\"inherited field is present\"]= responseBody.has(\"inherited\");",
+									"tests[\"Permission, subjectPermission, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Permission, subjectPermission, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Permission, subjectPermission, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Permission, subjectPermission, permissionType field is present\"]= responseBody.has(\"permissionType\");",
+									"tests[\"Permission, subjectPermission, id field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Permission, subjectPermission, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Permission, subjectPermission, subjects field is present\"]= responseBody.has(\"subjects\");",
+									"tests[\"Permission, subjectPermission, deny field is present\"]= responseBody.has(\"deny\");",
+									"tests[\"Permission, subjectPermission, allow field is present\"]= responseBody.has(\"allow\");",
+									"tests[\"Permission, subjectPermission, value field is present\"]= responseBody.has(\"value\");",
+									"tests[\"Permission, subjectPermission, inherited field is present\"]= responseBody.has(\"inherited\");",
 									""
 								]
 							}
@@ -1738,7 +1738,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8129d9c2-ae8f-4d91-9c36-084ac6a4a88e",
+								"id": "dd6877c8-1682-4e64-bcb4-b6d42bfd508c",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1833,17 +1833,17 @@
 									"    }    ",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"permissionType field is present\"]= responseBody.has(\"permissionType\");",
-									"tests[\"id field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"subjects field is present\"]= responseBody.has(\"subjects\");",
-									"tests[\"deny field is present\"]= responseBody.has(\"deny\");",
-									"tests[\"allow field is present\"]= responseBody.has(\"allow\");",
-									"tests[\"value field is present\"]= responseBody.has(\"value\");",
-									"tests[\"inherited field is present\"]= responseBody.has(\"inherited\");"
+									"tests[\"Permission, listOfSubjectPermissions, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Permission, listOfSubjectPermissions, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Permission, listOfSubjectPermissions, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Permission, listOfSubjectPermissions, permissionType field is present\"]= responseBody.has(\"permissionType\");",
+									"tests[\"Permission, listOfSubjectPermissions, id field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Permission, listOfSubjectPermissions, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Permission, listOfSubjectPermissions, subjects field is present\"]= responseBody.has(\"subjects\");",
+									"tests[\"Permission, listOfSubjectPermissions, deny field is present\"]= responseBody.has(\"deny\");",
+									"tests[\"Permission, listOfSubjectPermissions, allow field is present\"]= responseBody.has(\"allow\");",
+									"tests[\"Permission, listOfSubjectPermissions, value field is present\"]= responseBody.has(\"value\");",
+									"tests[\"Permission, listOfSubjectPermissions, inherited field is present\"]= responseBody.has(\"inherited\");"
 								]
 							}
 						}
@@ -1886,12 +1886,12 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6d1709b3-2ab8-4066-9bc4-3290a9ef478e",
+								"id": "98d94750-5625-416f-a066-f5d983ac8340",
 								"type": "text/javascript",
 								"exec": [
 									"",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Permission, userPermissions, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Permission, userPermissions, Status code is 200\"] = responseCode.code === 200;",
 									"",
 									""
 								]
@@ -1944,7 +1944,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "781c0233-0aa3-4075-b1c0-0b0ee405f9dd",
+								"id": "968ed1f0-7789-4b68-8f9c-0bf6eec4426b",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1974,11 +1974,11 @@
 									"}",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"timestamp field is present\"]= responseBody.has(\"timestamp\");",
-									"tests[\"energy field is present\"]= responseBody.has(\"energy\");",
+									"tests[\"Report, periodPerMonth, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Report, periodPerMonth, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Report, periodPerMonth, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Report, periodPerMonth, timestamp field is present\"]= responseBody.has(\"timestamp\");",
+									"tests[\"Report, periodPerMonth, energy field is present\"]= responseBody.has(\"energy\");",
 									""
 								]
 							}
@@ -2027,7 +2027,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1137bbe3-c3eb-4492-b286-58dee06de616",
+								"id": "aefaf0bf-212b-49ef-8501-2d9028fe8595",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2057,11 +2057,11 @@
 									"}",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"timestamp field is present\"]= responseBody.has(\"timestamp\");",
-									"tests[\"energy field is present\"]= responseBody.has(\"energy\");",
+									"tests[\"Report, periodPerDays, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Report, periodPerDays, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Report, periodPerDays, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Report, periodPerDays, timestamp field is present\"]= responseBody.has(\"timestamp\");",
+									"tests[\"Report, periodPerDays, energy field is present\"]= responseBody.has(\"energy\");",
 									""
 								]
 							}
@@ -2110,7 +2110,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "18573dc3-828b-46e9-b6c7-cb4d301cdc18",
+								"id": "fa6ff3b1-6b08-48ef-86db-81057b9713bb",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2140,11 +2140,11 @@
 									"}",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"timestamp field is present\"]= responseBody.has(\"timestamp\");",
-									"tests[\"energy field is present\"]= responseBody.has(\"energy\");",
+									"tests[\"Report, periodLastMonth, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Report, periodLastMonth, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Report, periodLastMonth, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Report, periodLastMonth, timestamp field is present\"]= responseBody.has(\"timestamp\");",
+									"tests[\"Report, periodLastMonth, energy field is present\"]= responseBody.has(\"energy\");",
 									""
 								]
 							}
@@ -2192,7 +2192,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "87ca388f-a6fb-4116-8f2a-77b97fda4ec0",
+								"id": "5cab5e51-a5de-4ce2-bee6-0092c14240ee",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2231,13 +2231,13 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"charging field is present\"]= responseBody.has(\"charging\");",
-									"tests[\"plugin field is present\"]= responseBody.has(\"plugin\");",
-									"tests[\"standby field is present\"]= responseBody.has(\"standby\");",
-									"tests[\"offline field is present\"]= responseBody.has(\"offline\");",
+									"tests[\"Report, deviceStatus, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Report, deviceStatus, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Report, deviceStatus, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Report, deviceStatus, charging field is present\"]= responseBody.has(\"charging\");",
+									"tests[\"Report, deviceStatus, plugin field is present\"]= responseBody.has(\"plugin\");",
+									"tests[\"Report, deviceStatus, standby field is present\"]= responseBody.has(\"standby\");",
+									"tests[\"Report, deviceStatus, offline field is present\"]= responseBody.has(\"offline\");",
 									""
 								]
 							}
@@ -2284,7 +2284,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8b702022-5078-46f8-85c2-c1e5c18226d1",
+								"id": "d6f1eb8e-3c57-4756-a605-98bd1c5896cf",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2314,11 +2314,11 @@
 									"}",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"totalCount field is present\"]= responseBody.has(\"totalCount\");",
-									"tests[\"adminsCount field is present\"]= responseBody.has(\"adminsCount\");",
+									"tests[\"Report, reportUsersCount, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Report, reportUsersCount, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Report, reportUsersCount, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Report, reportUsersCount, totalCount field is present\"]= responseBody.has(\"totalCount\");",
+									"tests[\"Report, reportUsersCount, adminsCount field is present\"]= responseBody.has(\"adminsCount\");",
 									"",
 									"",
 									""
@@ -2372,7 +2372,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cdf53f8f-ed18-4acd-b1b5-26283e6b8997",
+								"id": "a37e89bb-9159-4005-af5b-d78c2ea9cd9d",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2403,12 +2403,12 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"//tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"//tests[\"name field is present\"]= responseBody.has(\"name\");",
-									"//tests[\"type field is present\"]= responseBody.has(\"type\");",
+									"tests[\"Subject, filteredByQuery, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Subject, filteredByQuery, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Subject, filteredByQuery, Status code is 200\"] = responseCode.code === 200;",
+									"//tests[\"Subject, filteredByQuery, ID field is present\"]= responseBody.has(\"id\");",
+									"//tests[\"Subject, filteredByQuery, name field is present\"]= responseBody.has(\"name\");",
+									"//tests[\"Subject, filteredByQuery, type field is present\"]= responseBody.has(\"type\");",
 									""
 								]
 							}
@@ -2461,7 +2461,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c9cf86fa-d623-4e29-80f4-d9170a9a7456",
+								"id": "16b019ee-2463-4db3-9c74-d8f8e18cbab2",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2497,13 +2497,13 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"identityId field is present\"]= responseBody.has(\"identityId\");",
+									"tests[\"Account, accountInfo, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Account, accountInfo, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Account, accountInfo, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Account, accountInfo, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Account, accountInfo, Email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"Account, accountInfo, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Account, accountInfo, identityId field is present\"]= responseBody.has(\"identityId\");",
 									"",
 									"",
 									"",
@@ -2550,10 +2550,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c54fce5f-cda3-4069-98e7-a6ebb35d22df",
+								"id": "2fe994a1-8311-42a5-aa20-8a2a7e6190cb",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Account, resetPSWD, Status code is 200\"] = responseCode.code === 200;",
 									""
 								]
 							}
@@ -2605,14 +2605,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "16249448-1156-4e3b-a9c2-c6813ab2757c",
+								"id": "477a3fd5-8a2d-43ac-a765-cd1bf6ee2ade",
 								"type": "text/javascript",
 								"exec": [
 									" var jsonData = JSON.parse(responseBody);",
 									"",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Response has userID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
+									"tests[\"Users, createUser, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Users, createUser, Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Users, createUser, Response has userID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
 									"",
 									"",
 									""
@@ -2680,7 +2680,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0531cb2a-f6ef-4064-8599-93b908911c74",
+								"id": "096fd534-bb17-4b13-b6fd-639bbe401752",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2711,12 +2711,12 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Users, getUsers, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Users, getUsers, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Users, getUsers, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Users, getUsers, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Users, getUsers, Email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"Users, getUsers, Name field is present\"]= responseBody.has(\"name\");",
 									"",
 									"postman.setEnvironmentVariable(\"user_id\", jsonData[0].id);",
 									"postman.setEnvironmentVariable(\"user_email\", jsonData[0].email);",
@@ -2765,7 +2765,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "76fce104-e1b8-467a-b1fe-21d016002b3c",
+								"id": "93346cc4-466f-492e-ab64-cd1a37f98762",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2794,12 +2794,12 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Users, getUserWithID, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Users, getUserWithID, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Users, getUserWithID, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Users, getUserWithID, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Users, getUserWithID, Email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"Users, getUserWithID, Name field is present\"]= responseBody.has(\"name\");",
 									"",
 									"//console.log(\"Validation failed: \", tv4.error);",
 									"",
@@ -2846,7 +2846,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "412753d6-3354-475a-88a9-377f2ab7db81",
+								"id": "de2154ee-4ccd-4f87-815e-64d1e9fd84b4",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2876,12 +2876,12 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Users, getUserMemberOf, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Users, getUserMemberOf, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Users, getUserMemberOf, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Users, getUserMemberOf, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Users, getUserMemberOf, Email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"Users, getUserMemberOf, Name field is present\"]= responseBody.has(\"name\");",
 									"",
 									"//console.log(\"Validation failed: \", tv4.error);",
 									"",
@@ -2934,14 +2934,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "28f88f6c-9329-48d1-b44e-a8607902acf2",
+								"id": "8dfecaae-225e-475a-b973-b8bd786b05c2",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Response has userGroupID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
+									"tests[\"UserGroup, createGroup, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"UserGroup, createGroup, Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"UserGroup, createGroup, Response has userGroupID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
 									"tests[_str]=1;",
@@ -3006,14 +3006,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4cb96840-fef0-46cc-941e-b964c53ea082",
+								"id": "a4d4ca57-91ef-4637-b36e-a73edd9f1b64",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Response has userGroupID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
+									"tests[\"UserGroup, createGroup2, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"UserGroup, createGroup2, Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"UserGroup, createGroup2, Response has userGroupID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
 									"tests[_str]=1;",
@@ -3078,10 +3078,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "06b0aa77-cb78-4c02-832a-9d93f4d27ad5",
+								"id": "14c80e6e-5f64-4313-b937-83b692c97c8b",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 204\"] = responseCode.code === 204;"
+									"tests[\"UserGroup, addMemberToUserGroup, Status code is 204\"] = responseCode.code === 204;"
 								]
 							}
 						}
@@ -3128,7 +3128,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "48dae5f9-b110-471a-aee7-a6ec03bc9170",
+								"id": "750e7332-f958-4411-97f5-f2e5536b2b64",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -3163,12 +3163,12 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"usersCount field is present\"]= responseBody.has(\"usersCount\");",
+									"tests[\"UserGroup, ListOfUserGroups, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"UserGroup, ListOfUserGroups, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"UserGroup, ListOfUserGroups, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"UserGroup, ListOfUserGroups, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"UserGroup, ListOfUserGroups, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"UserGroup, ListOfUserGroups, usersCount field is present\"]= responseBody.has(\"usersCount\");",
 									""
 								]
 							}
@@ -3211,10 +3211,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2f8e1125-469a-4e94-a529-34c333142e00",
+								"id": "2dc8062d-8c90-4588-af3a-1518a9fc6c05",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 204\"] = responseCode.code === 204;"
+									"tests[\"UserGroup, deleteGroup, Status code is 204\"] = responseCode.code === 204;"
 								]
 							}
 						}
@@ -3259,7 +3259,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "75774603-e43d-4cca-b704-5a7483384d95",
+								"id": "48878fa4-9390-4bee-b001-244412af59f4",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -3288,11 +3288,11 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");"
+									"tests[\"UserGroup, userGroupID, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"UserGroup, userGroupID, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"UserGroup, userGroupID, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"UserGroup, userGroupID, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"UserGroup, userGroupID, Name field is present\"]= responseBody.has(\"name\");"
 								]
 							}
 						}
@@ -3332,10 +3332,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "315eb471-0ea7-4ceb-a299-ff77d5544b68",
+								"id": "3d3be1ed-6313-4198-aa78-eaaf900c4189",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test(\"UserGroup, deleteMemberFromUserGroup, Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
 								]
@@ -3379,10 +3379,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "74964350-56b8-44b3-926b-b4526f03c3bd",
+								"id": "e265ecb6-9135-4365-b21b-c475be128e08",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 404\"] = responseCode.code === 404;"
+									"tests[\"UserGroup, deleteMemberFromUserGroup (404 response), Status code is 404\"] = responseCode.code === 404;"
 								]
 							}
 						}
@@ -3425,10 +3425,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0697d0af-0e4f-4308-b44e-84ccf89f1fcf",
+								"id": "66901acb-78a3-4b9f-be3e-29d0c5315b30",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 500\"] = responseCode.code === 500;"
+									"tests[\"UserGroup, deleteMemberFromUserGroup (500 response), Status code is 500\"] = responseCode.code === 500;"
 								]
 							}
 						}
@@ -3471,7 +3471,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "449bb00d-1ece-4f04-bf9a-318315e7230d",
+								"id": "6e433c3a-45f9-4723-901f-66d48e149ef0",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -3506,12 +3506,12 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"name field is present\"]= responseBody.has(\"name\");"
+									"tests[\"UserGroup, listOfUsers, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"UserGroup, listOfUsers, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"UserGroup, listOfUsers, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"UserGroup, listOfUsers, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"UserGroup, listOfUsers, email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"UserGroup, listOfUsers, name field is present\"]= responseBody.has(\"name\");"
 								]
 							}
 						}
@@ -3552,10 +3552,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3d302d23-238b-4cb0-9695-cfff8bfa7ba2",
+								"id": "7c5fff38-b56d-46b5-ad83-f4f675dff7c1",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 404\"] = responseCode.code === 404;"
+									"tests[\"UserGroup, listOfUsers (404 response), Status code is 404\"] = responseCode.code === 404;"
 								]
 							}
 						}
@@ -3597,11 +3597,11 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c5689cdb-3e7c-4043-b5ac-01adc9bd4c29",
+								"id": "dc4faa12-ec09-4049-a6a9-fa37d00729a3",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 204\"] = responseCode.code === 204;",
+									"tests[\"UserGroup, deleteSubLocation2, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"UserGroup, deleteSubLocation2, Status code is 204\"] = responseCode.code === 204;",
 									""
 								]
 							}
@@ -3642,11 +3642,11 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "09935977-c257-4519-b422-bf505c05ba55",
+								"id": "a60d3732-ec05-41e4-90ef-d4a11b476f66",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 204\"] = responseCode.code === 204;",
+									"tests[\"UserGroup, deleteLocation2, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"UserGroup, deleteLocation2, Status code is 204\"] = responseCode.code === 204;",
 									""
 								]
 							}
@@ -3711,14 +3711,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "62f699df-4cee-438a-a94b-04affa739994",
+								"id": "78113e7a-5144-40dc-aa2b-3a63876feaa2",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									" ",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); //true или false (метод)",
+									"tests[\"Rate, createRate, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Rate, createRate, Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Rate, createRate, Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); //true или false (метод)",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
 									"pm.environment.set(\"new_rate_id\", _str);",
@@ -3764,10 +3764,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "25ac322c-ea0e-4dff-9ea3-35faf309630e",
+								"id": "8d71d218-da2a-42c2-b350-88f36a687ab4",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test(\"Rate, filteredRateList, Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
 								]
@@ -3814,10 +3814,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "abb86327-9c38-4090-ade8-67449e150295",
+								"id": "fb994950-4161-478b-8a27-75c4d4863017",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 204\", function () {",
+									"pm.test(\"Rate, assignRateToLoctation, Status code is 204\", function () {",
 									"    pm.response.to.have.status(204);",
 									"});"
 								]
@@ -3864,10 +3864,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b69cedd3-98a4-4b73-9425-5fc88f7ef882",
+								"id": "6babd26e-1f89-45c5-8b88-75faaca24d66",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 204\", function () {",
+									"pm.test(\"Rate, assignRateToSubLoctation, Status code is 204\", function () {",
 									"    pm.response.to.have.status(204);",
 									"});"
 								]
@@ -3950,7 +3950,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e6ccb54d-1e23-4d3d-a495-3155acc08ce3",
+								"id": "93e6cbee-d70e-44ce-bb57-1bcd99533fc9",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -3991,13 +3991,13 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"configurationTypeName field is present\"]= responseBody.has(\"configurationTypeName\");",
-									"tests[\"isDefaultFree field is present\"]= responseBody.has(\"isDefaultFree\");"
+									"tests[\"Rate, listOfRateTemplates, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Rate, listOfRateTemplates, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Rate, listOfRateTemplates, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Rate, listOfRateTemplates, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Rate, listOfRateTemplates, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Rate, listOfRateTemplates, configurationTypeName field is present\"]= responseBody.has(\"configurationTypeName\");",
+									"tests[\"Rate, listOfRateTemplates, isDefaultFree field is present\"]= responseBody.has(\"isDefaultFree\");"
 								]
 							}
 						}
@@ -4037,21 +4037,21 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b3d82a06-9305-4b1f-a2e9-ea1d41e2d789",
+								"id": "7b1d9646-4165-45f4-a0c1-33475e6d980b",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"locationsSublocationsCount field is present\"]= responseBody.has(\"locationsSublocationsCount\");",
-									"tests[\"devicesCount field is present\"]= responseBody.has(\"devicesCount\");",
-									"tests[\"created field is present\"]= responseBody.has(\"created\");",
-									"tests[\"updated field is present\"]= responseBody.has(\"updated\");",
-									"tests[\"name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"configurationType field is present\"]= responseBody.has(\"configurationType\");",
-									"tests[\"tariffInstanceId field is present\"]= responseBody.has(\"tariffInstanceId\");",
-									"tests[\"configurationJson field is present\"]= responseBody.has(\"configurationJson\");",
-									"tests[\"IsFree field is present\"]= responseBody.has(\"IsFree\");",
+									"tests[\"Rate, listOfClientTariffsExtended, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Rate, listOfClientTariffsExtended, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Rate, listOfClientTariffsExtended, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Rate, listOfClientTariffsExtended, locationsSublocationsCount field is present\"]= responseBody.has(\"locationsSublocationsCount\");",
+									"tests[\"Rate, listOfClientTariffsExtended, devicesCount field is present\"]= responseBody.has(\"devicesCount\");",
+									"tests[\"Rate, listOfClientTariffsExtended, created field is present\"]= responseBody.has(\"created\");",
+									"tests[\"Rate, listOfClientTariffsExtended, updated field is present\"]= responseBody.has(\"updated\");",
+									"tests[\"Rate, listOfClientTariffsExtended, name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Rate, listOfClientTariffsExtended, configurationType field is present\"]= responseBody.has(\"configurationType\");",
+									"tests[\"Rate, listOfClientTariffsExtended, tariffInstanceId field is present\"]= responseBody.has(\"tariffInstanceId\");",
+									"tests[\"Rate, listOfClientTariffsExtended, configurationJson field is present\"]= responseBody.has(\"configurationJson\");",
+									"tests[\"Rate, listOfClientTariffsExtended, IsFree field is present\"]= responseBody.has(\"IsFree\");",
 									""
 								]
 							}
@@ -4092,10 +4092,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "15832c40-1132-402e-87aa-691deec04278",
+								"id": "783a915b-7cf2-4b05-a457-d424399a7263",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test(\"Rate, rateInfo, Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
 								]
@@ -4169,21 +4169,21 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "03da334b-f768-451f-bab7-0bafa086533f",
+								"id": "ab0d0507-9d98-4e4b-8c51-749e61b368b1",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"locationsSublocationsCount field is present\"]= responseBody.has(\"locationsSublocationsCount\");",
-									"tests[\"devicesCount field is present\"]= responseBody.has(\"devicesCount\");",
-									"tests[\"created field is present\"]= responseBody.has(\"created\");",
-									"tests[\"updated field is present\"]= responseBody.has(\"updated\");",
-									"tests[\"name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"configurationType field is present\"]= responseBody.has(\"configurationType\");",
-									"tests[\"tariffInstanceId field is present\"]= responseBody.has(\"tariffInstanceId\");",
-									"tests[\"configurationJson field is present\"]= responseBody.has(\"configurationJson\");",
-									"tests[\"IsFree field is present\"]= responseBody.has(\"IsFree\");",
+									"tests[\"Rate, listOfClientTariffs, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Rate, listOfClientTariffs, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Rate, listOfClientTariffs, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Rate, listOfClientTariffs, locationsSublocationsCount field is present\"]= responseBody.has(\"locationsSublocationsCount\");",
+									"tests[\"Rate, listOfClientTariffs, devicesCount field is present\"]= responseBody.has(\"devicesCount\");",
+									"tests[\"Rate, listOfClientTariffs, created field is present\"]= responseBody.has(\"created\");",
+									"tests[\"Rate, listOfClientTariffs, updated field is present\"]= responseBody.has(\"updated\");",
+									"tests[\"Rate, listOfClientTariffs, name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Rate, listOfClientTariffs, configurationType field is present\"]= responseBody.has(\"configurationType\");",
+									"tests[\"Rate, listOfClientTariffs, tariffInstanceId field is present\"]= responseBody.has(\"tariffInstanceId\");",
+									"tests[\"Rate, listOfClientTariffs, configurationJson field is present\"]= responseBody.has(\"configurationJson\");",
+									"tests[\"Rate, listOfClientTariffs, IsFree field is present\"]= responseBody.has(\"IsFree\");",
 									""
 								]
 							}
@@ -4221,10 +4221,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "85dc5b43-def6-436d-beaa-d3b807c70f41",
+								"id": "44f5b221-4cba-4f0b-81ab-458d44a3222e",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test(\"Rate, devicesByRateID, Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
 								]
@@ -4267,10 +4267,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f18d744c-6963-417b-9847-8cfdcfb0d2a4",
+								"id": "b8994fb1-4b00-4f5a-8d8c-0e7b21e16a83",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test(\"Rate, locationsByRateID, Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
 								]
@@ -4313,10 +4313,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d5375e5d-e5ae-44ba-9dfa-aa42f495da58",
+								"id": "87057df8-b6c3-4505-a39f-441f9443d277",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test(\"Rate, subLocationsByRateID, Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
 								]
@@ -4359,11 +4359,11 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "12b140cb-6246-4307-b2a1-86472cbbd298",
+								"id": "1ce0c667-1350-4cae-b367-ded81a1df29b",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Rate, listOfUnassignedRates, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Rate, listOfUnassignedRates, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
 									""
 								]
 							}
@@ -4404,10 +4404,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1c95d893-7f92-4313-98e2-66ed3f5c227b",
+								"id": "50f1d231-845a-4402-9aa3-8617db83029d",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test(\"Rate, listOfRatesForUnlinkedDevices, Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
 								]
@@ -4449,10 +4449,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3304ed4d-ebc6-487a-9e84-b837c28a9ead",
+								"id": "dc32f047-1239-4ac7-b264-943551e0af05",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test(\"Rate, udpateRate, Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
 								]

@@ -9,7 +9,6 @@ Scenario: B2B_Web_Locations_01 - Add location
 	And I delete location "Test Location" if exist (b2b)
 	Then Location with name "Test Location" exist in the table is "False" (b2b)
 	When I click on the "Add Location" button (b2b)
-	#When I click "checkBoxName" checkbox in row "rowName" (b2b)
 	And I populate the Location form with correct data (b2b)
 	And I click on the "Create" button (b2b)
 	Then Popup window with "Successfully created" message and "done" status should be displayed (b2b)
