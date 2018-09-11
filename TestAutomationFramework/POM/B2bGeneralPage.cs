@@ -16,16 +16,29 @@ namespace TestAutomationFramework.POM
         private readonly IWebDriver driver;
         public B2bGeneralPage(IWebDriver driver) => this.driver = driver;
 
+        //public string GetUserEmail()
+        //{
+        //    Console.WriteLine("01");
+        //    var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+        //    Console.WriteLine("02");
+        //    wait.Until(wd => driver.FindElement(By.XPath("//div[@class='company-name menu']")));
+        //    Console.WriteLine("03");
+        //    UserProfileButton.Click();
+        //    Console.WriteLine("04");
+        //    var result = UserEmail.Text.Trim();
+        //    Console.WriteLine("05");
+        //    //wait.Until(ExpectedConditions.ElementToBeClickable(UserEmail));
+        //    //UserEmail.Click();
+        //    driver.FindElement(By.ClassName("cdk-overlay-container")).Click();
+        //    Console.WriteLine("06");
+        //    return result;
+        //}
+
         public string GetUserEmail()
         {
-
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
             wait.Until(wd => driver.FindElement(By.XPath("//div[@class='company-name menu']")));
-            UserProfileButton.Click();
-            var result = UserEmail.Text.Trim();
-            //wait.Until(ExpectedConditions.ElementToBeClickable(UserEmail));
-            //UserEmail.Click();
-            driver.FindElement(By.ClassName("cdk-overlay-container")).Click();
+            var result = UserProfileButton.GetAttribute("title");
             return result;
         }
 
@@ -79,7 +92,7 @@ namespace TestAutomationFramework.POM
 
         public void AssertPopup(string message, string status)
         {
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
             wait.Until(wd => PopupWindow.Displayed);
 
             Console.WriteLine("Assert icon");
