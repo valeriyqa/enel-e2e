@@ -16,7 +16,7 @@ namespace TestAutomationFramework.Steps.UI
     {
         private readonly RemoteWebDriver driver;
         private string host = Config.Global.environment.dashboard_address;
-        private Dictionary<string, Tools.LoadUsersFromConf.User> usersDictionary = Tools.LoadUsersFromConf.GetUsers();
+        private Dictionary<string, Tools.LoadFromConf.User> usersDictionary = Tools.LoadFromConf.GetUsers();
 
         public B2cUiRegistrationAndLogInSteps(RemoteWebDriver driver) => this.driver = driver;
 
@@ -125,7 +125,7 @@ namespace TestAutomationFramework.Steps.UI
         {
             driver.Navigate().GoToUrl(host + "Account/Login");
             B2cLoginPage loginPage = new B2cLoginPage(driver);
-            Tools.LoadUsersFromConf.User currentUser = usersDictionary[userName];
+            Tools.LoadFromConf.User currentUser = usersDictionary[userName];
             loginPage.LoginToApplication(currentUser.userEmail, currentUser.userPassword);
             B2cGeneralPage generalPage = new B2cGeneralPage(driver);
             Assert.AreEqual(generalPage.GetUserName(), currentUser.userDescription);

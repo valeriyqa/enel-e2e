@@ -243,7 +243,7 @@
     <Compile Include="Steps\UI\B2cUiRegistrationAndLogInSteps.cs" />
     <Compile Include="Tools\ConvertDateTime.cs" />
     <Compile Include="Tools\LoadTableFromFile.cs" />
-    <Compile Include="Tools\LoadUsersFromConf.cs" />
+    <Compile Include="Tools\LoadFromConf.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

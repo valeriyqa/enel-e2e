@@ -15,8 +15,6 @@ Scenario: B2B_Web_Locations_01 - Add location
 	When I click on the "View locations" button (b2b)
 	Then Location with name "Test Location" exist in the table is "True" (b2b)
 
-
-
 @b2b @web
 Scenario: B2B_Web_Locations_02 - Create sublocations
 

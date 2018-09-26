@@ -12,7 +12,7 @@ namespace TestAutomationFramework.Steps.UI
     class B2bUiLoginSteps
     {
         private string host = Config.Global.environment.dashboard_address;
-        private Dictionary<string, Tools.LoadUsersFromConf.User> usersDictionary = Tools.LoadUsersFromConf.GetUsers();
+        private Dictionary<string, Tools.LoadFromConf.User> usersDictionary = Tools.LoadFromConf.GetUsers();
 
         private readonly RemoteWebDriver driver;
         public B2bUiLoginSteps(RemoteWebDriver driver) => this.driver = driver;
@@ -21,7 +21,7 @@ namespace TestAutomationFramework.Steps.UI
         [Given(@"I login to the system as ""(.*)"" \(b2b\)")]
         public void ILoginToTheB2bSystemAsB2B(string userName)
         {
-            Tools.LoadUsersFromConf.User currentUser = usersDictionary[userName];
+            Tools.LoadFromConf.User currentUser = usersDictionary[userName];
             driver.Navigate().GoToUrl(host);
 
             var loginPage = new B2bLoginPage(driver);

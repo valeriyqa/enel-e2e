@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TestAutomationFramework.Tools
 {
-    class LoadUsersFromConf
+    class LoadFromConf
     {
         public static Dictionary<string, User> GetUsers()
         {

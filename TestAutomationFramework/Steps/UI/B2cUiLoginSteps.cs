@@ -17,7 +17,7 @@ namespace TestAutomationFramework.Steps.UI
     {
         private readonly RemoteWebDriver driver;
         private string host = Config.Global.environment.dashboard_address;
-        private Dictionary<string, Tools.LoadUsersFromConf.User> usersDictionary = Tools.LoadUsersFromConf.GetUsers();
+        private Dictionary<string, Tools.LoadFromConf.User> usersDictionary = Tools.LoadFromConf.GetUsers();
 
         public B2cUiLoginSteps(RemoteWebDriver driver) => this.driver = driver;
 

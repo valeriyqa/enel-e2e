@@ -238,5 +238,55 @@ namespace TestAutomationFramework.Steps.UDP
             }
         }
 
+        [When(@"I send UDP package with status ""(.*)"" to unit")]
+        public void WhenISendUDPPackageWithStatusToUnit(string deviceChargeState)
+        {
+            System.Threading.Thread.Sleep(3000);
+
+            testData.unitId = Config.Global.p_term_settings.unit_id;
+
+            var testName = new UdpEndpointTest();
+            var step = 0;
+            var resultNotFound = true;
+            while (step < 5 && resultNotFound)
+            {
+                step++;
+                try
+                {
+                    if (deviceChargeState.Equals("Charging"))
+                    {
+                        testData.energy = testData.energy + new Random().Next(500, 1000);
+                        testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage(deviceChargeState, testData.unitId, testData.energy));
+                    }
+                    else
+                    {
+                        testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage(deviceChargeState, testData.unitId));
+                    }
+                    resultNotFound = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("WARNING!!! No UPD response, step: " + step);
+                }
+            }
+        }
+
+        [When(@"I send authorization API request to terminal")]
+        public void WhenISendAuthorizationAPIRequestToTerminal()
+        {
+            testData.terminalId = Config.Global.p_term_settings.terminal_id;
+            var client = new RestClient(Config.Global.environment.api_address);
+            var request = new RestRequest("api/v1/{id}/sessions", Method.POST);
+
+            Random generator = new Random();
+            testData.token = generator.Next(0, 99999).ToString("D5") + generator.Next(0, 99999).ToString("D5");
+
+            request.AddParameter("unit", testData.unitId);
+            request.AddParameter("token", testData.token);
+            request.AddUrlSegment("id", testData.terminalId);
+
+            testData.responseApi = client.Execute(request);
+        }
+
     }
 }
