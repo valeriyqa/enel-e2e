@@ -33,8 +33,8 @@ namespace TestAutomationFramework
             {
                 //environment = "b2c_alpha";
                 //environment = "b2c_beta";
-                //environment = "b2b_beta";
-                environment = "b2b_prod";
+                environment = "b2b_beta";
+                //environment = "b2b_prod";
                 //environment = "b2b_alpha";
             }
             else
@@ -52,6 +52,7 @@ namespace TestAutomationFramework
             if (!isLocal)
             {
                 var envVariablese = Environment.GetEnvironmentVariables();
+                Console.WriteLine(envVariablese);
                 string jsonString = "{\"environment\": {\"dashboard_address\": \"" + Environment.GetEnvironmentVariable("dashboard_address").ToLower() +
                     "\", \"api_address\": \"" + Environment.GetEnvironmentVariable("api_address").ToLower() +
                     "\", \"udp_address\": \"" + Environment.GetEnvironmentVariable("udp_address").ToLower() +
