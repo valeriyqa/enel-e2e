@@ -13,6 +13,7 @@ namespace TestAutomationFramework.Services
 
         void TxRxRaw(string packet)
         {
+            Console.WriteLine(host);
             var udpClient = new UdpClientEx(host, port);
             var step = 0;
             var resultNotFound = true;
