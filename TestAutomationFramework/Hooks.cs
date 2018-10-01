@@ -33,7 +33,8 @@ namespace TestAutomationFramework
             {
                 //environment = "b2c_alpha";
                 //environment = "b2c_beta";
-                environment = "b2b_beta";
+                //environment = "b2b_beta";
+                environment = "b2b_beta2";
                 //environment = "b2b_prod";
                 //environment = "b2b_alpha";
             }

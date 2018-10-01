@@ -250,6 +250,7 @@
     <EmbeddedResource Include="Configuration\b2c_beta.conf" />
     <EmbeddedResource Include="Configuration\b2c_stage.conf" />
     <EmbeddedResource Include="Configuration\b2c_prod.conf" />
+    <None Include="Configuration\b2b_beta2.conf" />
     <None Include="Configuration\b2b_prod.conf" />
     <None Include="Configuration\b2b_beta.conf" />
     <None Include="Configuration\b2b_alpha.conf" />
