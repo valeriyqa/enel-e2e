@@ -3081,78 +3081,6 @@
 					"response": []
 				},
 				{
-					"name": "createGroup2",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "a4d4ca57-91ef-4637-b36e-a73edd9f1b64",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"UserGroup, createGroup2, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"UserGroup, createGroup2, Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"UserGroup, createGroup2, Response has userGroupID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
-									"",
-									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
-									"tests[_str]=1;",
-									"",
-									"pm.environment.set(\"new_user_group_id2\", _str);"
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "e507fd69-f45a-4b0c-9e48-10a48862b4f5",
-								"type": "text/javascript",
-								"exec": [
-									"var min",
-									"var max",
-									"function getRandomInt(min, max)",
-									"{",
-									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
-									"}",
-									"test= 'TestGroup+'+getRandomInt(1, 1000)",
-									"",
-									"pm.environment.set(\"random_user_group2\", test);"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "\"{{random_user_group2}}\"\n"
-						},
-						"url": {
-							"raw": "{{url}}user-groups",
-							"host": [
-								"{{url}}user-groups"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "addMemberToUserGroup",
 					"event": [
 						{
@@ -3347,12 +3275,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}user-groups/{{new_user_group_id2}}",
+							"raw": "{{url}}user-groups/{{new_user_group_id1}}",
 							"host": [
 								"{{url}}user-groups"
 							],
 							"path": [
-								"{{new_user_group_id2}}"
+								"{{new_user_group_id1}}"
 							]
 						}
 					},
@@ -3814,48 +3742,6 @@
 							],
 							"path": [
 								"list-extended"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "rateInfo",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "650d87bb-4ff0-4643-bd34-593f6c8f6a2f",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Rate, rateInfo, Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}rates/{{new_device_id}}",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"{{new_device_id}}"
 							]
 						}
 					},
