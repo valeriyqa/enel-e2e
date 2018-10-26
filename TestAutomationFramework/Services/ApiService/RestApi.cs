@@ -53,16 +53,19 @@ namespace TestAutomationFramework.Services.ApiService
             jObject = JsonConvert.DeserializeObject(File.ReadAllText(pathToRequests + requestCmd + ".json"), jObject.GetType());
 
             //Add data from system settings
-            foreach (dynamic property in Config.Global)
-            {
-                try
-                {
-                    jObject.GetType().GetProperty(property.Key).SetValue(jObject, property.Value);
-                }
-                catch (Exception)
-                {
-                }
-            }
+
+            //foreach (dynamic property in Config.Global)
+            //{
+            //    try
+            //    {
+            //        jObject.GetType().GetProperty(property.Key).SetValue(jObject, property.Value);
+            //    }
+            //    catch (Exception)
+            //    {
+            //    }
+            //}
+
+
 
             //Add data from dictionary
             foreach (var item in paramPairs)
