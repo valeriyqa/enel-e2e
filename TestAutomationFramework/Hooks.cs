@@ -29,8 +29,8 @@ namespace TestAutomationFramework
             if (File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt")))
             {
                 //Use this variable to set local environment;
-                //string environment = "b2b_beta2";
-                string environment = "b2c_alpha"; 
+                string environment = "b2b_beta2";
+                //string environment = "b2c_alpha"; 
 
                 string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
                 ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
