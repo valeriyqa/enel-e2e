@@ -44,8 +44,9 @@ namespace TestAutomationFramework.POM
             //should be deleted when "500 internal error" caused due to load timeout will be fixed.
             try
             {
-                wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3));
-                wait.Until(wd => driver.FindElement(By.XPath("//label[contains(text(), 'Assigned rate')]/../..//mat-checkbox[contains(@class,'mat-checkbox-checked')]")));
+                wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                //wait.Until(wd => driver.FindElement(By.XPath("//label[contains(text(), 'Assigned rate')]/../..//mat-checkbox[contains(@class,'mat-checkbox-checked')]")));
+                wait.Until(wd => driver.FindElement(By.XPath("//locationdetails//div[@class='ng-star-inserted'][not(button)]")));
             }
             catch (Exception)
             {
@@ -58,7 +59,7 @@ namespace TestAutomationFramework.POM
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(wd => driver.FindElement(By.ClassName("ui-treetable-table")));
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             IList<IWebElement> allLoactions = driver.FindElements(By.XPath("//tbody //a[contains(@class,'ui-treetable-label')]"));
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             foreach (IWebElement location in allLoactions)

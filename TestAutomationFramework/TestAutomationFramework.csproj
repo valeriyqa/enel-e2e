@@ -247,13 +247,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EmbeddedResource Include="Configuration\b2c_beta.conf" />
-    <EmbeddedResource Include="Configuration\b2c_stage.conf" />
-    <EmbeddedResource Include="Configuration\b2c_prod.conf" />
+    <None Include="Configuration\b2b_alpha.conf" />
+    <None Include="Configuration\b2b_beta.conf" />
     <None Include="Configuration\b2b_beta2.conf" />
     <None Include="Configuration\b2b_prod.conf" />
-    <None Include="Configuration\b2b_beta.conf" />
-    <None Include="Configuration\b2b_alpha.conf" />
+    <EmbeddedResource Include="Configuration\b2c_alpha.conf" />
+    <EmbeddedResource Include="Configuration\b2c_beta.conf" />
+    <EmbeddedResource Include="Configuration\b2c_prod.conf" />
+    <EmbeddedResource Include="Configuration\b2c_stage.conf" />
     <None Include="Features\B2B_UDP\DirectUdpCommands.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DirectUdpCommands.feature.cs</LastGenOutput>
@@ -420,7 +421,6 @@
     <None Include="Services\ApiService\B2cSchemas\get_state.json" />
     <None Include="Services\ApiService\B2cSchemas\get_timezones.json" />
     <None Include="Services\ApiService\B2cSchemas\get_utilitybill_url.json" />
-    <EmbeddedResource Include="Configuration\b2c_alpha.conf" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

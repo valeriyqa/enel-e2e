@@ -8,7 +8,7 @@ namespace TestAutomationFramework.Services
 {
     public class UdpEndpointTest
     {
-        private string host = Config.Global.environment.udp_address;
+        private string host = Config.Global.env_udp_address;
         const int port = 8042;
 
         void TxRxRaw(string packet)

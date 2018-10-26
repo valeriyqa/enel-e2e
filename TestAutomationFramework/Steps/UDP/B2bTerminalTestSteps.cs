@@ -170,7 +170,7 @@ namespace TestAutomationFramework.Steps.UDP
         public void WhenISendAuthorizationAPIRequestToTerminal(string terminalId)
         {
             testData.terminalId = terminalId;
-            var client = new RestClient(Config.Global.environment.api_address);
+            var client = new RestClient(Config.Global.env_api_address);
             
             var request = new RestRequest("api/v1/{id}/sessions", Method.POST);
 
@@ -187,7 +187,7 @@ namespace TestAutomationFramework.Steps.UDP
         [When(@"I verify device status via API request")]
         public void WhenIVerChargingyDeviceStatusViaAPIRequest()
         {
-            var client = new RestClient(Config.Global.environment.api_address);
+            var client = new RestClient(Config.Global.env_api_address);
             var request = new RestRequest("api/v1/{id}/sessions?token={token}", Method.GET);
 
             request.AddUrlSegment("id", testData.terminalId);
@@ -243,7 +243,7 @@ namespace TestAutomationFramework.Steps.UDP
         {
             System.Threading.Thread.Sleep(3000);
 
-            testData.unitId = Config.Global.p_term_settings.unit_id;
+            testData.unitId = Config.Global.pterm_unit_id;
 
             var testName = new UdpEndpointTest();
             var step = 0;
@@ -274,8 +274,8 @@ namespace TestAutomationFramework.Steps.UDP
         [When(@"I send authorization API request to terminal")]
         public void WhenISendAuthorizationAPIRequestToTerminal()
         {
-            testData.terminalId = Config.Global.p_term_settings.terminal_id;
-            var client = new RestClient(Config.Global.environment.api_address);
+            testData.terminalId = Config.Global.pterm_terminal_id;
+            var client = new RestClient(Config.Global.env_api_address);
             var request = new RestRequest("api/v1/{id}/sessions", Method.POST);
 
             Random generator = new Random();

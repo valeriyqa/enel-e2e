@@ -29,7 +29,7 @@ namespace TestAutomationFramework.Services.ApiService
         public static IRestResponse SendApiRequest(Object apiRequestBody)
         {
             string requestCmd = apiRequestBody.GetType().GetProperty("cmd").GetValue(apiRequestBody, null).ToString();
-            var client = new RestClient(Config.Global.environment.api_address + GetUrlPath4RestApi(requestCmd));
+            var client = new RestClient(Config.Global.env_api_address + GetUrlPath4RestApi(requestCmd));
             var request = new RestRequest(GetMethodType4RestApi(requestCmd));
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Content-Type", "application/json");
@@ -53,7 +53,7 @@ namespace TestAutomationFramework.Services.ApiService
             jObject = JsonConvert.DeserializeObject(File.ReadAllText(pathToRequests + requestCmd + ".json"), jObject.GetType());
 
             //Add data from system settings
-            foreach (dynamic property in Config.Global.api_settings)
+            foreach (dynamic property in Config.Global)
             {
                 try
                 {

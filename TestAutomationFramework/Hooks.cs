@@ -1,5 +1,6 @@
 ﻿using BoDi;
 using JsonConfig;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
@@ -25,51 +26,30 @@ namespace TestAutomationFramework
         [BeforeTestRun]
         public static void InitializeEnvironmentSettings()
         {
-            string environment;
-            bool isLocal = File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt"));
-            Console.WriteLine("!!!" + isLocal);
-
-            if (isLocal)
+            if (File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt")))
             {
-                //environment = "b2c_alpha";
-                //environment = "b2c_beta";
-                //environment = "b2b_beta";
-                environment = "b2b_beta2";
-                //environment = "b2b_prod";
-                //environment = "b2b_alpha";
+                //Use this variable to set local environment;
+                //string environment = "b2b_beta2";
+                string environment = "b2c_alpha"; 
+
+                string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
+                ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
+                Config.SetDefaultConfig(configFromFile);
             }
             else
             {
-                environment = Environment.GetEnvironmentVariable("system_type").ToLower();
-            }
-            Console.WriteLine("!!!" + environment);
-
-            string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
-            Console.WriteLine("!!!" + systemConfigPath);
-
-            ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
-            Config.SetDefaultConfig(configFromFile);
-
-            if (!isLocal)
-            {
-                var envVariablese = Environment.GetEnvironmentVariables();
-                Console.WriteLine(envVariablese);
-                string jsonString = "{\"environment\": {\"dashboard_address\": \"" + Environment.GetEnvironmentVariable("dashboard_address").ToLower() +
-                    "\", \"api_address\": \"" + Environment.GetEnvironmentVariable("api_address").ToLower() +
-                    "\", \"udp_address\": \"" + Environment.GetEnvironmentVariable("udp_address").ToLower() +
-                    "\" }, \"launcher\": {\"start_web\": \"" + Environment.GetEnvironmentVariable("start_web").ToLower() +
-                    "\", \"start_api\": \"" + Environment.GetEnvironmentVariable("start_api").ToLower() +
-                    "\", \"start_udp\": \"" + Environment.GetEnvironmentVariable("start_udp").ToLower() +
-                    "\", \"start_p_term\": \"" + Environment.GetEnvironmentVariable("start_p_term").ToLower() + "\"}}";
+                var envVariables = Environment.GetEnvironmentVariables();
+                string jsonString = JsonConvert.SerializeObject(envVariables, Formatting.Indented);
                 ConfigObject configFromJson = Config.ApplyJson(jsonString);
-                Config.SetUserConfig(configFromJson);
+                Config.SetDefaultConfig(configFromJson);
+
             }
         }
 
         [BeforeScenario("b2b")]
         public void InitializeB2B()
         {
-            if (!Config.Global.environment.system_type.Contains("b2b"))
+            if (!Config.Global.env_system_type.Contains("b2b"))
             {
                 Assert.Inconclusive();
             }
@@ -78,7 +58,7 @@ namespace TestAutomationFramework
         [BeforeScenario("b2c")]
         public void InitializeB2C()
         {
-            if (!Config.Global.environment.system_type.Contains("b2c"))
+            if (!Config.Global.env_system_type.Contains("b2c"))
             {
                 Assert.Inconclusive();
             }
@@ -87,7 +67,7 @@ namespace TestAutomationFramework
         [BeforeScenario("api")]
         public void InitializeApi()
         {
-            if (!Boolean.Parse(Config.Global.launcher.start_api))
+            if (!Boolean.Parse(Config.Global.start_api))
             {
                 Assert.Inconclusive();
             }
@@ -96,7 +76,7 @@ namespace TestAutomationFramework
         [BeforeScenario("udp")]
         public void InitializeUdp()
         {
-            if (!Boolean.Parse(Config.Global.launcher.start_udp))
+            if (!Boolean.Parse(Config.Global.start_udp))
             {
                 Assert.Inconclusive();
             }
@@ -105,7 +85,7 @@ namespace TestAutomationFramework
         [BeforeScenario("p_term")]
         public void InitializePaymentTerminal()
         {
-            if (!Boolean.Parse(Config.Global.launcher.start_p_term))
+            if (!Boolean.Parse(Config.Global.start_p_term))
             {
                 Assert.Inconclusive();
             }
@@ -114,7 +94,7 @@ namespace TestAutomationFramework
         [BeforeScenario("web")]
         public void InitializeWeb()
         {
-            if (Boolean.Parse(Config.Global.launcher.start_web))
+            if (Boolean.Parse(Config.Global.start_web))
             {
                 SelectBrowser(BrowserType.Chrome);
                 //driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
@@ -129,7 +109,7 @@ namespace TestAutomationFramework
         [AfterScenario("web")]
         public void CleanUp()
         {
-            if (Boolean.Parse(Config.Global.launcher.start_web))
+            if (Boolean.Parse(Config.Global.start_web))
             {
                 try
                 {
