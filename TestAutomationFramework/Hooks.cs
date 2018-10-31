@@ -38,30 +38,30 @@ namespace TestAutomationFramework
             }
             else
             {
-                //Use this variable to set local environment;
-                string environment = "b2b_beta";
-                //string environment = "b2c_alpha"; 
+                string jsonString = "{\"env_system_type\": \"" + Environment.GetEnvironmentVariable("env_system_type").ToLower() +
+                    "\", \"env_dashboard_address\": \"" + Environment.GetEnvironmentVariable("env_dashboard_address").ToLower() +
+                    "\", \"env_api_address\": \"" + Environment.GetEnvironmentVariable("env_api_address").ToLower() +
+                    "\", \"env_udp_address\": \"" + Environment.GetEnvironmentVariable("env_udp_address").ToLower() +
 
-                string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
-                ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
-                Config.SetDefaultConfig(configFromFile);
+                     "\", \"start_web\": \"" + Environment.GetEnvironmentVariable("start_web").ToLower() +
+                    "\", \"start_api\": \"" + Environment.GetEnvironmentVariable("start_api").ToLower() +
+                    "\", \"start_udp\": \"" + Environment.GetEnvironmentVariable("start_udp").ToLower() +
+                    "\", \"start_p_term\": \"" + Environment.GetEnvironmentVariable("start_p_term").ToLower() +
 
-                //Console.WriteLine("Step1 - Start else");
-                //var envVariables = Environment.GetEnvironmentVariables();
-                //Console.WriteLine("Step2 - List all varibles");
+                    "\", \"web_user_id\": \"" + Environment.GetEnvironmentVariable("web_user_id").ToLower() +
+                    "\", \"web_user_email\": \"" + Environment.GetEnvironmentVariable("web_user_email").ToLower() +
+                    "\", \"web_user_password\": \"" + Environment.GetEnvironmentVariable("web_user_password").ToLower() +
+                    "\", \"web_user_description\": \"" + Environment.GetEnvironmentVariable("web_user_description").ToLower() +
 
-                //foreach (var variable in envVariables)
-                //{
-                //    Console.WriteLine("Step2a - " + variable);
-                //}
+                    "\", \"api_account_token\": \"" + Environment.GetEnvironmentVariable("api_account_token").ToLower() +
+                    "\", \"api_device_id\": \"" + Environment.GetEnvironmentVariable("api_device_id").ToLower() +
+                    "\", \"api_token\": \"" + Environment.GetEnvironmentVariable("api_token").ToLower() +
 
-                //string jsonString = JsonConvert.SerializeObject(envVariables, Formatting.Indented);
-                //Console.WriteLine("Step3 - Json string = " + jsonString);
-                //ConfigObject configFromJson = Config.ApplyJson(jsonString);
-                //Console.WriteLine("Step4 - Create Json Object");
-                //Config.SetDefaultConfig(configFromJson);
-                //Console.WriteLine("Step5 - Set config as default");
-                //Console.WriteLine("Step6 - Finish else");
+                    "\", \"pterm_unit_id\": \"" + Environment.GetEnvironmentVariable("pterm_unit_id").ToLower() +
+                    "\", \"pterm_terminal_id\": \"" + Environment.GetEnvironmentVariable("pterm_terminal_id").ToLower() + "\"}";
+
+                ConfigObject configFromJson = Config.ApplyJson(jsonString);
+                Config.SetUserConfig(configFromJson);
             }
         }
 
