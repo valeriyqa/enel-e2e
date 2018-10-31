@@ -38,22 +38,22 @@ namespace TestAutomationFramework
             }
             else
             {
-                Console.WriteLine("Step1 - Start else");
-                var envVariables = Environment.GetEnvironmentVariables();
-                Console.WriteLine("Step2 - List all varibles");
+                //Console.WriteLine("Step1 - Start else");
+                //var envVariables = Environment.GetEnvironmentVariables();
+                //Console.WriteLine("Step2 - List all varibles");
 
-                foreach (var variable in envVariables)
-                {
-                    Console.WriteLine("Step2a - " + variable);
-                }
+                //foreach (var variable in envVariables)
+                //{
+                //    Console.WriteLine("Step2a - " + variable);
+                //}
 
-                string jsonString = JsonConvert.SerializeObject(envVariables, Formatting.Indented);
-                Console.WriteLine("Step3 - Json string = " + jsonString);
-                ConfigObject configFromJson = Config.ApplyJson(jsonString);
-                Console.WriteLine("Step4 - Create Json Object");
-                Config.SetDefaultConfig(configFromJson);
-                Console.WriteLine("Step5 - Set config as default");
-                Console.WriteLine("Step6 - Finish else");
+                //string jsonString = JsonConvert.SerializeObject(envVariables, Formatting.Indented);
+                //Console.WriteLine("Step3 - Json string = " + jsonString);
+                //ConfigObject configFromJson = Config.ApplyJson(jsonString);
+                //Console.WriteLine("Step4 - Create Json Object");
+                //Config.SetDefaultConfig(configFromJson);
+                //Console.WriteLine("Step5 - Set config as default");
+                //Console.WriteLine("Step6 - Finish else");
             }
         }
 

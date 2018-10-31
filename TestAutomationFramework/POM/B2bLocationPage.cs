@@ -7,8 +7,6 @@ namespace TestAutomationFramework.POM
 {
     class B2bLocationPage
     {
-        //delete it
-        //IWebElement TimeZoneSelect => driver.FindElement(By.Id("mat-select-0"));
         IWebElement TimeZoneSelect => driver.FindElement(By.XPath("//label[contains(text(), 'Time zone')]/../..//mat-select"));
         IWebElement AssignRateSelect => driver.FindElement(By.Id("mat-select-1"));
         IWebElement SameAsParentCheckbox => driver.FindElement(By.Id("mat-checkbox-1"));
