@@ -38,27 +38,27 @@ namespace TestAutomationFramework
             }
             else
             {
-                string jsonString = "{\"env_system_type\": \"" + Environment.GetEnvironmentVariable("env_system_type").ToLower() +
-                    "\", \"env_dashboard_address\": \"" + Environment.GetEnvironmentVariable("env_dashboard_address").ToLower() +
-                    "\", \"env_api_address\": \"" + Environment.GetEnvironmentVariable("env_api_address").ToLower() +
-                    "\", \"env_udp_address\": \"" + Environment.GetEnvironmentVariable("env_udp_address").ToLower() +
+                string jsonString = "{\"env_system_type\": \"" + Environment.GetEnvironmentVariable("env_system_type") +
+                    "\", \"env_dashboard_address\": \"" + Environment.GetEnvironmentVariable("env_dashboard_address") +
+                    "\", \"env_api_address\": \"" + Environment.GetEnvironmentVariable("env_api_address") +
+                    "\", \"env_udp_address\": \"" + Environment.GetEnvironmentVariable("env_udp_address") +
 
-                     "\", \"start_web\": \"" + Environment.GetEnvironmentVariable("start_web").ToLower() +
-                    "\", \"start_api\": \"" + Environment.GetEnvironmentVariable("start_api").ToLower() +
-                    "\", \"start_udp\": \"" + Environment.GetEnvironmentVariable("start_udp").ToLower() +
-                    "\", \"start_p_term\": \"" + Environment.GetEnvironmentVariable("start_p_term").ToLower() +
+                     "\", \"start_web\": \"" + Environment.GetEnvironmentVariable("start_web") +
+                    "\", \"start_api\": \"" + Environment.GetEnvironmentVariable("start_api") +
+                    "\", \"start_udp\": \"" + Environment.GetEnvironmentVariable("start_udp") +
+                    "\", \"start_p_term\": \"" + Environment.GetEnvironmentVariable("start_p_term") +
 
-                    "\", \"web_user_id\": \"" + Environment.GetEnvironmentVariable("web_user_id").ToLower() +
-                    "\", \"web_user_email\": \"" + Environment.GetEnvironmentVariable("web_user_email").ToLower() +
-                    "\", \"web_user_password\": \"" + Environment.GetEnvironmentVariable("web_user_password").ToLower() +
-                    "\", \"web_user_description\": \"" + Environment.GetEnvironmentVariable("web_user_description").ToLower() +
+                    "\", \"web_user_id\": \"" + Environment.GetEnvironmentVariable("web_user_id") +
+                    "\", \"web_user_email\": \"" + Environment.GetEnvironmentVariable("web_user_email") +
+                    "\", \"web_user_password\": \"" + Environment.GetEnvironmentVariable("web_user_password") +
+                    "\", \"web_user_description\": \"" + Environment.GetEnvironmentVariable("web_user_description") +
 
-                    "\", \"api_account_token\": \"" + Environment.GetEnvironmentVariable("api_account_token").ToLower() +
-                    "\", \"api_device_id\": \"" + Environment.GetEnvironmentVariable("api_device_id").ToLower() +
-                    "\", \"api_token\": \"" + Environment.GetEnvironmentVariable("api_token").ToLower() +
+                    "\", \"api_account_token\": \"" + Environment.GetEnvironmentVariable("api_account_token") +
+                    "\", \"api_device_id\": \"" + Environment.GetEnvironmentVariable("api_device_id") +
+                    "\", \"api_token\": \"" + Environment.GetEnvironmentVariable("api_token") +
 
-                    "\", \"pterm_unit_id\": \"" + Environment.GetEnvironmentVariable("pterm_unit_id").ToLower() +
-                    "\", \"pterm_terminal_id\": \"" + Environment.GetEnvironmentVariable("pterm_terminal_id").ToLower() + "\"}";
+                    "\", \"pterm_unit_id\": \"" + Environment.GetEnvironmentVariable("pterm_unit_id") +
+                    "\", \"pterm_terminal_id\": \"" + Environment.GetEnvironmentVariable("pterm_terminal_id") + "\"}";
 
                 ConfigObject configFromJson = Config.ApplyJson(jsonString);
                 Config.SetUserConfig(configFromJson);
