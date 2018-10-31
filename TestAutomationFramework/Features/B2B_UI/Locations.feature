@@ -17,6 +17,17 @@ Scenario: B2B_Web_Locations_01 - Add location
 
 @b2b @web
 Scenario: B2B_Web_Locations_02 - Create sublocations
+	Given I login to the system as "Web user" (b2b)
+	And I navigate to the "Locations" page (b2b)
+	Then Location with name "Test Location" exist in the table is "True" (b2b)
+	When I click on the "Test Location" link by name (b2b)
+	And I click on the "Add SubLocation" button (b2b)
+	And I populate the Location form with correct data and "New Sublocation" title (b2b)
+	And I click on the "Create" button (b2b)
+	Then Popup window with "Successfully created" message and "done" status should be displayed (b2b)
+	When I click on the "View locations" button (b2b)
+	Then Location with name "New Sublocation" exist in the table is "True" (b2b)
+	And Location with name "Test Location" is parent for "New Sublocation" (b2b)
 
 @b2b @web
 Scenario: B2B_Web_Locations_03 - Delete Sublocations

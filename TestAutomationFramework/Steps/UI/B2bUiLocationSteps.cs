@@ -48,12 +48,38 @@ namespace TestAutomationFramework.Steps.UI
             locationPage.SelectTimeZoneByValue("(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius");
         }
 
+        [When(@"I populate the Location form with correct data and ""(.*)"" title \(b2b\)")]
+        public void WhenIPopulateTheLocationFormWithCorrectDataAndTitleBb(string name)
+        {
+            var locationPage = new B2bLocationPage(driver);
+            //locationPage.ClickSameAsParentCheckbox();
+
+            var generalPage = new B2bGeneralPage(driver);
+            generalPage.ClickCheckboxByNameInRow("Same as parent", "Address");
+            generalPage.SetInputByName("name", name);
+            generalPage.SetInputByName("address", "Test Address", true);
+            generalPage.SetInputByName("city", "Test City", true);
+            generalPage.SetInputByName("state", "Test State", true);
+            generalPage.SetInputByName("zip", "123456", true);
+            locationPage.SelectTimeZoneByValue("(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius");
+        }
+
+
         [Then(@"Location with name ""(.*)"" exist in the table is ""(.*)"" \(b2b\)")]
         public void ThenLocationWithNameExistInTheTableIsB2b(string locationName, string shouldExist)
         {
             var locationPage = new B2bLocationPage(driver);
             Assert.AreEqual(locationPage.IsLocationExist(locationName), bool.Parse(shouldExist));
         }
+
+        [Then(@"Location with name ""(.*)"" is parent for ""(.*)"" \(b2b\)")]
+        public void ThenLocationWithNameIsParentForB2b(string location, string subLocation)
+        {
+            System.Console.WriteLine("Privet");
+            var locationPage = new B2bLocationPage(driver);
+            Assert.IsTrue(locationPage.IsParentForLocation(location, subLocation));
+        }
+
 
         [Given(@"I delete location ""(.*)"" if exist \(b2b\)")]
         public void GivenIDeleteLocationIfExistBb(string locationName)

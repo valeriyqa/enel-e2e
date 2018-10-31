@@ -29,7 +29,7 @@ namespace TestAutomationFramework
             if (File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt")))
             {
                 //Use this variable to set local environment;
-                string environment = "b2b_beta2";
+                string environment = "b2b_beta";
                 //string environment = "b2c_alpha"; 
 
                 string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
@@ -38,11 +38,22 @@ namespace TestAutomationFramework
             }
             else
             {
+                Console.WriteLine("Step1 - Start else");
                 var envVariables = Environment.GetEnvironmentVariables();
-                string jsonString = JsonConvert.SerializeObject(envVariables, Formatting.Indented);
-                ConfigObject configFromJson = Config.ApplyJson(jsonString);
-                Config.SetDefaultConfig(configFromJson);
+                Console.WriteLine("Step2 - List all varibles");
 
+                foreach (var variable in envVariables)
+                {
+                    Console.WriteLine("Step2a - " + variable);
+                }
+
+                string jsonString = JsonConvert.SerializeObject(envVariables, Formatting.Indented);
+                Console.WriteLine("Step3 - Json string = " + jsonString);
+                ConfigObject configFromJson = Config.ApplyJson(jsonString);
+                Console.WriteLine("Step4 - Create Json Object");
+                Config.SetDefaultConfig(configFromJson);
+                Console.WriteLine("Step5 - Set config as default");
+                Console.WriteLine("Step6 - Finish else");
             }
         }
 
@@ -54,6 +65,15 @@ namespace TestAutomationFramework
                 Assert.Inconclusive();
             }
         }
+
+        //[BeforeScenario("energy")]
+        //public void InitializeEnergy()
+        //{
+        //    if (!Config.Global.env_system_type.Contains("energy"))
+        //    {
+        //        Assert.Inconclusive();
+        //    }
+        //}
 
         [BeforeScenario("b2c")]
         public void InitializeB2C()

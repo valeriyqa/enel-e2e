@@ -110,6 +110,29 @@ this.ScenarioSetup(scenarioInfo);
                         "web"});
 #line 19
 this.ScenarioSetup(scenarioInfo);
+#line 20
+ testRunner.Given("I login to the system as \"Web user\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 21
+ testRunner.And("I navigate to the \"Locations\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+ testRunner.Then("Location with name \"Test Location\" exist in the table is \"True\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 23
+ testRunner.When("I click on the \"Test Location\" link by name (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 24
+ testRunner.And("I click on the \"Add SubLocation\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 25
+ testRunner.And("I populate the Location form with correct data and \"New Sublocation\" title (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.And("I click on the \"Create\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+ testRunner.Then("Popup window with \"Successfully created\" message and \"done\" status should be disp" +
+                    "layed (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 28
+ testRunner.When("I click on the \"View locations\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
+ testRunner.Then("Location with name \"New Sublocation\" exist in the table is \"True\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 30
+ testRunner.And("Location with name \"Test Location\" is parent for \"New Sublocation\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -123,7 +146,7 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Locations_03 - Delete Sublocations", new string[] {
                         "b2b",
                         "web"});
-#line 22
+#line 33
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -138,19 +161,19 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Locations_04 - Add second location with existing Location name", new string[] {
                         "b2b",
                         "web"});
-#line 25
+#line 36
 this.ScenarioSetup(scenarioInfo);
-#line 26
+#line 37
  testRunner.Given("I login to the system as \"Web user\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 27
+#line 38
  testRunner.And("I navigate to the \"Locations\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 28
+#line 39
  testRunner.When("I click on the \"Add Location\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 29
+#line 40
  testRunner.And("I populate the Location form with correct data (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 30
+#line 41
  testRunner.And("I click on the \"Create\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 31
+#line 42
  testRunner.Then("Popup window with \"Location with name \'Test Location\' already exists\" message and" +
                     " \"error\" status should be displayed (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -166,19 +189,19 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Locations_05 - Delete Location", new string[] {
                         "b2b",
                         "web"});
-#line 34
+#line 45
 this.ScenarioSetup(scenarioInfo);
-#line 35
+#line 46
  testRunner.Given("I login to the system as \"Web user\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 36
+#line 47
  testRunner.And("I navigate to the \"Locations\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 37
+#line 48
  testRunner.When("I click on the \"Test Location\" link by name (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 38
+#line 49
  testRunner.And("I click on the \"Delete Location\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 39
+#line 50
  testRunner.And("I click on the \"Remove\" button (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
+#line 51
  testRunner.Then("Location with name \"Test Location\" exist in the table is \"False\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

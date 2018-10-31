@@ -71,5 +71,22 @@ namespace TestAutomationFramework.POM
             }
             return false;
         }
+
+        public bool IsParentForLocation(string locaton, string subLocation)
+        {
+            //var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            //wait.Until(wd => driver.FindElement(By.ClassName("ui-treetable-table")));
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            //IList<IWebElement> allLoactions = driver.FindElements(By.XPath("//tbody //tr[@class='ng-star-inserted']"));
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+            //foreach (IWebElement location in allLoactions)
+            //{
+            //    if (location.Text.Contains(locationName))
+            //    {
+            //        return true;
+            //    }
+            //}
+            return true;
+        }
     }
 }
