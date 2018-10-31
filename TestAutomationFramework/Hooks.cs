@@ -38,6 +38,14 @@ namespace TestAutomationFramework
             }
             else
             {
+                //Use this variable to set local environment;
+                string environment = "b2b_beta";
+                //string environment = "b2c_alpha"; 
+
+                string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
+                ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
+                Config.SetDefaultConfig(configFromFile);
+
                 //Console.WriteLine("Step1 - Start else");
                 //var envVariables = Environment.GetEnvironmentVariables();
                 //Console.WriteLine("Step2 - List all varibles");
