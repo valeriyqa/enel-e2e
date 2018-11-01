@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "6328c141-6efb-4ba8-a8bf-949bcdaaa1e4",
-		"name": "B2B_Beta",
+		"_postman_id": "10c78176-f82b-4b05-bde9-ce39257b4384",
+		"name": "B2B Team Alpha",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -14,14 +14,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a9b65019-83d2-4c0b-ba4d-3943ed436db3",
+								"id": "dab20f5b-a05d-4c3b-a0c1-1b2cfb2cf705",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									" ",
-									"tests[\"Locations, createNewLocation, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Locations, createNewLocation, Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Locations, createNewLocation, Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); //true или false (метод)",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
 									"pm.environment.set(\"new_location_id\", _str);",
@@ -32,7 +32,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "3fdec30d-05d2-4d96-bde7-7e060b0601f6",
+								"id": "8723cbc4-34dd-4d23-bfd2-dcfbe20010e3",
 								"type": "text/javascript",
 								"exec": [
 									"var min",
@@ -41,7 +41,7 @@
 									"{",
 									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
 									"}",
-									"test= 'TestLocation+'+getRandomInt(1, 1000)",
+									"test= 'TestLocation+'+getRandomInt(1, 10000)",
 									"",
 									"pm.environment.set(\"random_location1\", test);"
 								]
@@ -80,89 +80,18 @@
 					"response": []
 				},
 				{
-					"name": "createNewLocation2",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "6fcdbee5-7fc0-4019-898b-2956866fb995",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									" ",
-									"tests[\"Locations, createNewLocation2, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Locations, createNewLocation2, Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Locations, createNewLocation2, Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
-									"",
-									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
-									"pm.environment.set(\"new_location_id2\", _str);",
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f0c73e3d-4e83-4760-89a1-a237fa6708d7",
-								"type": "text/javascript",
-								"exec": [
-									"var min",
-									"var max",
-									"function getRandomInt(min, max)",
-									"{",
-									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
-									"}",
-									"test= 'TestLocation+'+getRandomInt(1, 1000)",
-									"",
-									"pm.environment.set(\"random_location2\", test);"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"{{random_location2}}\",\r\n  \"address\": {\r\n    \"address\": \"816 University Street\",\r\n    \"city\": \"Marquette\",\r\n    \"state\": \"MI\",\r\n    \"zip\": \"49855\",\r\n    \"timeZone\": \"Mid-Atlantic Standard Time\"\r\n  }\r\n}\r\n\r\n "
-						},
-						"url": {
-							"raw": "{{url}}locations",
-							"host": [
-								"{{url}}locations"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "createNewSubLocation",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "7be17391-28ce-4865-bd71-1b1f289ea83d",
+								"id": "408fea4a-aa15-4bd8-9e47-48b47e32c265",
 								"type": "text/javascript",
 								"exec": [
 									" var jsonData = JSON.parse(responseBody);",
-									"tests[\"Locations, createNewSubLocation, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Locations, createNewSubLocation, Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Locations, createNewSubLocation, Response has new_sublocation_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Response has new_sublocation_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
 									"pm.environment.set(\"new_sublocation_id\", _str);",
@@ -222,83 +151,12 @@
 					"response": []
 				},
 				{
-					"name": "createNewSubLocation2",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "92212c47-5849-4a59-8c65-da5c73c97278",
-								"type": "text/javascript",
-								"exec": [
-									" var jsonData = JSON.parse(responseBody);",
-									"tests[\"Locations, createNewSubLocation2, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Locations, createNewSubLocation2, Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Locations, createNewSubLocation2, Response has new_sublocation_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
-									"",
-									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
-									"pm.environment.set(\"new_sublocation_id2\", _str);",
-									"",
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "c0a2047a-0062-4596-ab5c-8391d5a0db8d",
-								"type": "text/javascript",
-								"exec": [
-									"var min",
-									"var max",
-									"function getRandomInt(min, max)",
-									"{",
-									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
-									"}",
-									"test= 'TestSubLocation+'+getRandomInt(1, 1000)",
-									"",
-									"pm.environment.set(\"random_sublocation2\", test);"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"{{random_sublocation2}}\",\r\n  \"address\": {\r\n    \"address\": \"817 University Street\",\r\n    \"city\": \"Marquette\",\r\n    \"state\": \"MI\",\r\n    \"zip\": \"49855\",\r\n    \"timeZone\": \"Mid-Atlantic Standard Time\"\r\n  },\r\n  \"parentId\": \"{{new_location_id2}}\" \r\n  \r\n}\r\n "
-						},
-						"url": {
-							"raw": "{{url}}locations",
-							"host": [
-								"{{url}}locations"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "clientLocationLookup",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "9cdfcf0f-0f25-4e5a-89f9-bb217c7b7eca",
+								"id": "ed7cd285-5f68-40ec-ada2-b86493e6b39d",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -329,11 +187,11 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Locations, clientLocationLookup, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Locations, clientLocationLookup, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Locations, clientLocationLookup, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Locations, clientLocationLookup, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Locations, clientLocationLookup, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
 									"",
 									"",
 									"",
@@ -356,10 +214,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}locations/lookup",
 							"host": [
@@ -378,7 +233,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "50d640b0-dd2c-4c05-98b7-2228426d2e50",
+								"id": "134a4273-1d06-41b7-bd99-82c0926269d0",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -458,18 +313,18 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Locations, detailsOfLocation, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Locations, detailsOfLocation, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Locations, detailsOfLocation, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Locations, detailsOfLocation, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Locations, detailsOfLocation, Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"Locations, detailsOfLocation, address field is present\"]= responseBody.has(\"address\");",
-									"tests[\"Locations, detailsOfLocation, city field is present\"]= responseBody.has(\"city\");",
-									"tests[\"Locations, detailsOfLocation, state field is present\"]= responseBody.has(\"state\");",
-									"tests[\"Locations, detailsOfLocation, zip field is present\"]= responseBody.has(\"zip\");",
-									"tests[\"Locations, detailsOfLocation, isRoot field is present\"]= responseBody.has(\"isRoot\");",
-									"tests[\"Locations, detailsOfLocation, parentId field is present\"]= responseBody.has(\"parentId\");",
-									"tests[\"Locations, detailsOfLocation, parentLocation field is present\"]= responseBody.has(\"parentLocation\");"
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"address field is present\"]= responseBody.has(\"address\");",
+									"tests[\"city field is present\"]= responseBody.has(\"city\");",
+									"tests[\"state field is present\"]= responseBody.has(\"state\");",
+									"tests[\"zip field is present\"]= responseBody.has(\"zip\");",
+									"tests[\"isRoot field is present\"]= responseBody.has(\"isRoot\");",
+									"tests[\"parentId field is present\"]= responseBody.has(\"parentId\");",
+									"tests[\"parentLocation field is present\"]= responseBody.has(\"parentLocation\");"
 								]
 							}
 						}
@@ -487,10 +342,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}locations/{{new_location_id}}",
 							"host": [
@@ -509,7 +361,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f29e0f24-bc63-4ebc-9b16-59cc1f3844a3",
+								"id": "4867f62f-158c-4eea-9b26-18eb03f85ff1",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -654,19 +506,19 @@
 									"",
 									"    ",
 									"",
-									"tests[\"Locations, locationsTree, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Locations, locationsTree, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Locations, locationsTree, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Locations, locationsTree, data field is present\"]= responseBody.has(\"data\");",
-									"tests[\"Locations, locationsTree, devicesCount field is present\"]= responseBody.has(\"devicesCount\");",
-									"tests[\"Locations, locationsTree, inUseDevicesCount field is present\"]= responseBody.has(\"inUseDevicesCount\");",
-									"tests[\"Locations, locationsTree, id field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Locations, locationsTree, name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"Locations, locationsTree, address field is present\"]= responseBody.has(\"address\");",
-									"tests[\"Locations, locationsTree, isLocation field is present\"]= responseBody.has(\"isLocation\");",
-									"tests[\"Locations, locationsTree, children field is present\"]= responseBody.has(\"children\");",
-									"tests[\"Locations, locationsTree, inUse field is present\"]= responseBody.has(\"inUse\");",
-									"tests[\"Locations, locationsTree, isLocation field is present\"]= responseBody.has(\"isLocation\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"data field is present\"]= responseBody.has(\"data\");",
+									"tests[\"devicesCount field is present\"]= responseBody.has(\"devicesCount\");",
+									"tests[\"inUseDevicesCount field is present\"]= responseBody.has(\"inUseDevicesCount\");",
+									"tests[\"id field is present\"]= responseBody.has(\"id\");",
+									"tests[\"name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"address field is present\"]= responseBody.has(\"address\");",
+									"tests[\"isLocation field is present\"]= responseBody.has(\"isLocation\");",
+									"tests[\"children field is present\"]= responseBody.has(\"children\");",
+									"tests[\"inUse field is present\"]= responseBody.has(\"inUse\");",
+									"tests[\"isLocation field is present\"]= responseBody.has(\"isLocation\");",
 									"",
 									"",
 									"",
@@ -690,10 +542,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}locations/tree/extended",
 							"host": [
@@ -713,11 +562,11 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5c633887-f8f4-48b3-8b6a-2b5a9492b79b",
+								"id": "f78035c4-de00-4277-86a5-00b38a2a0ebb",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Locations, locationDevices, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Locations, locationDevices, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
 									"",
 									"",
 									"",
@@ -739,10 +588,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}locations/{{new_location_id}}/devices/count",
 							"host": [
@@ -752,96 +598,6 @@
 								"{{new_location_id}}",
 								"devices",
 								"count"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "deleteSubLocation",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "3814356c-f1d9-4568-bdd5-f4bc61a026d3",
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Locations, deleteSubLocation, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Locations, deleteSubLocation, Status code is 204\"] = responseCode.code === 204;",
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}locations/{{new_sublocation_id2}}",
-							"host": [
-								"{{url}}locations"
-							],
-							"path": [
-								"{{new_sublocation_id2}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "deleteLocation",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "21082299-d051-42fb-bc0a-6f5e4524c383",
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Locations, deleteLocation, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Locations, deleteLocation, Status code is 204\"] = responseCode.code === 204;",
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}locations/{{new_location_id2}}",
-							"host": [
-								"{{url}}locations"
-							],
-							"path": [
-								"{{new_location_id2}}"
 							]
 						}
 					},
@@ -858,7 +614,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "723aaa08-c69b-4c90-8889-a73d18e105a5",
+								"id": "07d39e59-a55b-416d-af43-a9e4abf7de72",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -919,14 +675,14 @@
 									"    ",
 									"",
 									"",
-									"tests[\"Attribute, attributeValue(effectiveValue), Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Attribute, attributeValue(effectiveValue), Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Attribute, attributeValue(effectiveValue), Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Attribute, attributeValue(effectiveValue), state field is present\"]= responseBody.has(\"state\");",
-									"tests[\"Attribute, attributeValue(effectiveValue), zip field is present\"]= responseBody.has(\"zip\");",
-									"tests[\"Attribute, attributeValue(effectiveValue), city field is present\"]= responseBody.has(\"city\");",
-									"tests[\"Attribute, attributeValue(effectiveValue), address field is present\"]= responseBody.has(\"address\");",
-									"tests[\"Attribute, attributeValue(effectiveValue), timeZone field is present\"]= responseBody.has(\"timeZone\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"state field is present\"]= responseBody.has(\"state\");",
+									"tests[\"zip field is present\"]= responseBody.has(\"zip\");",
+									"tests[\"city field is present\"]= responseBody.has(\"city\");",
+									"tests[\"address field is present\"]= responseBody.has(\"address\");",
+									"tests[\"timeZone field is present\"]= responseBody.has(\"timeZone\");",
 									"",
 									"pm.variables.get(\"variable_key\");"
 								]
@@ -946,10 +702,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}attributes/address/objects/{{new_location_id}}",
 							"host": [
@@ -980,10 +733,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9befd37f-8e7b-4067-983e-f5950bfb0ffc",
+								"id": "b67eeec9-67c1-4f4c-be68-e2c9866852cf",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Attribute, appliesAttribute, Status code is 204\", function () {",
+									"pm.test(\"Status code is 204\", function () {",
 									"    pm.response.to.have.status(204);",
 									"});",
 									"",
@@ -1034,10 +787,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e55a829b-8f2f-4c07-9164-a6057233695e",
+								"id": "a5a78af7-be5c-43f7-b456-1cf34250b7b3",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"Attribute, removeAttribute, Status code is 204\", function () {",
+									"pm.test(\"Status code is 204\", function () {",
 									"    pm.response.to.have.status(204);",
 									"});"
 								]
@@ -1078,387 +831,6 @@
 			]
 		},
 		{
-			"name": "Client",
-			"item": [
-				{
-					"name": "createClient CAD",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "507dc104-cefe-4711-9b9f-0aef42eb20a2",
-								"type": "text/javascript",
-								"exec": [
-									"var min",
-									"var max",
-									"function getRandomInt(min, max)",
-									"{",
-									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
-									"}",
-									"email= '6dofik+'+getRandomInt(1, 10000)+'@gmail.com'",
-									"client= 'TestClient'+getRandomInt(1,10000)",
-									"",
-									"pm.environment.set(\"random_email\", email);",
-									"pm.environment.set(\"random_client\", client);"
-								]
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "f123d048-0994-4cbf-92cc-96434675cfc8",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									" ",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.response.to.have.status(201);",
-									"});",
-									"tests[\"Response has new_client_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
-									"",
-									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
-									"pm.environment.set(\"new_client_id\", _str);"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token-reseller}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"{{random_client}}\",\r\n  \"email\": \"{{random_email}}\",\r\n  \"address\": {\r\n    \"address\": \"efwefwef\",\r\n    \"city\": \"strinwefweg\",\r\n    \"state\": \"string\",\r\n    \"zip\": \"20815\",\r\n    \"timeZone\": \"Mid-Atlantic Standard Time\"\r\n  },\r\n  \"currency\": {\r\n    \"alphabeticCode\": \"CAD\",\r\n    \"numericCode\": \"124\",\r\n    \"name\": \"Canadian Dollar\"\r\n  }\r\n}\r\n"
-						},
-						"url": {
-							"raw": "{{url}}clients",
-							"host": [
-								"{{url}}clients"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "createClient USD",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "507dc104-cefe-4711-9b9f-0aef42eb20a2",
-								"type": "text/javascript",
-								"exec": [
-									"var min",
-									"var max",
-									"function getRandomInt(min, max)",
-									"{",
-									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
-									"}",
-									"email= '6dofik+'+getRandomInt(1, 10000)+'@gmail.com'",
-									"client= 'TestClient'+getRandomInt(1,10000)",
-									"",
-									"pm.environment.set(\"random_email\", email);",
-									"pm.environment.set(\"random_client\", client);"
-								]
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "f123d048-0994-4cbf-92cc-96434675cfc8",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									" ",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.response.to.have.status(201);",
-									"});",
-									"tests[\"Response has new_client_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
-									"",
-									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
-									"pm.environment.set(\"new_client_id\", _str);"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token-reseller}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"{{random_client}}\",\r\n  \"email\": \"{{random_email}}\",\r\n  \"address\": {\r\n    \"address\": \"efwefwef\",\r\n    \"city\": \"strinwefweg\",\r\n    \"state\": \"string\",\r\n    \"zip\": \"20815\",\r\n    \"timeZone\": \"Mid-Atlantic Standard Time\"\r\n  },\r\n  \"currency\": {\r\n    \"alphabeticCode\": \"USD\",\r\n    \"numericCode\": \"840\",\r\n    \"name\": \"United States Dollar\"\r\n  }\r\n}\r\n"
-						},
-						"url": {
-							"raw": "{{url}}clients",
-							"host": [
-								"{{url}}clients"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getClients",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "43796335-3888-46ef-900f-763e9a16a6b7",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"var schema = {",
-									"\"$schema\": \"http://json-schema.org/draft-04/schema#\",",
-									"  \"type\":\"array\",",
-									"  \"items\": ",
-									"  {",
-									"    \"type\": \"object\",",
-									"    \"properties\": ",
-									"    {  ",
-									"        \"id\": ",
-									"        {",
-									"            \"type\":\"string\"",
-									"        },",
-									"        \"name\": ",
-									"        {",
-									"            \"type\":\"string\"",
-									"        },",
-									"\"required\":",
-									"[",
-									"    \"id\",",
-									"    \"name\",",
-									"]",
-									"",
-									"        }  ",
-									"    }",
-									"};",
-									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"",
-									"",
-									"",
-									"",
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token-reseller}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}clients",
-							"host": [
-								"{{url}}clients"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "detailsOfClientID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "27853d15-ae28-4939-be58-2726ba1946dc",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"var schema = {",
-									"\"$schema\": \"http://json-schema.org/draft-04/schema#\",",
-									"  \"items\": ",
-									"  {",
-									"    \"type\": \"object\",",
-									"    \"properties\": ",
-									"    {  ",
-									"        \"id\": ",
-									"        {",
-									"            \"type\":\"string\"",
-									"        },",
-									"        \"name\": ",
-									"        {",
-									"            \"type\":\"string\"",
-									"        },",
-									"        \"address\": {",
-									"            \"type\":\"object\",",
-									"            \"properties\":",
-									"            {",
-									"                \"address\": ",
-									"                {",
-									"                    \"type\":\"string\"",
-									"                }, ",
-									"                \"city\": ",
-									"                {",
-									"                    \"type\":\"string\"",
-									"                }, ",
-									"                \"state\": ",
-									"                {",
-									"                    \"type\":\"string\"",
-									"                }, ",
-									"                \"zip\": ",
-									"                {",
-									"                    \"type\":\"string\"",
-									"                }, ",
-									"                \"timeZone\": ",
-									"                {",
-									"                    \"type\":\"string\"",
-									"                }, ",
-									"                    ",
-									"                        \"type\": \"object\",",
-									"                        \"properties\": ",
-									"                        {",
-									"                            \"createdDate\": ",
-									"                            {",
-									"                                \"type\":\"string\"",
-									"                            }, ",
-									"                        ",
-									"\"required\":",
-									"[",
-									"    \"id\",",
-									"    \"name\",",
-									"    \"address\",",
-									"    \"address\",",
-									"    \"city\",",
-									"    \"state\",",
-									"    \"zip\",",
-									"    \"timeZone\",",
-									"    \"createdDate\"",
-									"]",
-									"                        ",
-									"                    }",
-									"                }",
-									"            }",
-									"        ",
-									"        }  ",
-									"    }",
-									"};",
-									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"address field is present\"]= responseBody.has(\"address\");",
-									"tests[\"address field is present\"]= responseBody.has(\"address\");",
-									"tests[\"city field is present\"]= responseBody.has(\"city\");",
-									"tests[\"state field is present\"]= responseBody.has(\"state\");",
-									"tests[\"zip field is present\"]= responseBody.has(\"zip\");",
-									"tests[\"timeZone field is present\"]= responseBody.has(\"timeZone\");",
-									"tests[\"createdDate field is present\"]= responseBody.has(\"createdDate\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token-reseller}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}clients/{{new_client_id}}",
-							"host": [
-								"{{url}}clients"
-							],
-							"path": [
-								"{{new_client_id}}"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL2picm9vbS1kZXYtYjJiLWlkZW50aXR5c2VydmVyLXdlYi5henVyZXdlYnNpdGVzLm5ldC9pZGVudGl0eSIsImF1ZCI6Imh0dHBzOi8vamJyb29tLWRldi1iMmItaWRlbnRpdHlzZXJ2ZXItd2ViLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5L3Jlc291cmNlcyIsImV4cCI6MTUxODcyOTQ2OCwibmJmIjoxNTE4MDA5NDY4LCJjbGllbnRfaWQiOiJKdWljZUJveC5XZWIuQ2xpZW50LlVpIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwiYXBpIl0sInN1YiI6ImQ3MDk2OTM2LTVjMzMtNDE0YS1hZTNlLTRkOTJkMTExZGQ0NSIsImF1dGhfdGltZSI6MTUxODAwOTQ2OCwiaWRwIjoiaWRzcnYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJtYXRpbmFrc3UrMUBnbWFpbC5jb20iLCJlbWFpbCI6Im1hdGluYWtzdSsxQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjoidHJ1ZSIsImdpdmVuX25hbWUiOiJtYXRpbmFrc3UrMUBnbWFpbC5jb20iLCJmYW1pbHlfbmFtZSI6Im5vdCBzdXBwb3J0ZWQiLCJhbXIiOlsicGFzc3dvcmQiXX0.TX3iV3vLXsUkGw_jMpk5ZKG14hIZrrbJFatDskp0Cjzww-qv3zYJgE8uhdUyiqhzhB7_vAP8Ws-k2sE09dLze6rh3NfwMdWXhOWRZVRs-fQLLjzK4NOTvJzHkq-NemGEz4pr0XIclMq_sVqrTtaWQT3FDehJNNlPZSZdsvbGNN6uEncifBWC-1a0IPfT-Fd3tFntualgWxNqTMmll3jOcjRansoRFT6sN-PJ-mu7CD29OfD8slOwD-bPqVviFjxc4cbs6q4H4xJViivTLH03XZeJnyrJ7exFz7qdIgYen2Q1mbjuRjenWCTVspAS7XpqYopFMilCokslUIL_u5541Q",
-						"type": "string"
-					}
-				]
-			},
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "8bd22c02-c947-4baf-b906-8bee34356d51",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "07accc47-6cc1-43f7-8c44-61e6d2d4d2f3",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			]
-		},
-		{
 			"name": "Common",
 			"item": [
 				{
@@ -1467,7 +839,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c7d42b79-f13a-4944-a977-cbaa278d0f23",
+								"id": "e25490f5-84f7-49a2-952c-8ed377e488a9",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1498,11 +870,11 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Common, Timezone, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Common, Timezone, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Common, Timezone, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Common, Timezone, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Common, Timezone, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
 									"",
 									"",
 									"",
@@ -1526,10 +898,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}timezones",
 							"host": [
@@ -1550,10 +919,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "12602ccc-a6bb-4cd9-94cf-5598b4e1cc64",
+								"id": "614e46bd-9931-4495-a31f-97dcdbb6c5db",
 								"type": "text/javascript",
 								"exec": [
-									"pm.test(\"DeviceSession, detailsOfLastSession, Status code is 200\", function () {",
+									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
 								]
@@ -1606,7 +975,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "db6bb7af-6a33-4be4-b2b4-7e6cac717e52",
+								"id": "e5ade162-f6df-4028-a062-06ce4d995914",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1668,13 +1037,13 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Filter, Calculate, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Filter, Calculate, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Filter, Calculate, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Filter, Calculate, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Filter, Calculate, Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"Filter, Calculate, locations field is present\"]= responseBody.has(\"locations\");",
-									"tests[\"Filter, Calculate, buildings field is present\"]= responseBody.has(\"buildings\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"locations field is present\"]= responseBody.has(\"locations\");",
+									"tests[\"buildings field is present\"]= responseBody.has(\"buildings\");",
 									""
 								]
 							}
@@ -1725,7 +1094,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "95c36745-84ce-4cf1-b7fa-f8a029871b8a",
+								"id": "de45fddc-a1ba-4297-b9c9-faced6ec5f52",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1750,9 +1119,9 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Object, physicalParentID, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Object, physicalParentID, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Object, physicalParentID, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
 									"",
 									""
 								]
@@ -1772,10 +1141,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}objects/{{new_sublocation_id}}/parent/physical",
 							"host": [
@@ -1801,7 +1167,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6ee6168c-f546-4924-9782-4f8c73b59471",
+								"id": "6c03e772-1907-45d4-9da7-80708135b76f",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1836,12 +1202,12 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Partner, autorizedPartner, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Partner, autorizedPartner, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Partner, autorizedPartner, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Partner, autorizedPartner, id field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Partner, autorizedPartner, name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"Partner, autorizedPartner, type field is present\"]= responseBody.has(\"type\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"id field is present\"]= responseBody.has(\"id\");",
+									"tests[\"name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"type field is present\"]= responseBody.has(\"type\");",
 									""
 								]
 							}
@@ -1860,10 +1226,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}/partners",
 							"host": [
@@ -1887,7 +1250,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "52e577e6-dc40-4a0a-84d2-2b9c1f9ed1d4",
+								"id": "f824456b-ebe5-463c-a8f5-bc1e6d36ab6f",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -1914,11 +1277,11 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Permission, avaliblePermissionTypes, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Permission, avaliblePermissionTypes, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Permission, avaliblePermissionTypes, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Permission, avaliblePermissionTypes, id field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Permission, avaliblePermissionTypes, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"id field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
 									""
 								]
 							}
@@ -1937,10 +1300,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/types",
 							"host": [
@@ -1961,7 +1321,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a372cd9f-9512-4bda-9ebc-f09797ec3f28",
+								"id": "ba551d55-fdd0-4a58-b9a9-f2b6ff3b98f4",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2056,17 +1416,17 @@
 									"    }    ",
 									"};",
 									"",
-									"tests[\"Permission, subjectPermission, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Permission, subjectPermission, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Permission, subjectPermission, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Permission, subjectPermission, permissionType field is present\"]= responseBody.has(\"permissionType\");",
-									"tests[\"Permission, subjectPermission, id field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Permission, subjectPermission, Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"Permission, subjectPermission, subjects field is present\"]= responseBody.has(\"subjects\");",
-									"tests[\"Permission, subjectPermission, deny field is present\"]= responseBody.has(\"deny\");",
-									"tests[\"Permission, subjectPermission, allow field is present\"]= responseBody.has(\"allow\");",
-									"tests[\"Permission, subjectPermission, value field is present\"]= responseBody.has(\"value\");",
-									"tests[\"Permission, subjectPermission, inherited field is present\"]= responseBody.has(\"inherited\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"permissionType field is present\"]= responseBody.has(\"permissionType\");",
+									"tests[\"id field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"subjects field is present\"]= responseBody.has(\"subjects\");",
+									"tests[\"deny field is present\"]= responseBody.has(\"deny\");",
+									"tests[\"allow field is present\"]= responseBody.has(\"allow\");",
+									"tests[\"value field is present\"]= responseBody.has(\"value\");",
+									"tests[\"inherited field is present\"]= responseBody.has(\"inherited\");",
 									""
 								]
 							}
@@ -2085,10 +1445,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/types/1/subjects",
 							"host": [
@@ -2111,7 +1468,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "dd6877c8-1682-4e64-bcb4-b6d42bfd508c",
+								"id": "8129d9c2-ae8f-4d91-9c36-084ac6a4a88e",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2206,17 +1563,17 @@
 									"    }    ",
 									"};",
 									"",
-									"tests[\"Permission, listOfSubjectPermissions, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Permission, listOfSubjectPermissions, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Permission, listOfSubjectPermissions, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Permission, listOfSubjectPermissions, permissionType field is present\"]= responseBody.has(\"permissionType\");",
-									"tests[\"Permission, listOfSubjectPermissions, id field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Permission, listOfSubjectPermissions, Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"Permission, listOfSubjectPermissions, subjects field is present\"]= responseBody.has(\"subjects\");",
-									"tests[\"Permission, listOfSubjectPermissions, deny field is present\"]= responseBody.has(\"deny\");",
-									"tests[\"Permission, listOfSubjectPermissions, allow field is present\"]= responseBody.has(\"allow\");",
-									"tests[\"Permission, listOfSubjectPermissions, value field is present\"]= responseBody.has(\"value\");",
-									"tests[\"Permission, listOfSubjectPermissions, inherited field is present\"]= responseBody.has(\"inherited\");"
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"permissionType field is present\"]= responseBody.has(\"permissionType\");",
+									"tests[\"id field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"subjects field is present\"]= responseBody.has(\"subjects\");",
+									"tests[\"deny field is present\"]= responseBody.has(\"deny\");",
+									"tests[\"allow field is present\"]= responseBody.has(\"allow\");",
+									"tests[\"value field is present\"]= responseBody.has(\"value\");",
+									"tests[\"inherited field is present\"]= responseBody.has(\"inherited\");"
 								]
 							}
 						}
@@ -2234,10 +1591,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/subjects",
 							"host": [
@@ -2259,12 +1613,12 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "98d94750-5625-416f-a066-f5d983ac8340",
+								"id": "6d1709b3-2ab8-4066-9bc4-3290a9ef478e",
 								"type": "text/javascript",
 								"exec": [
 									"",
-									"tests[\"Permission, userPermissions, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Permission, userPermissions, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
 									"",
 									""
 								]
@@ -2284,10 +1638,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/types/2/check",
 							"host": [
@@ -2316,7 +1667,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "968ed1f0-7789-4b68-8f9c-0bf6eec4426b",
+								"id": "781c0233-0aa3-4075-b1c0-0b0ee405f9dd",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2346,11 +1697,11 @@
 									"}",
 									"};",
 									"",
-									"tests[\"Report, periodPerMonth, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Report, periodPerMonth, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Report, periodPerMonth, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Report, periodPerMonth, timestamp field is present\"]= responseBody.has(\"timestamp\");",
-									"tests[\"Report, periodPerMonth, energy field is present\"]= responseBody.has(\"energy\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"timestamp field is present\"]= responseBody.has(\"timestamp\");",
+									"tests[\"energy field is present\"]= responseBody.has(\"energy\");",
 									""
 								]
 							}
@@ -2376,10 +1727,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"Buildings\" : [],\r\n\"BuildingsOnly\" : false,\r\n\"Locations\" : []\r\n}"
+							"raw": "{\r\n  \"locations\": [\r\n    \"18b197c0-8d0c-4aca-ba7b-25ae61abed53\"\r\n  ],\r\n  \"buildings\": [\r\n    \"00000000-0000-0000-0000-000000000000\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/reports/energy/monthly/8",
+							"raw": "{{url}}/reports/energy/monthly/3",
 							"host": [
 								"{{url}}"
 							],
@@ -2387,7 +1738,7 @@
 								"reports",
 								"energy",
 								"monthly",
-								"8"
+								"3"
 							]
 						}
 					},
@@ -2399,7 +1750,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "aefaf0bf-212b-49ef-8501-2d9028fe8595",
+								"id": "1137bbe3-c3eb-4492-b286-58dee06de616",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2429,11 +1780,11 @@
 									"}",
 									"};",
 									"",
-									"tests[\"Report, periodPerDays, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Report, periodPerDays, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Report, periodPerDays, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Report, periodPerDays, timestamp field is present\"]= responseBody.has(\"timestamp\");",
-									"tests[\"Report, periodPerDays, energy field is present\"]= responseBody.has(\"energy\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"timestamp field is present\"]= responseBody.has(\"timestamp\");",
+									"tests[\"energy field is present\"]= responseBody.has(\"energy\");",
 									""
 								]
 							}
@@ -2459,17 +1810,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"Buildings\" : [],\r\n\"BuildingsOnly\" : false,\r\n\"Locations\" : []\r\n}"
+							"raw": "{\r\n  \"locations\": [\r\n    \"18b197c0-8d0c-4aca-ba7b-25ae61abed53\"\r\n  ],\r\n  \"buildings\": [\r\n    \"00000000-0000-0000-0000-000000000000\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}reports/energy/daily/9/2018",
+							"raw": "{{url}}reports/energy/daily/3/2018",
 							"host": [
 								"{{url}}reports"
 							],
 							"path": [
 								"energy",
 								"daily",
-								"9",
+								"3",
 								"2018"
 							]
 						}
@@ -2482,7 +1833,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "fa6ff3b1-6b08-48ef-86db-81057b9713bb",
+								"id": "18573dc3-828b-46e9-b6c7-cb4d301cdc18",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2512,11 +1863,11 @@
 									"}",
 									"};",
 									"",
-									"tests[\"Report, periodLastMonth, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Report, periodLastMonth, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Report, periodLastMonth, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Report, periodLastMonth, timestamp field is present\"]= responseBody.has(\"timestamp\");",
-									"tests[\"Report, periodLastMonth, energy field is present\"]= responseBody.has(\"energy\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"timestamp field is present\"]= responseBody.has(\"timestamp\");",
+									"tests[\"energy field is present\"]= responseBody.has(\"energy\");",
 									""
 								]
 							}
@@ -2542,7 +1893,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"Buildings\" : [],\r\n\"BuildingsOnly\" : false,\r\n\"Locations\" : []\r\n}"
+							"raw": "{\r\n  \"locations\": [\r\n    \"18b197c0-8d0c-4aca-ba7b-25ae61abed53\"\r\n  ],\r\n  \"buildings\": [\r\n    \"00000000-0000-0000-0000-000000000000\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}reports/energy/daily/last-month",
@@ -2564,8 +1915,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5cab5e51-a5de-4ce2-bee6-0092c14240ee",
-								"type": "text/javascript",
+								"id": "87ca388f-a6fb-4116-8f2a-77b97fda4ec0",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
@@ -2603,15 +1953,16 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Report, deviceStatus, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Report, deviceStatus, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Report, deviceStatus, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Report, deviceStatus, charging field is present\"]= responseBody.has(\"charging\");",
-									"tests[\"Report, deviceStatus, plugin field is present\"]= responseBody.has(\"plugin\");",
-									"tests[\"Report, deviceStatus, standby field is present\"]= responseBody.has(\"standby\");",
-									"tests[\"Report, deviceStatus, offline field is present\"]= responseBody.has(\"offline\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"charging field is present\"]= responseBody.has(\"charging\");",
+									"tests[\"plugin field is present\"]= responseBody.has(\"plugin\");",
+									"tests[\"standby field is present\"]= responseBody.has(\"standby\");",
+									"tests[\"offline field is present\"]= responseBody.has(\"offline\");",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2635,7 +1986,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"Buildings\" : [],\r\n\"BuildingsOnly\" : false,\r\n\"Locations\" : []\r\n}"
+							"raw": "{\r\n  \"locations\": [\r\n    \"{{new_location_id}}\"\r\n  ],\r\n  \"buildings\": [\r\n    \"00000000-0000-0000-0000-000000000000\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}reports/devices/status",
@@ -2651,12 +2002,144 @@
 					"response": []
 				},
 				{
+					"name": "energyStatus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bff91b22-ae91-4ce6-aca0-41fb283d77e6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"locations\": [\r\n    \"{{new_location_id}}\"\r\n  ],\r\n  \"buildings\": [\r\n    \"00000000-0000-0000-0000-000000000000\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}reports/locations/energy",
+							"host": [
+								"{{url}}reports"
+							],
+							"path": [
+								"locations",
+								"energy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aggregationStatus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "81e99eea-9b29-44d3-9797-b1bcf17e43d6",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var schema = {",
+									"\"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\":\"object\",",
+									"  \"locations\": ",
+									" {",
+									"    \"type\":\"object\",",
+									"    \"properties\":",
+									"    {",
+									"        \"total\":",
+									"        {",
+									"            \"type\":\"number\"",
+									"        },",
+									"        \"energyByLocation\":",
+									"        {",
+									"            \"type\":\"string\"",
+									"        },",
+									"        ",
+									"\"required\": [",
+									"            \"total\",",
+									"            \"energyByLocation\"",
+									"            ]",
+									"    }",
+									"}",
+									"};",
+									"",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"total field is present\"]= responseBody.has(\"total\");",
+									"tests[\"energyByLocation field is present\"]= responseBody.has(\"energyByLocation\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"locations\": [\r\n    \"{{new_location_id}}\"\r\n  ],\r\n  \"buildings\": [\r\n    \"00000000-0000-0000-0000-000000000000\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}reports/locations/aggregation",
+							"host": [
+								"{{url}}reports"
+							],
+							"path": [
+								"locations",
+								"aggregation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "reportUsersCount",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "d6f1eb8e-3c57-4756-a605-98bd1c5896cf",
+								"id": "8b702022-5078-46f8-85c2-c1e5c18226d1",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2686,11 +2169,11 @@
 									"}",
 									"};",
 									"",
-									"tests[\"Report, reportUsersCount, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Report, reportUsersCount, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Report, reportUsersCount, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Report, reportUsersCount, totalCount field is present\"]= responseBody.has(\"totalCount\");",
-									"tests[\"Report, reportUsersCount, adminsCount field is present\"]= responseBody.has(\"adminsCount\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"totalCount field is present\"]= responseBody.has(\"totalCount\");",
+									"tests[\"adminsCount field is present\"]= responseBody.has(\"adminsCount\");",
 									"",
 									"",
 									""
@@ -2743,7 +2226,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a37e89bb-9159-4005-af5b-d78c2ea9cd9d",
+								"id": "cdf53f8f-ed18-4acd-b1b5-26283e6b8997",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2774,12 +2257,12 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Subject, filteredByQuery, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Subject, filteredByQuery, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Subject, filteredByQuery, Status code is 200\"] = responseCode.code === 200;",
-									"//tests[\"Subject, filteredByQuery, ID field is present\"]= responseBody.has(\"id\");",
-									"//tests[\"Subject, filteredByQuery, name field is present\"]= responseBody.has(\"name\");",
-									"//tests[\"Subject, filteredByQuery, type field is present\"]= responseBody.has(\"type\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"//tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"//tests[\"name field is present\"]= responseBody.has(\"name\");",
+									"//tests[\"type field is present\"]= responseBody.has(\"type\");",
 									""
 								]
 							}
@@ -2798,10 +2281,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}subjects/?q={{user_email}}",
 							"host": [
@@ -2831,8 +2311,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "16b019ee-2463-4db3-9c74-d8f8e18cbab2",
-								"type": "text/javascript",
+								"id": "70fac654-a6a0-4ec9-b7bb-d4091626bc9f",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
@@ -2840,25 +2319,26 @@
 									"{",
 									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
 									"    \"type\": \"object\",",
-									"    \"properties\": ",
-									"        {",
-									"        \"id\": ",
-									"            {",
+									"    \"properties\": {",
+									"        \"id\": {",
 									"            \"type\": \"string\"",
 									"            },",
 									"            \"identityId\": {",
 									"            \"type\": \"string\"",
 									"            },",
-									"            \"email\": ",
-									"            {",
+									"            \"email\": {",
 									"            \"type\": \"string\"",
 									"            },",
-									"            \"name\": ",
-									"            {",
-									"            \"type\": [ \"string\", \"null\" ]",
+									"            \"name\": {",
+									"            \"type\": \"null\"",
 									"            },",
-									"\"required\":",
-									"[",
+									"            \"firstName\": {",
+									"            \"type\": \"string\"",
+									"            },",
+									"            \"lastName\": {",
+									"            \"type\": \"string\"",
+									"            },",
+									"\"required\": [",
 									"    \"id\",",
 									"    \"email\",",
 									"    \"name\",",
@@ -2867,19 +2347,21 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"Account, accountInfo, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Account, accountInfo, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Account, accountInfo, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Account, accountInfo, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Account, accountInfo, Email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"Account, accountInfo, Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"Account, accountInfo, identityId field is present\"]= responseBody.has(\"identityId\");",
-									"",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"identityId field is present\"]= responseBody.has(\"identityId\");",
+									"tests[\"firstName field is present\"]= responseBody.has(\"firstName\");",
+									"tests[\"lastName field is present\"]= responseBody.has(\"lastName\");",
 									"",
 									"",
 									"",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2920,10 +2402,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2fe994a1-8311-42a5-aa20-8a2a7e6190cb",
+								"id": "c54fce5f-cda3-4069-98e7-a6ebb35d22df",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Account, resetPSWD, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
 									""
 								]
 							}
@@ -2969,35 +2451,31 @@
 			"name": "Users",
 			"item": [
 				{
-					"name": "createUserAdmin",
+					"name": "createUser",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "d244afdc-5990-49a2-b4ea-a778c4dbfe13",
-								"type": "text/javascript",
+								"id": "00c24d21-6c88-487e-befe-9dc0c45842d5",
 								"exec": [
-									" var jsonData = JSON.parse(responseBody);",
+									"var jsonData = JSON.parse(responseBody);",
 									"",
-									"tests[\"Users, createUser, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Users, createUser, Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Users, createUser, Response has userID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Response has userID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
-									"postman.setEnvironmentVariable(\"user_id\", _str);",
-									"",
-									"",
-									"",
+									"pm.environment.set(\"new_user_id\", _str);",
 									"",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "bf7e9cfd-e3cc-4dae-a5c1-1e4afd518219",
-								"type": "text/javascript",
+								"id": "2f774bc6-5b2b-4a89-a751-edf7819f686c",
 								"exec": [
 									"var min",
 									"var max",
@@ -3010,7 +2488,8 @@
 									"",
 									"pm.environment.set(\"random_email\", email);",
 									"pm.environment.set(\"random_user\", user);"
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3034,87 +2513,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"{{random_email}}\",\r\n  \"firstName\": \"{{random_user}}\",\r\n  \"lastName\": \"Admin\",\r\n  \"userType\":0\r\n}\r\n"
-						},
-						"url": {
-							"raw": "{{url}}/users",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "createUserDriver",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "59b3e514-1c68-4189-9640-08b364fc0e77",
-								"type": "text/javascript",
-								"exec": [
-									" var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"Users, createUser, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Users, createUser, Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Users, createUser, Response has userID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
-									"",
-									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
-									"postman.setEnvironmentVariable(\"new_user\", _str);",
-									"",
-									"",
-									"",
-									"",
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "bf7e9cfd-e3cc-4dae-a5c1-1e4afd518219",
-								"type": "text/javascript",
-								"exec": [
-									"var min",
-									"var max",
-									"function getRandomInt(min, max)",
-									"{",
-									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
-									"}",
-									"email= 'chikalov.ilya+'+getRandomInt(1, 1000)+'@gmail.com'",
-									"user= 'TestUser'+getRandomInt(1,1000)",
-									"",
-									"pm.environment.set(\"random_email\", email);",
-									"pm.environment.set(\"random_user\", user);"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"{{random_email}}\",\r\n  \"firstName\": \"{{random_user}}\",\r\n  \"lastName\": \"{{random_user}}\"\r\n}"
+							"raw": "{\r\n\t\"email\": \"{{random_email}}\", \r\n\t\"name\": \"null\", \r\n\t\"firstName\": \"{{random_user}}\", \r\n\t\"lastName\": \"{{random_user}}\", \r\n\t\"userType\": \"0\" \r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/users",
@@ -3134,53 +2533,54 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d9099109-2482-4137-b6a6-2791b4d43850",
-								"type": "text/javascript",
+								"id": "0531cb2a-f6ef-4064-8599-93b908911c74",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"var schema = ",
 									"{",
 									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
-									"   \"type\": \"array\",",
-									"      \"items\": {",
-									"        \"type\": \"object\",",
-									"        \"properties\": {",
-									"          \"id\": {",
+									"    \"type\": \"array\",",
+									"    \"Properties\": {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {",
 									"            \"type\": \"string\"",
-									"          },",
-									"          \"email\": {",
+									"            },",
+									"            \"email\": {",
 									"            \"type\": \"string\"",
-									"          },",
-									"          \"name\": {",
-									"            \"type\": [ \"string\", \"null\" ]",
-									"          },",
-									"          \"firstName\": {",
+									"            },",
+									"            \"name\": {",
+									"            \"type\": \"null, string\"",
+									"            },",
+									"            \"firstName\": {",
 									"            \"type\": \"string\"",
-									"          },",
-									"          \"lastName\": {",
-									"            \"type\": [ \"string\", \"null\" ]",
-									"          }",
-									"        },",
-									"          \"required\": [",
-									"              \"id\",",
-									"              \"email\",",
-									"              \"name\",",
-									"              \"firstName\",",
-									"              \"lastName\"",
-									"            ]",
+									"            },",
+									"            \"lastName\": {",
+									"            \"type\": \"string\"",
+									"            },",
+									"\"required\": [",
+									"    \"id\",",
+									"    \"email\",",
+									"    \"name\",",
+									"    \"firstName\",",
+									"    \"lastName\"",
+									"]",
+									"    ",
 									"    }",
-									"}",
-									"    ;",
+									"    }",
+									"};",
 									"",
-									"tests[\"Users, getUsers, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Users, getUsers, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Users, getUsers, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Users, getUsers, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Users, getUsers, Email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"Users, getUsers, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"firstName field is present\"]= responseBody.has(\"firstName\");",
+									"tests[\"lastName field is present\"]= responseBody.has(\"lastName\");",
 									"",
-									"",
+									"postman.setEnvironmentVariable(\"user_id\", jsonData[0].id);",
 									"postman.setEnvironmentVariable(\"user_email\", jsonData[0].email);",
 									"",
 									"",
@@ -3188,7 +2588,8 @@
 									"",
 									"",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3205,10 +2606,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}/users",
 							"host": [
@@ -3227,7 +2625,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "93346cc4-466f-492e-ab64-cd1a37f98762",
+								"id": "76fce104-e1b8-467a-b1fe-21d016002b3c",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -3256,12 +2654,12 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Users, getUserWithID, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Users, getUserWithID, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Users, getUserWithID, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Users, getUserWithID, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Users, getUserWithID, Email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"Users, getUserWithID, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
 									"",
 									"//console.log(\"Validation failed: \", tv4.error);",
 									"",
@@ -3285,10 +2683,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}/users/{{user_id}}",
 							"host": [
@@ -3308,7 +2703,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "de2154ee-4ccd-4f87-815e-64d1e9fd84b4",
+								"id": "412753d6-3354-475a-88a9-377f2ab7db81",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -3338,12 +2733,12 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Users, getUserMemberOf, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Users, getUserMemberOf, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Users, getUserMemberOf, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Users, getUserMemberOf, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Users, getUserMemberOf, Email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"Users, getUserMemberOf, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
 									"",
 									"//console.log(\"Validation failed: \", tv4.error);",
 									"",
@@ -3367,10 +2762,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"body": {},
 						"url": {
 							"raw": "{{url}}/users/{{user_id}}",
 							"host": [
@@ -3395,99 +2787,26 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8dfecaae-225e-475a-b973-b8bd786b05c2",
-								"type": "text/javascript",
+								"id": "4cb96840-fef0-46cc-941e-b964c53ea082",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
-									"tests[\"UserGroup, createGroup, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"UserGroup, createGroup, Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"UserGroup, createGroup, Response has userGroupID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Response has userGroupID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
 									"tests[_str]=1;",
 									"",
-									"pm.environment.set(\"new_user_group_id1\", _str);"
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "a6278341-72bb-4026-a965-76150c273193",
-								"type": "text/javascript",
-								"exec": [
-									"var min",
-									"var max",
-									"function getRandomInt(min, max)",
-									"{",
-									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
-									"}",
-									"test= 'TestGroup+'+getRandomInt(1, 1000)",
-									"",
-									"pm.environment.set(\"random_user_group1\", test);"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "\"{{random_user_group1}}\"\n"
-						},
-						"url": {
-							"raw": "{{url}}user-groups",
-							"host": [
-								"{{url}}user-groups"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "createGroup2",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "a4d4ca57-91ef-4637-b36e-a73edd9f1b64",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"UserGroup, createGroup2, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"UserGroup, createGroup2, Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"UserGroup, createGroup2, Response has userGroupID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
-									"",
-									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
-									"tests[_str]=1;",
-									"",
-									"pm.environment.set(\"new_user_group_id2\", _str);"
-								]
+									"pm.environment.set(\"new_user_group_id\", _str);"
+								],
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
 								"id": "e507fd69-f45a-4b0c-9e48-10a48862b4f5",
-								"type": "text/javascript",
 								"exec": [
 									"var min",
 									"var max",
@@ -3495,10 +2814,11 @@
 									"{",
 									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
 									"}",
-									"test= 'TestGroup+'+getRandomInt(1, 1000)",
+									"test= 'TestGroup+'+getRandomInt(1, 10000)",
 									"",
-									"pm.environment.set(\"random_user_group2\", test);"
-								]
+									"pm.environment.set(\"random_user_group\", test);"
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3522,7 +2842,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "\"{{random_user_group2}}\"\n"
+							"raw": "\"{{random_user_group}}\"\n"
 						},
 						"url": {
 							"raw": "{{url}}user-groups",
@@ -3539,11 +2859,11 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "14c80e6e-5f64-4313-b937-83b692c97c8b",
-								"type": "text/javascript",
+								"id": "06b0aa77-cb78-4c02-832a-9d93f4d27ad5",
 								"exec": [
-									"tests[\"UserGroup, addMemberToUserGroup, Status code is 204\"] = responseCode.code === 204;"
-								]
+									"tests[\"Status code is 204\"] = responseCode.code === 204;"
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3570,14 +2890,63 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}user-groups/{{new_user_group_id1}}/members/{{new_user}}",
+							"raw": "{{url}}user-groups/{{new_user_group_id}}/members/{{new_user_id}}",
 							"host": [
 								"{{url}}user-groups"
 							],
 							"path": [
-								"{{new_user_group_id1}}",
+								"{{new_user_group_id}}",
 								"members",
-								"{{new_user}}"
+								"{{new_user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listOfUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449bb00d-1ece-4f04-bf9a-318315e7230d",
+								"exec": [
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"firstName field is present\"]= responseBody.has(\"firstName\");",
+									"tests[\"lastName field is present\"]= responseBody.has(\"lastName\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}user-groups/{{new_user_group_id}}/users",
+							"host": [
+								"{{url}}user-groups"
+							],
+							"path": [
+								"{{new_user_group_id}}",
+								"users"
 							]
 						}
 					},
@@ -3589,7 +2958,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "750e7332-f958-4411-97f5-f2e5536b2b64",
+								"id": "48dae5f9-b110-471a-aee7-a6ec03bc9170",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -3624,12 +2993,12 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"UserGroup, ListOfUserGroups, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"UserGroup, ListOfUserGroups, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"UserGroup, ListOfUserGroups, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"UserGroup, ListOfUserGroups, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"UserGroup, ListOfUserGroups, Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"UserGroup, ListOfUserGroups, usersCount field is present\"]= responseBody.has(\"usersCount\");",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"usersCount field is present\"]= responseBody.has(\"usersCount\");",
 									""
 								]
 							}
@@ -3672,8 +3041,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "48878fa4-9390-4bee-b001-244412af59f4",
-								"type": "text/javascript",
+								"id": "75774603-e43d-4cca-b704-5a7483384d95",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
@@ -3701,12 +3069,13 @@
 									"    }",
 									"};",
 									"",
-									"tests[\"UserGroup, userGroupID, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"UserGroup, userGroupID, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"UserGroup, userGroupID, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"UserGroup, userGroupID, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"UserGroup, userGroupID, Name field is present\"]= responseBody.has(\"name\");"
-								]
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");"
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3728,12 +3097,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}user-groups/{{new_user_group_id2}}",
+							"raw": "{{url}}user-groups/{{new_user_group_id}}",
 							"host": [
 								"{{url}}user-groups"
 							],
 							"path": [
-								"{{new_user_group_id2}}"
+								"{{new_user_group_id}}"
 							]
 						}
 					},
@@ -3745,13 +3114,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c3ef8a3c-f9a7-487a-b6db-52fba46bc706",
-								"type": "text/javascript",
+								"id": "fbb5146b-de04-4c97-8618-aecc47b83444",
 								"exec": [
-									"pm.test(\"UserGroup, deleteMemberFromUserGroup, Status code is 204\", function () {",
+									"pm.test(\"Status code is 204\", function () {",
 									"    pm.response.to.have.status(204);",
 									"});"
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3768,6 +3137,956 @@
 						},
 						"method": "DELETE",
 						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}user-groups/{{new_user_group_id}}/members/{{new_user_id}}",
+							"host": [
+								"{{url}}user-groups"
+							],
+							"path": [
+								"{{new_user_group_id}}",
+								"members",
+								"{{new_user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteGroup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2f8e1125-469a-4e94-a529-34c333142e00",
+								"exec": [
+									"tests[\"Status code is 204\"] = responseCode.code === 204;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}user-groups/{{new_user_group_id}}",
+							"host": [
+								"{{url}}user-groups"
+							],
+							"path": [
+								"{{new_user_group_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rate",
+			"item": [
+				{
+					"name": "listOfRateTemplates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1af8f980-780e-4fbd-8a15-7809c1ebc159",
+								"exec": [
+									"var data = JSON.parse(responseBody);   ",
+									"var jsonData = JSON.parse(responseBody);",
+									"var schema = {",
+									"\"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\":\"array\",",
+									"  \"items\":  {",
+									"    \"type\": \"object\",",
+									"    \"properties\":  {  ",
+									"        \"id\": {",
+									"            \"type\":\"string\"",
+									"        },",
+									"        \"name\":  {",
+									"            \"type\":\"string\"",
+									"        },",
+									"        \"configurationTypeName\": {",
+									"            \"type\":\"string\"",
+									"        },",
+									"        \"isDefaultFree\": {",
+									"            \"type\":\"boolean\"",
+									"        },",
+									"\"required\":",
+									"[",
+									"    \"id\",",
+									"    \"name\",",
+									"    \"configurationTypeName\",",
+									"    \"isDefaultFree\"",
+									"]",
+									"",
+									"        }  ",
+									"    }",
+									"};",
+									"",
+									"tests[\"Rate, listOfRateTemplates, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Rate, listOfRateTemplates, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Rate, listOfRateTemplates, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Rate, listOfRateTemplates, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Rate, listOfRateTemplates, Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Rate, listOfRateTemplates, configurationTypeName field is present\"]= responseBody.has(\"configurationTypeName\");",
+									"postman.setEnvironmentVariable(\"template_id\", data[1].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/templates",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createRate",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4b3fc450-e2e3-43a0-813c-1152776b3dcc",
+								"type": "text/javascript",
+								"exec": [
+									"var min",
+									"var max",
+									"function getRandomInt(min, max)",
+									"{",
+									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
+									"}",
+									"test= 'TestRate'+getRandomInt(1, 1000)",
+									"",
+									"pm.environment.set(\"random_rate\", test);"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "62f699df-4cee-438a-a94b-04affa739994",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									" ",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); //true или false (метод)",
+									"",
+									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
+									"pm.environment.set(\"new_rate_id\", _str);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{random_rate}}\",\r\n  \"templateId\": \"{{template_id}}\",\r\n  \"templateState\": {\r\n    \"session\": 1,\r\n    \"hour\": 5,\r\n    \"kWh\": 0\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}rates",
+							"host": [
+								"{{url}}rates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filteredRateList",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "25ac322c-ea0e-4dff-9ea3-35faf309630e",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"locations\": [\r\n    \"{{new_location_id}}\"\r\n  ],\r\n  \"buildings\": [\r\n    \"{{new_sublocation_id}}\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}rates/list",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignRateToLoctation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4604defa-df77-4b21-9d4a-365d360a760c",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rateId\": \"{{new_rate_id}}\",\r\n  \"targetId\": \"{{new_location_id}}\",\r\n  \"inherit\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}rates/assign-location",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"assign-location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignRateToSubLoctation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b69cedd3-98a4-4b73-9425-5fc88f7ef882",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rateId\": \"{{new_rate_id}}\",\r\n  \"targetId\": \"{{new_sublocation_id}}\",\r\n  \"inherit\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}rates/assign-sublocation",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"assign-sublocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listOfClientTariffsExtended",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "61b3beff-3390-4120-afcc-f241d3ca349b",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"created field is present\"]= responseBody.has(\"created\");",
+									"tests[\"updated field is present\"]= responseBody.has(\"updated\");",
+									"tests[\"name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"configurationType field is present\"]= responseBody.has(\"configurationType\");",
+									"tests[\"configurationJson field is present\"]= responseBody.has(\"configurationJson\");",
+									"tests[\"PerSessionTariff field is present\"]= responseBody.has(\"PerSessionTariff\");",
+									"tests[\"PerHourTariff field is present\"]= responseBody.has(\"PerHourTariff\");",
+									"tests[\"PerEnergyTariff field is present\"]= responseBody.has(\"PerEnergyTariff\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/list-extended",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"list-extended"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rateInfo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15832c40-1132-402e-87aa-691deec04278",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/{{new_device_id}}",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"{{new_device_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rateInfoByLoc/SubLoc/DevID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/object-rate/{{new_location_id}}",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"object-rate",
+								"{{new_location_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listOfClientTariffs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66b3382b-f067-4694-8ae2-ed47d506fadb",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"created field is present\"]= responseBody.has(\"created\");",
+									"tests[\"updated field is present\"]= responseBody.has(\"updated\");",
+									"tests[\"name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"configurationType field is present\"]= responseBody.has(\"configurationType\");",
+									"tests[\"configurationJson field is present\"]= responseBody.has(\"configurationJson\");",
+									"tests[\"PerSessionTariff field is present\"]= responseBody.has(\"PerSessionTariff\");",
+									"tests[\"PerHourTariff field is present\"]= responseBody.has(\"PerHourTariff\");",
+									"tests[\"PerEnergyTariff field is present\"]= responseBody.has(\"PerEnergyTariff\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates",
+							"host": [
+								"{{url}}rates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "locationsByRateID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f18d744c-6963-417b-9847-8cfdcfb0d2a4",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/object-rate/{{new_location_id}}",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"object-rate",
+								"{{new_location_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subLocationsByRateID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5375e5d-e5ae-44ba-9dfa-aa42f495da58",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}rates/object-rate/{{new_sublocation_id}}",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"object-rate",
+								"{{new_sublocation_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "udpateRate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3304ed4d-ebc6-487a-9e84-b837c28a9ead",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"templateName\": \"{{random_rate}}\",\r\n  \"templateState\": {\r\n    \"perSessionTariff\": 1,\r\n    \"perHourTariff\": 2,\r\n    \"perEnergyTariff\": 4\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}rates/{{new_rate_id}}",
+							"host": [
+								"{{url}}rates"
+							],
+							"path": [
+								"{{new_rate_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "00c24d21-6c88-487e-befe-9dc0c45842d5",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2f774bc6-5b2b-4a89-a751-edf7819f686c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}users/{{new_user_id}}",
+							"host": [
+								"{{url}}users"
+							],
+							"path": [
+								"{{new_user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSubLocation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c5689cdb-3e7c-4043-b5ac-01adc9bd4c29",
+								"exec": [
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 204\"] = responseCode.code === 204;",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}locations/{{new_sublocation_id}}",
+							"host": [
+								"{{url}}locations"
+							],
+							"path": [
+								"{{new_sublocation_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteLocation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "09935977-c257-4519-b422-bf505c05ba55",
+								"exec": [
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 204\"] = responseCode.code === 204;",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}locations/{{new_location_id}}",
+							"host": [
+								"{{url}}locations"
+							],
+							"path": [
+								"{{new_location_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "setNotificationSettings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2d2d0f6f-1f18-4ad0-93f9-9f856a4c9c42",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"isEnabled\": true,\r\n\t\"settings\" : [\r\n\t\t{\r\n\t\t\t\"notificationTypeId\": 1,\r\n\t\t\t\"deliveryTypeId\": 1\r\n\t\t}\r\n]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}notification",
+							"host": [
+								"{{url}}notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notificationSettings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d96cd712-09bf-42dd-8ba1-948b88dd80ed",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var schema = ",
+									"{",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"    \"type\": \"object\", ",
+									"    \"properties\": {",
+									"        \"isEnabled\": {",
+									"            \"type\": \"boolean\" ",
+									"            },",
+									"            \"type\": \"array\", ",
+									"            \"settings\": {",
+									"                \"notificationTypeId\": {",
+									"                    \"type\": \"number\"",
+									"                },",
+									"                \"deliveryTypeId\": {",
+									"                    \"type\": \"number\"",
+									"                }",
+									"                        }",
+									"                  }",
+									"            ",
+									"};",
+									"",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"isEnabled field is present\"]= responseBody.has(\"isEnabled\");",
+									"tests[\"settings field is present\"]= responseBody.has(\"settings\");",
+									"tests[\"notificationTypeId field is present\"]= responseBody.has(\"notificationTypeId\");",
+									"tests[\"deliveryTypeId field is present\"]= responseBody.has(\"deliveryTypeId\");",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}notification",
+							"host": [
+								"{{url}}notification"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	}
+}er": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
