@@ -75,8 +75,11 @@ namespace TestAutomationFramework.POM
             //var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             //wait.Until(wd => driver.FindElement(By.ClassName("ui-treetable-table")));
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            //IList<IWebElement> allLoactions = driver.FindElements(By.XPath("//tbody //tr[@class='ng-star-inserted']"));
+            //IList<IWebElement> allLoactions = driver.FindElements(By.XPath("//tbody //a[contains(@class,'ui-treetable-label')]"));
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+            
+
+
             //foreach (IWebElement location in allLoactions)
             //{
             //    if (location.Text.Contains(locationName))
@@ -84,6 +87,7 @@ namespace TestAutomationFramework.POM
             //        return true;
             //    }
             //}
+
             return true;
         }
     }

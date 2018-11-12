@@ -30,6 +30,7 @@ namespace TestAutomationFramework
             {
                 //Use this variable to set local environment;
                 string environment = "b2b_beta";
+                //string environment = "b2c_prod";
                 //string environment = "b2c_alpha"; 
 
                 string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");

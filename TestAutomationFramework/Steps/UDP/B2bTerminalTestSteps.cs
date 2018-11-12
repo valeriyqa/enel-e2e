@@ -31,27 +31,27 @@ namespace TestAutomationFramework.Steps.UDP
         }
 
 
-        //[When(@"I send udp package ""(.*)""")]
-        //[Given(@"I send udp package ""(.*)""")]
-        //public void GivenISendUdpPackage(string udpPackage)
-        //{
-        //    var testName = new UdpEndpointTest();
-        //    var step = 0;
-        //    var resultNotFound = true;
-        //    while (step < 3 && resultNotFound)
-        //    {
-        //        step++;
-        //        try
-        //        {
-        //            testData.requestRxUdp = testName.GetRxRaw(udpPackage);
-        //            resultNotFound = false;
-        //        }
-        //        catch (Exception)
-        //        {
-        //            Console.WriteLine("WARNING!!! No UPD response, step: " + step);
-        //        }
-        //    }
-        //}
+        [When(@"I send udp package ""(.*)""")]
+        [Given(@"I send udp package ""(.*)""")]
+        public void GivenISendUdpPackage(string udpPackage)
+        {
+            var testName = new UdpEndpointTest();
+            var step = 0;
+            var resultNotFound = true;
+            while (step < 3 && resultNotFound)
+            {
+                step++;
+                try
+                {
+                    testData.requestRxUdp = testName.GetRxRaw(udpPackage);
+                    resultNotFound = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("WARNING!!! No UPD response, step: " + step);
+                }
+            }
+        }
 
         [Then(@"UDP response should contain ""(.*)""")]
         public void ThenUDPResponseShouldContain(string textString)
@@ -288,5 +288,10 @@ namespace TestAutomationFramework.Steps.UDP
             testData.responseApi = client.Execute(request);
         }
 
+        [Then(@"response should contain S section higher ""(.*)""")]
+        public void ThenResponseShouldContainSSectionHigher(string data)
+        {
+            Assert.IsTrue(Int32.Parse(testData.requestRxUdp.Substring(19, 3)) > Int32.Parse(data));
+        }
     }
 }

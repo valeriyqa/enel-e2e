@@ -86,6 +86,24 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("All_UDP_ Test UDP response contains section higher S001")]
+        [NUnit.Framework.CategoryAttribute("udp")]
+        public virtual void All_UDP_TestUDPResponseContainsSectionHigherS001()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All_UDP_ Test UDP response contains section higher S001", new string[] {
+                        "udp"});
+#line 17
+this.ScenarioSetup(scenarioInfo);
+#line 18
+ testRunner.Given("I send udp package \"011111112:v07,s0121,u00000,V2201,L123,S2,T35,M40,m40,t10,i45," +
+                    "e-1,f6000,X0,Y0,E0,A0320,p1000!DPQ:\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 19
+ testRunner.Then("response should contain S section higher \"001\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
