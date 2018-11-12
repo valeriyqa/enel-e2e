@@ -72,23 +72,39 @@ namespace TestAutomationFramework.POM
 
         public bool IsParentForLocation(string locaton, string subLocation)
         {
-            //var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            //wait.Until(wd => driver.FindElement(By.ClassName("ui-treetable-table")));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.ClassName("ui-treetable-table")));
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            //IList<IWebElement> allLoactions = driver.FindElements(By.XPath("//tbody //a[contains(@class,'ui-treetable-label')]"));
+            IList<IWebElement> allLoactions = driver.FindElements(By.XPath("//tbody //a[contains(@class,'ui-treetable-label')]"));
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-            
-
-
-            //foreach (IWebElement location in allLoactions)
-            //{
-            //    if (location.Text.Contains(locationName))
-            //    {
-            //        return true;
-            //    }
-            //}
-
-            return true;
+            int index = 0;
+            foreach (IWebElement location in allLoactions)
+            {
+                if (location.Text.Contains(subLocation))
+                {
+                    index = allLoactions.IndexOf(location);
+                    break;
+                }
+                
+            }
+            IList<IWebElement> parentLoactions = driver.FindElements(By.XPath("//tbody //a[contains(@class,'ng-star-inserted')]"));
+            for (int i = index-1; i >= 0; i--)
+            {
+                //Console.WriteLine("Style: " + parentLoactions[i].GetAttribute("style"));
+                if (parentLoactions[i].GetAttribute("style").Contains("visible"))
+                {
+                    //Console.WriteLine("Element: " + allLoactions[i].Text);
+                    if (allLoactions[i].Text.Contains(locaton))
+                    {
+                        //Console.WriteLine("Found");
+                        return true;
+                    }
+                    //Console.WriteLine("a");
+                    return false;
+                }
+            }
+            //Console.WriteLine("b");
+            return false;
         }
     }
 }
