@@ -29,7 +29,7 @@ namespace TestAutomationFramework
             if (File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt")))
             {
                 //Use this variable to set local environment;
-                string environment = "b2b_beta";
+                string environment = "b2b_beta2";
                 //string environment = "b2c_prod";
                 //string environment = "b2c_alpha"; 
 

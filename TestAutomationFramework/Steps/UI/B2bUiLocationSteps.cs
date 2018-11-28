@@ -75,7 +75,6 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"Location with name ""(.*)"" is parent for ""(.*)"" \(b2b\)")]
         public void ThenLocationWithNameIsParentForB2b(string location, string subLocation)
         {
-            System.Console.WriteLine("Privet");
             var locationPage = new B2bLocationPage(driver);
             Assert.IsTrue(locationPage.IsParentForLocation(location, subLocation));
         }
