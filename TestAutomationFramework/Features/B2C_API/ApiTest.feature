@@ -136,41 +136,41 @@ Scenario Outline: B2C_API_ Missing token test
 		| set_schedule               |
 		| update_car                 |
 
-@b2c @api 
-Scenario Outline: B2C_API_ Incorrect account token test
-	When I send "<RestAPI>" request with next "account_token" "incorrect_token"
-	Then response should be valid to schema "error"
-	And property "success" should be equal to "False"
-	And property "error_code" should be equal to "1009"
-	And property "error_message" should be equal to "User have not permissions to unit. Check account token."
-	Examples: 
-		| RestAPI                    |
-		#| add_account_unit           |
-		#| add_car                    |1001
-		| add_unit                   |
-		#| delete_account_unit        |
-		#| delete_car                 |1002
-		#| delete_program_signup_info |
-		| get_account_units          |
-		#| get_history                |true
-		#| get_info                   |true
-		#| get_notifications          |1001
-		#| get_plot                   |1002
-		#| get_program_signup_info    |
-		#| get_schedule               |true
-		#| get_share_pin              |
-		#| get_state                  |true
-		#| get_utilitybill_url        |
-		| register_pushes            |
-		#| reset_ownership            |1102
-		#| select_car                 |1002
-		#| set_charging_time          |true
-		#| set_garage                 |true
-		#| set_info                   |true
-		#| set_override               |true
-		#| set_schedule               |true
-		#| share_device               |1003
-		#| update_car                 |1002
+#@b2c @api 
+#Scenario Outline: B2C_API_ Incorrect account token test
+#	When I send "<RestAPI>" request with next "account_token" "incorrect_token"
+#	Then response should be valid to schema "error"
+#	And property "success" should be equal to "False"
+#	And property "error_code" should be equal to "1009"
+#	And property "error_message" should be equal to "User have not permissions to unit. Check account token."
+#	Examples: 
+#		| RestAPI                    |
+#		#| add_account_unit           |
+#		#| add_car                    |1001
+#		| add_unit                   |
+#		#| delete_account_unit        |
+#		#| delete_car                 |1002
+#		#| delete_program_signup_info |
+#		| get_account_units          |
+#		#| get_history                |true
+#		#| get_info                   |true
+#		#| get_notifications          |1001
+#		#| get_plot                   |1002
+#		#| get_program_signup_info    |
+#		#| get_schedule               |true
+#		#| get_share_pin              |
+#		#| get_state                  |true
+#		#| get_utilitybill_url        |
+#		| register_pushes            |
+#		#| reset_ownership            |1102
+#		#| select_car                 |1002
+#		#| set_charging_time          |true
+#		#| set_garage                 |true
+#		#| set_info                   |true
+#		#| set_override               |true
+#		#| set_schedule               |true
+#		#| share_device               |1003
+#		#| update_car                 |1002
 
 @b2c @api 
 Scenario Outline: B2C_API_ Missing account token test
