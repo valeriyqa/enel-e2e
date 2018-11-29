@@ -3,6 +3,8 @@ using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using RestSharp;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using TechTalk.SpecFlow;
 using TestAutomationFramework.Services;
@@ -21,6 +23,7 @@ namespace TestAutomationFramework.Steps.UDP
             public string unitId;
             public string token;
             public string requestRxUdp;
+            public List<string> responseList = new List<string>();
             public IRestResponse responseApi;
         }
 
@@ -293,5 +296,59 @@ namespace TestAutomationFramework.Steps.UDP
         {
             Assert.IsTrue(Int32.Parse(testData.requestRxUdp.Substring(19, 3)) > Int32.Parse(data));
         }
+
+        [Given(@"I save response to list")]
+        [When(@"I save response to list")]
+        public void GivenISaveResponseToList()
+        {
+            testData.responseList.Add(testData.requestRxUdp);
+        }
+
+        [Then(@"at least one value of the ""(.*)"" section should not be same")]
+        public void ThenValuesOfTheSectionShouldNotBeSame(string sectionLetter)
+        {
+            int letterIndex = 0;
+            int segmentLength = 0;
+
+            switch (sectionLetter)
+            {
+                case "A":
+                    letterIndex = 9;
+                    segmentLength = 2;
+                    break;
+                case "M":
+                    letterIndex = 12;
+                    segmentLength = 2;
+                    break;
+                case "C":
+                    letterIndex = 15;
+                    segmentLength = 2;
+                    break;
+                case "S":
+                    letterIndex = 19;
+                    segmentLength = 3;
+                    break;
+                default:
+                    Console.WriteLine("Incorrect section");
+                    Assert.Fail();
+                    break;
+            }
+            
+            //Console.WriteLine("Section " + sectionLetter + ". Start: " + letterIndex + ", lenth: " + segmentLength);
+            List<string> substringList = new List<string>();
+
+            foreach (var element in testData.responseList)
+            {
+                //Console.WriteLine(element);
+                substringList.Add(element.Substring(letterIndex, segmentLength));
+            }
+            //foreach (var element in substringList)
+            //{
+            //    Console.WriteLine(element);
+            //}
+            //Console.WriteLine(substringList.Distinct().Count());
+            Assert.Greater(substringList.Distinct().Count(), 1);
+        }
+
     }
 }

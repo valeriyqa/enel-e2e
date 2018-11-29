@@ -14,6 +14,12 @@ Scenario Outline: All_UDP_ Test UDP endpoint
 		| TestUdpEndpoint_RawData         |
 
 @udp
-Scenario: All_UDP_ Test UDP response contains section higher S001
+Scenario: All_UDP_ Test UDP response contains S section with unique  value
 	Given I send udp package "011111112:v07,s0121,u00000,V2201,L123,S2,T35,M40,m40,t10,i45,e-1,f6000,X0,Y0,E0,A0320,p1000!DPQ:"
-	Then response should contain S section higher "001"
+	And I save response to list
+	And I send udp package "011111112:v07,s0121,u00000,V2201,L123,S2,T35,M40,m40,t10,i45,e-1,f6000,X0,Y0,E0,A0320,p1000!DPQ:"
+	And I save response to list
+	And I send udp package "011111112:v07,s0121,u00000,V2201,L123,S2,T35,M40,m40,t10,i45,e-1,f6000,X0,Y0,E0,A0320,p1000!DPQ:"
+	And I save response to list
+	Then at least one value of the "S" section should not be same
+	#Then response should contain S section higher "001"
