@@ -1,0 +1,45 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "JSON Schema for get_history API test",
+
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "time_start": {
+            "type": "integer"
+          },
+          "time_end": {
+            "type": "integer"
+          },
+          "duration": {
+            "type": "integer"
+          },
+          "wh_energy": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "time_start",
+          "time_end",
+          "duration",
+          "wh_energy"
+        ]
+      }
+    }
+  },
+  "required": [
+    "success",
+    "sessions"
+  ]
+}

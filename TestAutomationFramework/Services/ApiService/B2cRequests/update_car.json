@@ -1,0 +1,14 @@
+﻿{
+  "cmd": "update_car",
+  "account_token": "",
+  "token": "",
+  "device_id": "",
+  "info": {
+    "battery_range_m": 0,
+    "car_id": 0,
+    "battery_size_wh": 85000,
+    "charging_rate_w": 10000,
+    "description": "2014 Model1 S (85 kW-hr battery pack)",
+    "model_id": 34775
+  }
+}

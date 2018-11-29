@@ -1,0 +1,78 @@
+﻿{
+  "cmd": "set_info",
+  "account_token": "",
+  "token": "",
+  "device_id": "",
+  "name": "EMW Pro 75 JB 3.1 (#7)",
+  "zip": "94070",
+  "country_code": "US",
+  "load_group_id": "string",
+  "unit_type_id": 1,
+  "IP": "50.168.20.98",
+  "gascost": 350,
+  "mpg": 25,
+  "ecost": 12,
+  "whpermile": 300,
+  "timeZoneId": "Pacific Standard Time",
+  "amps_wire_rating": 75,
+  "amps_unit_rating": 75,
+  "info_timestamp": 1499586158,
+  "garage_id": "",
+  "cars": [
+    {
+      "car_id": 5528,
+      "description": "2017 Chevrolet Bolt",
+      "battery_size_wh": 383024,
+      "battery_range_m": 60000,
+      "charging_rate_w": 7200,
+      "model_id": "37066",
+      "model_info": {
+        "model_id": "37066",
+        "description": "2017 Chevrolet Bolt",
+        "make": "Chevrolet",
+        "model": "Bolt",
+        "year": 2017,
+        "range_m": 383023,
+        "range_city_m": 399116,
+        "range_highway_m": 337961,
+        "battery_size_wh": 60000,
+        "charging_rate_w": 7200,
+        "images": {
+          "charging": "string",
+          "default": "https://dashboard.emotorwerks.com/Content/carmodels/chevy_bolt.jpg",
+          "plugged": "string"
+        }
+      }
+    },
+    {
+      "car_id": 5529,
+      "description": "2017 Chevrolet Bolt",
+      "battery_size_wh": 383025,
+      "battery_range_m": 60001,
+      "charging_rate_w": 7201,
+      "model_id": "37067",
+      "model_info": {
+        "model_id": "37067",
+        "description": "2018 Chevrolet Bolt",
+        "make": "Chevrolet",
+        "model": "Bolt",
+        "year": 2018,
+        "range_m": 383024,
+        "range_city_m": 399117,
+        "range_highway_m": 337962,
+        "battery_size_wh": 60001,
+        "charging_rate_w": 7201,
+        "images": {
+          "charging": "string",
+          "default": "https://dashboard.emotorwerks.com/Content/carmodels/chevy_bolt.jpg",
+          "plugged": "string"
+        }
+      }
+    }
+  ],
+  "policy": {
+    "name": "string",
+    "user_control_allowed": false,
+    "charge_control_type": "string"
+  }
+}

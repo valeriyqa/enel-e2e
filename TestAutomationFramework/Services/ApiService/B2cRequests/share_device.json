@@ -1,0 +1,8 @@
+﻿{
+  "cmd": "share_device",
+  "device_id": "",
+  "device_name": "string",
+  "account_token": "",
+  "ID": "",
+  "pin": "1235"
+}

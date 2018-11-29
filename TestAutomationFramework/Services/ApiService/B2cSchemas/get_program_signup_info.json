@@ -1,0 +1,74 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "JSON Schema for get_program_signup_info API test",
+
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "integer"
+    },
+    "step1": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "bill_first_name": {
+          "type": "string"
+        },
+        "bill_last_name": {
+          "type": "string"
+        },
+        "name_is_different_in_bill": {
+          "type": [ "string", "boolean" ]
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone_number": {
+          "type": "string"
+        },
+        "address": {
+          "type": [ "string", "null" ] //Null is ok?
+        },
+        "city": {
+          "type": [ "string", "null" ] //Null is ok?
+        },
+        "state": {
+          "type": [ "string", "null" ] //Null is ok?
+        },
+        "post_code": {
+          "type": [ "string", "integer" ]
+        },
+        "service_address": {
+          "type": "string"
+        },
+        "service_city": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name",
+        "bill_first_name",
+        "bill_last_name",
+        "name_is_different_in_bill",
+        "email",
+        "phone_number",
+        "address",
+        "city",
+        "state",
+        "post_code",
+        "service_address",
+        "service_city"
+      ]
+    }
+  },
+  "required": [
+    "success",
+    "step1"
+  ]
+}
