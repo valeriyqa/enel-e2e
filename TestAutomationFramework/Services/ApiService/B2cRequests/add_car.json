@@ -1,0 +1,13 @@
+﻿{
+  "cmd": "add_car",
+  "account_token": "1",
+  "token": "2",
+  "device_id": "3",
+  "info": {
+    "battery_range_m": 100,
+    "battery_size_wh": 85000,
+    "charging_rate_w": 10000,
+    "description": "2222 Model1s (85 kW-hr battery pack)",
+    "model_id": "66666"
+  }
+}

@@ -1,0 +1,9 @@
+﻿{
+  "cmd": "set_override",
+  "account_token": "",
+  "token": "",
+  "device_id": "",
+  "energy_at_plugin": 0,
+  "override_time": 156262626,
+  "energy_to_add": 40000
+}

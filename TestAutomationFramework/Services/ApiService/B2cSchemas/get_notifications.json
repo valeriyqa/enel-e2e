@@ -1,0 +1,182 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "JSON Schema for get_notifications API test",
+
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "notifications": {
+      "type": "object",
+      "properties": {
+        "start_charging": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            },
+            "settings": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "email",
+            "push",
+            "settings"
+          ]
+        },
+        "stop_charging": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            },
+            "settings": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "email",
+            "push",
+            "settings"
+          ]
+        },
+        "charging_delayed_due_to_ToU": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            },
+            "settings": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "email",
+            "push",
+            "settings"
+          ]
+        },
+        "is_back_online": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            },
+            "settings": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "email",
+            "push",
+            "settings"
+          ]
+        },
+        "is_offline": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            },
+            "settings": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "email",
+            "push",
+            "settings"
+          ]
+        },
+        "is_not_plugged_in_by": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            },
+            "settings": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "email",
+            "push",
+            "settings"
+          ]
+        },
+        "plugged_in": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            },
+            "settings": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "email",
+            "push",
+            "settings"
+          ]
+        },
+        "plugged_out": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "boolean"
+            },
+            "push": {
+              "type": "boolean"
+            },
+            "settings": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "email",
+            "push",
+            "settings"
+          ]
+        }
+      },
+      "required": [
+        "start_charging",
+        "stop_charging",
+        "charging_delayed_due_to_ToU",
+        "is_back_online",
+        "is_offline",
+        "is_not_plugged_in_by",
+        "plugged_in",
+        "plugged_out"
+      ]
+    }
+  },
+  "required": [
+    "success",
+    "notifications"
+  ]
+}

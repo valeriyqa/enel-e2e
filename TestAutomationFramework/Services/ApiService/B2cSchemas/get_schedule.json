@@ -1,0 +1,66 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "JSON Schema for get_schedule API test",
+
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "weekday": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "car_ready_by": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "car_ready_by"
+      ]
+    },
+    "weekend": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "car_ready_by": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "car_ready_by"
+      ]
+    },
+    "info_timestamp": {
+      "type": "integer"
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "ID": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "weekday",
+    "weekend",
+    "info_timestamp",
+    "success",
+    "ID"
+  ]
+}

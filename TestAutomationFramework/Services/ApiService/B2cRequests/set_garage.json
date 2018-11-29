@@ -1,0 +1,7 @@
+﻿{
+  "cmd": "set_garage",
+  "account_token": "",
+  "token": "",
+  "device_id": "",
+  "garage_id": "string"
+}

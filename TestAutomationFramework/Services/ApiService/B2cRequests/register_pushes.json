@@ -1,0 +1,6 @@
+﻿{
+  "cmd": "register_pushes",
+  "device_id": "",
+  "account_token": "",
+  "push_token": "string"
+}
