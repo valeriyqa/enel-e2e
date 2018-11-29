@@ -1,8 +1,0 @@
-﻿{
-  "cmd": "reset_ownership",
-  "account_token": "",
-  "ID": "string",
-  "device_id": "",
-  "step": 0,
-  "session": "string"
-}
