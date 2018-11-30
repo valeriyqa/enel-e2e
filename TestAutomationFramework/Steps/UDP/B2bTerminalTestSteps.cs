@@ -333,20 +333,20 @@ namespace TestAutomationFramework.Steps.UDP
                     Assert.Fail();
                     break;
             }
-            
-            //Console.WriteLine("Section " + sectionLetter + ". Start: " + letterIndex + ", lenth: " + segmentLength);
+
+            Console.WriteLine("Section " + sectionLetter + ". Start: " + letterIndex + ", lenth: " + segmentLength);
             List<string> substringList = new List<string>();
 
             foreach (var element in testData.responseList)
             {
-                //Console.WriteLine(element);
+                Console.WriteLine(element);
                 substringList.Add(element.Substring(letterIndex, segmentLength));
             }
-            //foreach (var element in substringList)
-            //{
-            //    Console.WriteLine(element);
-            //}
-            //Console.WriteLine(substringList.Distinct().Count());
+            foreach (var element in substringList)
+            {
+                Console.WriteLine(element);
+            }
+            Console.WriteLine("We recivied " + substringList.Distinct().Count() + " unique result(s)");
             Assert.Greater(substringList.Distinct().Count(), 1);
         }
 
