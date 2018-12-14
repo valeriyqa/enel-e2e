@@ -1,10 +1,121 @@
 {
 	"info": {
-		"_postman_id": "10c78176-f82b-4b05-bde9-ce39257b4384",
-		"name": "B2B Team Alpha",
+		"_postman_id": "492ca5d7-88e2-4bbf-8982-801056c3db8c",
+		"name": "B2B_Beta_1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Token",
+			"item": [
+				{
+					"name": "Token Reseller Beta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79804596-356d-4c08-b315-80b1d8eff0dd",
+								"exec": [
+									"var data = JSON.parse(responseBody);   ",
+									"postman.setEnvironmentVariable(\"bearer-token-reseller\", data.access_token);",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application;x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Basic bW9iaWxlYXBwY2xpZW50Ojk5QjI0Mzg1LTk0N0QtNDBDQS04RTIwLTY2NjMyMjQ1NUFERA=="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "grant_type=password&username=6dofik@gmail.com&password=emotorwerks&scope=api%20offline_access%20openid%20profile%20roles"
+						},
+						"url": {
+							"raw": "https://v2-beta-identityserver.azurewebsites.net/identity/connect/token",
+							"protocol": "https",
+							"host": [
+								"v2-beta-identityserver",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"identity",
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token Client Beta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79804596-356d-4c08-b315-80b1d8eff0dd",
+								"exec": [
+									"var data = JSON.parse(responseBody);   ",
+									"postman.setEnvironmentVariable(\"bearer-token\", data.access_token);",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application;x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Basic bW9iaWxlYXBwY2xpZW50Ojk5QjI0Mzg1LTk0N0QtNDBDQS04RTIwLTY2NjMyMjQ1NUFERA=="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "grant_type=password&username=6dofik%2B36281@gmail.com&password=emotorwerks&scope=api%20offline_access%20openid%20profile%20roles\n"
+						},
+						"url": {
+							"raw": "https://v2-beta-identityserver.azurewebsites.net/identity/connect/token",
+							"protocol": "https",
+							"host": [
+								"v2-beta-identityserver",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"identity",
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "Locations",
 			"item": [
@@ -214,7 +325,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/lookup",
 							"host": [
@@ -342,7 +456,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/{{new_location_id}}",
 							"host": [
@@ -542,7 +659,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/tree/extended",
 							"host": [
@@ -588,7 +708,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}locations/{{new_location_id}}/devices/count",
 							"host": [
@@ -598,6 +721,239 @@
 								"{{new_location_id}}",
 								"devices",
 								"count"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Load Balancing",
+			"item": [
+				{
+					"name": "setLB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c4f36d75-f316-433c-ba39-7d9a089e51f8",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "5"
+						},
+						"url": {
+							"raw": "{{url}}locations/{{new_location_id}}/loadbalancing",
+							"host": [
+								"{{url}}locations"
+							],
+							"path": [
+								"{{new_location_id}}",
+								"loadbalancing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detailsOfLB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d7f99771-1488-4bd5-bd61-232073bb3392",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var schema = ",
+									"{",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"        \"type\": \"object\",",
+									"        \"properties\": ",
+									"        {",
+									"          \"isEnabled\": ",
+									"          {",
+									"            \"type\": \"boolean\"",
+									"          },",
+									"          \"powerLimit\": ",
+									"          {",
+									"            \"type\": \"number\"",
+									"          },",
+									"        },",
+									"          \"required\": [",
+									"              \"isEnabled\",",
+									"              \"powerLimit\"",
+									"            ]",
+									"};",
+									"",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"isEnabled field is present\"]= responseBody.has(\"isEnabled\");",
+									"tests[\"powerLimit field is present\"]= responseBody.has(\"powerLimit\");",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}locations/{{new_location_id}}/loadbalancing",
+							"host": [
+								"{{url}}locations"
+							],
+							"path": [
+								"{{new_location_id}}",
+								"loadbalancing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changeLB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2ba8c142-4c2f-400a-9ee4-63b90a3fe985",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "10"
+						},
+						"url": {
+							"raw": "{{url}}locations/{{new_location_id}}/loadbalancing",
+							"host": [
+								"{{url}}locations"
+							],
+							"path": [
+								"{{new_location_id}}",
+								"loadbalancing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteLB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "849863c0-89c1-4b85-a791-a97d963fe335",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}locations/{{new_location_id}}/loadbalancing",
+							"host": [
+								"{{url}}locations"
+							],
+							"path": [
+								"{{new_location_id}}",
+								"loadbalancing"
 							]
 						}
 					},
@@ -702,7 +1058,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}attributes/address/objects/{{new_location_id}}",
 							"host": [
@@ -831,6 +1190,393 @@
 			]
 		},
 		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "createClient CAD",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "507dc104-cefe-4711-9b9f-0aef42eb20a2",
+								"exec": [
+									"var min",
+									"var max",
+									"function getRandomInt(min, max)",
+									"{",
+									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
+									"}",
+									"email= '6dofik+'+getRandomInt(1, 10000)+'@gmail.com'",
+									"client= 'TestClient'+getRandomInt(1,10000)",
+									"",
+									"pm.environment.set(\"random_email\", email);",
+									"pm.environment.set(\"random_client\", client);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "f123d048-0994-4cbf-92cc-96434675cfc8",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									" ",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"tests[\"Response has new_client_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
+									"",
+									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
+									"pm.environment.set(\"new_client_id\", _str);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token-reseller}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{random_client}}\",\r\n  \"email\": \"{{random_email}}\",\r\n  \"address\": {\r\n    \"address\": \"efwefwef\",\r\n    \"city\": \"strinwefweg\",\r\n    \"state\": \"string\",\r\n    \"zip\": \"20815\",\r\n    \"timeZone\": \"Mid-Atlantic Standard Time\"\r\n  },\r\n  \"currency\": {\r\n    \"alphabeticCode\": \"CAD\",\r\n    \"numericCode\": \"124\",\r\n    \"name\": \"Canadian Dollar\"\r\n  },\r\n    \"firstName\": \"sdfsdf\",\r\n    \"lastName\": \"sdfsdf\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}clients",
+							"host": [
+								"{{url}}clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createClient USD",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "507dc104-cefe-4711-9b9f-0aef42eb20a2",
+								"exec": [
+									"var min",
+									"var max",
+									"function getRandomInt(min, max)",
+									"{",
+									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
+									"}",
+									"email= '6dofik+'+getRandomInt(1, 10000)+'@gmail.com'",
+									"client= 'TestClient'+getRandomInt(1,10000)",
+									"",
+									"pm.environment.set(\"random_email\", email);",
+									"pm.environment.set(\"random_client\", client);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "f123d048-0994-4cbf-92cc-96434675cfc8",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									" ",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"tests[\"Response has new_client_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
+									"",
+									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
+									"pm.environment.set(\"new_client_id\", _str);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token-reseller}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{random_client}}\",\r\n  \"email\": \"{{random_email}}\",\r\n  \"address\": {\r\n    \"address\": \"efwefwef\",\r\n    \"city\": \"strinwefweg\",\r\n    \"state\": \"string\",\r\n    \"zip\": \"20815\",\r\n    \"timeZone\": \"Mid-Atlantic Standard Time\"\r\n  },\r\n  \"currency\": {\r\n    \"alphabeticCode\": \"USD\",\r\n    \"numericCode\": \"840\",\r\n    \"name\": \"United States Dollar\"\r\n  },\r\n    \"firstName\": \"sdfsdf\",\r\n    \"lastName\": \"sdfsdf\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}clients",
+							"host": [
+								"{{url}}clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getClients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "43796335-3888-46ef-900f-763e9a16a6b7",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var schema = {",
+									"\"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"type\":\"array\",",
+									"  \"items\": ",
+									"  {",
+									"    \"type\": \"object\",",
+									"    \"properties\": ",
+									"    {  ",
+									"        \"id\": ",
+									"        {",
+									"            \"type\":\"string\"",
+									"        },",
+									"        \"name\": ",
+									"        {",
+									"            \"type\":\"string\"",
+									"        },",
+									"\"required\":",
+									"[",
+									"    \"id\",",
+									"    \"name\",",
+									"]",
+									"",
+									"        }  ",
+									"    }",
+									"};",
+									"",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token-reseller}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}clients",
+							"host": [
+								"{{url}}clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detailsOfClientID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27853d15-ae28-4939-be58-2726ba1946dc",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"var schema = {",
+									"\"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"  \"items\": ",
+									"  {",
+									"    \"type\": \"object\",",
+									"    \"properties\": ",
+									"    {  ",
+									"        \"id\": ",
+									"        {",
+									"            \"type\":\"string\"",
+									"        },",
+									"        \"name\": ",
+									"        {",
+									"            \"type\":\"string\"",
+									"        },",
+									"        \"address\": {",
+									"            \"type\":\"object\",",
+									"            \"properties\":",
+									"            {",
+									"                \"address\": ",
+									"                {",
+									"                    \"type\":\"string\"",
+									"                }, ",
+									"                \"city\": ",
+									"                {",
+									"                    \"type\":\"string\"",
+									"                }, ",
+									"                \"state\": ",
+									"                {",
+									"                    \"type\":\"string\"",
+									"                }, ",
+									"                \"zip\": ",
+									"                {",
+									"                    \"type\":\"string\"",
+									"                }, ",
+									"                \"timeZone\": ",
+									"                {",
+									"                    \"type\":\"string\"",
+									"                }, ",
+									"                    ",
+									"                        \"type\": \"object\",",
+									"                        \"properties\": ",
+									"                        {",
+									"                            \"createdDate\": ",
+									"                            {",
+									"                                \"type\":\"string\"",
+									"                            }, ",
+									"                        ",
+									"\"required\":",
+									"[",
+									"    \"id\",",
+									"    \"name\",",
+									"    \"address\",",
+									"    \"address\",",
+									"    \"city\",",
+									"    \"state\",",
+									"    \"zip\",",
+									"    \"timeZone\",",
+									"    \"createdDate\"",
+									"]",
+									"                        ",
+									"                    }",
+									"                }",
+									"            }",
+									"        ",
+									"        }  ",
+									"    }",
+									"};",
+									"",
+									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"address field is present\"]= responseBody.has(\"address\");",
+									"tests[\"address field is present\"]= responseBody.has(\"address\");",
+									"tests[\"city field is present\"]= responseBody.has(\"city\");",
+									"tests[\"state field is present\"]= responseBody.has(\"state\");",
+									"tests[\"zip field is present\"]= responseBody.has(\"zip\");",
+									"tests[\"timeZone field is present\"]= responseBody.has(\"timeZone\");",
+									"tests[\"createdDate field is present\"]= responseBody.has(\"createdDate\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token-reseller}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}clients/{{new_client_id}}",
+							"host": [
+								"{{url}}clients"
+							],
+							"path": [
+								"{{new_client_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL2picm9vbS1kZXYtYjJiLWlkZW50aXR5c2VydmVyLXdlYi5henVyZXdlYnNpdGVzLm5ldC9pZGVudGl0eSIsImF1ZCI6Imh0dHBzOi8vamJyb29tLWRldi1iMmItaWRlbnRpdHlzZXJ2ZXItd2ViLmF6dXJld2Vic2l0ZXMubmV0L2lkZW50aXR5L3Jlc291cmNlcyIsImV4cCI6MTUxODcyOTQ2OCwibmJmIjoxNTE4MDA5NDY4LCJjbGllbnRfaWQiOiJKdWljZUJveC5XZWIuQ2xpZW50LlVpIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwiYXBpIl0sInN1YiI6ImQ3MDk2OTM2LTVjMzMtNDE0YS1hZTNlLTRkOTJkMTExZGQ0NSIsImF1dGhfdGltZSI6MTUxODAwOTQ2OCwiaWRwIjoiaWRzcnYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJtYXRpbmFrc3UrMUBnbWFpbC5jb20iLCJlbWFpbCI6Im1hdGluYWtzdSsxQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjoidHJ1ZSIsImdpdmVuX25hbWUiOiJtYXRpbmFrc3UrMUBnbWFpbC5jb20iLCJmYW1pbHlfbmFtZSI6Im5vdCBzdXBwb3J0ZWQiLCJhbXIiOlsicGFzc3dvcmQiXX0.TX3iV3vLXsUkGw_jMpk5ZKG14hIZrrbJFatDskp0Cjzww-qv3zYJgE8uhdUyiqhzhB7_vAP8Ws-k2sE09dLze6rh3NfwMdWXhOWRZVRs-fQLLjzK4NOTvJzHkq-NemGEz4pr0XIclMq_sVqrTtaWQT3FDehJNNlPZSZdsvbGNN6uEncifBWC-1a0IPfT-Fd3tFntualgWxNqTMmll3jOcjRansoRFT6sN-PJ-mu7CD29OfD8slOwD-bPqVviFjxc4cbs6q4H4xJViivTLH03XZeJnyrJ7exFz7qdIgYen2Q1mbjuRjenWCTVspAS7XpqYopFMilCokslUIL_u5541Q",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8bd22c02-c947-4baf-b906-8bee34356d51",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "07accc47-6cc1-43f7-8c44-61e6d2d4d2f3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
 			"name": "Common",
 			"item": [
 				{
@@ -898,7 +1644,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}timezones",
 							"host": [
@@ -1141,7 +1890,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}objects/{{new_sublocation_id}}/parent/physical",
 							"host": [
@@ -1226,7 +1978,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/partners",
 							"host": [
@@ -1300,7 +2055,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/types",
 							"host": [
@@ -1445,7 +2203,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/types/1/subjects",
 							"host": [
@@ -1591,7 +2352,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/subjects",
 							"host": [
@@ -1638,7 +2402,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}permissions/objects/{{new_location_id}}/types/2/check",
 							"host": [
@@ -2201,7 +2968,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"locations\": [\r\n    \"18b197c0-8d0c-4aca-ba7b-25ae61abed53\"\r\n  ],\r\n  \"buildings\": [\r\n    \"00000000-0000-0000-0000-000000000000\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{url}}reports/users",
@@ -2281,7 +3048,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}subjects/?q={{user_email}}",
 							"host": [
@@ -2313,41 +3083,6 @@
 							"script": {
 								"id": "70fac654-a6a0-4ec9-b7bb-d4091626bc9f",
 								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"var schema = ",
-									"{",
-									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
-									"    \"type\": \"object\",",
-									"    \"properties\": {",
-									"        \"id\": {",
-									"            \"type\": \"string\"",
-									"            },",
-									"            \"identityId\": {",
-									"            \"type\": \"string\"",
-									"            },",
-									"            \"email\": {",
-									"            \"type\": \"string\"",
-									"            },",
-									"            \"name\": {",
-									"            \"type\": \"null\"",
-									"            },",
-									"            \"firstName\": {",
-									"            \"type\": \"string\"",
-									"            },",
-									"            \"lastName\": {",
-									"            \"type\": \"string\"",
-									"            },",
-									"\"required\": [",
-									"    \"id\",",
-									"    \"email\",",
-									"    \"name\",",
-									"    \"identityId\"",
-									"]",
-									"    }",
-									"};",
-									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
 									"tests[\"Status code is 200\"] = responseCode.code === 200;",
 									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
 									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
@@ -2451,31 +3186,35 @@
 			"name": "Users",
 			"item": [
 				{
-					"name": "createUser",
+					"name": "createUserAdmin",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "00c24d21-6c88-487e-befe-9dc0c45842d5",
+								"id": "d244afdc-5990-49a2-b4ea-a778c4dbfe13",
+								"type": "text/javascript",
 								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
+									" var jsonData = JSON.parse(responseBody);",
 									"",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Response has userID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
+									"tests[\"Users, createUser, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Users, createUser, Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Users, createUser, Response has userID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
 									"",
 									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
-									"pm.environment.set(\"new_user_id\", _str);",
+									"postman.setEnvironmentVariable(\"user_id\", _str);",
+									"",
+									"",
+									"",
 									"",
 									""
-								],
-								"type": "text/javascript"
+								]
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "2f774bc6-5b2b-4a89-a751-edf7819f686c",
+								"id": "bf7e9cfd-e3cc-4dae-a5c1-1e4afd518219",
+								"type": "text/javascript",
 								"exec": [
 									"var min",
 									"var max",
@@ -2488,8 +3227,7 @@
 									"",
 									"pm.environment.set(\"random_email\", email);",
 									"pm.environment.set(\"random_user\", user);"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -2513,7 +3251,87 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"email\": \"{{random_email}}\", \r\n\t\"name\": \"null\", \r\n\t\"firstName\": \"{{random_user}}\", \r\n\t\"lastName\": \"{{random_user}}\", \r\n\t\"userType\": \"0\" \r\n}"
+							"raw": "{\r\n  \"email\": \"{{random_email}}\",\r\n  \"firstName\": \"{{random_user}}\",\r\n  \"lastName\": \"Admin\",\r\n  \"userType\":0\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUserDriver",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "59b3e514-1c68-4189-9640-08b364fc0e77",
+								"type": "text/javascript",
+								"exec": [
+									" var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Users, createUser, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Users, createUser, Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Users, createUser, Response has userID\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody);",
+									"",
+									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
+									"postman.setEnvironmentVariable(\"new_user\", _str);",
+									"",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "bf7e9cfd-e3cc-4dae-a5c1-1e4afd518219",
+								"type": "text/javascript",
+								"exec": [
+									"var min",
+									"var max",
+									"function getRandomInt(min, max)",
+									"{",
+									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
+									"}",
+									"email= 'chikalov.ilya+'+getRandomInt(1, 1000)+'@gmail.com'",
+									"user= 'TestUser'+getRandomInt(1,1000)",
+									"",
+									"pm.environment.set(\"random_email\", email);",
+									"pm.environment.set(\"random_user\", user);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"{{random_email}}\",\r\n  \"firstName\": \"{{random_user}}\",\r\n  \"lastName\": \"{{random_user}}\"\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/users",
@@ -2533,54 +3351,53 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0531cb2a-f6ef-4064-8599-93b908911c74",
+								"id": "d9099109-2482-4137-b6a6-2791b4d43850",
+								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"var schema = ",
 									"{",
 									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
-									"    \"type\": \"array\",",
-									"    \"Properties\": {",
-									"    \"type\": \"object\",",
-									"    \"properties\": {",
-									"        \"id\": {",
+									"   \"type\": \"array\",",
+									"      \"items\": {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"          \"id\": {",
 									"            \"type\": \"string\"",
-									"            },",
-									"            \"email\": {",
+									"          },",
+									"          \"email\": {",
 									"            \"type\": \"string\"",
-									"            },",
-									"            \"name\": {",
-									"            \"type\": \"null, string\"",
-									"            },",
-									"            \"firstName\": {",
+									"          },",
+									"          \"name\": {",
+									"            \"type\": [ \"string\", \"null\" ]",
+									"          },",
+									"          \"firstName\": {",
 									"            \"type\": \"string\"",
-									"            },",
-									"            \"lastName\": {",
-									"            \"type\": \"string\"",
-									"            },",
-									"\"required\": [",
-									"    \"id\",",
-									"    \"email\",",
-									"    \"name\",",
-									"    \"firstName\",",
-									"    \"lastName\"",
-									"]",
-									"    ",
+									"          },",
+									"          \"lastName\": {",
+									"            \"type\": [ \"string\", \"null\" ]",
+									"          }",
+									"        },",
+									"          \"required\": [",
+									"              \"id\",",
+									"              \"email\",",
+									"              \"name\",",
+									"              \"firstName\",",
+									"              \"lastName\"",
+									"            ]",
 									"    }",
-									"    }",
-									"};",
+									"}",
+									"    ;",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"firstName field is present\"]= responseBody.has(\"firstName\");",
-									"tests[\"lastName field is present\"]= responseBody.has(\"lastName\");",
+									"tests[\"Users, getUsers, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Users, getUsers, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Users, getUsers, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Users, getUsers, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Users, getUsers, Email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"Users, getUsers, Name field is present\"]= responseBody.has(\"name\");",
 									"",
-									"postman.setEnvironmentVariable(\"user_id\", jsonData[0].id);",
+									"",
 									"postman.setEnvironmentVariable(\"user_email\", jsonData[0].email);",
 									"",
 									"",
@@ -2588,8 +3405,7 @@
 									"",
 									"",
 									""
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -2606,7 +3422,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/users",
 							"host": [
@@ -2625,7 +3444,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "76fce104-e1b8-467a-b1fe-21d016002b3c",
+								"id": "93346cc4-466f-492e-ab64-cd1a37f98762",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2654,12 +3473,12 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Users, getUserWithID, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Users, getUserWithID, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Users, getUserWithID, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Users, getUserWithID, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Users, getUserWithID, Email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"Users, getUserWithID, Name field is present\"]= responseBody.has(\"name\");",
 									"",
 									"//console.log(\"Validation failed: \", tv4.error);",
 									"",
@@ -2683,7 +3502,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/users/{{user_id}}",
 							"host": [
@@ -2703,7 +3525,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "412753d6-3354-475a-88a9-377f2ab7db81",
+								"id": "de2154ee-4ccd-4f87-815e-64d1e9fd84b4",
 								"type": "text/javascript",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
@@ -2733,12 +3555,12 @@
 									"}",
 									"    ;",
 									"",
-									"tests[\"Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Email field is present\"]= responseBody.has(\"email\");",
-									"tests[\"Name field is present\"]= responseBody.has(\"name\");",
+									"tests[\"Users, getUserMemberOf, Is Json  valid\"] = tv4.validate( jsonData, schema);",
+									"tests[\"Users, getUserMemberOf, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
+									"tests[\"Users, getUserMemberOf, Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Users, getUserMemberOf, ID field is present\"]= responseBody.has(\"id\");",
+									"tests[\"Users, getUserMemberOf, Email field is present\"]= responseBody.has(\"email\");",
+									"tests[\"Users, getUserMemberOf, Name field is present\"]= responseBody.has(\"name\");",
 									"",
 									"//console.log(\"Validation failed: \", tv4.error);",
 									"",
@@ -2762,7 +3584,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/users/{{user_id}}",
 							"host": [
@@ -2890,14 +3715,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}user-groups/{{new_user_group_id}}/members/{{new_user_id}}",
+							"raw": "{{url}}user-groups/{{new_user_group_id}}/members/{{user_id}}",
 							"host": [
 								"{{url}}user-groups"
 							],
 							"path": [
 								"{{new_user_group_id}}",
 								"members",
-								"{{new_user_id}}"
+								"{{user_id}}"
 							]
 						}
 					},
@@ -3139,14 +3964,14 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{url}}user-groups/{{new_user_group_id}}/members/{{new_user_id}}",
+							"raw": "{{url}}user-groups/{{new_user_group_id}}/members/{{user_id}}",
 							"host": [
 								"{{url}}user-groups"
 							],
 							"path": [
 								"{{new_user_group_id}}",
 								"members",
-								"{{new_user_id}}"
+								"{{user_id}}"
 							]
 						}
 					},
@@ -3270,7 +4095,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/templates",
 							"host": [
@@ -3542,7 +4370,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/list-extended",
 							"host": [
@@ -3550,48 +4381,6 @@
 							],
 							"path": [
 								"list-extended"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "rateInfo",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "15832c40-1132-402e-87aa-691deec04278",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}rates/{{new_device_id}}",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"{{new_device_id}}"
 							]
 						}
 					},
@@ -3612,7 +4401,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/object-rate/{{new_location_id}}",
 							"host": [
@@ -3664,7 +4456,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates",
 							"host": [
@@ -3703,7 +4498,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/object-rate/{{new_location_id}}",
 							"host": [
@@ -3746,7 +4544,10 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}rates/object-rate/{{new_sublocation_id}}",
 							"host": [
@@ -3805,148 +4606,6 @@
 							],
 							"path": [
 								"{{new_rate_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "deleteUser",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "00c24d21-6c88-487e-befe-9dc0c45842d5",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "2f774bc6-5b2b-4a89-a751-edf7819f686c",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}users/{{new_user_id}}",
-							"host": [
-								"{{url}}users"
-							],
-							"path": [
-								"{{new_user_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "deleteSubLocation",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "c5689cdb-3e7c-4043-b5ac-01adc9bd4c29",
-								"exec": [
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 204\"] = responseCode.code === 204;",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}locations/{{new_sublocation_id}}",
-							"host": [
-								"{{url}}locations"
-							],
-							"path": [
-								"{{new_sublocation_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "deleteLocation",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "09935977-c257-4519-b422-bf505c05ba55",
-								"exec": [
-									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Status code is 204\"] = responseCode.code === 204;",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}locations/{{new_location_id}}",
-							"host": [
-								"{{url}}locations"
-							],
-							"path": [
-								"{{new_location_id}}"
 							]
 						}
 					},
@@ -4081,726 +4740,12 @@
 					"response": []
 				}
 			]
-		}
-	],
-	"auth": {
-		"type": "bearer"
-	}
-}er": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}user-groups/{{new_user_group_id1}}/members/{{new_user}}",
-							"host": [
-								"{{url}}user-groups"
-							],
-							"path": [
-								"{{new_user_group_id1}}",
-								"members",
-								"{{new_user}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "deleteGroup",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "2dc8062d-8c90-4588-af3a-1518a9fc6c05",
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"UserGroup, deleteGroup, Status code is 204\"] = responseCode.code === 204;"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}user-groups/{{new_user_group_id1}}",
-							"host": [
-								"{{url}}user-groups"
-							],
-							"path": [
-								"{{new_user_group_id1}}"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Rate",
-			"item": [
-				{
-					"name": "listOfRateTemplates",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "4585e554-5d7a-4d3e-867a-b893fd4199d7",
-								"type": "text/javascript",
-								"exec": [
-									"var data = JSON.parse(responseBody);   ",
-									"var jsonData = JSON.parse(responseBody);",
-									"var schema = {",
-									"\"$schema\": \"http://json-schema.org/draft-04/schema#\",",
-									"  \"type\":\"array\",",
-									"  \"items\":  {",
-									"    \"type\": \"object\",",
-									"    \"properties\":  {  ",
-									"        \"id\": {",
-									"            \"type\":\"string\"",
-									"        },",
-									"        \"name\":  {",
-									"            \"type\":\"string\"",
-									"        },",
-									"        \"configurationTypeName\": {",
-									"            \"type\":\"string\"",
-									"        },",
-									"        \"isDefaultFree\": {",
-									"            \"type\":\"boolean\"",
-									"        },",
-									"\"required\":",
-									"[",
-									"    \"id\",",
-									"    \"name\",",
-									"    \"configurationTypeName\",",
-									"    \"isDefaultFree\"",
-									"]",
-									"",
-									"        }  ",
-									"    }",
-									"};",
-									"",
-									"tests[\"Rate, listOfRateTemplates, Is Json  valid\"] = tv4.validate( jsonData, schema);",
-									"tests[\"Rate, listOfRateTemplates, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Rate, listOfRateTemplates, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Rate, listOfRateTemplates, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Rate, listOfRateTemplates, Name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"Rate, listOfRateTemplates, configurationTypeName field is present\"]= responseBody.has(\"configurationTypeName\");",
-									"postman.setEnvironmentVariable(\"template_id\", data[1].id);",
-									""
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "415b89d5-26cf-4b4d-9439-ceed9ba2efe2",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}rates/templates",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"templates"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "createRate",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "4b3fc450-e2e3-43a0-813c-1152776b3dcc",
-								"type": "text/javascript",
-								"exec": [
-									"var min",
-									"var max",
-									"function getRandomInt(min, max)",
-									"{",
-									"  return Math.floor(Math.random() * (max - min + 1)) + min;",
-									"}",
-									"test= 'TestRate'+getRandomInt(1, 1000)",
-									"",
-									"pm.environment.set(\"random_rate\", test);"
-								]
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "9f05d366-8783-4eb0-8063-5f6f22d28b9c",
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									" ",
-									"tests[\"Rate, createRate, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Rate, createRate, Status code is 201\"] = responseCode.code === 201;",
-									"tests[\"Rate, createRate, Response has new_location_id\"]= /\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/.test(responseBody); ",
-									"",
-									"var _str = responseBody.match(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/i);",
-									"pm.environment.set(\"new_rate_id\", _str);",
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"{{random_rate}}\",\r\n  \"templateId\": \"{{template_id}}\",\r\n  \"templateState\": {\r\n    \"session\": 1,\r\n    \"hour\": 5,\r\n    \"kWh\": 0\r\n  }\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}rates",
-							"host": [
-								"{{url}}rates"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "filteredRateList",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7afcf602-c8fb-4646-a5b7-01b9d4eda3e9",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Rate, filteredRateList, Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"locations\": [\r\n    \"{{new_location_id}}\"\r\n  ],\r\n  \"buildings\": [\r\n    \"{{new_sublocation_id}}\"\r\n  ],\r\n  \"buildingsOnly\": true\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}rates/list",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"list"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "assignRateToLoctation",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "42516743-a99f-4f6c-ba7b-b459796d2a6f",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Rate, assignRateToLocation, Status code is 204\", function () {",
-									"    pm.response.to.have.status(204);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"rateId\": \"{{new_rate_id}}\",\r\n  \"targetId\": \"{{new_location_id}}\",\r\n  \"inherit\": true\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}rates/assign-location",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"assign-location"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "assignRateToSubLoctation",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "890646cc-e093-4e3a-b77a-448462952775",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Rate, assignRateToSubLocation, Status code is 204\", function () {",
-									"    pm.response.to.have.status(204);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"rateId\": \"{{new_rate_id}}\",\r\n  \"targetId\": \"{{new_sublocation_id}}\",\r\n  \"inherit\": true\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}rates/assign-sublocation",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"assign-sublocation"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "listOfClientTariffsExtended",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "f5005120-73dd-4555-a848-53fed8d8d9cc",
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Rate, listOfClientTariffsExtended, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Rate, listOfClientTariffsExtended, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Rate, listOfClientTariffsExtended, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Rate, listOfClientTariffsExtended, created field is present\"]= responseBody.has(\"created\");",
-									"tests[\"Rate, listOfClientTariffsExtended, updated field is present\"]= responseBody.has(\"updated\");",
-									"tests[\"Rate, listOfClientTariffsExtended, name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"Rate, listOfClientTariffsExtended, configurationType field is present\"]= responseBody.has(\"configurationType\");",
-									"tests[\"Rate, listOfClientTariffsExtended, configurationJson field is present\"]= responseBody.has(\"configurationJson\");",
-									"tests[\"Rate, listOfClientTariffsExtended, PerSessionTariff field is present\"]= responseBody.has(\"PerSessionTariff\");",
-									"tests[\"Rate, listOfClientTariffsExtended, PerHourTariff field is present\"]= responseBody.has(\"PerHourTariff\");",
-									"tests[\"Rate, listOfClientTariffsExtended, PerEnergyTariff field is present\"]= responseBody.has(\"PerEnergyTariff\");",
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}rates/list-extended",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"list-extended"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "rateInfo",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "650d87bb-4ff0-4643-bd34-593f6c8f6a2f",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Rate, rateInfo, Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}rates/{{new_device_id}}",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"{{new_device_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "rateInfoByLoc/SubLoc/DevID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "3cfff060-3b7f-4994-8769-167d4d76b26b",
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Rate, rateInfoByLoc/SubLoc/DevID, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Rate, rateInfoByLoc/SubLoc/DevID, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Rate, rateInfoByLoc/SubLoc/DevID, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Rate, rateInfoByLoc/SubLoc/DevID, created field is present\"]= responseBody.has(\"created\");",
-									"tests[\"Rate, rateInfoByLoc/SubLoc/DevID, updated field is present\"]= responseBody.has(\"updated\");",
-									"tests[\"Rate, rateInfoByLoc/SubLoc/DevID, name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"Rate, rateInfoByLoc/SubLoc/DevID, configurationType field is present\"]= responseBody.has(\"configurationType\");",
-									"tests[\"Rate, rateInfoByLoc/SubLoc/DevID, configurationJson field is present\"]= responseBody.has(\"configurationJson\");",
-									"tests[\"Rate, rateInfoByLoc/SubLoc/DevID, currencyId field is present\"]= responseBody.has(\"currencyId\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}rates/object-rate/{{new_location_id}}",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"object-rate",
-								"{{new_location_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "listOfClientTariffs",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "4999c511-6d9c-48e0-87fc-03748e305ab0",
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Rate, listOfClientTariffs, Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Rate, listOfClientTariffs, Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\")",
-									"tests[\"Rate, listOfClientTariffs, ID field is present\"]= responseBody.has(\"id\");",
-									"tests[\"Rate, listOfClientTariffs, created field is present\"]= responseBody.has(\"created\");",
-									"tests[\"Rate, listOfClientTariffs, updated field is present\"]= responseBody.has(\"updated\");",
-									"tests[\"Rate, listOfClientTariffs, name field is present\"]= responseBody.has(\"name\");",
-									"tests[\"Rate, listOfClientTariffs, configurationType field is present\"]= responseBody.has(\"configurationType\");",
-									"tests[\"Rate, listOfClientTariffs, configurationJson field is present\"]= responseBody.has(\"configurationJson\");",
-									"tests[\"Rate, listOfClientTariffs, PerSessionTariff field is present\"]= responseBody.has(\"PerSessionTariff\");",
-									"tests[\"Rate, listOfClientTariffs, PerHourTariff field is present\"]= responseBody.has(\"PerHourTariff\");",
-									"tests[\"Rate, listOfClientTariffs, PerEnergyTariff field is present\"]= responseBody.has(\"PerEnergyTariff\");",
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}rates",
-							"host": [
-								"{{url}}rates"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "locationsByRateID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "031682b9-92a5-482e-b97b-ee098dcca853",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Rate, locationsByRateID, Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}rates/object-rate/{{new_location_id}}",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"object-rate",
-								"{{new_location_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "subLocationsByRateID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "e31715f2-5c0d-4ad4-922a-a37ef6e4e099",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Rate, subLocationsByRateID, Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "{{url}}rates/object-rate/{{new_sublocation_id}}",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"object-rate",
-								"{{new_sublocation_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "udpateRate",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "29307809-8c1b-4b8d-9093-cfdd7b9cecb9",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Rate, updateRate, Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"templateName\": \"{{random_rate}}\",\r\n  \"templateState\": {\r\n    \"perSessionTariff\": 1,\r\n    \"perHourTariff\": 2,\r\n    \"perEnergyTariff\": 4\r\n  }\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}rates/{{new_rate_id}}",
-							"host": [
-								"{{url}}rates"
-							],
-							"path": [
-								"{{new_rate_id}}"
-							]
-						}
-					},
-					"response": []
-				}
-			]
 		},
 		{
 			"name": "Clean",
 			"item": [
 				{
-					"name": "deleteSubLocation2",
+					"name": "deleteSubLocation",
 					"event": [
 						{
 							"listen": "test",
@@ -4845,7 +4790,7 @@
 					"response": []
 				},
 				{
-					"name": "deleteLocation2",
+					"name": "deleteLocation",
 					"event": [
 						{
 							"listen": "test",
