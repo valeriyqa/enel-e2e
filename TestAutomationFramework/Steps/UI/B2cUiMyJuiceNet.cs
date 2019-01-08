@@ -19,7 +19,7 @@ namespace TestAutomationFramework.Steps.UI
         public B2cUiMyJuiceNet(RemoteWebDriver driver) => this.driver = driver;
 
 
-        [Given(@"JuiceNet device is not added")] //done
+        [Given(@"JuiceNet device is not added \(b2c\)")] //done
         public void JuiceNetDeviceIsNotAdded()
         {
             Console.WriteLine("JuiceNet Device is not added");
@@ -61,7 +61,7 @@ namespace TestAutomationFramework.Steps.UI
         //    Assert.IsFalse(elementExist);
         //}
 
-        [Then(@"JuiceNet device with Id ""(.*)"" should exist is ""(.*)""")]
+        [Then(@"JuiceNet device with Id ""(.*)"" should exist is ""(.*)"" \(b2c\)")]
         public void ThenJuiceNetDeviceWithIdShouldExistIs(string deviceId, string shouldExist)
         {
             IList<IWebElement> all = driver.FindElements(By.ClassName("unit-info-container"));
@@ -78,7 +78,7 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(bool.Parse(shouldExist), elementExist);
         }
 
-        [When(@"I click More Details for device with Id ""(.*)""")]
+        [When(@"I click More Details for device with Id ""(.*)"" \(b2c\)")]
         public void WhenIClickMoreDetailsForDeviceWithId(string deviceId)
         {
             driver.FindElementByCssSelector("[href*='unitID=" + deviceId + "']").Click();

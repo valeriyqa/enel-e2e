@@ -23,13 +23,13 @@ namespace TestAutomationFramework.Steps.UI
 
         public B2cUiRegistrationAndLogInSteps(RemoteWebDriver driver) => this.driver = driver;
 
-        [Given(@"I navigate to ""(.*)"" page")] //done
+        [Given(@"I navigate to ""(.*)"" page \(b2c\)")] //done
         public void GivenINavigateToPage(string page)
         {
             driver.Navigate().GoToUrl(host + page);
         }
 
-        [When(@"I click on ""(.*)"" link")]  //done
+        [When(@"I click on ""(.*)"" link \(b2c\)")]  //done
         public void WhenIClickOnLink(string linkText)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -37,13 +37,13 @@ namespace TestAutomationFramework.Steps.UI
             driver.FindElementByPartialLinkText(linkText).Click();
         }
 
-        [Then(@"I should be navigated to the ""(.*)"" page")] //done
+        [Then(@"I should be navigated to the ""(.*)"" page \(b2c\)")] //done
         public void ThenIShouldBeNavigatedToThePage(string page)
         {
             Assert.AreEqual(driver.Url, host + page);
         }
 
-        [When(@"I set field ""(.*)"" to ""(.*)""")] //done
+        [When(@"I set field ""(.*)"" to ""(.*)"" \(b2c\)")] //done
         public void WhenISetFieldTo(string fieldId, string value)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -52,7 +52,7 @@ namespace TestAutomationFramework.Steps.UI
             driver.FindElementById(fieldId).SendKeys(value);
         }
 
-        [When(@"I set field ""(.*)"" to ""(.*)""")] //done
+        [When(@"I set field ""(.*)"" to ""(.*)"" \(b2c\)")] //done
         public void WhenISetFieldTo(string fieldId, string value, Table table)
         {
             foreach (var row in table.Rows)
@@ -63,13 +63,13 @@ namespace TestAutomationFramework.Steps.UI
         }
 
 
-        [Then(@"field ""(.*)"" should be masked")] //done
+        [Then(@"field ""(.*)"" should be masked \(b2c\)")] //done
         public void ThenFieldShouldBeMasked(string fieldId)
         {
             Assert.AreEqual(driver.FindElementById(fieldId).GetAttribute("type"), "password");
         }
 
-        [Then(@"field ""(.*)"" should be masked")] //done
+        [Then(@"field ""(.*)"" should be masked \(b2c\)")] //done
         public void ThenFieldShouldBeMasked(string p0, Table table)
         {
             foreach (var row in table.Rows)
@@ -78,13 +78,13 @@ namespace TestAutomationFramework.Steps.UI
             }
         }
 
-        [When(@"I click on button by with Id ""(.*)""")] //done
+        [When(@"I click on button by with Id ""(.*)"" \(b2c\)")] //done
         public void WhenIClickOnButtonWithId(string buttonId)
         {
             driver.FindElementById(buttonId).Submit();
         }
 
-        [When(@"I click on ""(.*)"" button")] //done
+        [When(@"I click on ""(.*)"" button \(b2c\)")] //done
         public void WhenIClickOnButton(string buttonText)
         {
             IJavaScriptExecutor js = driver;
@@ -95,7 +95,7 @@ namespace TestAutomationFramework.Steps.UI
 
         }
 
-        [When(@"I confirm my email address")]
+        [When(@"I confirm my email address \(b2c\)")]
         public void WhenIConfirmMyEmailAddress()
         {
             Console.WriteLine("I confirm my email address");
@@ -106,24 +106,13 @@ namespace TestAutomationFramework.Steps.UI
             Console.WriteLine(File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_not_local.txt")));
         }
 
-        [Then(@"I should be logged into the application")]
+        [Then(@"I should be logged into the application \(b2c\)")]
         public void ThenIShouldBeLoggedIntoTheApplication()
         {
             Console.WriteLine("I should be logged into the application");
         }
 
-        //[Given(@"I login to the application as ""(.*)""")] //done
-        //public void GivenILoginToTheApplicationAs(string userName)
-        //{
-        //    driver.Navigate().GoToUrl(host + "Account/Login");
-        //    B2cLoginPage loginPage = new B2cLoginPage(driver);
-        //    Tools.LoadUsersFromConf.User currentUser = usersDictionary[userName];
-        //    loginPage.LoginToApplication(currentUser.userEmail, currentUser.userPassword);
-        //    B2cGeneralPage generalPage = new B2cGeneralPage(driver);
-        //    Assert.AreEqual(generalPage.GetUserName(), currentUser.userDescription);
-        //}
-
-        [Given(@"I login to the b2c system as ""(.*)""")]
+        [Given(@"I login to the system as ""(.*)"" \(b2c\)")]
         public void GivenILoginToTheB2cSystemAs(string userName)
         {
             driver.Navigate().GoToUrl(host + "Account/Login");
