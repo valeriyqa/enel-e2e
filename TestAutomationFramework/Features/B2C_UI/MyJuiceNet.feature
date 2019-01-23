@@ -9,55 +9,35 @@ Scenario: B2C_Web_MyJuiceNet_01 - Add/Delete JuiceNet Device
 
 	Given JuiceNet device is not added (b2c)
 	And I login to the system as "Oleksii" (b2c)
-	When I click on "Add JuiceNet Device" button (b2c)
+	When I click on button with name "Add JuiceNet Device" (b2c)
 	And I set field "inputUnitID" to "373708002" (b2c)
-	And I click on "Add JuiceNet Device" button (b2c)
+	And I click on button with name "Add JuiceNet Device" (b2c)
 	And I click on "Browse My JuiceNet Devices" link (b2c)
 	Then JuiceNet device with Id "373708002" should exist is "True" (b2c)
 	When I click More Details for device with Id "373708002" (b2c)
-	And I click on "Delete" button (b2c)
-	And I click on "Yes, remove from my account" button (b2c)
+	And I click on button with name "Delete" (b2c)
+	And I click on button with name "Yes, remove from my account" (b2c)
 	Then JuiceNet device with Id "373708002" should exist is "False" (b2c)
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_01 - Add JuiceNet Device**
-#Create new device in JuiceBox Emulator
-#Navigate to dashboard
-#Click on "Add JuiceNet Device" button
-#Pop-up window opens
-#Provide valid JuiceNet Device ID
-#Click on "Add JuiceNet Device" button
-#Success alert appears.
-#Click on "Browse My JuiceNet Device" button
-#User is navigated to dashboard with new device displayed
+Scenario: B2C_Web_MyJuiceNet_02 - JuiceNet Device Status
+	Given  I login to the system as "Oleksii" (b2c)
+	When I click More Details for device with Id "373709011" (b2c)
+	Then field with Label "Allowed Current" should be equal to "60" (b2c)
+	And field with Label "Charging Limit" should be equal to "0" (b2c)
+	Given all checkboxes on panel with Id "panelNotify" is not activated (b2c)
+	When I click all checkboxes on panel with Id "panelNotify" (b2c)
+	When I click on button with Id "saveNotificationsButton" (b2c)
+	Then all checkboxes on panel with Id "panelNotify" should be activated (b2c)
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_02 - Delete JuiceNet Device**
-#Run "Add JuiceNet Device" test case
-#Navigate to dashboard
-#Click on "More Details" link in Device area
-#User is navigated to device page with active Status tab
-#Click on "Delete" button on the top right
-#JuiceNet Device Deletion alert appears.
-#Click on "Yes, remove from my account" button
-#User is navigated to dashboard. Device is not displayed
+Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
+	Given  I login to the system as "Oleksii" (b2c)
+	When I click More Details for device with Id "373708002" (b2c)
+	And I click on tab with label "History" (b2c)
+	When I get all data from table with Id "usagetable" (b2c)
+	Then table should be empty (b2c)
 
-@b2c @web 
-Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device Status**
-#Run "Add JuiceNet Device" test case
-#Navigate to dashboard
-#Click on "More Details" link in Device area
-#User is navigated to device page with active Status tab
-#Check "Allowed Current" value
-#"Allowed Current" value = 60 A
-#Check "Charging Limit" value
-#"Charging Limit" value = 0 kWh
-#Flag all email notification check-boxes
-#Click on "Update" button
-#All flags displays
-
-@b2c @web 
-Scenario: B2C_Web_MyJuiceNet_04 - JuiceNet Device History**
 #Run "Add JuiceNet Device" test case
 #Navigate to dashboard
 #Click on "More Details" link in Device area

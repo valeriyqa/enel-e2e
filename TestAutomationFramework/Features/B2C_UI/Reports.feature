@@ -4,6 +4,16 @@
 
 @b2c @web
 Scenario: B2C_Web_Reports_01 - Single unit report
+	Given I login to the system as "Oleksii" (b2c)
+	And I navigate to the "User Sessions" page (b2c)
+	#Then field with Label "Start date" should be equal to "day week ago" (b2c)
+	#Then field with Label "End date" should be equal to "today" (b2c)
+	#When I select "373709011" on selector with Label "Unit" (b2c)
+	#When I click on button with name "Build" (b2c)
+	When I get all data from table with Id "reportTable" (b2c)
+
+	
+
 #Login as user with 1 or more unints (they must have past charges)
 #Navigate to Reports
 #Enter User sessions

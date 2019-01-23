@@ -220,6 +220,7 @@
     <Compile Include="Hooks.cs" />
     <Compile Include="POM\B2bGeneralPage.cs" />
     <Compile Include="POM\B2bLocationPage.cs" />
+    <Compile Include="POM\B2cJuiceBoxPage.cs" />
     <Compile Include="POM\B2cGeneralPage.cs" />
     <Compile Include="POM\B2bLoginPage.cs" />
     <Compile Include="POM\B2cLoginPage.cs" />
@@ -240,7 +241,7 @@
     <Compile Include="Steps\API\B2cApiTestTest.cs" />
     <Compile Include="Steps\UDP\B2cUdpTestSteps.cs" />
     <Compile Include="Steps\UI\B2cUiLoginSteps.cs" />
-    <Compile Include="Steps\UI\B2cUiMyJuiceNet.cs" />
+    <Compile Include="Steps\UI\B2cUiMyJuiceNetSteps.cs" />
     <Compile Include="Steps\UI\B2cUiRegistrationAndLogInSteps.cs" />
     <Compile Include="Tools\ConvertDateTime.cs" />
     <Compile Include="Tools\LoadTableFromFile.cs" />

@@ -78,23 +78,6 @@ namespace TestAutomationFramework.Steps.UI
             }
         }
 
-        [When(@"I click on button by with Id ""(.*)"" \(b2c\)")] //done
-        public void WhenIClickOnButtonWithId(string buttonId)
-        {
-            driver.FindElementById(buttonId).Submit();
-        }
-
-        [When(@"I click on ""(.*)"" button \(b2c\)")] //done
-        public void WhenIClickOnButton(string buttonText)
-        {
-            IJavaScriptExecutor js = driver;
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(wd => (Int64)js.ExecuteScript("return $(\"button:contains('" + buttonText + "'):visible\").length;") > 0);
-
-            js.ExecuteScript("$(\"button:contains('" + buttonText + "'):visible\").click();");
-
-        }
-
         [When(@"I confirm my email address \(b2c\)")]
         public void WhenIConfirmMyEmailAddress()
         {

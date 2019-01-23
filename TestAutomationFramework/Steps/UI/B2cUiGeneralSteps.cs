@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using NUnit.Framework;
 using OpenQA.Selenium.Remote;
 using System;
+using System.Data;
 using TechTalk.SpecFlow;
 using TestAutomationFramework.POM;
 
@@ -23,49 +24,115 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(driver.Url, generalPage.GetAddressByMenuName(pageName));
         }
 
-        //[Given(@"I click on the ""(.*)"" button \(b2b\)")]
-        //[When(@"I click on the ""(.*)"" button \(b2b\)")]
-        //public void IClickOnTheButtonB2b(string buttonName)
-        //{
-        //    var generalPage = new B2bGeneralPage(driver);
-        //    generalPage.ClickButtonByName(buttonName);
+        [Then(@"field with Id ""(.*)"" should be equal to ""(.*)"" \(b2c\)")]
+        public void ThenFieldWithIdShouldBeEqualToBc(string fieldId, string fieldValue)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            string result = generalPage.GetInputValueById(fieldId);
 
-        //}
+            string expectedResult;
+            switch (fieldValue.Replace(" ", "").ToLower())
+            {
+                case "today":
+                    expectedResult = DateTime.Now.ToString("MM-dd-yyyy");
+                    break;
+                case "dayweekago":
+                    expectedResult = DateTime.Now.AddDays(-7).ToString("MM-dd-yyyy");
+                    break;
+                default:
+                    expectedResult = fieldValue;
+                    break;
+            }
 
-        //[When(@"I set input ""(.*)"" to the value ""(.*)"" \(b2b\)")]
-        //public void ISetInputToTheValueB2b(string inputName, string inputValue)
-        //{
-        //    var generalPage = new B2bGeneralPage(driver);
-        //    generalPage.SetInputByName(inputName, inputValue);
-        //}
+            Console.WriteLine("Current result:" +  result);
+            Console.WriteLine("Expected result:" + expectedResult);
 
-        //[Then(@"Popup window with ""(.*)"" message and ""(.*)"" status should be displayed \(b2b\)")]
-        //public void ThenPopupWindowWithMessageAndStatusShouldBeDisplayedBb(string messageText, string status)
-        //{
-        //    var generalPage = new B2bGeneralPage(driver);
-        //    generalPage.AssertPopup(messageText, status);
-        //}
+            Assert.AreEqual(expectedResult, result);
+        }
 
-        //[Given(@"Buagaga")]
-        //public void GivenBuagaga()
-        //{
-        //    Console.WriteLine("Step1 - Start else");
-        //    //var envVariables = Environment.GetEnvironmentVariables();
-        //    //Console.WriteLine("Step2 - List all varibles");
+        [Then(@"field with Label ""(.*)"" should be equal to ""(.*)"" \(b2c\)")]
+        public void ThenFieldWithLabelShouldBeEqualToBc(string fieldLabel, string fieldValue)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            string result = generalPage.GetInputValueByLabel(fieldLabel);
+            string expectedResult;
+            switch (fieldValue.Replace(" ", "").ToLower())
+            {
+                case "today":
+                    expectedResult = DateTime.Now.ToString("MM-dd-yyyy");
+                    break;
+                case "dayweekago":
+                    expectedResult = DateTime.Now.AddDays(-7).ToString("MM-dd-yyyy");
+                    break;
+                default:
+                    expectedResult = fieldValue;
+                    break;
+            }
 
-        //    //foreach (var variable in envVariables)
-        //    //{
-        //    //    Console.WriteLine("Step2a - " + variable);
-        //    //}
+            Console.WriteLine("Current result:" + result);
+            Console.WriteLine("Expected result:" + expectedResult);
 
-        //    //string jsonString = JsonConvert.SerializeObject(envVariables, Formatting.Indented);
-        //    //Console.WriteLine("Step3 - Json string = " + jsonString);
-        //    //ConfigObject configFromJson = Config.ApplyJson(jsonString);
-        //    //Console.WriteLine("Step4 - Create Json Object");
-        //    //Config.SetDefaultConfig(configFromJson);
-        //    //Console.WriteLine("Step5 - Set config as default");
-        //    Console.WriteLine("Step6 - Finish else");
-        //}
+            Assert.AreEqual(expectedResult, result);
+        }
+
+        [When(@"I set field with Id ""(.*)"" to ""(.*)"" \(b2c\)")]
+        public void WhenISetFieldWithIdToBc(string fieldId, string fieldValue)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            generalPage.SetInputValueById(fieldId, fieldValue);
+        }
+
+        [When(@"I set field with Label ""(.*)"" to ""(.*)"" \(b2c\)")]
+        public void WhenISetFieldWithLabelToBc(string fieldLabel, string fieldValue)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            generalPage.SetInputValueByLabel(fieldLabel, fieldValue);
+        }
+
+        [When(@"I select ""(.*)"" on selector with Id ""(.*)"" \(b2c\)")]
+        public void WhenISelectOnSelectorWithIdBc(string selectValue, string selectId)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            generalPage.SelectValueById(selectId, selectValue);
+        }
+
+        [When(@"I select ""(.*)"" on selector with Label ""(.*)"" \(b2c\)")]
+        public void WhenISelectOnSelectorWithLabelBc(string selectValue, string selectLabel)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            generalPage.SelectValueByLabel(selectLabel, selectValue);
+        }
+
+        [When(@"I click on button with Id ""(.*)"" \(b2c\)")]
+        public void WhenIClickOnButtonWithId(string buttonId)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            generalPage.ClickButtonWithId(buttonId);
+            //System.Threading.Thread.Sleep(5000);
+        }
+
+        [When(@"I click on button with name ""(.*)"" \(b2c\)")]
+        public void WhenIClickOnButton(string buttonText)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            generalPage.ClickButtonWithName(buttonText);
+            //System.Threading.Thread.Sleep(5000);
+        }
+
+        [When(@"I get all data from table with Id ""(.*)"" \(b2c\)")]
+        public void WhenIGetAllDataFromTableWithIdBc(string tableId)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            DataTable Table = generalPage.GetTableFromAllListsById(tableId);
+
+            //foreach (DataRow dataRow in Table.Rows)
+            //{
+            //    foreach (var item in dataRow.ItemArray)
+            //    {
+            //        Console.WriteLine(item);
+            //    }
+            //}
+        }
 
     }
 }
