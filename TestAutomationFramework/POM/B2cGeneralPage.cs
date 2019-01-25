@@ -104,6 +104,7 @@ namespace TestAutomationFramework.POM
             //driver.FindElement(By.XPath("//button[contains(text(),'" + buttonName + "')]")).Submit();
         }
 
+        //We should optimize this mathod since it use big part of GetTableById
         public DataTable GetTableFromAllListsById(string tableId)
         {
             if (!tableId.Contains("wrapper"))
@@ -135,6 +136,21 @@ namespace TestAutomationFramework.POM
                     dt.Rows.Add(dr);
                 }
 
+                try
+                {
+                    wait = new WebDriverWait(driver, TimeSpan.FromSeconds(1));
+                    wait.Until((d) =>
+                    {
+                        return d.FindElement(By.Id(tableId.Replace("_wrapper", "") + "_paginate"));
+                    });
+                    //wait.Until(wd => driver.FindElement(By.Id(tableId.Replace("_wrapper", "") + "_paginate")));
+                }
+                catch (Exception)
+                {
+
+                    break;
+                }
+
                 if (driver.FindElement(By.XPath("//div[@id = '" + tableId + "']//li[contains(@class, 'paginate_button next')]")).GetAttribute("class").Contains("disabled"))
                 {
                     break;
@@ -147,6 +163,36 @@ namespace TestAutomationFramework.POM
             return dt;
         }
 
+        public DataTable GetTableById(string tableId)
+        {
+            if (!tableId.Contains("wrapper"))
+            {
+                tableId = tableId + "_wrapper";
+            }
+
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.XPath("//div[@id = '" + tableId + "']")).Displayed);
+
+            DataTable dt = new DataTable();
+            IList<IWebElement> headersElement = driver.FindElements(By.XPath("//div[@id = '" + tableId + "']//th"));
+            foreach (IWebElement header in headersElement)
+            {
+                dt.Columns.Add(header.Text);
+            }
+
+            IList<IWebElement> bodyRows = driver.FindElements(By.XPath("//div[@id = '" + tableId + "']//tbody//tr"));
+            for (int i = 1; i <= bodyRows.Count; i++)
+            {
+                DataRow dr = dt.NewRow();
+                IList<IWebElement> cellsInRow = driver.FindElements(By.XPath("//div[@id = '" + tableId + "']//tbody//tr[" + i + "]//td"));
+                for (int j = 0; j < cellsInRow.Count; j++)
+                {
+                    dr[j] = cellsInRow[j].Text;
+                }
+                dt.Rows.Add(dr);
+            }
+            return dt;
+        }
 
     }
 }

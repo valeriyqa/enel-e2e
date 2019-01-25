@@ -87,6 +87,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I navigate to the \"User Sessions\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
  testRunner.When("I get all data from table with Id \"reportTable\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
+ testRunner.Then("I print table (test)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -100,7 +102,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Reports_02 - All unit report", null, new string[] {
                         "b2c",
                         "web"});
-#line 29
+#line 30
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -116,7 +118,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Reports_03 - Group by devices report", null, new string[] {
                         "b2c",
                         "web"});
-#line 45
+#line 46
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden

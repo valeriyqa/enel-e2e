@@ -33,7 +33,7 @@ Scenario: B2C_Web_MyJuiceNet_02 - JuiceNet Device Status
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
 	Given  I login to the system as "Oleksii" (b2c)
-	When I click More Details for device with Id "373708002" (b2c)
+	When I click More Details for device with Id "373709011" (b2c)
 	And I click on tab with label "History" (b2c)
 	When I get all data from table with Id "usagetable" (b2c)
 	Then table should be empty (b2c)

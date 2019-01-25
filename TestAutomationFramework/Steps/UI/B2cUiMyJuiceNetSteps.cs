@@ -4,6 +4,7 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +17,22 @@ namespace TestAutomationFramework.Steps.UI
     [Binding]
     class B2cUiMyJuiceNetSteps
     {
-        private readonly RemoteWebDriver driver;
-        public B2cUiMyJuiceNetSteps(RemoteWebDriver driver) => this.driver = driver;
+        //private readonly TestData testData;
+        //private readonly RemoteWebDriver driver;
+        //public B2cUiGeneralSteps(TestData testData, RemoteWebDriver driver)
+        //{
+        //    this.testData = testData;
+        //    this.driver = driver;
+        //}
+        private readonly B2cUiGeneralSteps.TestData testData;
 
+
+        private readonly RemoteWebDriver driver;
+        public B2cUiMyJuiceNetSteps(B2cUiGeneralSteps.TestData testData, RemoteWebDriver driver)
+        {
+            this.testData = testData;
+            this.driver = driver;
+        }
 
         [Given(@"JuiceNet device is not added \(b2c\)")] //done
         public void JuiceNetDeviceIsNotAdded()
@@ -82,7 +96,7 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I click More Details for device with Id ""(.*)"" \(b2c\)")]
         public void WhenIClickMoreDetailsForDeviceWithId(string deviceId)
         {
-            driver.FindElementByCssSelector("[href*='unitID=" + deviceId + "']").Click();
+            driver.FindElementByXPath("//div[@data-unitid = '" + deviceId + "']//div[contains(@class, 'panel-footer')]//span").Click();
         }
 
         [When(@"I click all checkboxes on panel with Id ""(.*)"" \(b2c\)")]
@@ -130,7 +144,13 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"table should be empty \(b2c\)")]
         public void ThenTableShouldBeEmptyBc()
         {
-            FeatureContext
+            foreach (DataRow dataRow in testData.table.Rows)
+            {
+                foreach (var item in dataRow.ItemArray)
+                {
+                    Console.WriteLine(item);
+                }
+            }
         }
 
     }

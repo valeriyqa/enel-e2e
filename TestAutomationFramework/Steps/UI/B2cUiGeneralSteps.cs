@@ -12,8 +12,18 @@ namespace TestAutomationFramework.Steps.UI
     [Binding]
     class B2cUiGeneralSteps
     {
+        public class TestData
+        {
+            public DataTable table;
+        }
+
+        private readonly TestData testData;
         private readonly RemoteWebDriver driver;
-        public B2cUiGeneralSteps(RemoteWebDriver driver) => this.driver = driver;
+        public B2cUiGeneralSteps(TestData testData, RemoteWebDriver driver)
+        {
+            this.testData = testData;
+            this.driver = driver;
+        }
 
         [Given(@"I navigate to the ""(.*)"" page \(b2c\)")]
         [Then(@"I navigate to the ""(.*)"" page \(b2c\)")]
@@ -124,6 +134,7 @@ namespace TestAutomationFramework.Steps.UI
         {
             var generalPage = new B2cGeneralPage(driver);
             DataTable Table = generalPage.GetTableFromAllListsById(tableId);
+            testData.table = Table;
 
             //foreach (DataRow dataRow in Table.Rows)
             //{
@@ -133,6 +144,20 @@ namespace TestAutomationFramework.Steps.UI
             //    }
             //}
         }
+
+        [Then(@"I print table \(test\)")]
+        public void ThenIPrintTableTest()
+        {
+
+            foreach (DataRow dataRow in testData.table.Rows)
+            {
+                foreach (var item in dataRow.ItemArray)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+        }
+
 
     }
 }

@@ -155,7 +155,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 35
  testRunner.Given("I login to the system as \"Oleksii\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 36
- testRunner.When("I click More Details for device with Id \"373708002\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click More Details for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 37
  testRunner.And("I click on tab with label \"History\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 38
