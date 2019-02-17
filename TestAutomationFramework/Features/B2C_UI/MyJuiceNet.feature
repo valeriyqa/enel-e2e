@@ -35,65 +35,64 @@ Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
 	Given  I login to the system as "Oleksii" (b2c)
 	When I click More Details for device with Id "373709011" (b2c)
 	And I click on tab with label "History" (b2c)
-	When I get all data from table with Id "usagetable" (b2c)
+	When I get data from table with Id "usagetable" (b2c)
 	Then table should be empty (b2c)
 
-#Run "Add JuiceNet Device" test case
-#Navigate to dashboard
-#Click on "More Details" link in Device area
-#User is navigated to device page with active Status tab
-#Click on History tab
-#User is navigated to History tab
-#Check history entries
-#0 entries for a new device
+@b2c @web 
+Scenario: B2C_Web_MyJuiceNet_04 - JuiceNet Device states on dashboard
+	Given  I login to the system as "Oleksii" (b2c)
+	When I send UDP package with status "Standby" to unit "373709011"
+	Then panel color for device with Id "373709011" should be changed to "primary" (b2c)
+	And device with Id "373709011" should have status "Standby" (b2c)
+	When I send UDP package with status "Connected" to unit "373709011"
+	Then panel color for device with Id "373709011" should be changed to "green" (b2c)
+	And device with Id "373709011" should have status "Plugged in" (b2c)
+	When I remember charging and saving values for device with Id "373709011" (b2c)
+	And I send UDP package with status "Charging" to unit "373709011"
+	Then panel color for device with Id "373709011" should be changed to "yellow" (b2c)
+	And device with Id "373709011" should have status "Charging" (b2c)
+	And energy and savings for device with Id "373709011" should grow (b2c)
+	Then I send UDP package with status "Standby" to unit "373709011"
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_05 - JuiceNet Device states on dashboard**
-#Run "Add JuiceNet Device" test case
-#Navigate to dashboard
-#Plug off and power off device in emulator(if it 's not)
-#Check JuiceNet Device area on dashboard
-#The state is Standby. Back color is blue.
-#Plug in device in JuiceBox Emulator
-#Check JuiceNet Device area on dashboard
-#The state changed from Standby to Plugged In. Back color turn to green from blue.
-#Set device can draw power in JuiceBox Emulator
-#Check JuiceNet Device area on dashboard
-#The state changed from Plugged In to Charging . Back color turn to orange from green. Energy and savings values start to grow.
+Scenario: B2C_Web_MyJuiceNet_05 - JuiceNet Device Settings and Savings Parameters
+	Given  I login to the system as "Oleksii" (b2c)
+	When I click More Details for device with Id "373709011" (b2c)
+	And I click on tab with label "Settings" (b2c)
+	When I populate the JuiceNet Device Settings form with "initial_JDS" data (b2c)
+	And I click on the Update button for pannel with Id "panelSettings" (b2c)
+	Then JuiceNet Device Settings form fields values should be equal to "initial_JDS" data (b2c)
+	When I populate the JuiceNet Device Settings form with "updated_JDS" data (b2c)
+	And I click on the Update button for pannel with Id "panelSettings" (b2c)
+	Then JuiceNet Device Settings form fields values should be equal to "updated_JDS" data (b2c)
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings and Savings Parameters**
-#Run "Add JuiceNet Device" test case
-#Navigate to dashboard
-#Click on "More Details" link in Device area
-#User is navigated to device page with active Status tab
-#Click on Settings tab
-#User is navigated to Settings tab
-#Fill empty Device Settings area with Device name and Address
-#Select time zone
-#Click on "Update" button
-#Updated fields display correct data
-#Edit Savings parameters
-#Click on "Update" button
-#Updated fields display correct data
+Scenario: B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code
+	Given  I login to the system as "Oleksii" (b2c)
+	When I click More Details for device with Id "373709011" (b2c)
+	And I click on tab with label "Settings" (b2c)
+	When I populate the JuiceNet Device Settings form with "initial_JDS" data (b2c)
+	And I click on the Update button for pannel with Id "panelSettings" (b2c)
+	Then JuiceNet Device Settings form fields values should be equal to "initial_JDS" data (b2c)
+	When I populate the JuiceNet Device Settings form with "nozip_JDS" data (b2c)
+	And I click on the Update button for pannel with Id "panelSettings" (b2c)
+	Then Error message "The Zip code field is required." is displayed (b2c)
+	When I refresh page (b2c)
+	And I click on tab with label "Settings" (b2c)
+	Then JuiceNet Device Settings form fields values should be equal to "initial_JDS" data (b2c)
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_07 - JuiceNet Device Settings. Empty Zip code**
-#Run "Add JuiceNet Device" test case
-#Navigate to dashboard
-#Click on "More Details" link in Device area
-#User is navigated to device page with active Status tab
-#Click on Settings tab
-#User is navigated to Settings tab
-#Fill empty Device Settings area with Device name and Address with empty Zip code field
-#Select time zone
-#Click on "Update" button
-#Display error message “The Zip code field is required.”
-#Click on browser Refresh button
-#Updated fields display previous data
+Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
+	Given  I login to the system as "Oleksii" (b2c)
+	When I click More Details for device with Id "373709011" (b2c)
+	And I click on tab with label "Settings" (b2c)
+	Given switch with Id "toggleTOU" is not activated (b2c)
+	When I click on swith with Id "toggleTOU" (b2c)
+	Then swith with Id "toggleTOU" should be enabled is "True" (b2c)
 
-@b2c @web 
-Scenario: B2C_Web_MyJuiceNet_08 - Time-of-Use (TOU)**
+
+
+
 #Run "Add JuiceNet Device" test case
 #Navigate to dashboard
 #Click on "More Details" link in Device area

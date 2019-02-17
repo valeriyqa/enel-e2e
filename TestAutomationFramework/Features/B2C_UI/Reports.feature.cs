@@ -87,8 +87,6 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I navigate to the \"User Sessions\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
  testRunner.When("I get all data from table with Id \"reportTable\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 14
- testRunner.Then("I print table (test)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

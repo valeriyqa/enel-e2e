@@ -77,6 +77,7 @@ namespace TestAutomationFramework.Steps.UDP
             Assert.AreEqual(testData.responseApi.StatusCode, HttpStatusCode.OK);
         }
 
+        [Then(@"I send UDP package with status ""(.*)"" to unit ""(.*)""")]
         [When(@"I send UDP package with status ""(.*)"" to unit ""(.*)""")]
         public void WhenISendUDPPackageWithStatusToUnit(string deviceChargeState, string unitId)
         {

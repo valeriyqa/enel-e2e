@@ -1,6 +1,7 @@
 ﻿using JsonConfig;
 using Newtonsoft.Json;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
 using System.Data;
@@ -14,6 +15,8 @@ namespace TestAutomationFramework.Steps.UI
     {
         public class TestData
         {
+            public string energy;
+            public string savings;
             public DataTable table;
         }
 
@@ -145,19 +148,57 @@ namespace TestAutomationFramework.Steps.UI
             //}
         }
 
+        [When(@"I get data from table with Id ""(.*)"" \(b2c\)")]
+        public void WhenIGetDataFromTableWithIdBc(string tableId)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            DataTable Table = generalPage.GetTableById(tableId);
+            testData.table = Table;
+        }
+
         [Then(@"I print table \(test\)")]
         public void ThenIPrintTableTest()
         {
-
-            foreach (DataRow dataRow in testData.table.Rows)
-            {
-                foreach (var item in dataRow.ItemArray)
-                {
-                    Console.WriteLine(item);
-                }
-            }
+            Console.WriteLine(driver.FindElement(By.XPath("//div[contains(@data-unitid,'373709011')]/div")).GetAttribute("class"));
+            Console.WriteLine(driver.FindElement(By.XPath("//div[contains(@data-unitid,'373708002')]/div")).GetAttribute("class"));
+            Console.WriteLine(driver.FindElement(By.XPath("//div[contains(@data-unitid,'373709012')]/div")).GetAttribute("class"));
         }
 
+        [When(@"I refresh page \(b2c\)")]
+        public void WhenIRefreshPageBc()
+        {
+            driver.Navigate().Refresh();
+            //System.Threading.Thread.Sleep(1000);
+        }
+
+        [When(@"I click on swith with Id ""(.*)"" \(b2c\)")]
+        public void WhenIClickOnSwithWithIdBc(string switchId)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            generalPage.ClickSwitchWithId(switchId);
+        }
+
+        [Then(@"swith with Id ""(.*)"" should be enabled is ""(.*)"" \(b2c\)")]
+        public void ThenSwithWithIdShouldBeEnabledIsBc(string switchId, string isEnabled)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            Assert.AreEqual(generalPage.IsSwitchWithIdOn(switchId), bool.Parse(isEnabled));
+        }
+
+        [Given(@"switch with Id ""(.*)"" is not activated \(b2c\)")]
+        public void GivenSwitchWithIdIsNotActivatedBc(string switchId)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            var JuiceBoxPage = new B2cJuiceBoxPage(driver);
+            if (generalPage.IsSwitchWithIdOn(switchId))
+            {
+                generalPage.ClickSwitchWithId(switchId);
+                var panelId = generalPage.GetPanelIdForSwitchWithId(switchId);
+                JuiceBoxPage.ClickOnUpdateButtonForPannelWithId(panelId);
+
+            }
+            Assert.False(generalPage.IsSwitchWithIdOn(switchId));
+        }
 
     }
 }

@@ -49,14 +49,23 @@ namespace TestAutomationFramework.POM
         public string GetInputValueById(string inputId)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(wd => driver.FindElement(By.XPath("//div[@id = '" + inputId + "']//input")).GetAttribute("value").Length > 0);
-            return driver.FindElement(By.XPath("//div[@id = '" + inputId + "']//input")).GetAttribute("value");
+            wait.Until(wd => driver.FindElement(By.XPath("//*[@id = '" + inputId + "']//ancestor-or-self::input")).GetAttribute("value").Length > 0);
+            return driver.FindElement(By.XPath("//*[@id = '" + inputId + "']//ancestor-or-self::input")).GetAttribute("value");
         }
 
         public void SetInputValueById(string inputId, string inputValue)
         {
-            driver.FindElement(By.XPath("//div[@id = '" + inputId + "']//input")).Clear();
-            driver.FindElement(By.XPath("//div[@id = '" + inputId + "']//input")).SendKeys(inputValue);
+            //driver.FindElement(By.XPath("//div[@id = '" + inputId + "']//input")).Clear();
+            //driver.FindElement(By.XPath("//div[@id = '" + inputId + "']//input")).SendKeys(inputValue);
+            driver.FindElement(By.XPath("//*[@id = '" + inputId + "']//ancestor-or-self::input")).Clear();
+            driver.FindElement(By.XPath("//*[@id = '" + inputId + "']//ancestor-or-self::input")).SendKeys(inputValue);
+        }
+
+        public void ClearInputValueById(string inputId)
+        {
+            //driver.FindElement(By.XPath("//div[@id = '" + inputId + "']//input")).Clear();
+            //driver.FindElement(By.XPath("//div[@id = '" + inputId + "']//input")).SendKeys(inputValue);
+            driver.FindElement(By.XPath("//*[@id = '" + inputId + "']//ancestor-or-self::input")).Clear();
         }
 
         public string GetInputValueByLabel(string inputLabel)
@@ -80,6 +89,19 @@ namespace TestAutomationFramework.POM
             selectElement.SelectByValue(selectValue);
         }
 
+        public string getSelectValueById(string selectId)
+        {
+            return driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/descendant-or-self::select")).GetAttribute("value").ToString();
+        }
+
+        public void SelectTextById(string selectId, string selectText)
+        {
+            //We use this xpath, since we have two types of selector (select with Id) and (div with Id and select inside).
+            //See Reports/UserSessions page for example
+            var selectElement = new SelectElement(driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/descendant-or-self::select")));
+            selectElement.SelectByValue(selectText);
+        }
+
         public void SelectValueByLabel(string selectLabel, string selectValue)
         {
             //We use this xpath, since we have two types of selector (select with label as brother) and (select with label as child).
@@ -91,6 +113,25 @@ namespace TestAutomationFramework.POM
         public void ClickButtonWithId(string buttonId)
         {
             driver.FindElementById(buttonId).Submit();
+        }
+
+        public void ClickSwitchWithId(string switchId)
+        {
+            driver.FindElement(By.XPath("//div[contains(@class,'bootstrap-switch-id-" + switchId + "')]")).Click();
+        }
+
+        public bool IsSwitchWithIdOn(string switchId)
+        {
+            if (driver.FindElement(By.XPath("//div[contains(@class,'bootstrap-switch-id-" + switchId + "')]")).GetAttribute("class").Contains("bootstrap-switch-on"))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public string GetPanelIdForSwitchWithId(string switchId)
+        {
+            return driver.FindElement(By.XPath("//div[contains(@class,'bootstrap-switch-id-" + switchId + "')]/ancestor::form/..")).GetAttribute("id");
         }
 
         public void ClickButtonWithName(string buttonName)
@@ -136,21 +177,6 @@ namespace TestAutomationFramework.POM
                     dt.Rows.Add(dr);
                 }
 
-                try
-                {
-                    wait = new WebDriverWait(driver, TimeSpan.FromSeconds(1));
-                    wait.Until((d) =>
-                    {
-                        return d.FindElement(By.Id(tableId.Replace("_wrapper", "") + "_paginate"));
-                    });
-                    //wait.Until(wd => driver.FindElement(By.Id(tableId.Replace("_wrapper", "") + "_paginate")));
-                }
-                catch (Exception)
-                {
-
-                    break;
-                }
-
                 if (driver.FindElement(By.XPath("//div[@id = '" + tableId + "']//li[contains(@class, 'paginate_button next')]")).GetAttribute("class").Contains("disabled"))
                 {
                     break;
@@ -193,6 +219,7 @@ namespace TestAutomationFramework.POM
             }
             return dt;
         }
+
 
     }
 }

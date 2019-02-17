@@ -159,7 +159,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 37
  testRunner.And("I click on tab with label \"History\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 38
- testRunner.When("I get all data from table with Id \"usagetable\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I get data from table with Id \"usagetable\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 39
  testRunner.Then("table should be empty (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -167,65 +167,149 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_05 - JuiceNet Device states on dashboard**")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_04 - JuiceNet Device states on dashboard")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_05_JuiceNetDeviceStatesOnDashboard()
+        public virtual void B2C_Web_MyJuiceNet_04_JuiceNetDeviceStatesOnDashboard()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_05 - JuiceNet Device states on dashboard**", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_04 - JuiceNet Device states on dashboard", null, new string[] {
                         "b2c",
                         "web"});
+#line 42
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 43
+ testRunner.Given("I login to the system as \"Oleksii\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 44
+ testRunner.When("I send UDP package with status \"Standby\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 45
+ testRunner.Then("panel color for device with Id \"373709011\" should be changed to \"primary\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 46
+ testRunner.And("device with Id \"373709011\" should have status \"Standby\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
+ testRunner.When("I send UDP package with status \"Connected\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 48
+ testRunner.Then("panel color for device with Id \"373709011\" should be changed to \"green\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 49
+ testRunner.And("device with Id \"373709011\" should have status \"Plugged in\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 50
+ testRunner.When("I remember charging and saving values for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 51
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
+ testRunner.And("I send UDP package with status \"Charging\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
+ testRunner.Then("panel color for device with Id \"373709011\" should be changed to \"yellow\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 53
+ testRunner.And("device with Id \"373709011\" should have status \"Charging\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
+ testRunner.And("energy and savings for device with Id \"373709011\" should grow (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 55
+ testRunner.Then("I send UDP package with status \"Standby\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings and Savings Parameters**")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_05 - JuiceNet Device Settings and Savings Parameters")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_06_JuiceNetDeviceSettingsAndSavingsParameters()
+        public virtual void B2C_Web_MyJuiceNet_05_JuiceNetDeviceSettingsAndSavingsParameters()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings and Savings Parameters**", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_05 - JuiceNet Device Settings and Savings Parameters", null, new string[] {
                         "b2c",
                         "web"});
+#line 58
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 59
+ testRunner.Given("I login to the system as \"Oleksii\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 60
+ testRunner.When("I click More Details for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 61
+ testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 62
+ testRunner.When("I populate the JuiceNet Device Settings form with \"initial_JDS\" data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 63
+ testRunner.And("I click on the Update button for pannel with Id \"panelSettings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 64
+ testRunner.Then("JuiceNet Device Settings form fields values should be equal to \"initial_JDS\" data" +
+                    " (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 65
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
+ testRunner.When("I populate the JuiceNet Device Settings form with \"updated_JDS\" data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 66
+ testRunner.And("I click on the Update button for pannel with Id \"panelSettings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+ testRunner.Then("JuiceNet Device Settings form fields values should be equal to \"updated_JDS\" data" +
+                    " (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_07 - JuiceNet Device Settings. Empty Zip code**")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_07_JuiceNetDeviceSettings_EmptyZipCode()
+        public virtual void B2C_Web_MyJuiceNet_06_JuiceNetDeviceSettings_EmptyZipCode()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_07 - JuiceNet Device Settings. Empty Zip code**", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code", null, new string[] {
                         "b2c",
                         "web"});
+#line 70
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 71
+ testRunner.Given("I login to the system as \"Oleksii\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 72
+ testRunner.When("I click More Details for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 73
+ testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 74
+ testRunner.When("I populate the JuiceNet Device Settings form with \"initial_JDS\" data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 75
+ testRunner.And("I click on the Update button for pannel with Id \"panelSettings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 76
+ testRunner.Then("JuiceNet Device Settings form fields values should be equal to \"initial_JDS\" data" +
+                    " (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 77
+ testRunner.When("I populate the JuiceNet Device Settings form with \"nozip_JDS\" data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 78
+ testRunner.And("I click on the Update button for pannel with Id \"panelSettings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+ testRunner.Then("Error message \"The Zip code field is required.\" is displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 80
+ testRunner.When("I refresh page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 81
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
+ testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 82
+ testRunner.Then("JuiceNet Device Settings form fields values should be equal to \"initial_JDS\" data" +
+                    " (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_08 - Time-of-Use (TOU)**")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_08_Time_Of_UseTOU()
+        public virtual void B2C_Web_MyJuiceNet_07_Time_Of_UseTOU()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_08 - Time-of-Use (TOU)**", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)", null, new string[] {
                         "b2c",
                         "web"});
-#line 96
+#line 85
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
+#line 86
+ testRunner.Given("I login to the system as \"Oleksii\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 87
+ testRunner.When("I click More Details for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 88
+ testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 89
+ testRunner.Given("switch with Id \"toggleTOU\" is not activated (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 90
+ testRunner.When("I click on swith with Id \"toggleTOU\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 91
+ testRunner.Then("swith with Id \"toggleTOU\" should be enabled is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -239,7 +323,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_09 - TOU Persistence**", null, new string[] {
                         "b2c",
                         "web"});
-#line 121
+#line 120
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -255,7 +339,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_10 - Minimal charge. Charging starts before TOU start time.**", null, new string[] {
                         "b2c",
                         "web"});
-#line 146
+#line 145
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -271,7 +355,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_11 - Minimal charge. Charging continues after TOU end time.**", null, new string[] {
                         "b2c",
                         "web"});
-#line 172
+#line 171
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -287,7 +371,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_12 - EVSE Efficiency**", null, new string[] {
                         "b2c",
                         "web"});
-#line 202
+#line 201
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -303,7 +387,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_13 - Add empty Load groups.**", null, new string[] {
                         "b2c",
                         "web"});
-#line 221
+#line 220
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -319,7 +403,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_14 - Add devices to Load group.**", null, new string[] {
                         "b2c",
                         "web"});
-#line 245
+#line 244
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -335,7 +419,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_15 - Notifications**", null, new string[] {
                         "b2c",
                         "web"});
-#line 265
+#line 264
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -351,7 +435,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_16 - SW corrections**", null, new string[] {
                         "b2c",
                         "web"});
-#line 276
+#line 275
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden

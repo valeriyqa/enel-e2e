@@ -26,7 +26,11 @@ namespace TestAutomationFramework.POM
         IWebElement unitNotPluggedEmailCheckbox => driver.FindElementById("Notifications_5__NotificationDeliveryMethods_0__IsSelected");
         IWebElement unitNotPluggedSmartphoneCheckbox => driver.FindElementById("Notifications_5__NotificationDeliveryMethods_1__IsSelected");
 
-
+        public void ClickOnUpdateButtonForPannelWithId(string panelId)
+        {
+            driver.FindElement(By.XPath("//div[@id ='" + panelId + "']//button[@type ='submit']")).Click();
+            System.Threading.Thread.Sleep(1000);
+        }
 
     }
 }
