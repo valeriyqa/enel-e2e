@@ -90,11 +90,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 9
  testRunner.Then("Cookie banner must hide (joomla)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 10
- testRunner.When("I hover top menu item with 1567 Itemid (joomla)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I hover top menu item with \"1567\" Itemid (joomla)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.Then("Menu Item 1567 Sub-menu must be visible (joomla)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Menu Item \"1567\" Sub-menu must be visible (joomla)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 12
- testRunner.And("I Click top menu item with 1569 Itemid (joomla)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I Click top menu item with \"1569\" Itemid (joomla)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

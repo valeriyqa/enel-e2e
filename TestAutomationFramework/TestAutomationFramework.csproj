@@ -223,13 +223,13 @@
       <DependentUpon>Checkout.feature</DependentUpon>
     </Compile>
     <Compile Include="Hooks.cs" />
-    <Compile Include="POM\B2bGeneralPage.cs" />
-    <Compile Include="POM\B2bLocationPage.cs" />
-    <Compile Include="POM\B2cJuiceBoxPage.cs" />
-    <Compile Include="POM\B2cGeneralPage.cs" />
-    <Compile Include="POM\B2bLoginPage.cs" />
-    <Compile Include="POM\B2cLoginPage.cs" />
-    <Compile Include="POM\JoomlaGeneralPage.cs" />
+    <Compile Include="POM\B2b\B2bGeneralPage.cs" />
+    <Compile Include="POM\B2b\B2bLocationPage.cs" />
+    <Compile Include="POM\B2c\B2cJuiceBoxPage.cs" />
+    <Compile Include="POM\B2c\B2cGeneralPage.cs" />
+    <Compile Include="POM\B2b\B2bLoginPage.cs" />
+    <Compile Include="POM\B2c\B2cLoginPage.cs" />
+    <Compile Include="POM\Joomla\JoomlaGeneralPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApiService\B2cModels.cs" />
     <Compile Include="Services\ApiService\RestApi.cs" />
@@ -249,7 +249,7 @@
     <Compile Include="Steps\UI\B2cUiLoginSteps.cs" />
     <Compile Include="Steps\UI\B2cUiMyJuiceNetSteps.cs" />
     <Compile Include="Steps\UI\B2cUiRegistrationAndLogInSteps.cs" />
-    <Compile Include="Steps\UI\JoomlaCheckoutSteps.cs" />
+    <Compile Include="Steps\UI\Joomla\JoomlaCheckoutSteps.cs" />
     <Compile Include="Tools\ConvertDateTime.cs" />
     <Compile Include="Tools\LoadTableFromFile.cs" />
     <Compile Include="Tools\LoadFromConf.cs" />
