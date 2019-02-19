@@ -5,6 +5,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
 using System.Data;
+using System.Globalization;
 using TechTalk.SpecFlow;
 using TestAutomationFramework.POM;
 
@@ -159,9 +160,19 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"I print table \(test\)")]
         public void ThenIPrintTableTest()
         {
-            Console.WriteLine(driver.FindElement(By.XPath("//div[contains(@data-unitid,'373709011')]/div")).GetAttribute("class"));
-            Console.WriteLine(driver.FindElement(By.XPath("//div[contains(@data-unitid,'373708002')]/div")).GetAttribute("class"));
-            Console.WriteLine(driver.FindElement(By.XPath("//div[contains(@data-unitid,'373709012')]/div")).GetAttribute("class"));
+            var generalPage = new B2cGeneralPage(driver);
+            var juiceBoxPage = new B2cJuiceBoxPage(driver);
+            Console.WriteLine(generalPage.GetInputValueById("timepickerWdS"));
+            Console.WriteLine(generalPage.GetInputValueById("timepickerWdE"));
+            Console.WriteLine(generalPage.GetInputValueById("timepickerWeS"));
+            Console.WriteLine(generalPage.GetInputValueById("timepickerWeE"));
+            Console.WriteLine(DateTime.Now.ToString("hh:mm tt", CultureInfo.InvariantCulture));
+            //System.Threading.Thread.Sleep(1000);
+            var currentTime = juiceBoxPage.getCurrentTimeOnDevice();
+            //System.Threading.Thread.Sleep(1000);
+            Console.WriteLine(currentTime);
+            Console.WriteLine(currentTime);
+            Console.WriteLine(DateTime.Parse(currentTime));
         }
 
         [When(@"I refresh page \(b2c\)")]

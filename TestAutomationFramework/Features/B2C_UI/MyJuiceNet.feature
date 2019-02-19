@@ -83,13 +83,16 @@ Scenario: B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
-	Given  I login to the system as "Oleksii" (b2c)
+	Given I login to the system as "Oleksii" (b2c)
 	When I click More Details for device with Id "373709011" (b2c)
 	And I click on tab with label "Settings" (b2c)
 	Given switch with Id "toggleTOU" is not activated (b2c)
 	When I click on swith with Id "toggleTOU" (b2c)
 	Then swith with Id "toggleTOU" should be enabled is "True" (b2c)
-
+	Then I print table (test)
+	#Then panel with Id "zzz" should change color to "primary" (b2c)
+	#When I click on swith with Id "overrideCheckBox" (b2c)
+	When I set TOU time to "current" (b2c)
 
 
 

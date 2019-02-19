@@ -5,6 +5,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -157,6 +158,7 @@ namespace TestAutomationFramework.Steps.UI
             Assert.True(driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + deviceId + "')]/div")).GetAttribute("class").Contains(color));
         }
 
+        //possible color values offline, primary, green, yellow
         [Then(@"panel color for device with Id ""(.*)"" should be changed to ""(.*)"" \(b2c\)")]
         public void ThenPanelColorForDeviceWithIdShouldBeChangedToBc(string deviceId, string color)
         {
@@ -174,6 +176,22 @@ namespace TestAutomationFramework.Steps.UI
             Assert.False(false);
         }
 
+        [Then(@"panel with Id ""(.*)"" should change color to ""(.*)"" \(b2c\)")]
+        public void ThenPanelWithIdShouldChangeColorToBc(string panelId, string color)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                System.Threading.Thread.Sleep(1000);
+                var result = driver.FindElement(By.XPath("//div[@id ='" + panelId + "']")).GetAttribute("class").Contains(color);
+                Console.WriteLine(result);
+                if (result)
+                {
+                    Assert.True(true);
+                    return;
+                }
+            }
+            Assert.False(false);
+        }
 
         [Then(@"device with Id ""(.*)"" should have status ""(.*)"" \(b2c\)")]
         public void ThenDeviceWithIdShouldHaveStatusBc(string deviceId, string deviceStatus)
@@ -267,6 +285,39 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(errorMessage, currentMessage);
         }
 
+        // allowed values is current, not current
+        [When(@"I set TOU time to ""(.*)"" \(b2c\)")]
+        public void WhenISetTOUTimeToBc(string touTime)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            var juiceBoxPage = new B2cJuiceBoxPage(driver);
+            var currentTime = DateTime.Parse(juiceBoxPage.getCurrentTimeOnDevice());
 
-    }
+            string startTime;
+            string endTime;
+
+            switch (touTime.Replace(" ", "").ToLower())
+            {
+                case "current":
+                    startTime = currentTime.ToString("hh:mm tt", CultureInfo.InvariantCulture);
+                    endTime = currentTime.AddHours(1).ToString("hh:mm tt", CultureInfo.InvariantCulture);
+                    break;
+                case "notcurrent":
+                    startTime = currentTime.AddHours(1).ToString("hh:mm tt", CultureInfo.InvariantCulture);
+                    endTime = currentTime.AddHours(2).ToString("hh:mm tt", CultureInfo.InvariantCulture);
+                    break;
+                default:
+                    Assert.Fail("Incorrect TOU value: " + touTime);
+                    return;
+            }
+
+            generalPage.SetInputValueById("timepickerWdS", startTime);
+            generalPage.SetInputValueById("timepickerWdE", endTime);
+            generalPage.SetInputValueById("timepickerWeS", startTime);
+            generalPage.SetInputValueById("timepickerWeE", endTime);
+
+            juiceBoxPage.ClickOnUpdateButtonForPannelWithId("panelTOU");
+        }
+
+        }
 }
