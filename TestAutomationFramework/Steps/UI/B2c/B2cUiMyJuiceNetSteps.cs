@@ -190,7 +190,7 @@ namespace TestAutomationFramework.Steps.UI
                     return;
                 }
             }
-            Assert.False(false);
+            Assert.False(true, "Panel color is not changed to " + color);
         }
 
         [Then(@"device with Id ""(.*)"" should have status ""(.*)"" \(b2c\)")]
@@ -285,13 +285,21 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(errorMessage, currentMessage);
         }
 
+        [When(@"I remeber the current time on device \(b2c\)")]
+        public void WhenIRemeberTheCurrentTimeOnDeviceBc()
+        {
+            var juiceBoxPage = new B2cJuiceBoxPage(driver);
+            testData.dateTimeOnDevice = DateTime.Parse(juiceBoxPage.getCurrentTimeOnDevice());
+        }
+
         // allowed values is current, not current
         [When(@"I set TOU time to ""(.*)"" \(b2c\)")]
         public void WhenISetTOUTimeToBc(string touTime)
         {
             var generalPage = new B2cGeneralPage(driver);
             var juiceBoxPage = new B2cJuiceBoxPage(driver);
-            var currentTime = DateTime.Parse(juiceBoxPage.getCurrentTimeOnDevice());
+            //var currentTime = DateTime.Parse(juiceBoxPage.getCurrentTimeOnDevice());
+            var currentTime = testData.dateTimeOnDevice;
 
             string startTime;
             string endTime;
@@ -319,5 +327,36 @@ namespace TestAutomationFramework.Steps.UI
             juiceBoxPage.ClickOnUpdateButtonForPannelWithId("panelTOU");
         }
 
+        // allowed values is current, not current
+        [Then(@"TOU time should be equal to ""(.*)"" \(b2c\)")]
+        public void ThenTOUTimeShouldBeEqualToBc(string touTime)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            var currentTime = testData.dateTimeOnDevice;
+
+            string startTime;
+            string endTime;
+
+            switch (touTime.Replace(" ", "").ToLower())
+            {
+                case "current":
+                    startTime = currentTime.ToString("hh:mm tt", CultureInfo.InvariantCulture);
+                    endTime = currentTime.AddHours(1).ToString("hh:mm tt", CultureInfo.InvariantCulture);
+                    break;
+                case "notcurrent":
+                    startTime = currentTime.AddHours(1).ToString("hh:mm tt", CultureInfo.InvariantCulture);
+                    endTime = currentTime.AddHours(2).ToString("hh:mm tt", CultureInfo.InvariantCulture);
+                    break;
+                default:
+                    Assert.Fail("Incorrect TOU value: " + touTime);
+                    return;
+            }
+
+            Assert.AreEqual(generalPage.GetInputValueById("timepickerWdS"), startTime);
+            Assert.AreEqual(generalPage.GetInputValueById("timepickerWdE"), endTime);
+            Assert.AreEqual(generalPage.GetInputValueById("timepickerWeS"), startTime);
+            Assert.AreEqual(generalPage.GetInputValueById("timepickerWeE"), endTime);
         }
+
+    }
 }

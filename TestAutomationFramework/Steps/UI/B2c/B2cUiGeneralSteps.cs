@@ -16,6 +16,7 @@ namespace TestAutomationFramework.Steps.UI
     {
         public class TestData
         {
+            public DateTime dateTimeOnDevice;
             public string energy;
             public string savings;
             public DataTable table;
