@@ -14,6 +14,41 @@ namespace TestAutomationFramework.POM
 
         IWebElement cookieBoxCloseButton => driver.FindElementByCssSelector("#pwebbox204_container .pwebbox_bottombar_toggler");
 
+        public void OpenSite(string host)
+        {
+            driver.Navigate().GoToUrl(host);
+            this.CloseCookieBanner();
+            this.CookieBannerIsHidden();
+        }
+
+        public void ClickMenuItemByItemId(int itemId)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            IWebElement curentMenu = driver.FindElement(By.XPath("//li[contains(@class, 'item-" + itemId + "')]/a"));
+            if (!curentMenu.Displayed)
+            {
+                IWebElement currentMenuAncestor = driver.FindElement(By.XPath("//li[contains(@class, 'item-" + itemId + "')]/ancestor::li[contains(@class, '_level _n-1')]"));
+                this.MoveCursorToElement(currentMenuAncestor);
+            }
+            wait.Until(wd => curentMenu.Displayed);
+            curentMenu.Click();
+        }
+
+        public void ClickMenuItemByClass(string className)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            IWebElement element = driver.FindElement(By.XPath("//li[contains(@class, '" + className + "')]/a"));
+
+            if (!element.Displayed)
+            {
+                IWebElement currentMenuAncestor = driver.FindElement(By.XPath("//li[contains(@class, '" + className + "')]/ancestor::li[contains(@class, '_level _n-1')]"));
+                this.MoveCursorToElement(currentMenuAncestor);
+            }
+            wait.Until(wd => element.Displayed);
+            element.Click();
+        }
+
         public void CloseCookieBanner()
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
