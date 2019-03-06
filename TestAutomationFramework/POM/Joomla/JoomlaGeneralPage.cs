@@ -4,6 +4,7 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Linq.Expressions;
 
 namespace TestAutomationFramework.POM
 {
@@ -13,6 +14,41 @@ namespace TestAutomationFramework.POM
         public JoomlaGeneralPage(RemoteWebDriver driver) => this.driver = driver;
 
         IWebElement cookieBoxCloseButton => driver.FindElementByCssSelector("#pwebbox204_container .pwebbox_bottombar_toggler");
+        
+        public void OpenSite(string host)
+        {
+            driver.Navigate().GoToUrl(host);
+            this.CloseCookieBanner();
+            this.CookieBannerIsHidden();
+        }
+
+        public void ClickMenuItemByItemId(int itemId)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            IWebElement curentMenu = driver.FindElement(By.XPath("//li[contains(@class, 'item-" + itemId + "')]/a"));
+            if (!curentMenu.Displayed)
+            {
+                IWebElement currentMenuAncestor = driver.FindElement(By.XPath("//li[contains(@class, 'item-" + itemId + "')]/ancestor::li[contains(@class, '_level _n-1')]"));
+                this.MoveCursorToElement(currentMenuAncestor);
+            }
+            wait.Until(wd => curentMenu.Displayed);
+            curentMenu.Click();
+        }
+
+        public void ClickMenuItemByClass(string className)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            IWebElement element = driver.FindElement(By.XPath("//li[contains(@class, '" + className + "')]/a"));
+
+            if (!element.Displayed)
+            {
+                IWebElement currentMenuAncestor = driver.FindElement(By.XPath("//li[contains(@class, '" + className + "')]/ancestor::li[contains(@class, '_level _n-1')]"));
+                this.MoveCursorToElement(currentMenuAncestor);
+            }
+            wait.Until(wd => element.Displayed);
+            element.Click();
+        }
 
         public void CloseCookieBanner()
         {
@@ -28,19 +64,16 @@ namespace TestAutomationFramework.POM
             Assert.IsFalse(visible);
         }
 
-        public void MoveCursorToElement(string selector)
+        public void MoveCursorToElement(IWebElement element)
         {
-            IWebElement element = driver.FindElementByCssSelector(selector);
-
             Actions action = new Actions(driver);
             action.MoveToElement(element).Perform();
         }
 
         public void HoverTopMenuItemByItemid(int itemid)
         {
-            string menuItemSelector = ".b-header__menu .item-" + itemid;
-
-            MoveCursorToElement(menuItemSelector);
+            IWebElement element = driver.FindElement(By.CssSelector(".b-header__menu .item-" + itemid));
+            MoveCursorToElement(element);
         }
 
         public void MenuItemSubmenuIsVisible(int itemid)
@@ -64,6 +97,27 @@ namespace TestAutomationFramework.POM
             return element.Displayed && element.Enabled;
         }
 
+        public void ScrollToELement(IWebElement element )
+        {
+            Actions actions = new Actions(driver);
 
+            actions.MoveToElement(element);
+            actions.Perform();
+        }
+
+        public void SwitchToWindow(Expression<Func<IWebDriver, bool>> predicateExp)
+        {
+            var predicate = predicateExp.Compile();
+            foreach (var handle in driver.WindowHandles)
+            {
+                driver.SwitchTo().Window(handle);
+                if (predicate(driver))
+                {
+                    return;
+                }
+            }
+
+            throw new ArgumentException(string.Format("Unable to find window with condition: '{0}'", predicateExp.Body));
+        }
     }
 }
