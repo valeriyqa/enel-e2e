@@ -18,20 +18,20 @@ namespace TestAutomationFramework.Features.Joomla_UI
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Joomla Checkout")]
-    public partial class JoomlaCheckoutFeature
+    [NUnit.Framework.DescriptionAttribute("Joomla General")]
+    public partial class JoomlaGeneralFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Checkout.feature"
+#line 1 "General.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Joomla Checkout", "\tTo test Hikashop checkout\r\n\twe run next scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Joomla General", "\tTo test Joomla site functional\r\n\twe run next scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -70,14 +70,12 @@ namespace TestAutomationFramework.Features.Joomla_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Joomla_Web_Checkout_01 - Checkout, continental delivery, pay by Stripe, Billing a" +
-            "ddress is the same as Shipping")]
+        [NUnit.Framework.DescriptionAttribute("Joomla_Web_General_01 - Check all Menu Item")]
         [NUnit.Framework.CategoryAttribute("joomla")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void Joomla_Web_Checkout_01_CheckoutContinentalDeliveryPayByStripeBillingAddressIsTheSameAsShipping()
+        public virtual void Joomla_Web_General_01_CheckAllMenuItem()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Joomla_Web_Checkout_01 - Checkout, continental delivery, pay by Stripe, Billing a" +
-                    "ddress is the same as Shipping", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Joomla_Web_General_01 - Check all Menu Item", null, new string[] {
                         "joomla",
                         "web"});
 #line 6
@@ -86,7 +84,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
  testRunner.Given("I open site (joomla)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.Then("I Navigate to menu item with \"1593\" ID (joomla)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I click all menu item in rotation (joomla)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

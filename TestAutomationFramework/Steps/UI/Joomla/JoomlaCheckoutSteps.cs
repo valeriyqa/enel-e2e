@@ -14,12 +14,22 @@ namespace TestAutomationFramework.Steps.UI
 
         public JoomlaCheckoutSteps(RemoteWebDriver driver) => this.driver = driver;
 
-        [Given(@"Go to eMotorwerks Home page \(joomla\)")]
-        public void GoToEMotorwerksHomePageJoomla()
+        [Given(@"I open site \(joomla\)")]
+        public void IOpenSite()
         {
-            driver.Navigate().GoToUrl(host);
+            var generalPage = new JoomlaGeneralPage(driver);
+            generalPage.OpenSite(host);
         }
-        
+
+        [Given(@"I Navigate to menu item with ""(.*)"" ID \(joomla\)")]
+        [Then(@"I Navigate to menu item with ""(.*)"" ID \(joomla\)")]
+        public void INavigateToMenuItemWithIDJoomla(int itemId)
+        {
+            var generalPage = new JoomlaGeneralPage(driver);
+            generalPage.ClickMenuItemByItemId(itemId);
+        }
+
+
         [When(@"I Close cookie banner \(joomla\)")]
         public void ICloseCookieBannerJoomla()
         {
@@ -53,6 +63,6 @@ namespace TestAutomationFramework.Steps.UI
         {
             var generalPage = new JoomlaGeneralPage(driver);
             generalPage.ClickTopMenuItemByItemid(itemId);
-        }    
+        }
     }
 }
