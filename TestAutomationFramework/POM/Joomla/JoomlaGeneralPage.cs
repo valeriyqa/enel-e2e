@@ -85,13 +85,6 @@ namespace TestAutomationFramework.POM
             Assert.IsTrue(visible);
         }
 
-        public void ClickTopMenuItemByItemid(int itemid)
-        {
-            string menuItemSelector = ".b-header__menu .item-" + itemid;
-
-            driver.FindElementByCssSelector(menuItemSelector).Click();
-        }
-
         public bool IsElementVisible(IWebElement element)
         {
             return element.Displayed && element.Enabled;
