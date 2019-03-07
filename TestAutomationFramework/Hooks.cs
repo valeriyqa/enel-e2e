@@ -30,9 +30,9 @@ namespace TestAutomationFramework
             {
                 //Use this variable to set local environment;
                 //string environment = "b2b_beta2";
-                //string environment = "b2c_prod";
+                string environment = "b2c_prod";
                 //string environment = "b2c_alpha";
-                string environment = "joomla_beta";
+                //string environment = "joomla_beta";
 
                 string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
                 ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));

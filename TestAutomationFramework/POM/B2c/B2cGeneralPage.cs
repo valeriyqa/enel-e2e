@@ -63,8 +63,6 @@ namespace TestAutomationFramework.POM
 
         public void ClearInputValueById(string inputId)
         {
-            //driver.FindElement(By.XPath("//div[@id = '" + inputId + "']//input")).Clear();
-            //driver.FindElement(By.XPath("//div[@id = '" + inputId + "']//input")).SendKeys(inputValue);
             driver.FindElement(By.XPath("//*[@id = '" + inputId + "']//ancestor-or-self::input")).Clear();
         }
 
