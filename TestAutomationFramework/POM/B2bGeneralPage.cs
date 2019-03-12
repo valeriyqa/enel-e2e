@@ -92,7 +92,7 @@ namespace TestAutomationFramework.POM
 
         public void AssertPopup(string message, string status)
         {
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
             wait.Until(wd => PopupWindow.Displayed);
 
             Console.WriteLine("Assert icon");
