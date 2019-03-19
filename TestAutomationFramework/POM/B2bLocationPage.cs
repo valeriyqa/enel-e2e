@@ -42,7 +42,7 @@ namespace TestAutomationFramework.POM
             //should be deleted when "500 internal error" caused due to load timeout will be fixed.
             try
             {
-                wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
                 //wait.Until(wd => driver.FindElement(By.XPath("//label[contains(text(), 'Assigned rate')]/../..//mat-checkbox[contains(@class,'mat-checkbox-checked')]")));
                 wait.Until(wd => driver.FindElement(By.XPath("//locationdetails//div[@class='ng-star-inserted'][not(button)]")));
             }
