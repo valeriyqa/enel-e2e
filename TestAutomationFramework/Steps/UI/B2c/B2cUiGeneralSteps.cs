@@ -39,6 +39,20 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(driver.Url, generalPage.GetAddressByMenuName(pageName));
         }
 
+        [Given(@"field with Id ""(.*)"" is equal to ""(.*)"" \(b2c\)")]
+        public void GivenFieldWithIdIsEqualToBc(string fieldId, string fieldValue)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            string result = generalPage.GetInputValueById(fieldId);
+            if (!result.Equals(fieldValue))
+            {
+                generalPage.ClearInputValueById(fieldId);
+                generalPage.SetInputValueById(fieldId, fieldValue);
+            }
+            //Assert.AreEqual(generalPage.GetInputValueById(fieldId), result);
+        }
+
+
         [Then(@"field with Id ""(.*)"" should be equal to ""(.*)"" \(b2c\)")]
         public void ThenFieldWithIdShouldBeEqualToBc(string fieldId, string fieldValue)
         {
@@ -59,7 +73,7 @@ namespace TestAutomationFramework.Steps.UI
                     break;
             }
 
-            Console.WriteLine("Current result:" +  result);
+            Console.WriteLine("Current result:" + result);
             Console.WriteLine("Expected result:" + expectedResult);
 
             Assert.AreEqual(expectedResult, result);
@@ -190,13 +204,15 @@ namespace TestAutomationFramework.Steps.UI
             generalPage.ClickSwitchWithId(switchId);
         }
 
-        [Then(@"swith with Id ""(.*)"" should be enabled is ""(.*)"" \(b2c\)")]
+        [Then(@"switch with Id ""(.*)"" should be enabled is ""(.*)"" \(b2c\)")]
         public void ThenSwithWithIdShouldBeEnabledIsBc(string switchId, string isEnabled)
         {
+            System.Threading.Thread.Sleep(500);
             var generalPage = new B2cGeneralPage(driver);
             Assert.AreEqual(generalPage.IsSwitchWithIdOn(switchId), bool.Parse(isEnabled));
         }
 
+        //Possible we can make it mope symply. Do not use panel.
         [Given(@"switch with Id ""(.*)"" is not activated \(b2c\)")]
         public void GivenSwitchWithIdIsNotActivatedBc(string switchId)
         {

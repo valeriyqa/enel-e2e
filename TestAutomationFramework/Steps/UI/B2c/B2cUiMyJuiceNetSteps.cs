@@ -167,7 +167,7 @@ namespace TestAutomationFramework.Steps.UI
                 System.Threading.Thread.Sleep(1000);
                 var result = driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + deviceId + "')]/div")).GetAttribute("class").Contains(color);
                 Console.WriteLine(result);
-                if(result)
+                if (result)
                 {
                     Assert.True(true);
                     return;
@@ -209,7 +209,7 @@ namespace TestAutomationFramework.Steps.UI
 
         [Then(@"energy and savings for device with Id ""(.*)"" should grow \(b2c\)")]
         public void ThenEnergyAndSavingsForDeviceWithIdShouldGrowBc(string deviceId)
-        {     
+        {
             var finalEnergyResult = driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + deviceId + "')]//span[contains(@class,'unit-info-energy')]")).Text;
             var finalSavingsResult = driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + deviceId + "')]//span[contains(@class,'unit-info-savings')]")).Text;
 
@@ -292,6 +292,7 @@ namespace TestAutomationFramework.Steps.UI
             testData.dateTimeOnDevice = DateTime.Parse(juiceBoxPage.getCurrentTimeOnDevice());
         }
 
+        // Before use this method, you should read current time. Please use "WhenIRemeberTheCurrentTimeOnDeviceBc" method previously.
         // allowed values is current, not current
         [When(@"I set TOU time to ""(.*)"" \(b2c\)")]
         public void WhenISetTOUTimeToBc(string touTime)
@@ -356,6 +357,12 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(generalPage.GetInputValueById("timepickerWdE"), endTime);
             Assert.AreEqual(generalPage.GetInputValueById("timepickerWeS"), startTime);
             Assert.AreEqual(generalPage.GetInputValueById("timepickerWeE"), endTime);
+        }
+
+        [Given(@"blablabla")]
+        public void GivenBlablabla()
+        {
+            ScenarioContext.Current.Pending();
         }
 
     }

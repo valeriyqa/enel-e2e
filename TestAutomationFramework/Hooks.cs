@@ -121,6 +121,15 @@ namespace TestAutomationFramework
             }
         }
 
+        [BeforeScenario("joomla")]
+        public void InitializeJoomla()
+        {
+            if (!Boolean.Parse(Config.Global.start_joomla))
+            {
+                Assert.Inconclusive();
+            }
+        }
+
         [BeforeScenario("web")]
         public void InitializeWeb()
         {
@@ -143,7 +152,7 @@ namespace TestAutomationFramework
             {
                 try
                 {
-                    //driver.Quit();
+                    driver.Quit();
                 }
                 catch (Exception)
                 {

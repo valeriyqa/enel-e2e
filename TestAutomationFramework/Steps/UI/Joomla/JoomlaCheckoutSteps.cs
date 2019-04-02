@@ -62,7 +62,7 @@ namespace TestAutomationFramework.Steps.UI
         public void ThenIClickTopMenuItemWithItemidJoomla(int itemId)
         {
             var generalPage = new JoomlaGeneralPage(driver);
-            generalPage.ClickTopMenuItemByItemid(itemId);
+            //generalPage.ClickTopMenuItemByItemid(itemId);
         }
     }
 }

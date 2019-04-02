@@ -33,7 +33,7 @@ Scenario: B2C_Web_MyJuiceNet_02 - JuiceNet Device Status
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
 	Given  I login to the system as "Oleksii" (b2c)
-	When I click More Details for device with Id "373709011" (b2c)
+	When I click More Details for device with Id "373709012" (b2c)
 	And I click on tab with label "History" (b2c)
 	When I get data from table with Id "usagetable" (b2c)
 	Then table should be empty (b2c)
@@ -87,8 +87,9 @@ Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
 	When I click More Details for device with Id "373709011" (b2c)
 	And I click on tab with label "Settings" (b2c)
 	Given switch with Id "toggleTOU" is not activated (b2c)
+	And field with Id "MinChargeKWh" is equal to "0.0" (b2c)
 	When I click on swith with Id "toggleTOU" (b2c)
-	Then swith with Id "toggleTOU" should be enabled is "True" (b2c)
+	Then switch with Id "toggleTOU" should be enabled is "True" (b2c)
 	When I remeber the current time on device (b2c)
 	And I set TOU time to "not current" (b2c)
 	And I click on the Update button for pannel with Id "panelTOU" (b2c)
@@ -97,48 +98,50 @@ Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
 	Then TOU time should be equal to "not current" (b2c)
 	When I click on tab with label "Status" (b2c)
 	And I send UDP package with status "Standby" to unit "373709011"
-	Then panel with Id "panelStatus" should change color to "primary" (b2c)
+	Then UDP response should contain "A00"
+	And panel with Id "panelStatus" should change color to "primary" (b2c)
 	When I send UDP package with status "Connected" to unit "373709011"
-	And I send UDP package with status "Charging" to unit "373709011"
+	Then UDP response should contain "A00"
 	Then panel with Id "panelStatus" should change color to "green" (b2c)
 	When I click on swith with Id "overrideCheckBox" (b2c)
-	Then panel with Id "panelStatus" should change color to "yellow" (b2c)
+	And I send UDP package with status "Connected" to unit "373709011"
+	Then UDP response should contain amperage higher than "00"
+	Then I send UDP package with status "Charging" to unit "373709011"
+	And panel with Id "panelStatus" should change color to "yellow" (b2c)
 	When I click on swith with Id "overrideCheckBox" (b2c)
-	Then panel with Id "panelStatus" should change color to "green" (b2c)
+	And I send UDP package with status "Connected" to unit "373709011"
+	Then UDP response should contain "A00"
+	Then I send UDP package with status "Connected" to unit "373709011"
+	And panel with Id "panelStatus" should change color to "green" (b2c)
 	When I click on tab with label "Settings" (b2c)
 	And I set TOU time to "current" (b2c)
 	And I click on the Update button for pannel with Id "panelTOU" (b2c)
 	And I click on tab with label "Status" (b2c)
-	Then panel with Id "panelStatus" should change color to "yellow" (b2c)
-	When I send UDP package with status "Connected" to unit "373709011"
-	And I click on tab with label "Settings" (b2c)
+	And I send UDP package with status "Connected" to unit "373709011"
+	Then UDP response should contain amperage higher than "00"
+	Then I send UDP package with status "Charging" to unit "373709011"
+	And panel with Id "panelStatus" should change color to "yellow" (b2c)
+	When I click on tab with label "Settings" (b2c)
 	And I click on swith with Id "toggleTOU" (b2c)
 	And I click on the Update button for pannel with Id "panelTOU" (b2c)
-	Then swith with Id "toggleTOU" should be enabled is "True" (b2c)
+	Then switch with Id "toggleTOU" should be enabled is "False" (b2c)
+	And I send UDP package with status "Standby" to unit "373709011"
 
-#Week day and Weekend start/end time not display
+@b2c @web 
+Scenario: B2C_Web_MyJuiceNet_08 - TOU Persistence
+	#Given I login to the system as "Oleksii" (b2c)
+	#When I click More Details for device with Id "373709011" (b2c)
+	#And I click on tab with label "Settings" (b2c)
+	#Given switch with Id "toggleTOU" is not activated (b2c)
+	#When I click on swith with Id "toggleTOU" (b2c)
+	#Then switch with Id "toggleTOU" should be enabled is "True" (b2c)
+	#When I remeber the current time on device (b2c)
+	#And I set TOU time to "not current" (b2c)
+	#And I click on the Update button for pannel with Id "panelTOU" (b2c)
+	#And I refresh page (b2c)
+	#And I click on tab with label "Settings" (b2c)
+	#Then TOU time should be equal to "not current" (b2c)
 
-@b2c 
-Scenario: B2C_Web_MyJuiceNet_09 - TOU Persistence**
-	#Then I send UDP package with status "Connected" to unit "373709011"
-	#Then I send UDP package with status "Standby" to unit "373709011"
-	#Then I send UDP package with status "Charging" to unit "373709011"
-	#Given I send udp package "373709011:V2284,L123,S0,T51,E0,i0,e0,t10,f5915,m40:"
-	#Given I send udp package "373709011:V2329,L123,S1,T23,E0,i5,e0,t3,f6146,m60:"
-	Given I send udp package "373709011:V2289,L123,S1,T49,E0,i18,e0,t3,f6125,m60:"
-
-
-#Run "Add JuiceNet Device" test case
-#Navigate to dashboard
-#Click on "More Details" link in Device area
-#User is navigated to device page with active Status tab
-#Click on Settings tab
-#User is navigated to Settings tab
-#Turn TOU On
-#Week day and Weekend start/end time appear
-#Set TOU starts at the following hour(e.g., if it’s 1:46am at the moment, set TOU to start at 2am and end at 3am)
-#Click on "Update" button
-#Updated fields display correct data
 #Disconnect emulator Device from Network
 #Confirm the unit appears as "Offline"
 #Connect Device back
@@ -151,31 +154,48 @@ Scenario: B2C_Web_MyJuiceNet_09 - TOU Persistence**
 #Click on "Update" button
 #Updated fields display correct data
 
+#@b2c 
+#Scenario: B2C_Web_MyJuiceNet Test
+	#Then I send UDP package with status "Connected" to unit "373709011"
+	#Then I send UDP package with status "Standby" to unit "373709011"
+	#Then I send UDP package with status "Charging" to unit "373709011"
+	#Given I send udp package "373709011:V2284,L123,S0,T51,E0,i0,e0,t10,f5915,m40:"
+	#Given I send udp package "373709011:V2329,L123,S1,T23,E0,i5,e0,t3,f6146,m60:"
+	#Given I send udp package "373709011:V2289,L123,S1,T49,E0,i18,e0,t3,f6125,m60:"
+
+
+
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_10 - Minimal charge. Charging starts before TOU start time.**
-#Run "Add JuiceNet Device" test case
-#Navigate to dashboard
-#Click on "More Details" link in Device area
-#User is navigated to device page with active Status tab
-#Click on Settings tab
-#User is navigated to Settings tab
-#Check Minimal charge is off
-#Field displays 0
-#Turn TOU On
-#Week day and Weekend start/end time appear
-#Set TOU starts at the following hour(e.g., if it’s 1:46am at the moment, set TOU to start at 2am and end at 3am)
-#Change Minimal charge value to 5KWh
-#Click on "Update" button
-#Updated fields display correct data
-#Click on Status tab
-#The state changed  to Charging . Back color turn to orange.
-#Click on Settings tab
-#User is navigated to Settings tab
-#Set Minimal charge value to 0
-#Click on "Update" button
-#Updated fields display correct data
-#Click on Status tab
-#The state changed to Plugged In. Back color turn to green.
+Scenario: B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU start time.
+	Given I login to the system as "Oleksii" (b2c)
+	When I click More Details for device with Id "373709011" (b2c)
+	And I click on tab with label "Settings" (b2c)
+	Given switch with Id "toggleTOU" is not activated (b2c)
+	And field with Id "MinChargeKWh" is equal to "0.0" (b2c)
+	When I set field "MinChargeKWh" to "10" (b2c)
+	And I click on swith with Id "toggleTOU" (b2c)
+	Then switch with Id "toggleTOU" should be enabled is "True" (b2c)
+	When I remeber the current time on device (b2c)
+	And I set TOU time to "not current" (b2c)
+	And I click on the Update button for pannel with Id "panelTOU" (b2c)
+	And I refresh page (b2c)
+	And I click on tab with label "Settings" (b2c)
+	Then TOU time should be equal to "not current" (b2c)
+	When I click on tab with label "Status" (b2c)
+	When I send UDP package with status "Connected" to unit "373709011"
+	Then UDP response should contain amperage higher than "00"
+	Then I send UDP package with status "Charging" to unit "373709011"
+	And panel with Id "panelStatus" should change color to "yellow" (b2c)
+	When I click on tab with label "Settings" (b2c)
+	And I set field "MinChargeKWh" to "0.0" (b2c)
+	And I click on the Update button for pannel with Id "panelTOU" (b2c)
+	And I refresh page (b2c)
+	And I click on tab with label "Settings" (b2c)
+	Then field with Id "MinChargeKWh" should be equal to "0.0" (b2c)
+	When I click on tab with label "Status" (b2c)
+	And I send UDP package with status "Connected" to unit "373709011"
+	Then UDP response should contain "A00"
+	And panel with Id "panelStatus" should change color to "green" (b2c)
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_11 - Minimal charge. Charging continues after TOU end time.**
