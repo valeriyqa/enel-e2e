@@ -307,33 +307,36 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_Registration_and_Login_11 - Login with invalid email**")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_Registration_and_Login_11 - Login with invalid email")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
         public virtual void B2C_Web_Registration_And_Login_11_LoginWithInvalidEmail()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_11 - Login with invalid email**", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_11 - Login with invalid email", null, new string[] {
                         "b2c",
                         "web"});
 #line 146
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 154
+#line 147
  testRunner.Given("I navigate to \"Account/Login\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 155
- testRunner.When("I set field with Id \"Email\" to \"891355577799\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 156
- testRunner.And("I set field with Id \"Password\" to \"0123456789\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FieldId"});
+                        "FieldId",
+                        "Value"});
             table5.AddRow(new string[] {
-                        "Password"});
-#line 157
- testRunner.Then("field \"<FieldId>\" should be masked (b2c)", ((string)(null)), table5, "Then ");
-#line 160
+                        "Email",
+                        "891355577799"});
+            table5.AddRow(new string[] {
+                        "Password",
+                        "0123456789"});
+#line 148
+ testRunner.When("I set field \"<FieldId>\" to \"<Value>\" (b2c)", ((string)(null)), table5, "When ");
+#line 152
+ testRunner.Then("field \"Password\" should be masked (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 153
  testRunner.When("I click on button with name \"Login\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 161
+#line 154
  testRunner.Then("Error message \"The Email field is not a valid e-mail address.\" is displayed (b2c)" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
