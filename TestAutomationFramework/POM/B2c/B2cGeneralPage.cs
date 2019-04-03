@@ -218,6 +218,19 @@ namespace TestAutomationFramework.POM
             return dt;
         }
 
+        public String getDisplayedAlertId()
+        {
+            return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert')]")).GetAttribute("id");
+        }
 
+        public String getDisplayedAlertClass()
+        {
+            return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert')]")).GetAttribute("class");
+        }
+
+        public String getDisplayedAlertText()
+        {
+            return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert')]")).Text;
+        }
     }
 }

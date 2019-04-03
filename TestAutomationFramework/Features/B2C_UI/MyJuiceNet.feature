@@ -197,6 +197,7 @@ Scenario: B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU sta
 	Then UDP response should contain "A00"
 	And panel with Id "panelStatus" should change color to "green" (b2c)
 
+	#it looks like previous test cover this funtionality
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_11 - Minimal charge. Charging continues after TOU end time.**
 #Run "Add JuiceNet Device" test case
@@ -248,16 +249,36 @@ Scenario: B2C_Web_MyJuiceNet_12 - EVSE Efficiency**
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_13 - Add empty Load groups.**
-#Navigate to Load Group Management
-#User is navigated to Load Group page with empty table of groups
-#Click on New Load Group button
-#Enter Group name
-#Click on Save changes button
-#New group displays in table
-#Click on New Load Group button
-#Enter Group name
-#Click on Save changes button
-#Display error message “Load Group could not be created. User already has one empty load group.”
+	Given I login to the system as "Oleksii" (b2c)
+	And I navigate to the "Load groups" page (b2c)
+	And load group table is empty (b2c)
+	When I click on button with name "New Load Group" (b2c)
+	And I set field with Id "lg-add-modal-group-name" to "TestGroup1" (b2c)
+	And I click on button with name "Save changes" (b2c)
+	Then Alert with status "success" and text "Load Group TestGroup1 created sucessfully" should be displayed (b2c)
+	When I click on button with name "Close" (b2c)
+	Then Load group with name "TestGroup1" should apear in the table is "true" (b2c)
+	When I click on button with name "New Load Group" (b2c)
+	And I set field with Id "lg-add-modal-group-name" to "TestGroup2" (b2c)
+	And I click on button with name "Save changes" (b2c)
+	Then Alert with status "danger" and text "User already has one empty load group" should be displayed (b2c)
+	When I click on button with name "Close" (b2c)
+	Then Load group with name "TestGroup2" should apear in the table is "false" (b2c)
+	When I click on button with name "Edit" (b2c)
+	And I set field with Id "lg-add-modal-group-name" to "TestGroup2" (b2c)
+	And I set field with Id "lg-add-modal-max-current" to "5" (b2c)
+	And I click on button with name "Save changes" (b2c)
+	Then Alert with status "success" and text "Load Group TestGroup2 modified successfully" should be displayed (b2c)
+	When I click on button with name "Close" (b2c)
+	Then Load group with name "TestGroup2" should apear in the table is "true" (b2c)
+	#check maximum current
+	When I click on button with name "Delete" (b2c)
+	Then Alert with status "danger" and text "Are you sure you want delete the group TestGroup2" should be displayed (b2c)
+	When I click on button with name "Delete LoadGroup" (b2c)
+	And I click on button with name "Close" (b2c)
+	Then Load group table should be empty (b2c)
+
+
 #Click on Edit button
 #Enter new name
 #Enter Maximum Current value
@@ -269,6 +290,7 @@ Scenario: B2C_Web_MyJuiceNet_13 - Add empty Load groups.**
 #Display operation succeed modal window message “Load Group deleted successfully.”
 #Click on Close button
 #Load Group page display with empty table of groups
+
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.**
