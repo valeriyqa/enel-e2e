@@ -8,7 +8,15 @@ using System.Threading;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using TestAutomationFramework.POM;
-
+using OpenQA.Selenium.Support.UI;
+using System.Data;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TestAutomationFramework.Services;
+using TestAutomationFramework.Services.ApiService;
 
 namespace TestAutomationFramework.Steps.UI
 {
@@ -17,11 +25,15 @@ namespace TestAutomationFramework.Steps.UI
     {
         private readonly RemoteWebDriver driver;
         private string host = Config.Global.env_dashboard_address;
-        private Dictionary<string, Tools.LoadFromConf.User> usersDictionary = Tools.LoadFromConf.GetUsers();
+        //private Dictionary<string, Tools.LoadFromConf.User> usersDictionary = Tools.LoadFromConf.GetUsers();
 
         public B2cUiLoginSteps(RemoteWebDriver driver) => this.driver = driver;
-
-        //private readonly RemoteWebDriver driver;
+        [Then(@"Alert message ""(.*)"" is displayed \(b2c\)")]
+        public void ThenAlertMessageIsDisplayedBc(string errMsg)
+        {
+            var currentMessage = driver.FindElement(By.CssSelector("[class*='validation-summary-errors']>ul>li")).Text;
+            Assert.AreEqual(errMsg, currentMessage);
+        }
 
 
         //public LoginSteps(RemoteWebDriver driver)
@@ -71,6 +83,7 @@ namespace TestAutomationFramework.Steps.UI
         //    GeneralPage generalPage = new GeneralPage(driver);
         //    Assert.AreEqual(generalPage.GetUserName(), currentUser.userDescription);
         //}
+
     }
 }
  

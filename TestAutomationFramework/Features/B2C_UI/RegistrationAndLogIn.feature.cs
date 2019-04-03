@@ -211,6 +211,25 @@ this.ScenarioInitialize(scenarioInfo);
 #line 88
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
+#line 89
+ testRunner.Given("I navigate to \"Account/Login\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FieldId",
+                        "Value"});
+            table3.AddRow(new string[] {
+                        "Email",
+                        "oleksii.khabarov@emotorwerks.com"});
+            table3.AddRow(new string[] {
+                        "Password",
+                        "invalidPassword"});
+#line 90
+ testRunner.When("I set field \"<FieldId>\" to \"<Value>\" (b2c)", ((string)(null)), table3, "When ");
+#line 94
+ testRunner.And("I click on button with name \"Login\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 95
+ testRunner.Then("Alert message \"Oops! Please double-check your email and password.\" is displayed (" +
+                    "b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -224,7 +243,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_08 - Login with unconfirmed email**", null, new string[] {
                         "b2c",
                         "web"});
-#line 97
+#line 98
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -242,7 +261,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "count**", null, new string[] {
                         "b2c",
                         "web"});
-#line 105
+#line 106
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -258,7 +277,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_10 - User profile settings**", null, new string[] {
                         "b2c",
                         "web"});
-#line 117
+#line 118
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -268,3 +287,4 @@ this.ScenarioInitialize(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+

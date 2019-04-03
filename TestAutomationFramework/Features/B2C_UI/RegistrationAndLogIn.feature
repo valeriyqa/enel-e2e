@@ -86,12 +86,13 @@ Scenario: B2C_Web_Registration_and_Login_06 - Login with unregistered email**
 
 @b2c @web
 Scenario: B2C_Web_Registration_and_Login_07 - Login with invalid password**
-#* Navigate to login page
-#* Provide registered email
-#* Provide password
-#  - Password invalid field should be masked
-#* Click on Login button
-#  - Display error message “Oops! Please double-check your email and password”
+	Given I navigate to "Account/Login" page (b2c)
+	When I set field "<FieldId>" to "<Value>" (b2c)
+		| FieldId         | Value               |
+		| Email           | oleksii.khabarov@emotorwerks.com |
+		| Password        | invalidPassword |
+	And I click on button with name "Login" (b2c)
+	Then Alert message "Oops! Please double-check your email and password." is displayed (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Registration_and_Login_08 - Login with unconfirmed email**
