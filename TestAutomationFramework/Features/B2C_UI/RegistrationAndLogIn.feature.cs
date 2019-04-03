@@ -179,6 +179,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 71
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
+#line 77
+ testRunner.Given("I login to the system as \"Web user\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 78
+ testRunner.Then("I should be navigated to the \"Portal\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -192,9 +196,27 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_06 - Login with unregistered email**", null, new string[] {
                         "b2c",
                         "web"});
-#line 79
+#line 82
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
+#line 90
+ testRunner.Given("I navigate to \"Account/Login\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 91
+ testRunner.When("I set field with Id \"Email\" to \"891355577799@mail.ru\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 92
+ testRunner.And("I set field with Id \"Password\" to \"0123456789\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FieldId"});
+            table3.AddRow(new string[] {
+                        "Password"});
+#line 93
+ testRunner.Then("field \"<FieldId>\" should be masked (b2c)", ((string)(null)), table3, "Then ");
+#line 96
+ testRunner.When("I click on button with name \"Login\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 97
+ testRunner.Then("Alert message \"Oops! Please double-check your email and password.\" is displayed (" +
+                    "b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -208,26 +230,26 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_07 - Login with invalid password**", null, new string[] {
                         "b2c",
                         "web"});
-#line 88
+#line 100
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 89
+#line 101
  testRunner.Given("I navigate to \"Account/Login\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "FieldId",
                         "Value"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "Email",
                         "oleksii.khabarov@emotorwerks.com"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "Password",
                         "invalidPassword"});
-#line 90
- testRunner.When("I set field \"<FieldId>\" to \"<Value>\" (b2c)", ((string)(null)), table3, "When ");
-#line 94
+#line 102
+ testRunner.When("I set field \"<FieldId>\" to \"<Value>\" (b2c)", ((string)(null)), table4, "When ");
+#line 106
  testRunner.And("I click on button with name \"Login\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 95
+#line 107
  testRunner.Then("Alert message \"Oops! Please double-check your email and password.\" is displayed (" +
                     "b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -243,7 +265,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_08 - Login with unconfirmed email**", null, new string[] {
                         "b2c",
                         "web"});
-#line 98
+#line 110
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -261,7 +283,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "count**", null, new string[] {
                         "b2c",
                         "web"});
-#line 106
+#line 118
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -277,9 +299,43 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_10 - User profile settings**", null, new string[] {
                         "b2c",
                         "web"});
-#line 118
+#line 130
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_Registration_and_Login_11 - Login with invalid email**")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2C_Web_Registration_And_Login_11_LoginWithInvalidEmail()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_11 - Login with invalid email**", null, new string[] {
+                        "b2c",
+                        "web"});
+#line 146
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 154
+ testRunner.Given("I navigate to \"Account/Login\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 155
+ testRunner.When("I set field with Id \"Email\" to \"891355577799\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 156
+ testRunner.And("I set field with Id \"Password\" to \"0123456789\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FieldId"});
+            table5.AddRow(new string[] {
+                        "Password"});
+#line 157
+ testRunner.Then("field \"<FieldId>\" should be masked (b2c)", ((string)(null)), table5, "Then ");
+#line 160
+ testRunner.When("I click on button with name \"Login\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 161
+ testRunner.Then("Error message \"The Email field is not a valid e-mail address.\" is displayed (b2c)" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

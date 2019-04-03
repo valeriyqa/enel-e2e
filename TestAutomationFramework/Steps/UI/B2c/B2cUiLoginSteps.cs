@@ -28,13 +28,13 @@ namespace TestAutomationFramework.Steps.UI
         //private Dictionary<string, Tools.LoadFromConf.User> usersDictionary = Tools.LoadFromConf.GetUsers();
 
         public B2cUiLoginSteps(RemoteWebDriver driver) => this.driver = driver;
+
         [Then(@"Alert message ""(.*)"" is displayed \(b2c\)")]
         public void ThenAlertMessageIsDisplayedBc(string errMsg)
         {
             var currentMessage = driver.FindElement(By.CssSelector("[class*='validation-summary-errors']>ul>li")).Text;
             Assert.AreEqual(errMsg, currentMessage);
         }
-
 
         //public LoginSteps(RemoteWebDriver driver)
         //{

@@ -69,20 +69,32 @@ Scenario: B2C_Web_Registration_and_Login_04 - Registration via Google account**
 
 @b2c @web
 Scenario: B2C_Web_Registration_and_Login_05 - Login with valid email and password**
-#* Navigate to login page
-#* Provide registered email
+# 1. Navigate to login page
+# 2. Provide registered email
 #* Provide valid password
 #* Click on Login button
 #  - User is navigated to dashboard with successful login
+	Given I login to the system as "Web user" (b2c)
+	Then I should be navigated to the "Portal" page (b2c)
+
 
 @b2c @web
 Scenario: B2C_Web_Registration_and_Login_06 - Login with unregistered email**
-#* Navigate to login page
-#* Provide unregistered email
-#* Provide password
+# 1. Navigate to login page
+# 2. Provide unregistered email
+# 3. Provide password
 #  - Password field should be masked
-#* Click on Login button
-#  - Display error message "Oops! Please double-check your email and password"
+# 4. Click on Login button
+#  - Display error message "The Email field is not a valid e-mail address."
+
+	Given I navigate to "Account/Login" page (b2c)
+	When I set field with Id "Email" to "891355577799@mail.ru" (b2c)
+	And I set field with Id "Password" to "0123456789" (b2c)
+	Then field "<FieldId>" should be masked (b2c)
+		| FieldId         |
+		| Password       |
+	When I click on button with name "Login" (b2c) 
+	Then Alert message "Oops! Please double-check your email and password." is displayed (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Registration_and_Login_07 - Login with invalid password**
@@ -130,3 +142,20 @@ Scenario: B2C_Web_Registration_and_Login_10 - User profile settings**
 #* Click "Cancel" button
 #* Logout
 
+@b2c @web
+Scenario: B2C_Web_Registration_and_Login_11 - Login with invalid email**
+# 1. Navigate to login page
+# 2. Provide invalid email
+# 3. Provide password
+#  - Password field should be masked
+# 4. Click on Login button
+#  - Display error message "The Email field is not a valid e-mail address."
+
+	Given I navigate to "Account/Login" page (b2c)
+	When I set field with Id "Email" to "891355577799" (b2c)
+	And I set field with Id "Password" to "0123456789" (b2c)
+	Then field "<FieldId>" should be masked (b2c)
+		| FieldId         |
+		| Password       |
+	When I click on button with name "Login" (b2c) 
+	Then Error message "The Email field is not a valid e-mail address." is displayed (b2c)
