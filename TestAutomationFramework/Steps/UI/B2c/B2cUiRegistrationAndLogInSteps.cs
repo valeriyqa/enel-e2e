@@ -21,7 +21,15 @@ namespace TestAutomationFramework.Steps.UI
         private string userPassword = Config.Global.web_user_password;
         private string userDescription = Config.Global.web_user_description;
 
-        public B2cUiRegistrationAndLogInSteps(RemoteWebDriver driver) => this.driver = driver;
+        //public B2cUiRegistrationAndLogInSteps(RemoteWebDriver driver) => this.driver = driver;
+
+        private ScenarioContext scenarioContext;
+
+        public B2cUiRegistrationAndLogInSteps(RemoteWebDriver driver, ScenarioContext scenarioContext)
+        {
+            this.driver = driver;
+            this.scenarioContext = scenarioContext;
+        }
 
         [Given(@"I navigate to ""(.*)"" page \(b2c\)")] //done
         public void GivenINavigateToPage(string page)
@@ -105,5 +113,22 @@ namespace TestAutomationFramework.Steps.UI
             B2cGeneralPage generalPage = new B2cGeneralPage(driver);
             Assert.AreEqual(generalPage.GetUserName(), userDescription);
         }
+
+        // ScenarioContext.Current demo mock
+
+        //[When(@"I save this number ""(.*)"" \(b2c\)")]
+        //public void WhenISaveThisNumberBc(int sharedNumber)
+        //{
+        //    ScenarioContext.Current["sharedNumber"] = sharedNumber;
+        //}
+
+        //[Then(@"I sum shared number with ""(.*)"" \(b2c\)")]
+        //public void ThenISumThatNumberWithBc(int stepNumber)
+        //{
+        //    var sharedNumber = ScenarioContext.Current["sharedNumber"];
+        //    int finalNumber = Convert.ToInt32(sharedNumber) + stepNumber;
+        //    Console.WriteLine("Final number = {0}", finalNumber);
+        //}
+
     }
 }
