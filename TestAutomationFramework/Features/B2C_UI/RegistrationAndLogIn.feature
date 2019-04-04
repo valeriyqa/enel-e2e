@@ -85,14 +85,12 @@ Scenario: B2C_Web_Registration_and_Login_06 - Login with unregistered email**
 # 3. Provide password
 #  - Password field should be masked
 # 4. Click on Login button
-#  - Display error message "The Email field is not a valid e-mail address."
+#  - Display error message "Oops! Please double-check your email and password."
 
 	Given I navigate to "Account/Login" page (b2c)
 	When I set field with Id "Email" to "891355577799@mail.ru" (b2c)
 	And I set field with Id "Password" to "0123456789" (b2c)
-	Then field "<FieldId>" should be masked (b2c)
-		| FieldId         |
-		| Password       |
+	Then field "Password" should be masked (b2c)
 	When I click on button with name "Login" (b2c) 
 	Then Alert message "Oops! Please double-check your email and password." is displayed (b2c)
 
@@ -152,3 +150,11 @@ Scenario: B2C_Web_Registration_and_Login_11 - Login with invalid email
 	Then field "Password" should be masked (b2c)
 	When I click on button with name "Login" (b2c) 
 	Then Error message "The Email field is not a valid e-mail address." is displayed (b2c)
+
+# ScenarioContext.Current demo mock
+#@b2c @web
+#Scenario: B2C_Web_Registration_and_Login_12 - Login with ScenarioContext.Current**
+#
+#	Given I navigate to "Account/Login" page (b2c)
+#	When I save this number "7755" (b2c)
+#	Then I sum that number with "22" (b2c)
