@@ -97,8 +97,10 @@ function GetMethodType4Api {
 
 
 
-
-
+Write-Host "Start"
+Write-Host $Env:BUILD_SOURCESDIRECTORY
+Write-Host $Env:BUILD_BUILDNUMBER
+Write-Host "Finish"
 
 $zzz = GetMethodType4Api '{ "cmd": "get_server_info" }'
 
