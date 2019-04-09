@@ -168,12 +168,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_Registration_and_Login_05 - Login with valid email and password**")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_Registration_and_Login_05 - Login with valid email and password")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
         public virtual void B2C_Web_Registration_And_Login_05_LoginWithValidEmailAndPassword()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_05 - Login with valid email and password**", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_05 - Login with valid email and password", null, new string[] {
                         "b2c",
                         "web"});
 #line 71
@@ -188,12 +188,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_Registration_and_Login_06 - Login with unregistered email**")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_Registration_and_Login_06 - Login with unregistered email")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
         public virtual void B2C_Web_Registration_And_Login_06_LoginWithUnregisteredEmail()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_06 - Login with unregistered email**", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_06 - Login with unregistered email", null, new string[] {
                         "b2c",
                         "web"});
 #line 77
@@ -217,12 +217,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_Registration_and_Login_07 - Login with invalid password**")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_Registration_and_Login_07 - Login with invalid password")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
         public virtual void B2C_Web_Registration_And_Login_07_LoginWithInvalidPassword()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_07 - Login with invalid password**", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Registration_and_Login_07 - Login with invalid password", null, new string[] {
                         "b2c",
                         "web"});
 #line 86

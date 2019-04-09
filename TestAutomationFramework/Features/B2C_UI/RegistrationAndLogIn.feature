@@ -68,25 +68,13 @@ Scenario: B2C_Web_Registration_and_Login_04 - Registration via Google account**
 #  - User is navigated to dashboard with successful login
 
 @b2c @web
-Scenario: B2C_Web_Registration_and_Login_05 - Login with valid email and password**
-# 1. Navigate to login page
-# 2. Provide registered email
-#* Provide valid password
-#* Click on Login button
-#  - User is navigated to dashboard with successful login
+Scenario: B2C_Web_Registration_and_Login_05 - Login with valid email and password
 	Given I login to the system as "Web user" (b2c)
 	Then I should be navigated to the "Portal" page (b2c)
 
 
 @b2c @web
-Scenario: B2C_Web_Registration_and_Login_06 - Login with unregistered email**
-# 1. Navigate to login page
-# 2. Provide unregistered email
-# 3. Provide password
-#  - Password field should be masked
-# 4. Click on Login button
-#  - Display error message "Oops! Please double-check your email and password."
-
+Scenario: B2C_Web_Registration_and_Login_06 - Login with unregistered email
 	Given I navigate to "Account/Login" page (b2c)
 	When I set field with Id "Email" to "891355577799@mail.ru" (b2c)
 	And I set field with Id "Password" to "0123456789" (b2c)
@@ -95,7 +83,7 @@ Scenario: B2C_Web_Registration_and_Login_06 - Login with unregistered email**
 	Then Alert message "Oops! Please double-check your email and password." is displayed (b2c)
 
 @b2c @web
-Scenario: B2C_Web_Registration_and_Login_07 - Login with invalid password**
+Scenario: B2C_Web_Registration_and_Login_07 - Login with invalid password
 	Given I navigate to "Account/Login" page (b2c)
 	When I set field "<FieldId>" to "<Value>" (b2c)
 		| FieldId         | Value               |
