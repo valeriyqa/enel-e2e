@@ -278,20 +278,6 @@ Scenario: B2C_Web_MyJuiceNet_13 - Add empty Load groups.**
 	And I click on button with name "Close" (b2c)
 	Then Load group table should be empty (b2c)
 
-
-#Click on Edit button
-#Enter new name
-#Enter Maximum Current value
-#Click on Save changes button
-#Updated fields display correct data
-#Click on Delete button
-#Display warning modal window message “Are you sure you want delete the group <group name> ?.”
-#Click on Delete LoadGroup button
-#Display operation succeed modal window message “Load Group deleted successfully.”
-#Click on Close button
-#Load Group page display with empty table of groups
-
-
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.**
 	Given JuiceNet device is not added (b2c)
