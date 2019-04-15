@@ -107,7 +107,11 @@ namespace TestAutomationFramework.POM
             var selectElement = new SelectElement(driver.FindElement(By.XPath("//div//label[contains(text(),'" + selectLabel + "')]/..//select")));
             selectElement.SelectByValue(selectValue);
         }
+        public void SelectCheckboxByLabel(string selectLabel)
+        {
+            driver.FindElement(By.XPath("//div//label[contains(text(),'" + selectLabel + "')]/input")).Click();
 
+        }
         public void ClickButtonWithId(string buttonId)
         {
             driver.FindElementById(buttonId).Submit();
@@ -220,17 +224,17 @@ namespace TestAutomationFramework.POM
 
         public String getDisplayedAlertId()
         {
-            return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert')]")).GetAttribute("id");
+            return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert') and not(contains(concat(' ',@style,' '),'display:none'))]")).GetAttribute("id");
         }
 
         public String getDisplayedAlertClass()
         {
-            return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert')]")).GetAttribute("class");
+            return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert') and not(contains(concat(' ',@style,' '),'display:none'))]")).GetAttribute("class");
         }
 
         public String getDisplayedAlertText()
         {
-            return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert')]")).Text;
+            return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert') and not(contains(concat(' ',@style,' '),'display:none'))]")).Text;
         }
     }
 }

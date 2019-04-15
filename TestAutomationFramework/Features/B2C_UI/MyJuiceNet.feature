@@ -294,23 +294,29 @@ Scenario: B2C_Web_MyJuiceNet_13 - Add empty Load groups.**
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.**
-#Run "Add JuiceNet Device" for 2 units
-#Navigate to Load Group Management
-#User is navigated to Load Group page with empty table of groups
-#Click on New Load Group button
-#Enter Group name
-#Click on Save changes button
-#New group displays in table
-#Click on empty Load group string in a table
-#JuiceNet devices selector appears
-#Select all devices
-#Click on Add selected JNDevices to Load Group
-#Display Add JuiceNet Devices To Load Group modal window with list of added IDs
-#Click on Close button
-#Check the List of devices and number of units in a cell.
-#Two units displays in a table. Units # = 2
-#Navigate to dashboard
-#Load groups icon appear on device areas
+	Given JuiceNet device is not added (b2c)
+	And I login to the system as "Oleksii" (b2c)
+	Given I navigate to the "Load groups" page (b2c)
+	And load group table is empty (b2c)
+	When I click on button with name "New Load Group" (b2c)
+	And I set field with Id "lg-add-modal-group-name" to "TestGroup14" (b2c)
+	And I click on button with name "Save changes" (b2c)
+	Then Alert with status "success" and text "Load Group TestGroup14 created sucessfully" should be displayed (b2c)
+	When I click on button with name "Close" (b2c)
+	Then Load group with name "TestGroup14" should apear in the table is "true" (b2c)
+
+	Given I click on empty Load group with name "TestGroup14" string in table (b2c)
+	When I click on button with name "Check at least one device" (b2c)
+	And I select item by checkbox name "373708001" (b2c)
+	And I select item by checkbox name "373708002" (b2c)
+	And I click on button with name "Add selected JNDevices to Load Group" (b2c)
+	Then Alert with status "success" and text "This devices were added successfully:" should be displayed (b2c)
+	When I click on button with name "Close" (b2c)
+	Then I check load group "TestGroup14" for "2" units in table (b2c)
+
+	Given I navigate to the "My JuiceNet Devices" page (b2c)
+	Then Device "373708001" area contain load group icon (b2c)
+	Then Device "373708002" area contain load group icon (b2c)
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_15 - Notifications**

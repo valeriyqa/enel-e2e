@@ -227,6 +227,13 @@ namespace TestAutomationFramework.Steps.UI
             }
             Assert.False(generalPage.IsSwitchWithIdOn(switchId));
         }
+        [When(@"I select item by checkbox name ""(.*)"" \(b2c\)")]
+        public void WhenISelectItemByCheckboxNameBc(string deviceName)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            generalPage.SelectCheckboxByLabel(deviceName);
+
+        }
 
     }
 }

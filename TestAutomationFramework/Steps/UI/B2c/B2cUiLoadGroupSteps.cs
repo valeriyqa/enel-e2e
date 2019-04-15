@@ -79,6 +79,22 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(Boolean.Parse(isExist), false);
         }
 
+        [Then(@"I check load group ""(.*)"" for ""(.*)"" units in table \(b2c\)")]
+        public void ThenICheckLoadGroupForUnitsInTableBc(string groupName, string unitCount)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            DataTable Table = generalPage.GetTableById("loadgroups-table");
+            foreach (DataRow dataRow in Table.Rows)
+            {
+                if (dataRow.ItemArray[0].Equals(groupName))
+                {
+                    Assert.AreEqual(unitCount, dataRow.ItemArray[2]);
+                    return;
+                }
+            }
+            Assert.AreEqual(true, false);
+        }
+
         [When(@"I click on button in the alert with name ""(.*)"" \(b2c\)")]
         public void WhenIClickOnButtonInTheAlertWithNameBc(string buttonText)
         {
@@ -104,6 +120,18 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual((Int64)js.ExecuteScript("return $('button.btn-delete-load-group').length;"), 0);
         }
 
+        [Given(@"I click on empty Load group with name ""(.*)"" string in table \(b2c\)")]
+        public void GivenIClickOnEmptyLoadGroupWithNameStringInTableBc(string groupName)
+        {
+            driver.FindElement(By.XPath("//*[@id='loadgroups-table']//input[contains(@value,'" + groupName + "')]//ancestor::td")).Click();
+        }
+
+        [Then(@"Device ""(.*)"" area contain load group icon \(b2c\)")]
+        public void ThenDeviceAreaContainLoadGroupIconBc(string deviceID)
+        {
+            IWebElement element = driver.FindElement(By.CssSelector("[id='unitsList'] div[data-unitid = '" + deviceID + "'] [title = 'Device is in Load Group']"));
+            Assert.True(element.Displayed);
+        }
 
     }
 }
