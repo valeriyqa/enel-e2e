@@ -4,15 +4,25 @@
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_01 - JuiceNet Device Lookup
-#Run "Add JuiceNet Device" test case
-#Navigate to dashboard
-#User is navigated to device page with active Status tab
-#Copy Device ID
-#Login as Admin
-#Navigate to JuiceNet Device Lookup page from Admin Utilities menu
-#User is navigated to Device Lookup page with active Info tab
-#Enter Device ID
-#Confirm page data with device details
+	#Run "Add JuiceNet Device" test case ?
+	Given I login to the system as "Oleksii" (b2c)
+	And I navigate to the "My JuiceNet Devices" page (b2c)
+	Then JuiceNet device with Id "373708002" should exist is "True" (b2c)
+	When I click More Details for device with Id "373708002" (b2c)
+	Then I save device "373708002" ID (b2c)
+
+	#Given I login to the system as "Admin" (b2c) ?
+	Given I navigate to "Account/Login" page (b2c)
+	When I set field with Id "Email" to "pavel.tsios@emotorwerks.com" (b2c)
+	And I set field with Id "Password" to "eMW2018" (b2c)
+	And I click on button with name "Login" (b2c)
+	Given I navigate to the "Admin Utilities" page (b2c)
+	And I navigate to the "JuiceNet Device Lookup" page (b2c)
+	When I set field Id "inputUnitID" with shared data (b2c)
+	And I click on related to the field with Id "inputUnitID" search button (b2c)
+	
+	#Confirm page data with device details - mock
+	Then I should see Unit Id "373708002" (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_02 - JuiceNet Device Lookup with active TOU

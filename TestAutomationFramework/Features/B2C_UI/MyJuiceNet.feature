@@ -21,7 +21,7 @@ Scenario: B2C_Web_MyJuiceNet_01 - Add/Delete JuiceNet Device
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_02 - JuiceNet Device Status
-	Given  I login to the system as "Oleksii" (b2c)
+	Given I login to the system as "Oleksii" (b2c)
 	When I click More Details for device with Id "373709011" (b2c)
 	Then field with Label "Allowed Current" should be equal to "60" (b2c)
 	And field with Label "Charging Limit" should be equal to "0" (b2c)
@@ -32,7 +32,7 @@ Scenario: B2C_Web_MyJuiceNet_02 - JuiceNet Device Status
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
-	Given  I login to the system as "Oleksii" (b2c)
+	Given I login to the system as "Oleksii" (b2c)
 	When I click More Details for device with Id "373709012" (b2c)
 	And I click on tab with label "History" (b2c)
 	When I get data from table with Id "usagetable" (b2c)
@@ -279,9 +279,8 @@ Scenario: B2C_Web_MyJuiceNet_13 - Add empty Load groups.**
 	Then Load group table should be empty (b2c)
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.**
-	Given JuiceNet device is not added (b2c)
-	And I login to the system as "Oleksii" (b2c)
+Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.
+	Given I login to the system as "Oleksii" (b2c)
 	Given I navigate to the "Load groups" page (b2c)
 	And load group table is empty (b2c)
 	When I click on button with name "New Load Group" (b2c)

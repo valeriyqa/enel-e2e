@@ -24,10 +24,13 @@ namespace TestAutomationFramework.Steps.UI
 
         private readonly TestData testData;
         private readonly RemoteWebDriver driver;
-        public B2cUiGeneralSteps(TestData testData, RemoteWebDriver driver)
+        private ScenarioContext scenarioContext;
+
+        public B2cUiGeneralSteps(TestData testData, RemoteWebDriver driver, ScenarioContext scenarioContext)
         {
             this.testData = testData;
             this.driver = driver;
+            this.scenarioContext = scenarioContext;
         }
 
         [Given(@"I navigate to the ""(.*)"" page \(b2c\)")]

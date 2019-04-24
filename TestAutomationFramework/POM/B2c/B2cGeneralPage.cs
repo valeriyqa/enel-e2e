@@ -236,5 +236,6 @@ namespace TestAutomationFramework.POM
         {
             return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert') and not(contains(concat(' ',@style,' '),'display:none'))]")).Text;
         }
+
     }
 }
