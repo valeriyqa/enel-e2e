@@ -62,12 +62,42 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(Convert.ToString(actualDeviceID), deviceID);
         }
 
-        //[Then(@"I sum shared number with ""(.*)"" \(b2c\)")]
-        //public void ThenISumThatNumberWithBc(int stepNumber)
-        //{
-        //    var sharedNumber = ScenarioContext.Current["sharedNumber"];
-        //    int finalNumber = Convert.ToInt32(sharedNumber) + stepNumber;
-        //    Console.WriteLine("Final number = {0}", finalNumber);
-        //}
+        [When(@"I save Weekday Start time to shared data \(b2c\)")]
+        public void WhenISaveWeekdayStartTimeToSharedDataBc()
+        {
+            string startTimeTemp = driver.FindElement(By.XPath("//*[@id='timepickerWdS']")).GetAttribute("value").ToString();
+            string startTime = "";
+
+            DateTime startTimeDate = DateTime.Parse(startTimeTemp);
+            startTime = startTimeDate.ToString("HH:mm");
+            scenarioContext["startTime"] = startTime;
+        }
+        [When(@"I save Weekday End time to shared data \(b2c\)")]
+        public void WhenISaveWeekdayEndTimeToSharedDataBc()
+        {
+            string endTimeTemp = driver.FindElement(By.XPath("//*[@id='timepickerWdE']")).GetAttribute("value").ToString();
+            string endTime = "";
+
+            DateTime endTimeDate = DateTime.Parse(endTimeTemp);
+            endTime = endTimeDate.ToString("HH:mm");
+            scenarioContext["endTime"] = endTime;
+        }
+        [Then(@"TOU Start time should be equal to shared data \(b2c\)")]
+        public void ThenTOUStartTimeShouldBeEqualToSharedDataBc()
+        {
+            var startTime = scenarioContext["startTime"];
+            var actualStartTime = driver.FindElement(By.CssSelector("[id='tou_wd_start']")).Text;
+            Assert.AreEqual(Convert.ToString(actualStartTime), Convert.ToString(startTime));
+        }
+
+        [Then(@"TOU End time should be equal to shared data \(b2c\)")]
+        public void ThenTOUEndTimeShouldBeEqualToSharedDataBc()
+        {
+            var endTime = scenarioContext["endTime"];
+            var actualEndTime = driver.FindElement(By.CssSelector("[id='tou_wd_end']")).Text;
+            Assert.AreEqual(Convert.ToString(actualEndTime), Convert.ToString(endTime));
+        }
+
+
     }
 }
