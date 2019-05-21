@@ -31,13 +31,13 @@ namespace TestAutomationFramework.Steps.UI
         {
             var sharedDeviceID = driver.FindElement(By.CssSelector("div.page-header > p:nth-child(3)")).Text;
             Assert.AreEqual(Convert.ToString(sharedDeviceID), deviceID);
-            ScenarioContext.Current["sharedData"] = sharedDeviceID;
+            ScenarioContext.Current["sharedDeviceID"] = sharedDeviceID;
         }
         [When(@"I set field Id ""(.*)"" with shared data \(b2c\)")]
         public void WhenISetFieldIdWithSharedDataBc(string fieldId)
         {
             var generalPage = new B2cGeneralPage(driver);
-            var sharedData = ScenarioContext.Current["sharedData"];
+            var sharedData = ScenarioContext.Current["sharedDeviceID"];
             generalPage.SetInputValueById(fieldId, Convert.ToString(sharedData));
         }
         [When(@"I click on related to the field with Id ""(.*)"" search button \(b2c\)")]
@@ -55,9 +55,6 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"I should see Unit Id ""(.*)"" \(b2c\)")]
         public void ThenIShouldSeeUnitIdBc(string deviceID)
         {
-            //var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            //wait.Until(wd => driver.FindElement(By.XPath("//*[@id='boxInfo']/div/div[1]/div[1]/h4/a/span")).Displayed);
-
             var actualDeviceID = driver.FindElement(By.XPath("//*[@id='boxInfo']/div/div[1]/div[1]/h4/a/span")).Text;
             Assert.AreEqual(Convert.ToString(actualDeviceID), deviceID);
         }
@@ -97,6 +94,28 @@ namespace TestAutomationFramework.Steps.UI
             var actualEndTime = driver.FindElement(By.CssSelector("[id='tou_wd_end']")).Text;
             Assert.AreEqual(Convert.ToString(actualEndTime), Convert.ToString(endTime));
         }
+        [Then(@"I should see related to Device ID policy ""(.*)"" \(b2c\)")]
+        public void ThenIShouldSeeRelatedToDeviceIDPolicyBc(string policy)
+        {
+            string policyClass = "";
+            if (policy == "Default")
+            {
+                policyClass = "color-policy-default";
+            }
+            else if (policy == "Green WT")
+            {
+                policyClass = "color-policy-green";
+            }
+            Assert.True(driver.FindElement(By.XPath("//*[@id='boxInfo']//li/label[contains(text(), 'Current policy')]//ancestor::li/div")).GetAttribute("class").Contains(policyClass));
+
+        }
+        [Then(@"I should see Unit Policy ""(.*)"" \(b2c\)")]
+        public void ThenIShouldSeeUnitPolicyBc(string policy)
+        {
+            Assert.True(driver.FindElement(By.XPath("//h4[contains(text(), 'Policy')]//following-sibling::span")).Text.Contains(policy));
+        }
+
+
 
 
     }
