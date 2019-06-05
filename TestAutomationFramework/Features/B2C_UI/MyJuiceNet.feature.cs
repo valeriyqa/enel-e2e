@@ -408,11 +408,13 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU start time.")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
+        [NUnit.Framework.CategoryAttribute("nigthBuild")]
         public virtual void B2C_Web_MyJuiceNet_09_MinimalCharge_ChargingStartsBeforeTOUStartTime_()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU start time.", null, new string[] {
                         "b2c",
-                        "web"});
+                        "web",
+                        "nigthBuild"});
 #line 169
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -527,7 +529,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 253
  testRunner.And("I navigate to the \"Load groups\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 254
- testRunner.And("load group table is empty (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("load group table is empty (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 255
  testRunner.When("I click on button with name \"New Load Group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 256
@@ -593,52 +595,52 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_14 - Add devices to Load group.**", null, new string[] {
                         "b2c",
                         "web"});
-#line 296
+#line 282
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 297
+#line 283
  testRunner.Given("JuiceNet device is not added (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 298
+#line 284
  testRunner.And("I login to the system as \"Oleksii\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 299
- testRunner.Given("I navigate to the \"Load groups\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 300
- testRunner.And("load group table is empty (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 301
+#line 285
+ testRunner.And("I navigate to the \"Load groups\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 286
+ testRunner.Given("load group table is empty (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 287
  testRunner.When("I click on button with name \"New Load Group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 302
+#line 288
  testRunner.And("I set field with Id \"lg-add-modal-group-name\" to \"TestGroup14\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 303
+#line 289
  testRunner.And("I click on button with name \"Save changes\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 304
+#line 290
  testRunner.Then("Alert with status \"success\" and text \"Load Group TestGroup14 created sucessfully\"" +
                     " should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 305
+#line 291
  testRunner.When("I click on button with name \"Close\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 306
+#line 292
  testRunner.Then("Load group with name \"TestGroup14\" should apear in the table is \"true\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 308
+#line 294
  testRunner.Given("I click on empty Load group with name \"TestGroup14\" string in table (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 309
+#line 295
  testRunner.When("I click on button with name \"Check at least one device\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 310
+#line 296
  testRunner.And("I select item by checkbox name \"373708001\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 311
+#line 297
  testRunner.And("I select item by checkbox name \"373708002\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 312
+#line 298
  testRunner.And("I click on button with name \"Add selected JNDevices to Load Group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 313
+#line 299
  testRunner.Then("Alert with status \"success\" and text \"This devices were added successfully:\" shou" +
                     "ld be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 314
+#line 300
  testRunner.When("I click on button with name \"Close\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 315
+#line 301
  testRunner.Then("I check load group \"TestGroup14\" for \"2\" units in table (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 317
+#line 303
  testRunner.Given("I navigate to the \"My JuiceNet Devices\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 318
+#line 304
  testRunner.Then("Device \"373708001\" area contain load group icon (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 319
+#line 305
  testRunner.Then("Device \"373708002\" area contain load group icon (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -653,7 +655,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_15 - Notifications**", null, new string[] {
                         "b2c",
                         "web"});
-#line 322
+#line 308
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -669,7 +671,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_16 - SW corrections**", null, new string[] {
                         "b2c",
                         "web"});
-#line 333
+#line 319
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden

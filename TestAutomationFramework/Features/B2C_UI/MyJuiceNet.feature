@@ -165,7 +165,7 @@ Scenario: B2C_Web_MyJuiceNet_08 - TOU Persistence
 
 
 
-@b2c @web 
+@b2c @web @nigthBuild
 Scenario: B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU start time.
 	Given I login to the system as "Oleksii" (b2c)
 	When I click More Details for device with Id "373709011" (b2c)
@@ -251,7 +251,7 @@ Scenario: B2C_Web_MyJuiceNet_12 - EVSE Efficiency**
 Scenario: B2C_Web_MyJuiceNet_13 - Add empty Load groups.**
 	Given I login to the system as "Oleksii" (b2c)
 	And I navigate to the "Load groups" page (b2c)
-	And load group table is empty (b2c)
+	Given load group table is empty (b2c)
 	When I click on button with name "New Load Group" (b2c)
 	And I set field with Id "lg-add-modal-group-name" to "TestGroup1" (b2c)
 	And I click on button with name "Save changes" (b2c)
@@ -282,8 +282,8 @@ Scenario: B2C_Web_MyJuiceNet_13 - Add empty Load groups.**
 Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.**
 	Given JuiceNet device is not added (b2c)
 	And I login to the system as "Oleksii" (b2c)
-	Given I navigate to the "Load groups" page (b2c)
-	And load group table is empty (b2c)
+	And I navigate to the "Load groups" page (b2c)
+	Given load group table is empty (b2c)
 	When I click on button with name "New Load Group" (b2c)
 	And I set field with Id "lg-add-modal-group-name" to "TestGroup14" (b2c)
 	And I click on button with name "Save changes" (b2c)

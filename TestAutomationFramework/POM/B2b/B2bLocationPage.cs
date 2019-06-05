@@ -43,8 +43,8 @@ namespace TestAutomationFramework.POM
             try
             {
                 wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                //wait.Until(wd => driver.FindElement(By.XPath("//label[contains(text(), 'Assigned rate')]/../..//mat-checkbox[contains(@class,'mat-checkbox-checked')]")));
-                wait.Until(wd => driver.FindElement(By.XPath("//locationdetails//div[@class='ng-star-inserted'][not(button)]")));
+                wait.Until(wd => driver.FindElement(By.XPath("//label[contains(text(), 'Assigned rate')]/../..//mat-checkbox[contains(@class,'mat-checkbox-checked')]")));
+                //wait.Until(wd => driver.FindElement(By.XPath("//locationdetails//div[@class='ng-star-inserted'][not(button)]")));
             }
             catch (Exception)
             {

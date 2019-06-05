@@ -32,6 +32,7 @@ namespace TestAutomationFramework.Steps.UI
 
         [Given(@"I navigate to the ""(.*)"" page \(b2c\)")]
         [Then(@"I navigate to the ""(.*)"" page \(b2c\)")]
+        [When(@"I navigate to the ""(.*)"" page \(b2c\)")]
         public void INavigateToThePageB2B(string pageName)
         {
             var generalPage = new B2cGeneralPage(driver);
