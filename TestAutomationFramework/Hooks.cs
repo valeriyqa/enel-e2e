@@ -55,6 +55,11 @@ namespace TestAutomationFramework
                     "\", \"web_user_email\": \"" + Environment.GetEnvironmentVariable("web_user_email") +
                     "\", \"web_user_password\": \"" + Environment.GetEnvironmentVariable("web_user_password") +
                     "\", \"web_user_description\": \"" + Environment.GetEnvironmentVariable("web_user_description") +
+    
+                    "\", \"admin_user_id\": \"" + Environment.GetEnvironmentVariable("admin_user_id") +
+                    "\", \"admin_user_email\": \"" + Environment.GetEnvironmentVariable("admin_user_email") +
+                    "\", \"admin_user_password\": \"" + Environment.GetEnvironmentVariable("admin_user_password") +
+                    "\", \"admin_user_description\": \"" + Environment.GetEnvironmentVariable("admin_user_description") +
 
                     "\", \"api_account_token\": \"" + Environment.GetEnvironmentVariable("api_account_token") +
                     "\", \"api_device_id\": \"" + Environment.GetEnvironmentVariable("api_device_id") +
