@@ -279,18 +279,11 @@ Scenario: B2C_Web_MyJuiceNet_13 - Add empty Load groups.**
 	Then Load group table should be empty (b2c)
 
 @b2c @web 
-<<<<<<< HEAD
-Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.**
+Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.
 	Given JuiceNet device is not added (b2c)
 	And I login to the system as "Oleksii" (b2c)
 	And I navigate to the "Load groups" page (b2c)
 	Given load group table is empty (b2c)
-=======
-Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.
-	Given I login to the system as "Oleksii" (b2c)
-	Given I navigate to the "Load groups" page (b2c)
-	And load group table is empty (b2c)
->>>>>>> 33ba3536066c198fa41fad6dcd79c64e363d1a1a
 	When I click on button with name "New Load Group" (b2c)
 	And I set field with Id "lg-add-modal-group-name" to "TestGroup14" (b2c)
 	And I click on button with name "Save changes" (b2c)
