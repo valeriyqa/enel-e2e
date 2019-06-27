@@ -4,24 +4,25 @@
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_01 - Add/Delete JuiceNet Device
-	Note! We collect add and delete scenarios together to avoid parallel execution collision,
-	when separate scenarios may perform mutually exclusive actions.
+	Preconditions: corresponding config file should contains correctly filled fields "api_account_token",
+	"api_device_id", "xxx_unit_id" and "xxx_token". Where "xxx" prefix shoulde be single word without
+	underscore symble, since we use it for parsing. 
 
-	Given JuiceNet device is not added (b2c)
-	And I login to the system as "Oleksii" (b2c)
+	Given JuiceNet device with key in config "test2_unit_id" is not added (b2c)
+	And I login to the system as "WebUser" (b2c)
 	When I click on button with name "Add JuiceNet Device" (b2c)
-	And I set field "inputUnitID" to "373708002" (b2c)
+	When I set field "inputUnitID" to "test2_unit_id" from config (b2c)
 	And I click on button with name "Add JuiceNet Device" (b2c)
 	And I click on "Browse My JuiceNet Devices" link (b2c)
-	Then JuiceNet device with Id "373708002" should exist is "True" (b2c)
-	When I click More Details for device with Id "373708002" (b2c)
+	Then JuiceNet device with key in config "test2_unit_id" should exist is "True" (b2c)
+	When I click More Details for device with key in config "test2_unit_id" (b2c)
 	And I click on button with name "Delete" (b2c)
 	And I click on button with name "Yes, remove from my account" (b2c)
-	Then JuiceNet device with Id "373708002" should exist is "False" (b2c)
+	Then JuiceNet device with key in config "test2_unit_id" should exist is "False" (b2c)
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_02 - JuiceNet Device Status
-	Given I login to the system as "Oleksii" (b2c)
+	Given I login to the system as "WebUser" (b2c)
 	When I click More Details for device with Id "373709011" (b2c)
 	Then field with Label "Allowed Current" should be equal to "60" (b2c)
 	And field with Label "Charging Limit" should be equal to "0" (b2c)
@@ -32,7 +33,7 @@ Scenario: B2C_Web_MyJuiceNet_02 - JuiceNet Device Status
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
-	Given I login to the system as "Oleksii" (b2c)
+	Given I login to the system as "WebUser" (b2c)
 	When I click More Details for device with Id "373709012" (b2c)
 	And I click on tab with label "History" (b2c)
 	When I get data from table with Id "usagetable" (b2c)
@@ -40,7 +41,7 @@ Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_04 - JuiceNet Device states on dashboard
-	Given  I login to the system as "Oleksii" (b2c)
+	Given  I login to the system as "WebUser" (b2c)
 	When I send UDP package with status "Standby" to unit "373709011"
 	Then panel color for device with Id "373709011" should be changed to "primary" (b2c)
 	And device with Id "373709011" should have status "Standby" (b2c)
@@ -56,7 +57,7 @@ Scenario: B2C_Web_MyJuiceNet_04 - JuiceNet Device states on dashboard
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_05 - JuiceNet Device Settings and Savings Parameters
-	Given  I login to the system as "Oleksii" (b2c)
+	Given  I login to the system as "WebUser" (b2c)
 	When I click More Details for device with Id "373709011" (b2c)
 	And I click on tab with label "Settings" (b2c)
 	When I populate the JuiceNet Device Settings form with "initial_JDS" data (b2c)
@@ -68,7 +69,7 @@ Scenario: B2C_Web_MyJuiceNet_05 - JuiceNet Device Settings and Savings Parameter
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code
-	Given  I login to the system as "Oleksii" (b2c)
+	Given  I login to the system as "WebUser" (b2c)
 	When I click More Details for device with Id "373709011" (b2c)
 	And I click on tab with label "Settings" (b2c)
 	When I populate the JuiceNet Device Settings form with "initial_JDS" data (b2c)
@@ -83,7 +84,7 @@ Scenario: B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
-	Given I login to the system as "Oleksii" (b2c)
+	Given I login to the system as "WebUser" (b2c)
 	When I click More Details for device with Id "373709011" (b2c)
 	And I click on tab with label "Settings" (b2c)
 	Given switch with Id "toggleTOU" is not activated (b2c)
@@ -129,7 +130,7 @@ Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_08 - TOU Persistence
-	#Given I login to the system as "Oleksii" (b2c)
+	#Given I login to the system as "WebUser" (b2c)
 	#When I click More Details for device with Id "373709011" (b2c)
 	#And I click on tab with label "Settings" (b2c)
 	#Given switch with Id "toggleTOU" is not activated (b2c)
@@ -165,9 +166,9 @@ Scenario: B2C_Web_MyJuiceNet_08 - TOU Persistence
 
 
 
-@b2c @web @nigthBuild
+@b2c @web
 Scenario: B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU start time.
-	Given I login to the system as "Oleksii" (b2c)
+	Given I login to the system as "WebUser" (b2c)
 	When I click More Details for device with Id "373709011" (b2c)
 	And I click on tab with label "Settings" (b2c)
 	Given switch with Id "toggleTOU" is not activated (b2c)
@@ -249,7 +250,7 @@ Scenario: B2C_Web_MyJuiceNet_12 - EVSE Efficiency**
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_13 - Add empty Load groups.**
-	Given I login to the system as "Oleksii" (b2c)
+	Given I login to the system as "WebUser" (b2c)
 	And I navigate to the "Load groups" page (b2c)
 	Given load group table is empty (b2c)
 	When I click on button with name "New Load Group" (b2c)
@@ -281,7 +282,7 @@ Scenario: B2C_Web_MyJuiceNet_13 - Add empty Load groups.**
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.
 	Given JuiceNet device is not added (b2c)
-	And I login to the system as "Oleksii" (b2c)
+	And I login to the system as "WebUser" (b2c)
 	And I navigate to the "Load groups" page (b2c)
 	Given load group table is empty (b2c)
 	When I click on button with name "New Load Group" (b2c)
@@ -294,7 +295,7 @@ Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.
 	Given I click on empty Load group with name "TestGroup14" string in table (b2c)
 	When I click on button with name "Check at least one device" (b2c)
 	And I select item by checkbox name "373708001" (b2c)
-	And I select item by checkbox name "373708002" (b2c)
+	And I select item by checkbox name "373709012" (b2c)
 	And I click on button with name "Add selected JNDevices to Load Group" (b2c)
 	Then Alert with status "success" and text "This devices were added successfully:" should be displayed (b2c)
 	When I click on button with name "Close" (b2c)
@@ -302,7 +303,7 @@ Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.
 
 	Given I navigate to the "My JuiceNet Devices" page (b2c)
 	Then Device "373708001" area contain load group icon (b2c)
-	Then Device "373708002" area contain load group icon (b2c)
+	Then Device "373709012" area contain load group icon (b2c)
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_15 - Notifications**

@@ -82,7 +82,7 @@ namespace TestAutomationFramework.Features.B2C_UI
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
- testRunner.Given("I login to the system as \"Oleksii\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
  testRunner.And("I navigate to the \"User Sessions\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
@@ -126,3 +126,4 @@ this.ScenarioInitialize(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+

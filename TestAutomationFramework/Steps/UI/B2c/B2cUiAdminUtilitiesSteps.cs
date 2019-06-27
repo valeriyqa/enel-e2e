@@ -52,7 +52,15 @@ namespace TestAutomationFramework.Steps.UI
             System.Threading.Thread.Sleep(seconds);
         }
 
-        [Then(@"I should see Unit Id ""(.*)"" \(b2c\)")]
+        [Then(@"Info tab should contains unit with Id ""(.*)"" from config file \(b2c\)")]
+        public void ThenInfoTabShouldContainsUnitWithIdFromConfigFileBc(string configKey)
+        {
+            Console.WriteLine(driver.FindElement(By.XPath("//div[@id='boxInfo']//a/span")).Text);
+            Console.WriteLine(Config.Global[configKey]);
+            Assert.AreEqual(driver.FindElement(By.XPath("//div[@id='boxInfo']//a/span")).Text, Config.Global[configKey]);
+        }
+
+        [Then(@"I should see Unit Id ""(.*)"" \(b2c\)")] //probably we have to delete it
         public void ThenIShouldSeeUnitIdBc(string deviceID)
         {
             var actualDeviceID = driver.FindElement(By.XPath("//*[@id='boxInfo']/div/div[1]/div[1]/h4/a/span")).Text;
@@ -94,6 +102,19 @@ namespace TestAutomationFramework.Steps.UI
             var actualEndTime = driver.FindElement(By.CssSelector("[id='tou_wd_end']")).Text;
             Assert.AreEqual(Convert.ToString(actualEndTime), Convert.ToString(endTime));
         }
+
+        [Given(@"related to Device ID policy set to ""(.*)"" \(b2c\)")]
+        public void GivenRelatedToDeviceIDPolicySetToBc(string policy)
+        {
+            if (!driver.FindElement(By.XPath("//*[@id='boxInfo']//li/label[contains(text(), 'Current policy')]//ancestor::li")).Text.Trim().Replace("Current policy: ", "").Equals(policy))
+            {
+                var generalPage = new B2cGeneralPage(driver);
+                generalPage.ClickButtonWithName("Set " + policy);
+            }
+            Assert.True(driver.FindElement(By.XPath("//*[@id='boxInfo']//li/label[contains(text(), 'Current policy')]//ancestor::li")).Text.Trim().Replace("Current policy: ", "").Equals(policy));
+        }
+
+
         [Then(@"I should see related to Device ID policy ""(.*)"" \(b2c\)")]
         public void ThenIShouldSeeRelatedToDeviceIDPolicyBc(string policy)
         {
@@ -117,6 +138,31 @@ namespace TestAutomationFramework.Steps.UI
 
 
 
+
+        [When(@"I set field with Id ""(.*)"" to ""(.*)"" value")]
+        public void WhenISetFieldWithIdToValue(string elemtId, string elementValue)
+        {
+            try
+            {
+                driver.FindElement(By.XPath("//input[@id = '" + elemtId + "']")).Clear();
+                driver.FindElement(By.XPath("//input[@id = '" + elemtId + "']")).SendKeys("elementValue");
+            }
+            catch (Exception)
+            {
+
+                try
+                {
+                    driver.FindElement(By.XPath("//textarea[@id = '" + elemtId + "']")).Clear();
+                    driver.FindElement(By.XPath("//textarea[@id = '" + elemtId + "']")).SendKeys("elementValue");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+
+        }
 
     }
 }

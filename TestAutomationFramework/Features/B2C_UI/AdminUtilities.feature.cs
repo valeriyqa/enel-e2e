@@ -81,34 +81,22 @@ namespace TestAutomationFramework.Features.B2C_UI
 #line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
+#line 7
+ testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.Given("I login to the system as \"Oleksii\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
  testRunner.And("I navigate to the \"My JuiceNet Devices\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+ testRunner.Then("JuiceNet device with key in config \"test1_unit_id\" should exist is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 10
- testRunner.Then("JuiceNet device with Id \"373708002\" should exist is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I login to the system as \"Admin\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 11
- testRunner.When("I click More Details for device with Id \"373708002\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
- testRunner.Then("I save device \"373708002\" ID (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 15
- testRunner.Given("I navigate to \"Account/Login\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 16
- testRunner.When("I set field with Id \"Email\" to \"pavel.tsios@emotorwerks.com\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
- testRunner.And("I set field with Id \"Password\" to \"eMW2018\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
- testRunner.And("I click on button with name \"Login\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
- testRunner.Given("I navigate to the \"Admin Utilities\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 20
  testRunner.And("I navigate to the \"JuiceNet Device Lookup\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 21
- testRunner.When("I set field Id \"inputUnitID\" with shared data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 22
+#line 12
+ testRunner.When("I set field \"inputUnitID\" to \"test1_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
  testRunner.And("I click on related to the field with Id \"inputUnitID\" search button (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 23
- testRunner.Then("I should see Unit Id \"373708002\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 14
+ testRunner.Then("Info tab should contains unit with Id \"test1_unit_id\" from config file (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -122,55 +110,42 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_02 - JuiceNet Device Lookup with active TOU", null, new string[] {
                         "b2c",
                         "web"});
-#line 26
+#line 17
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 28
- testRunner.Given("I login to the system as \"Oleksii\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 29
+#line 18
+ testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 19
  testRunner.And("I navigate to the \"My JuiceNet Devices\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 30
- testRunner.Then("JuiceNet device with Id \"373709011\" should exist is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 31
- testRunner.When("I click More Details for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 32
- testRunner.Then("I save device \"373709011\" ID (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 33
+#line 20
+ testRunner.Then("JuiceNet device with key in config \"test3_unit_id\" should exist is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 21
+ testRunner.When("I click More Details for device with key in config \"test3_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 22
  testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 34
+#line 23
  testRunner.Given("switch with Id \"toggleTOU\" is not activated (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 35
+#line 24
  testRunner.When("I click on swith with Id \"toggleTOU\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 36
- testRunner.Then("switch with Id \"toggleTOU\" should be enabled is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 37
+#line 25
+ testRunner.And("I remeber the current time on device (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.And("I set TOU time to \"current\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
  testRunner.And("I click on the Update button for pannel with Id \"panelTOU\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 38
- testRunner.When("I save Weekday Start time to shared data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 39
- testRunner.And("I save Weekday End time to shared data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
- testRunner.Given("I navigate to \"Account/Login\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 42
- testRunner.When("I set field with Id \"Email\" to \"pavel.tsios@emotorwerks.com\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 43
- testRunner.And("I set field with Id \"Password\" to \"eMW2018\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 44
- testRunner.And("I click on button with name \"Login\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 45
- testRunner.Given("I navigate to the \"Admin Utilities\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 46
+#line 28
+ testRunner.Given("I login to the system as \"Admin\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 29
  testRunner.And("I navigate to the \"JuiceNet Device Lookup\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 47
- testRunner.When("I set field Id \"inputUnitID\" with shared data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 48
+#line 30
+ testRunner.When("I set field \"inputUnitID\" to \"test3_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 31
  testRunner.And("I click on related to the field with Id \"inputUnitID\" search button (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 49
- testRunner.Then("I should see Unit Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 50
- testRunner.And("TOU Start time should be equal to shared data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 51
- testRunner.And("TOU End time should be equal to shared data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 32
+ testRunner.Then("Info tab should contains unit with Id \"test3_unit_id\" from config file (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 33
+ testRunner.Then("TOU time on the Admin/JuiceNetDeviceLookup page should be equal to \"current\" (b2c" +
+                    ")", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -184,60 +159,48 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_03 - JuiceNet Device Lookup. Policy changes", null, new string[] {
                         "b2c",
                         "web"});
-#line 54
+#line 36
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 55
- testRunner.Given("I login to the system as \"Oleksii\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 56
+#line 37
+ testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 38
  testRunner.And("I navigate to the \"My JuiceNet Devices\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 57
- testRunner.Then("JuiceNet device with Id \"373709011\" should exist is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 58
- testRunner.When("I click More Details for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 59
- testRunner.Then("I save device \"373709011\" ID (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 61
- testRunner.Given("I navigate to \"Account/Login\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 62
- testRunner.When("I set field with Id \"Email\" to \"pavel.tsios@emotorwerks.com\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 63
- testRunner.And("I set field with Id \"Password\" to \"eMW2018\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 64
- testRunner.And("I click on button with name \"Login\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 65
- testRunner.Given("I navigate to the \"Admin Utilities\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 66
+#line 39
+ testRunner.Then("JuiceNet device with key in config \"test3_unit_id\" should exist is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 40
+ testRunner.Given("I login to the system as \"Admin\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 41
  testRunner.And("I navigate to the \"Manage Device Policies\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 67
- testRunner.When("I set field Id \"inputUnitID\" with shared data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 68
+#line 42
+ testRunner.When("I set field \"inputUnitID\" to \"test3_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 43
  testRunner.And("I click on related to the field with Id \"inputUnitID\" search button (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 69
- testRunner.Then("I should see related to Device ID policy \"Default\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 70
+#line 44
+ testRunner.Given("related to Device ID policy set to \"Default\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 45
  testRunner.When("I click on button with name \"Set Green WT\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 71
+#line 46
  testRunner.Then("I should see related to Device ID policy \"Green WT\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 72
- testRunner.And("I navigate to the \"JuiceNet Device Lookup\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 73
- testRunner.When("I set field Id \"inputUnitID\" with shared data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 74
+#line 47
+ testRunner.When("I navigate to the \"JuiceNet Device Lookup\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 48
+ testRunner.And("I set field \"inputUnitID\" to \"test3_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 49
  testRunner.And("I click on related to the field with Id \"inputUnitID\" search button (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 75
- testRunner.Then("I should see Unit Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 76
+#line 50
+ testRunner.Then("Info tab should contains unit with Id \"test3_unit_id\" from config file (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 51
  testRunner.And("I should see Unit Policy \"Green Box\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 77
- testRunner.And("I navigate to the \"Manage Device Policies\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 78
- testRunner.When("I set field Id \"inputUnitID\" with shared data (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 79
+#line 52
+ testRunner.When("I navigate to the \"Manage Device Policies\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 53
+ testRunner.And("I set field \"inputUnitID\" to \"test3_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
  testRunner.And("I click on related to the field with Id \"inputUnitID\" search button (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 80
+#line 55
  testRunner.When("I click on button with name \"Default\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 81
+#line 56
  testRunner.Then("I should see related to Device ID policy \"Default\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -252,7 +215,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_04 - JuiceNet Device Lookup. Search by IP", null, new string[] {
                         "b2c",
                         "web"});
-#line 97
+#line 72
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -268,7 +231,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_05 - Add Device from User Lookup page", null, new string[] {
                         "b2c",
                         "web"});
-#line 110
+#line 85
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -284,7 +247,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_06 - Delete Device from User Lookup page", null, new string[] {
                         "b2c",
                         "web"});
-#line 127
+#line 102
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -300,7 +263,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_07 - Assign admin role to user", null, new string[] {
                         "b2c",
                         "web"});
-#line 140
+#line 115
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -316,7 +279,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_08 - Add a new role", null, new string[] {
                         "b2c",
                         "web"});
-#line 160
+#line 135
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -332,7 +295,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_09 - Roles Management. All permissions off", null, new string[] {
                         "b2c",
                         "web"});
-#line 172
+#line 147
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -348,7 +311,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_10 - Roles Management. All permissions on", null, new string[] {
                         "b2c",
                         "web"});
-#line 194
+#line 169
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -364,7 +327,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_11 - Add Load Group", null, new string[] {
                         "b2c",
                         "web"});
-#line 216
+#line 191
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -380,7 +343,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_12 - Add Devices to admin\'s Load Group", null, new string[] {
                         "b2c",
                         "web"});
-#line 228
+#line 203
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -396,7 +359,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_13 - Delete Load Group with units in it", null, new string[] {
                         "b2c",
                         "web"});
-#line 245
+#line 220
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden

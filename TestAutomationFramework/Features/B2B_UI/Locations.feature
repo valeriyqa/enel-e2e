@@ -49,3 +49,5 @@ Scenario: B2B_Web_Locations_05 - Delete Location
 	And I click on the "Delete Location" button (b2b)
 	And I click on the "Remove" button (b2b)
 	Then Location with name "Test Location" exist in the table is "False" (b2b)
+
+	When I set field with Id "zxcz" to "zxczxc" value

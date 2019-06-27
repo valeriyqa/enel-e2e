@@ -69,7 +69,7 @@ Scenario: B2C_Web_Registration_and_Login_04 - Registration via Google account**
 
 @b2c @web
 Scenario: B2C_Web_Registration_and_Login_05 - Login with valid email and password
-	Given I login to the system as "Web user" (b2c)
+	Given I login to the system as "WebUser" (b2c)
 	Then I should be navigated to the "Portal" page (b2c)
 
 
@@ -94,10 +94,12 @@ Scenario: B2C_Web_Registration_and_Login_07 - Login with invalid password
 
 @b2c @web
 Scenario: B2C_Web_Registration_and_Login_08 - Login with unconfirmed email**
-#* Navigate to login page
-#* Provide registered, but unconfirmed email
-#* Provide valid password
-#* Click on Login button
+	Given I navigate to "Account/Login" page (b2c)
+	When I set field "<FieldId>" to "<Value>" (b2c)
+		| FieldId         | Value               |
+		| Email           | ksenia+unconfirmed@emotorwerks.com |
+		| Password        | eMW2018 |
+	And I click on button with name "Login" (b2c)
 #  - User is navigated to Error page. "You must have a confirmed email to log on. The confirmation token has been resent to your email account." alert appears.
 
 @b2c @web

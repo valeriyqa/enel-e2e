@@ -24,13 +24,12 @@ namespace TestAutomationFramework.POM
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(wd => driver.FindElement(By.Id("side-menu")).Displayed);
 
-            IWebElement curentMenu = driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]"));
-            if (!curentMenu.Displayed)
+            if (!driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]")).Displayed)
             {
                 driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]//ancestor::ul[@class='nav nav-second-level collapse']/../a")).Click();
             }
-            wait.Until(wd => curentMenu.Displayed);
-            curentMenu.Click();
+            wait.Until(wd => driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]")).Displayed);
+            driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]")).Click();
         }
 
         public string GetAddressByMenuName(string menuName)
@@ -44,6 +43,13 @@ namespace TestAutomationFramework.POM
                 address = address + "/CentralSystem";
             }
             return address;
+        }
+
+        public string GetElementTextById(string inputId)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.Id(inputId)));
+            return driver.FindElement(By.Id(inputId)).Text;
         }
 
         public string GetInputValueById(string inputId)

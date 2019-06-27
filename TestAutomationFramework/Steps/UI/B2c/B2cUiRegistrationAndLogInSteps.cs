@@ -16,10 +16,10 @@ namespace TestAutomationFramework.Steps.UI
     {
         private readonly RemoteWebDriver driver;
         private string host = Config.Global.env_dashboard_address;
-        //private Dictionary<string, Tools.LoadFromConf.User> usersDictionary = Tools.LoadFromConf.GetUsers();
-        private string userEmail = Config.Global.web_user_email;
-        private string userPassword = Config.Global.web_user_password;
-        private string userDescription = Config.Global.web_user_description;
+        private Dictionary<string, Tools.LoadFromConf.User> usersDictionary = Tools.LoadFromConf.GetUsers();
+        //private string userEmail = Config.Global.web_user_email;
+        //private string userPassword = Config.Global.web_user_password;
+        //private string userDescription = Config.Global.web_user_description;
 
         //public B2cUiRegistrationAndLogInSteps(RemoteWebDriver driver) => this.driver = driver;
 
@@ -51,7 +51,18 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(driver.Url, host + page);
         }
 
-        [When(@"I set field ""(.*)"" to ""(.*)"" \(b2c\)")] //done
+        //Get value from config by key and set to field
+        [When(@"I set field ""(.*)"" to ""(.*)"" from config \(b2c\)")] //Ok
+        public void WhenISetFieldToFromConfigBc(string fieldId, string configKey)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElementById(fieldId).Displayed);
+            driver.FindElementById(fieldId).Clear();
+            driver.FindElementById(fieldId).SendKeys(Config.Global[configKey]);
+        }
+
+        //Set value to field
+        [When(@"I set field ""(.*)"" to ""(.*)"" \(b2c\)")] //Ok
         public void WhenISetFieldTo(string fieldId, string value)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -108,27 +119,39 @@ namespace TestAutomationFramework.Steps.UI
         {
             driver.Navigate().GoToUrl(host + "Account/Login");
             B2cLoginPage loginPage = new B2cLoginPage(driver);
-            //Tools.LoadFromConf.User currentUser = usersDictionary[userName];
-            loginPage.LoginToApplication(userEmail, userPassword);
+            Tools.LoadFromConf.User currentUser = usersDictionary[userName];
+            loginPage.LoginToApplication(currentUser.userEmail, currentUser.userPassword);
             B2cGeneralPage generalPage = new B2cGeneralPage(driver);
-            Assert.AreEqual(generalPage.GetUserName(), userDescription);
+            Assert.AreEqual(generalPage.GetUserName(), currentUser.userDescription);
         }
 
-        // ScenarioContext.Current demo mock
-
-        //[When(@"I save this number ""(.*)"" \(b2c\)")]
-        //public void WhenISaveThisNumberBc(int sharedNumber)
+        //Delete it if work normally
+        //[Given(@"I login to the system as ""(.*)"" \(b2c\)")]
+        //public void GivenILoginToTheB2cSystemAs(string userName)
         //{
-        //    ScenarioContext.Current["sharedNumber"] = sharedNumber;
+        //    driver.Navigate().GoToUrl(host + "Account/Login");
+        //    B2cLoginPage loginPage = new B2cLoginPage(driver);
+        //    //Tools.LoadFromConf.User currentUser = usersDictionary[userName];
+        //    loginPage.LoginToApplication(userEmail, userPassword);
+        //    B2cGeneralPage generalPage = new B2cGeneralPage(driver);
+        //    Assert.AreEqual(generalPage.GetUserName(), userDescription);
         //}
 
-        //[Then(@"I sum shared number with ""(.*)"" \(b2c\)")]
-        //public void ThenISumThatNumberWithBc(int stepNumber)
-        //{
-        //    var sharedNumber = ScenarioContext.Current["sharedNumber"];
-        //    int finalNumber = Convert.ToInt32(sharedNumber) + stepNumber;
-        //    Console.WriteLine("Final number = {0}", finalNumber);
-        //}
+            // ScenarioContext.Current demo mock
 
+            //[When(@"I save this number ""(.*)"" \(b2c\)")]
+            //public void WhenISaveThisNumberBc(int sharedNumber)
+            //{
+            //    ScenarioContext.Current["sharedNumber"] = sharedNumber;
+            //}
+
+            //[Then(@"I sum shared number with ""(.*)"" \(b2c\)")]
+            //public void ThenISumThatNumberWithBc(int stepNumber)
+            //{
+            //    var sharedNumber = ScenarioContext.Current["sharedNumber"];
+            //    int finalNumber = Convert.ToInt32(sharedNumber) + stepNumber;
+            //    Console.WriteLine("Final number = {0}", finalNumber);
+            //}
+
+        }
     }
-}

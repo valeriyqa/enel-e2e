@@ -82,6 +82,7 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"I check load group ""(.*)"" for ""(.*)"" units in table \(b2c\)")]
         public void ThenICheckLoadGroupForUnitsInTableBc(string groupName, string unitCount)
         {
+            System.Threading.Thread.Sleep(500);
             var generalPage = new B2cGeneralPage(driver);
             DataTable Table = generalPage.GetTableById("loadgroups-table");
             foreach (DataRow dataRow in Table.Rows)
@@ -93,6 +94,7 @@ namespace TestAutomationFramework.Steps.UI
                 }
             }
             Assert.AreEqual(true, false);
+            System.Threading.Thread.Sleep(500);
         }
 
         [When(@"I click on button in the alert with name ""(.*)"" \(b2c\)")]

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using JsonConfig;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
@@ -37,11 +38,25 @@ namespace TestAutomationFramework.Steps.UI
             this.driver = driver;
         }
 
-        [Given(@"JuiceNet device is not added \(b2c\)")] //done
+        [Given(@"JuiceNet device is not added \(b2c\)")] //Should be deleted as obsolete
         public void JuiceNetDeviceIsNotAdded()
         {
             Console.WriteLine("JuiceNet Device is not added");
             RestApi.SendApiRequest(RestApi.GetApiRequest("delete_account_unit"));
+        }
+
+        [Given(@"JuiceNet device with key in config ""(.*)"" is not added \(b2c\)")]
+        public void GivenJuiceNetDeviceWithIdInConfigIsNotAddedBc(string configKey)
+        {
+            string prefix = configKey.Substring(0, configKey.IndexOf('_'));
+
+            var dictionary = new Dictionary<string, Object>();
+            dictionary.Add("account_token", Config.Global["api_account_token"]);
+            dictionary.Add("device_id", Config.Global["api_device_id"]);
+            dictionary.Add("token", Config.Global[prefix + "_token"]);
+
+            var response = RestApi.SendApiRequest(RestApi.GetApiRequest("delete_account_unit", dictionary));
+            Assert.IsTrue(response.Content.Contains("\"success\": true"));
         }
 
         //[Then(@"JuiceNet device with Id ""(.*)"" should be added")]
@@ -79,7 +94,25 @@ namespace TestAutomationFramework.Steps.UI
         //    Assert.IsFalse(elementExist);
         //}
 
-        [Then(@"JuiceNet device with Id ""(.*)"" should exist is ""(.*)"" \(b2c\)")]
+        [Then(@"JuiceNet device with key in config ""(.*)"" should exist is ""(.*)"" \(b2c\)")] //Ok
+        public void ThenJuiceNetDeviceWithKeyInConfigShouldExistIsBc(string configKey, string shouldExist)
+        {
+            IList<IWebElement> all = driver.FindElements(By.ClassName("unit-info-container"));
+            bool elementExist = false;
+
+            foreach (IWebElement element in all)
+            {
+                if (element.GetAttribute("data-unitid").Equals(Config.Global[configKey]))
+                {
+                    elementExist = true;
+                    break;
+                }
+            }
+            Assert.AreEqual(bool.Parse(shouldExist), elementExist);
+        }
+
+
+        [Then(@"JuiceNet device with Id ""(.*)"" should exist is ""(.*)"" \(b2c\)")] //Ok
         public void ThenJuiceNetDeviceWithIdShouldExistIs(string deviceId, string shouldExist)
         {
             IList<IWebElement> all = driver.FindElements(By.ClassName("unit-info-container"));
@@ -96,7 +129,14 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(bool.Parse(shouldExist), elementExist);
         }
 
-        [When(@"I click More Details for device with Id ""(.*)"" \(b2c\)")]
+        [When(@"I click More Details for device with key in config ""(.*)"" \(b2c\)")] //Ok
+        public void WhenIClickMoreDetailsForDeviceWithKeyInConfigBc(string configKey)
+        {
+            driver.FindElementByXPath("//div[@data-unitid = '" + Config.Global[configKey] + "']//div[contains(@class, 'panel-footer')]//span").Click();
+        }
+
+
+        [When(@"I click More Details for device with Id ""(.*)"" \(b2c\)")] //Ok
         public void WhenIClickMoreDetailsForDeviceWithId(string deviceId)
         {
             driver.FindElementByXPath("//div[@data-unitid = '" + deviceId + "']//div[contains(@class, 'panel-footer')]//span").Click();
@@ -327,6 +367,37 @@ namespace TestAutomationFramework.Steps.UI
 
             juiceBoxPage.ClickOnUpdateButtonForPannelWithId("panelTOU");
         }
+
+        [Then(@"TOU time on the Admin/JuiceNetDeviceLookup page should be equal to ""(.*)"" \(b2c\)")]
+        public void ThenTOUTimeOnTheAdminJuiceNetDeviceLookupPageShouldBeEqualToBc(string touTime)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            var currentTime = testData.dateTimeOnDevice;
+
+            string startTime;
+            string endTime;
+
+            switch (touTime.Replace(" ", "").ToLower())
+            {
+                case "current":
+                    startTime = currentTime.ToString("hh:mm", CultureInfo.InvariantCulture);
+                    endTime = currentTime.AddHours(1).ToString("hh:mm", CultureInfo.InvariantCulture);
+                    break;
+                case "notcurrent":
+                    startTime = currentTime.AddHours(1).ToString("hh:mm", CultureInfo.InvariantCulture);
+                    endTime = currentTime.AddHours(2).ToString("hh:mm", CultureInfo.InvariantCulture);
+                    break;
+                default:
+                    Assert.Fail("Incorrect TOU value: " + touTime);
+                    return;
+            }
+            
+            Assert.AreEqual(generalPage.GetElementTextById("tou_wd_start"), startTime);
+            Assert.AreEqual(generalPage.GetElementTextById("tou_wd_end"), endTime);
+            Assert.AreEqual(generalPage.GetElementTextById("tou_we_start"), startTime);
+            Assert.AreEqual(generalPage.GetElementTextById("tou_we_end"), endTime);
+        }
+
 
         // allowed values is current, not current
         [Then(@"TOU time should be equal to ""(.*)"" \(b2c\)")]

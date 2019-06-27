@@ -4,7 +4,7 @@
 
 @b2c @web
 Scenario: B2C_Web_Reports_01 - Single unit report
-	Given I login to the system as "Oleksii" (b2c)
+	Given I login to the system as "WebUser" (b2c)
 	And I navigate to the "User Sessions" page (b2c)
 	#Then field with Label "Start date" should be equal to "day week ago" (b2c)
 	#Then field with Label "End date" should be equal to "today" (b2c)

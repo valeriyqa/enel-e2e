@@ -36,6 +36,7 @@ namespace TestAutomationFramework
                 //string environment = "joomla_beta";
 
                 string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
+                //Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString())
                 ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
                 Config.SetDefaultConfig(configFromFile);
             }
