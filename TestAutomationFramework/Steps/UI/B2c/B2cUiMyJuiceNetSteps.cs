@@ -198,6 +198,24 @@ namespace TestAutomationFramework.Steps.UI
             Assert.True(driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + deviceId + "')]/div")).GetAttribute("class").Contains(color));
         }
 
+        [Then(@"panel color for device with key in config ""(.*)"" should be changed to ""(.*)"" \(b2c\)")]
+        public void ThenPanelColorForDeviceWithKeyInConfigShouldBeChangedToBc(string configKey, string color)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                System.Threading.Thread.Sleep(1000);
+                var result = driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + Config.Global[configKey] + "')]/div")).GetAttribute("class").Contains(color);
+                Console.WriteLine(result);
+                if (result)
+                {
+                    Assert.True(true);
+                    return;
+                }
+            }
+            Assert.False(false);
+        }
+
+
         //possible color values offline, primary, green, yellow
         [Then(@"panel color for device with Id ""(.*)"" should be changed to ""(.*)"" \(b2c\)")]
         public void ThenPanelColorForDeviceWithIdShouldBeChangedToBc(string deviceId, string color)
@@ -233,17 +251,45 @@ namespace TestAutomationFramework.Steps.UI
             Assert.False(true, "Panel color is not changed to " + color);
         }
 
+        [Then(@"device with key in config ""(.*)"" should have status ""(.*)"" \(b2c\)")]
+        public void ThenDeviceWithKeyInConfigShouldHaveStatusBc(string configKey, string deviceStatus)
+        {
+            Assert.True(driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + Config.Global[configKey] + "')]//span[contains(@class,'unit-info-status-text')]")).Text.ToLower().Contains(deviceStatus.ToLower()));
+        }
+
+
         [Then(@"device with Id ""(.*)"" should have status ""(.*)"" \(b2c\)")]
         public void ThenDeviceWithIdShouldHaveStatusBc(string deviceId, string deviceStatus)
         {
             Assert.True(driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + deviceId + "')]//span[contains(@class,'unit-info-status-text')]")).Text.ToLower().Contains(deviceStatus.ToLower()));
         }
 
+        [When(@"I remember charging and saving values for device with key in config ""(.*)"" \(b2c\)")]
+        public void WhenIRememberChargingAndSavingValuesForDeviceWithKeyInConfigBc(string configKey)
+        {
+            testData.energy = driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + Config.Global[configKey] + "')]//span[contains(@class,'unit-info-energy')]")).Text;
+            testData.savings = driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + Config.Global[configKey] + "')]//span[contains(@class,'unit-info-savings')]")).Text;
+        }
+
+
         [When(@"I remember charging and saving values for device with Id ""(.*)"" \(b2c\)")]
         public void WhenIRememberChargingAndSavingValuesForDeviceWithIdBc(string deviceId)
         {
             testData.energy = driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + deviceId + "')]//span[contains(@class,'unit-info-energy')]")).Text;
             testData.savings = driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + deviceId + "')]//span[contains(@class,'unit-info-savings')]")).Text;
+        }
+
+        [Then(@"energy and savings for device with key in config ""(.*)"" should grow \(b2c\)")]
+        public void ThenEnergyAndSavingsForDeviceWithKeyInConfigShouldGrowBc(string configKey)
+        {
+            var finalEnergyResult = driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + Config.Global[configKey] + "')]//span[contains(@class,'unit-info-energy')]")).Text;
+            var finalSavingsResult = driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + Config.Global[configKey] + "')]//span[contains(@class,'unit-info-savings')]")).Text;
+
+            Console.WriteLine("Final energy should be more than initial: " + finalEnergyResult + ">" + testData.energy);
+            Console.WriteLine("Final savings should be more than initial: " + finalSavingsResult + ">" + testData.savings);
+
+            Assert.True(Convert.ToDouble(finalEnergyResult) > Convert.ToDouble(testData.energy));
+            Assert.True(Convert.ToDouble(finalSavingsResult) > Convert.ToDouble(testData.savings));
         }
 
 

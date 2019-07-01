@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using JsonConfig;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
@@ -127,6 +128,14 @@ namespace TestAutomationFramework.Steps.UI
         {
             driver.FindElement(By.XPath("//*[@id='loadgroups-table']//input[contains(@value,'" + groupName + "')]//ancestor::td")).Click();
         }
+
+        [Then(@"Device with key in config ""(.*)"" area contain load group icon \(b2c\)")]
+        public void ThenDeviceWithKeyInConfigAreaContainLoadGroupIconBc(string configKey)
+        {
+            IWebElement element = driver.FindElement(By.CssSelector("[id='unitsList'] div[data-unitid = '" + Config.Global[configKey] + "'] [title = 'Device is in Load Group']"));
+            Assert.True(element.Displayed);
+        }
+
 
         [Then(@"Device ""(.*)"" area contain load group icon \(b2c\)")]
         public void ThenDeviceAreaContainLoadGroupIconBc(string deviceID)

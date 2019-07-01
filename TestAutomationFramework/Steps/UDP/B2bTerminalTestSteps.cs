@@ -77,6 +77,40 @@ namespace TestAutomationFramework.Steps.UDP
             Assert.AreEqual(testData.responseApi.StatusCode, HttpStatusCode.OK);
         }
 
+        [Then(@"I send UDP package with status ""(.*)"" to device with key in config ""(.*)""")]
+        [When(@"I send UDP package with status ""(.*)"" to device with key in config ""(.*)""")]
+        public void WhenISendUDPPackageWithStatusToDeviceWithKeyInConfig(string deviceChargeState, string configKey)
+        {
+            System.Threading.Thread.Sleep(3000);
+
+            testData.unitId = Config.Global[configKey];
+            var testName = new UdpEndpointTest();
+            var step = 0;
+            var resultNotFound = true;
+            while (step < 5 && resultNotFound)
+            {
+                step++;
+                try
+                {
+                    if (deviceChargeState.Equals("Charging"))
+                    {
+                        testData.energy = testData.energy + new Random().Next(500, 1000);
+                        testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage(deviceChargeState, testData.unitId, testData.energy));
+                    }
+                    else
+                    {
+                        testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage(deviceChargeState, testData.unitId));
+                    }
+                    resultNotFound = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("WARNING!!! No UPD response, step: " + step);
+                }
+            }
+        }
+
+
         [Then(@"I send UDP package with status ""(.*)"" to unit ""(.*)""")]
         [When(@"I send UDP package with status ""(.*)"" to unit ""(.*)""")]
         public void WhenISendUDPPackageWithStatusToUnit(string deviceChargeState, string unitId)

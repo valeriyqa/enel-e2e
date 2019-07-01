@@ -122,6 +122,30 @@ namespace TestAutomationFramework.Steps.UI
             generalPage.SetInputValueByLabel(fieldLabel, fieldValue);
         }
 
+        [When(@"I select multiple keys from config ""(.*)"" on selector with Id ""(.*)"" \(b2c\)")]
+        public void WhenISelectMultipleKeysFromConfigOnSelectorWithIdBc(string configKey, string multipleSelectorId, Table table)
+        {
+            driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//button[contains(@class,'dropdown-toggle')]")).Click();
+            foreach (var row in table.Rows)
+            {
+                driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//input[@value='" + Config.Global[row[0]] + "']")).Click();
+            }
+            driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//button[contains(@class,'dropdown-toggle')]")).Click();
+        }
+
+
+        [When(@"I select multiple ""(.*)"" on selector with Id ""(.*)"" \(b2c\)")]
+        public void WhenISelectMultipleOnSelectorWithIdBc(string value, string multipleSelectorId, Table table)
+        {
+            driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//button[contains(@class,'dropdown-toggle')]")).Click();
+            foreach (var row in table.Rows)
+            {
+                driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//input[@value='" + row[0] + "']")).Click();
+            }
+            driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//button[contains(@class,'dropdown-toggle')]")).Click();
+        }
+
+
         [When(@"I select ""(.*)"" on selector with Id ""(.*)"" \(b2c\)")]
         public void WhenISelectOnSelectorWithIdBc(string selectValue, string selectId)
         {

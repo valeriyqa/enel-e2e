@@ -125,7 +125,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 25
  testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 26
- testRunner.When("I click More Details for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click More Details for device with key in config \"test4_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 27
  testRunner.Then("field with Label \"Allowed Current\" should be equal to \"60\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 28
@@ -157,7 +157,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 36
  testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 37
- testRunner.When("I click More Details for device with Id \"373709012\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click More Details for device with key in config \"test4_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 38
  testRunner.And("I click on tab with label \"History\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 39
@@ -183,29 +183,38 @@ this.ScenarioInitialize(scenarioInfo);
 #line 44
  testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 45
- testRunner.When("I send UDP package with status \"Standby\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I send UDP package with status \"Standby\" to device with key in config \"test3_unit" +
+                    "_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 46
- testRunner.Then("panel color for device with Id \"373709011\" should be changed to \"primary\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("panel color for device with key in config \"test3_unit_id\" should be changed to \"p" +
+                    "rimary\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 47
- testRunner.And("device with Id \"373709011\" should have status \"Standby\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("device with key in config \"test3_unit_id\" should have status \"Standby\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 48
- testRunner.When("I send UDP package with status \"Connected\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I send UDP package with status \"Connected\" to device with key in config \"test3_un" +
+                    "it_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 49
- testRunner.Then("panel color for device with Id \"373709011\" should be changed to \"green\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("panel color for device with key in config \"test3_unit_id\" should be changed to \"g" +
+                    "reen\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 50
- testRunner.And("device with Id \"373709011\" should have status \"Plugged in\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("device with key in config \"test3_unit_id\" should have status \"Plugged in\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
- testRunner.When("I remember charging and saving values for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I remember charging and saving values for device with key in config \"test3_unit_i" +
+                    "d\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 52
- testRunner.And("I send UDP package with status \"Charging\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I send UDP package with status \"Charging\" to device with key in config \"test3_uni" +
+                    "t_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 53
- testRunner.Then("panel color for device with Id \"373709011\" should be changed to \"yellow\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("panel color for device with key in config \"test3_unit_id\" should be changed to \"y" +
+                    "ellow\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 54
- testRunner.And("device with Id \"373709011\" should have status \"Charging\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("device with key in config \"test3_unit_id\" should have status \"Charging\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
- testRunner.And("energy and savings for device with Id \"373709011\" should grow (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("energy and savings for device with key in config \"test3_unit_id\" should grow (b2c" +
+                    ")", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 56
- testRunner.Then("I send UDP package with status \"Standby\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I send UDP package with status \"Standby\" to device with key in config \"test3_unit" +
+                    "_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -225,7 +234,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 60
  testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 61
- testRunner.When("I click More Details for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click More Details for device with key in config \"test3_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 62
  testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 63
@@ -261,7 +270,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 72
  testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 73
- testRunner.When("I click More Details for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click More Details for device with key in config \"test3_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 74
  testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 75
@@ -303,7 +312,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 87
  testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 88
- testRunner.When("I click More Details for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click More Details for device with key in config \"test3_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 89
  testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 90
@@ -329,13 +338,15 @@ this.ScenarioInitialize(scenarioInfo);
 #line 100
  testRunner.When("I click on tab with label \"Status\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 101
- testRunner.And("I send UDP package with status \"Standby\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I send UDP package with status \"Standby\" to device with key in config \"test3_unit" +
+                    "_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 102
  testRunner.Then("UDP response should contain \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 103
  testRunner.And("panel with Id \"panelStatus\" should change color to \"primary\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 104
- testRunner.When("I send UDP package with status \"Connected\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I send UDP package with status \"Connected\" to device with key in config \"test3_un" +
+                    "it_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 105
  testRunner.Then("UDP response should contain \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 106
@@ -343,21 +354,25 @@ this.ScenarioInitialize(scenarioInfo);
 #line 107
  testRunner.When("I click on swith with Id \"overrideCheckBox\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 108
- testRunner.And("I send UDP package with status \"Connected\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I send UDP package with status \"Connected\" to device with key in config \"test3_un" +
+                    "it_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 109
  testRunner.Then("UDP response should contain amperage higher than \"00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 110
- testRunner.Then("I send UDP package with status \"Charging\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I send UDP package with status \"Charging\" to device with key in config \"test3_uni" +
+                    "t_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 111
  testRunner.And("panel with Id \"panelStatus\" should change color to \"yellow\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 112
  testRunner.When("I click on swith with Id \"overrideCheckBox\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 113
- testRunner.And("I send UDP package with status \"Connected\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I send UDP package with status \"Connected\" to device with key in config \"test3_un" +
+                    "it_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 114
  testRunner.Then("UDP response should contain \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 115
- testRunner.Then("I send UDP package with status \"Connected\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I send UDP package with status \"Connected\" to device with key in config \"test3_un" +
+                    "it_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 116
  testRunner.And("panel with Id \"panelStatus\" should change color to \"green\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 117
@@ -369,11 +384,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 120
  testRunner.And("I click on tab with label \"Status\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 121
- testRunner.And("I send UDP package with status \"Connected\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I send UDP package with status \"Connected\" to device with key in config \"test3_un" +
+                    "it_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 122
  testRunner.Then("UDP response should contain amperage higher than \"00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 123
- testRunner.Then("I send UDP package with status \"Charging\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I send UDP package with status \"Charging\" to device with key in config \"test3_uni" +
+                    "t_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 124
  testRunner.And("panel with Id \"panelStatus\" should change color to \"yellow\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 125
@@ -385,7 +402,8 @@ this.ScenarioInitialize(scenarioInfo);
 #line 128
  testRunner.Then("switch with Id \"toggleTOU\" should be enabled is \"False\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 129
- testRunner.And("I send UDP package with status \"Standby\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I send UDP package with status \"Standby\" to device with key in config \"test3_unit" +
+                    "_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -421,7 +439,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 171
  testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 172
- testRunner.When("I click More Details for device with Id \"373709011\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click More Details for device with key in config \"test3_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 173
  testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 174
@@ -449,11 +467,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 185
  testRunner.When("I click on tab with label \"Status\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 186
- testRunner.When("I send UDP package with status \"Connected\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I send UDP package with status \"Connected\" to device with key in config \"test3_un" +
+                    "it_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 187
  testRunner.Then("UDP response should contain amperage higher than \"00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 188
- testRunner.Then("I send UDP package with status \"Charging\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I send UDP package with status \"Charging\" to device with key in config \"test3_uni" +
+                    "t_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 189
  testRunner.And("panel with Id \"panelStatus\" should change color to \"yellow\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 190
@@ -471,7 +491,8 @@ this.ScenarioInitialize(scenarioInfo);
 #line 196
  testRunner.When("I click on tab with label \"Status\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 197
- testRunner.And("I send UDP package with status \"Connected\" to unit \"373709011\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I send UDP package with status \"Connected\" to device with key in config \"test3_un" +
+                    "it_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 198
  testRunner.Then("UDP response should contain \"A00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 199
@@ -621,27 +642,31 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("Load group with name \"TestGroup14\" should apear in the table is \"true\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 295
  testRunner.Given("I click on empty Load group with name \"TestGroup14\" string in table (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ConfigKey"});
+            table1.AddRow(new string[] {
+                        "test1_unit_id"});
+            table1.AddRow(new string[] {
+                        "test4_unit_id"});
 #line 296
- testRunner.When("I click on button with name \"Check at least one device\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 297
- testRunner.And("I select item by checkbox name \"373708001\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 298
- testRunner.And("I select item by checkbox name \"373709012\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 299
- testRunner.And("I click on button with name \"Add selected JNDevices to Load Group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I select multiple keys from config \"<ConfigKey>\" on selector with Id \"user-device" +
+                    "-list\" (b2c)", ((string)(null)), table1, "When ");
 #line 300
+ testRunner.And("I click on button with name \"Add selected JNDevices to Load Group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 301
  testRunner.Then("Alert with status \"success\" and text \"This devices were added successfully:\" shou" +
                     "ld be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 301
- testRunner.When("I click on button with name \"Close\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 302
+ testRunner.When("I click on button with name \"Close\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 303
  testRunner.Then("I check load group \"TestGroup14\" for \"2\" units in table (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 304
- testRunner.Given("I navigate to the \"My JuiceNet Devices\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.And("I navigate to the \"My JuiceNet Devices\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 305
- testRunner.Then("Device \"373708001\" area contain load group icon (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Device with key in config \"test1_unit_id\" area contain load group icon (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 306
- testRunner.Then("Device \"373709012\" area contain load group icon (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("Device with key in config \"test1_unit_id\" area contain load group icon (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -23,7 +23,7 @@ Scenario: B2C_Web_MyJuiceNet_01 - Add/Delete JuiceNet Device
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_02 - JuiceNet Device Status
 	Given I login to the system as "WebUser" (b2c)
-	When I click More Details for device with Id "373709011" (b2c)
+	When I click More Details for device with key in config "test4_unit_id" (b2c)
 	Then field with Label "Allowed Current" should be equal to "60" (b2c)
 	And field with Label "Charging Limit" should be equal to "0" (b2c)
 	Given all checkboxes on panel with Id "panelNotify" is not activated (b2c)
@@ -34,7 +34,7 @@ Scenario: B2C_Web_MyJuiceNet_02 - JuiceNet Device Status
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
 	Given I login to the system as "WebUser" (b2c)
-	When I click More Details for device with Id "373709012" (b2c)
+	When I click More Details for device with key in config "test4_unit_id" (b2c)
 	And I click on tab with label "History" (b2c)
 	When I get data from table with Id "usagetable" (b2c)
 	Then table should be empty (b2c)
@@ -42,23 +42,23 @@ Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_04 - JuiceNet Device states on dashboard
 	Given  I login to the system as "WebUser" (b2c)
-	When I send UDP package with status "Standby" to unit "373709011"
-	Then panel color for device with Id "373709011" should be changed to "primary" (b2c)
-	And device with Id "373709011" should have status "Standby" (b2c)
-	When I send UDP package with status "Connected" to unit "373709011"
-	Then panel color for device with Id "373709011" should be changed to "green" (b2c)
-	And device with Id "373709011" should have status "Plugged in" (b2c)
-	When I remember charging and saving values for device with Id "373709011" (b2c)
-	And I send UDP package with status "Charging" to unit "373709011"
-	Then panel color for device with Id "373709011" should be changed to "yellow" (b2c)
-	And device with Id "373709011" should have status "Charging" (b2c)
-	And energy and savings for device with Id "373709011" should grow (b2c)
-	Then I send UDP package with status "Standby" to unit "373709011"
+	When I send UDP package with status "Standby" to device with key in config "test3_unit_id"
+	Then panel color for device with key in config "test3_unit_id" should be changed to "primary" (b2c)
+	And device with key in config "test3_unit_id" should have status "Standby" (b2c)
+	When I send UDP package with status "Connected" to device with key in config "test3_unit_id"
+	Then panel color for device with key in config "test3_unit_id" should be changed to "green" (b2c)
+	And device with key in config "test3_unit_id" should have status "Plugged in" (b2c)
+	When I remember charging and saving values for device with key in config "test3_unit_id" (b2c)
+	And I send UDP package with status "Charging" to device with key in config "test3_unit_id"
+	Then panel color for device with key in config "test3_unit_id" should be changed to "yellow" (b2c)
+	And device with key in config "test3_unit_id" should have status "Charging" (b2c)
+	And energy and savings for device with key in config "test3_unit_id" should grow (b2c)
+	Then I send UDP package with status "Standby" to device with key in config "test3_unit_id"
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_05 - JuiceNet Device Settings and Savings Parameters
 	Given  I login to the system as "WebUser" (b2c)
-	When I click More Details for device with Id "373709011" (b2c)
+	When I click More Details for device with key in config "test3_unit_id" (b2c)
 	And I click on tab with label "Settings" (b2c)
 	When I populate the JuiceNet Device Settings form with "initial_JDS" data (b2c)
 	And I click on the Update button for pannel with Id "panelSettings" (b2c)
@@ -70,7 +70,7 @@ Scenario: B2C_Web_MyJuiceNet_05 - JuiceNet Device Settings and Savings Parameter
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code
 	Given  I login to the system as "WebUser" (b2c)
-	When I click More Details for device with Id "373709011" (b2c)
+	When I click More Details for device with key in config "test3_unit_id" (b2c)
 	And I click on tab with label "Settings" (b2c)
 	When I populate the JuiceNet Device Settings form with "initial_JDS" data (b2c)
 	And I click on the Update button for pannel with Id "panelSettings" (b2c)
@@ -85,7 +85,7 @@ Scenario: B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
 	Given I login to the system as "WebUser" (b2c)
-	When I click More Details for device with Id "373709011" (b2c)
+	When I click More Details for device with key in config "test3_unit_id" (b2c)
 	And I click on tab with label "Settings" (b2c)
 	Given switch with Id "toggleTOU" is not activated (b2c)
 	And field with Id "MinChargeKWh" is equal to "0.0" (b2c)
@@ -98,40 +98,40 @@ Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
 	And I click on tab with label "Settings" (b2c)
 	Then TOU time should be equal to "not current" (b2c)
 	When I click on tab with label "Status" (b2c)
-	And I send UDP package with status "Standby" to unit "373709011"
+	And I send UDP package with status "Standby" to device with key in config "test3_unit_id"
 	Then UDP response should contain "A00"
 	And panel with Id "panelStatus" should change color to "primary" (b2c)
-	When I send UDP package with status "Connected" to unit "373709011"
+	When I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain "A00"
 	Then panel with Id "panelStatus" should change color to "green" (b2c)
 	When I click on swith with Id "overrideCheckBox" (b2c)
-	And I send UDP package with status "Connected" to unit "373709011"
+	And I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain amperage higher than "00"
-	Then I send UDP package with status "Charging" to unit "373709011"
+	Then I send UDP package with status "Charging" to device with key in config "test3_unit_id"
 	And panel with Id "panelStatus" should change color to "yellow" (b2c)
 	When I click on swith with Id "overrideCheckBox" (b2c)
-	And I send UDP package with status "Connected" to unit "373709011"
+	And I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain "A00"
-	Then I send UDP package with status "Connected" to unit "373709011"
+	Then I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	And panel with Id "panelStatus" should change color to "green" (b2c)
 	When I click on tab with label "Settings" (b2c)
 	And I set TOU time to "current" (b2c)
 	And I click on the Update button for pannel with Id "panelTOU" (b2c)
 	And I click on tab with label "Status" (b2c)
-	And I send UDP package with status "Connected" to unit "373709011"
+	And I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain amperage higher than "00"
-	Then I send UDP package with status "Charging" to unit "373709011"
+	Then I send UDP package with status "Charging" to device with key in config "test3_unit_id"
 	And panel with Id "panelStatus" should change color to "yellow" (b2c)
 	When I click on tab with label "Settings" (b2c)
 	And I click on swith with Id "toggleTOU" (b2c)
 	And I click on the Update button for pannel with Id "panelTOU" (b2c)
 	Then switch with Id "toggleTOU" should be enabled is "False" (b2c)
-	And I send UDP package with status "Standby" to unit "373709011"
+	And I send UDP package with status "Standby" to device with key in config "test3_unit_id"
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_08 - TOU Persistence
 	#Given I login to the system as "WebUser" (b2c)
-	#When I click More Details for device with Id "373709011" (b2c)
+	#When I click More Details for device with key in config "test3_unit_id" (b2c)
 	#And I click on tab with label "Settings" (b2c)
 	#Given switch with Id "toggleTOU" is not activated (b2c)
 	#When I click on swith with Id "toggleTOU" (b2c)
@@ -169,7 +169,7 @@ Scenario: B2C_Web_MyJuiceNet_08 - TOU Persistence
 @b2c @web
 Scenario: B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU start time.
 	Given I login to the system as "WebUser" (b2c)
-	When I click More Details for device with Id "373709011" (b2c)
+	When I click More Details for device with key in config "test3_unit_id" (b2c)
 	And I click on tab with label "Settings" (b2c)
 	Given switch with Id "toggleTOU" is not activated (b2c)
 	And field with Id "MinChargeKWh" is equal to "0.0" (b2c)
@@ -183,9 +183,9 @@ Scenario: B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU sta
 	And I click on tab with label "Settings" (b2c)
 	Then TOU time should be equal to "not current" (b2c)
 	When I click on tab with label "Status" (b2c)
-	When I send UDP package with status "Connected" to unit "373709011"
+	When I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain amperage higher than "00"
-	Then I send UDP package with status "Charging" to unit "373709011"
+	Then I send UDP package with status "Charging" to device with key in config "test3_unit_id"
 	And panel with Id "panelStatus" should change color to "yellow" (b2c)
 	When I click on tab with label "Settings" (b2c)
 	And I set field "MinChargeKWh" to "0.0" (b2c)
@@ -194,7 +194,7 @@ Scenario: B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU sta
 	And I click on tab with label "Settings" (b2c)
 	Then field with Id "MinChargeKWh" should be equal to "0.0" (b2c)
 	When I click on tab with label "Status" (b2c)
-	And I send UDP package with status "Connected" to unit "373709011"
+	And I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain "A00"
 	And panel with Id "panelStatus" should change color to "green" (b2c)
 
@@ -293,17 +293,17 @@ Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.
 	Then Load group with name "TestGroup14" should apear in the table is "true" (b2c)
 
 	Given I click on empty Load group with name "TestGroup14" string in table (b2c)
-	When I click on button with name "Check at least one device" (b2c)
-	And I select item by checkbox name "373708001" (b2c)
-	And I select item by checkbox name "373709012" (b2c)
+	When I select multiple keys from config "<ConfigKey>" on selector with Id "user-device-list" (b2c)
+		| ConfigKey     |
+		| test1_unit_id |
+		| test4_unit_id |
 	And I click on button with name "Add selected JNDevices to Load Group" (b2c)
 	Then Alert with status "success" and text "This devices were added successfully:" should be displayed (b2c)
 	When I click on button with name "Close" (b2c)
 	Then I check load group "TestGroup14" for "2" units in table (b2c)
-
-	Given I navigate to the "My JuiceNet Devices" page (b2c)
-	Then Device "373708001" area contain load group icon (b2c)
-	Then Device "373709012" area contain load group icon (b2c)
+	And I navigate to the "My JuiceNet Devices" page (b2c)
+	Then Device with key in config "test1_unit_id" area contain load group icon (b2c)
+	And Device with key in config "test1_unit_id" area contain load group icon (b2c)
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_15 - Notifications**
