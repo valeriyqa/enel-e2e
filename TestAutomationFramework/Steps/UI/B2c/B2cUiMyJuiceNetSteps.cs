@@ -426,18 +426,19 @@ namespace TestAutomationFramework.Steps.UI
             switch (touTime.Replace(" ", "").ToLower())
             {
                 case "current":
-                    startTime = currentTime.ToString("hh:mm", CultureInfo.InvariantCulture);
-                    endTime = currentTime.AddHours(1).ToString("hh:mm", CultureInfo.InvariantCulture);
+                    startTime = currentTime.ToString("HH:mm", CultureInfo.InvariantCulture);
+                    endTime = currentTime.AddHours(1).ToString("HH:mm", CultureInfo.InvariantCulture);
+
                     break;
                 case "notcurrent":
-                    startTime = currentTime.AddHours(1).ToString("hh:mm", CultureInfo.InvariantCulture);
-                    endTime = currentTime.AddHours(2).ToString("hh:mm", CultureInfo.InvariantCulture);
+                    startTime = currentTime.AddHours(1).ToString("HH:mm", CultureInfo.InvariantCulture);
+                    endTime = currentTime.AddHours(2).ToString("HH:mm", CultureInfo.InvariantCulture);
                     break;
                 default:
                     Assert.Fail("Incorrect TOU value: " + touTime);
                     return;
             }
-            
+
             Assert.AreEqual(generalPage.GetElementTextById("tou_wd_start"), startTime);
             Assert.AreEqual(generalPage.GetElementTextById("tou_wd_end"), endTime);
             Assert.AreEqual(generalPage.GetElementTextById("tou_we_start"), startTime);
