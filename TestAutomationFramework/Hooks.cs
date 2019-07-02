@@ -73,6 +73,8 @@ namespace TestAutomationFramework
 
                 ConfigObject configFromJson = Config.ApplyJson(jsonString);
                 Config.SetUserConfig(configFromJson);
+
+                Console.WriteLine(jsonString);
             }
         }
 
