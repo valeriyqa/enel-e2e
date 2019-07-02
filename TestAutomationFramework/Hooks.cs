@@ -44,32 +44,41 @@ namespace TestAutomationFramework
             }
             else
             {
-                string jsonString = "{\"env_system_type\": \"" + Environment.GetEnvironmentVariable("env_system_type") +
-                    "\", \"env_dashboard_address\": \"" + Environment.GetEnvironmentVariable("env_dashboard_address") +
-                    "\", \"env_api_address\": \"" + Environment.GetEnvironmentVariable("env_api_address") +
-                    "\", \"env_udp_address\": \"" + Environment.GetEnvironmentVariable("env_udp_address") +
+                //string jsonString = "{\"env_system_type\": \"" + Environment.GetEnvironmentVariable("env_system_type") +
+                //    "\", \"env_dashboard_address\": \"" + Environment.GetEnvironmentVariable("env_dashboard_address") +
+                //    "\", \"env_api_address\": \"" + Environment.GetEnvironmentVariable("env_api_address") +
+                //    "\", \"env_udp_address\": \"" + Environment.GetEnvironmentVariable("env_udp_address") +
 
-                     "\", \"start_web\": \"" + Environment.GetEnvironmentVariable("start_web") +
-                    "\", \"start_api\": \"" + Environment.GetEnvironmentVariable("start_api") +
-                    "\", \"start_udp\": \"" + Environment.GetEnvironmentVariable("start_udp") +
-                    "\", \"start_p_term\": \"" + Environment.GetEnvironmentVariable("start_p_term") +
+                //     "\", \"start_web\": \"" + Environment.GetEnvironmentVariable("start_web") +
+                //    "\", \"start_api\": \"" + Environment.GetEnvironmentVariable("start_api") +
+                //    "\", \"start_udp\": \"" + Environment.GetEnvironmentVariable("start_udp") +
+                //    "\", \"start_p_term\": \"" + Environment.GetEnvironmentVariable("start_p_term") +
 
-                    "\", \"web_user_id\": \"" + Environment.GetEnvironmentVariable("web_user_id") +
-                    "\", \"web_user_email\": \"" + Environment.GetEnvironmentVariable("web_user_email") +
-                    "\", \"web_user_password\": \"" + Environment.GetEnvironmentVariable("web_user_password") +
-                    "\", \"web_user_description\": \"" + Environment.GetEnvironmentVariable("web_user_description") +
+                //    "\", \"web_user_id\": \"" + Environment.GetEnvironmentVariable("web_user_id") +
+                //    "\", \"web_user_email\": \"" + Environment.GetEnvironmentVariable("web_user_email") +
+                //    "\", \"web_user_password\": \"" + Environment.GetEnvironmentVariable("web_user_password") +
+                //    "\", \"web_user_description\": \"" + Environment.GetEnvironmentVariable("web_user_description") +
     
-                    "\", \"admin_user_id\": \"" + Environment.GetEnvironmentVariable("admin_user_id") +
-                    "\", \"admin_user_email\": \"" + Environment.GetEnvironmentVariable("admin_user_email") +
-                    "\", \"admin_user_password\": \"" + Environment.GetEnvironmentVariable("admin_user_password") +
-                    "\", \"admin_user_description\": \"" + Environment.GetEnvironmentVariable("admin_user_description") +
+                //    "\", \"admin_user_id\": \"" + Environment.GetEnvironmentVariable("admin_user_id") +
+                //    "\", \"admin_user_email\": \"" + Environment.GetEnvironmentVariable("admin_user_email") +
+                //    "\", \"admin_user_password\": \"" + Environment.GetEnvironmentVariable("admin_user_password") +
+                //    "\", \"admin_user_description\": \"" + Environment.GetEnvironmentVariable("admin_user_description") +
 
-                    "\", \"api_account_token\": \"" + Environment.GetEnvironmentVariable("api_account_token") +
-                    "\", \"api_device_id\": \"" + Environment.GetEnvironmentVariable("api_device_id") +
-                    "\", \"api_token\": \"" + Environment.GetEnvironmentVariable("api_token") +
+                //    "\", \"api_account_token\": \"" + Environment.GetEnvironmentVariable("api_account_token") +
+                //    "\", \"api_device_id\": \"" + Environment.GetEnvironmentVariable("api_device_id") +
+                //    "\", \"api_token\": \"" + Environment.GetEnvironmentVariable("api_token") +
 
-                    "\", \"pterm_unit_id\": \"" + Environment.GetEnvironmentVariable("pterm_unit_id") +
-                    "\", \"pterm_terminal_id\": \"" + Environment.GetEnvironmentVariable("pterm_terminal_id") + "\"}";
+                //    "\", \"pterm_unit_id\": \"" + Environment.GetEnvironmentVariable("pterm_unit_id") +
+                //    "\", \"pterm_terminal_id\": \"" + Environment.GetEnvironmentVariable("pterm_terminal_id") + "\"}";
+
+                string jsonString = "{";
+                foreach (dynamic userData in Config.Global)
+                {
+                    jsonString += "\"" + userData.Key + "\": \"" + Environment.GetEnvironmentVariable(userData.Key) + "\", ";
+                }
+
+                jsonString = jsonString.Remove(jsonString.Length - 2);
+                jsonString += "}";
 
                 ConfigObject configFromJson = Config.ApplyJson(jsonString);
                 Config.SetUserConfig(configFromJson);
