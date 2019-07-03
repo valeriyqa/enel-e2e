@@ -39,7 +39,7 @@ namespace TestAutomationFramework
             ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
             Config.SetDefaultConfig(configFromFile);
 
-            if (File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt")))
+            if (!File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt")))
             {
                 string jsonString = "{";
                 foreach (dynamic userData in Config.Global)
