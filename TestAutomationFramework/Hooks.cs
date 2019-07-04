@@ -33,7 +33,8 @@ namespace TestAutomationFramework
             //string environment = "b2c_alpha";
             //string environment = "joomla_beta";
             //string environment = "b2c_v12alpha";
-            string environment = "b2c_v12beta";
+            //string environment = "b2c_v12beta";
+            string environment = "b2b_v12beta";
             //string environment = "b2c_beta";
 
 
