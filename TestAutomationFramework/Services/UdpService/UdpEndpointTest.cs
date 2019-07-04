@@ -78,7 +78,7 @@ namespace TestAutomationFramework.Services
         {
             var deviceState = new DeviceState
             {
-                UnitId = "373708004",
+                UnitId = "373708001",
                 Voltage = 220,
                 ChargeState = ChargeStateE.Standby,
                 Temperature = 35,

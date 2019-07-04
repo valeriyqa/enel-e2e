@@ -24,6 +24,7 @@ Scenario: All_UDP_ Test UDP response contains S section with unique  value
 	Then at least one value of the "S" section should not be same
 	#Then response should contain S section higher "001"
 
+#@udp
 #Scenario Outline: Delete me
 #	Given I send udp packages with next "<UdpData>"
 #

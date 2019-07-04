@@ -32,14 +32,16 @@ namespace TestAutomationFramework
             //string environment = "b2b_alpha";
             //string environment = "b2c_alpha";
             //string environment = "joomla_beta";
-            string environment = "b2c_v12alpha";
+            //string environment = "b2c_v12alpha";
+            string environment = "b2c_v12beta";
+            //string environment = "b2c_beta";
 
 
             string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
             ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
             Config.SetDefaultConfig(configFromFile);
 
-            if (File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt")))
+            if (!File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt")))
             {
                 string jsonString = "{";
                 foreach (dynamic userData in Config.Global)
