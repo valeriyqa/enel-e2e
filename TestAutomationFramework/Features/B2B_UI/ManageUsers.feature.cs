@@ -70,12 +70,12 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Users - Add new user")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ManageUsers_01 - Add new user(Admin)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_ManageUsers_AddNewUser()
+        public virtual void B2B_Web_ManageUsers_01_AddNewUserAdmin()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Users - Add new user", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ManageUsers_01 - Add new user(Admin)", null, new string[] {
                         "b2b",
                         "web"});
 #line 6
@@ -86,15 +86,15 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Users - Update Client\'s information")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ManageUsers_02 - Update User\'s information")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_ManageUsers_UpdateClientsInformation()
+        public virtual void B2B_Web_ManageUsers_02_UpdateUsersInformation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Users - Update Client\'s information", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ManageUsers_02 - Update User\'s information", null, new string[] {
                         "b2b",
                         "web"});
-#line 9
+#line 26
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -102,15 +102,15 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Users - Add new user - Incorrect Email")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ManageUsers_03 - Add new user(Incorrect Email)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_ManageUsers_AddNewUser_IncorrectEmail()
+        public virtual void B2B_Web_ManageUsers_03_AddNewUserIncorrectEmail()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Users - Add new user - Incorrect Email", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ManageUsers_03 - Add new user(Incorrect Email)", null, new string[] {
                         "b2b",
                         "web"});
-#line 12
+#line 36
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -118,15 +118,15 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Users - Add existing user")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ManageUsers_04 - Add existing user")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_ManageUsers_AddExistingUser()
+        public virtual void B2B_Web_ManageUsers_04_AddExistingUser()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Users - Add existing user", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ManageUsers_04 - Add existing user", null, new string[] {
                         "b2b",
                         "web"});
-#line 15
+#line 45
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -134,15 +134,15 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Users - Assign user to group")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ManageUsers_05 - Assign/Remove user from group")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_ManageUsers_AssignUserToGroup()
+        public virtual void B2B_Web_ManageUsers_05_AssignRemoveUserFromGroup()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Users - Assign user to group", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ManageUsers_05 - Assign/Remove user from group", null, new string[] {
                         "b2b",
                         "web"});
-#line 18
+#line 61
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -150,15 +150,31 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Manage Users - Remove User from Group")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ManageUsers_06 - Delete User")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_ManageUsers_RemoveUserFromGroup()
+        public virtual void B2B_Web_ManageUsers_06_DeleteUser()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Manage Users - Remove User from Group", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ManageUsers_06 - Delete User", null, new string[] {
                         "b2b",
                         "web"});
-#line 21
+#line 76
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_ManageUsers_07 - Charging sessions tab")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_ManageUsers_07_ChargingSessionsTab()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ManageUsers_07 - Charging sessions tab", null, new string[] {
+                        "b2b",
+                        "web"});
+#line 88
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -168,3 +184,4 @@ this.ScenarioInitialize(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+

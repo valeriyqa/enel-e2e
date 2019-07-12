@@ -18,21 +18,20 @@ namespace TestAutomationFramework.Features.B2B_UI
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("B2B Box Monitor feature")]
-    public partial class B2BBoxMonitorFeatureFeature
+    [NUnit.Framework.DescriptionAttribute("B2B Support Tools feature")]
+    public partial class B2BSupportToolsFeatureFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "BoxMonitor.feature"
+#line 1 "SupportTools.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "B2B Box Monitor feature", "\tIn order to verify B2B Box Monitor feature functionality\r\n\twe run next scenarios" +
-                    "", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "B2B Support Tools feature", "\tIn order to verify ... feature functionality\r\n\twe run next scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -71,33 +70,23 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_BoxMonitor_01 - Device get offline status if not active for 10 minutes")]
-        [NUnit.Framework.CategoryAttribute("b2b")]
-        [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_BoxMonitor_01_DeviceGetOfflineStatusIfNotActiveFor10Minutes()
+        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public virtual void AddTwoNumbers()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_BoxMonitor_01 - Device get offline status if not active for 10 minutes", null, new string[] {
-                        "b2b",
-                        "web"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", null, new string[] {
+                        "mytag"});
 #line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_BoxMonitor_02 - Reservation for charging")]
-        [NUnit.Framework.CategoryAttribute("b2b")]
-        [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_BoxMonitor_02_ReservationForCharging()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_BoxMonitor_02 - Reservation for charging", null, new string[] {
-                        "b2b",
-                        "web"});
-#line 11
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
+#line 7
+ testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+ testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+ testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

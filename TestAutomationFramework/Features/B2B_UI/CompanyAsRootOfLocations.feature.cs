@@ -18,21 +18,21 @@ namespace TestAutomationFramework.Features.B2B_UI
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("B2B Admin Of Reseller feature")]
-    public partial class B2BAdminOfResellerFeatureFeature
+    [NUnit.Framework.DescriptionAttribute("B2B Company As Root Of Locations feature")]
+    public partial class B2BCompanyAsRootOfLocationsFeatureFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "AdminOfReseller.feature"
+#line 1 "CompanyAsRootOfLocations.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "B2B Admin Of Reseller feature", "\tIn order to verify Admin Of Reseller feature functionality\r\n\twe run next scenari" +
-                    "os", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "B2B Company As Root Of Locations feature", "\tIn order to verify Company As Root Of Locations feature functionality\r\n\twe run n" +
+                    "ext scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -71,12 +71,12 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_AdminOfReseller_01 - Checking the dashboard elements")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_CompanyAsRootOfLocations_01 - Check company as root functionality")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AdminOfReseller_01_CheckingTheDashboardElements()
+        public virtual void B2B_Web_CompanyAsRootOfLocations_01_CheckCompanyAsRootFunctionality()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_AdminOfReseller_01 - Checking the dashboard elements", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_CompanyAsRootOfLocations_01 - Check company as root functionality", null, new string[] {
                         "b2b",
                         "web"});
 #line 6
@@ -87,15 +87,15 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_AdminOfReseller_02 - Manage Groups - Add User Group")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_CompanyAsRootOfLocations_02 - Company as root UI check")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AdminOfReseller_02_ManageGroups_AddUserGroup()
+        public virtual void B2B_Web_CompanyAsRootOfLocations_02_CompanyAsRootUICheck()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_AdminOfReseller_02 - Manage Groups - Add User Group", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_CompanyAsRootOfLocations_02 - Company as root UI check", null, new string[] {
                         "b2b",
                         "web"});
-#line 13
+#line 15
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -103,15 +103,17 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_AdminOfReseller_03 - Manage Groups - Delete User Group")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_CompanyAsRootOfLocations_03 - Check that company is correctly displayed i" +
+            "n Locations tab")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AdminOfReseller_03_ManageGroups_DeleteUserGroup()
+        public virtual void B2B_Web_CompanyAsRootOfLocations_03_CheckThatCompanyIsCorrectlyDisplayedInLocationsTab()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_AdminOfReseller_03 - Manage Groups - Delete User Group", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_CompanyAsRootOfLocations_03 - Check that company is correctly displayed i" +
+                    "n Locations tab", null, new string[] {
                         "b2b",
                         "web"});
-#line 22
+#line 25
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden

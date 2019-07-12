@@ -18,20 +18,20 @@ namespace TestAutomationFramework.Features.B2B_UI
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("B2B Admin Of Reseller feature")]
-    public partial class B2BAdminOfResellerFeatureFeature
+    [NUnit.Framework.DescriptionAttribute("B2B Pricing feature")]
+    public partial class B2BPricingFeatureFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "AdminOfReseller.feature"
+#line 1 "Pricing.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "B2B Admin Of Reseller feature", "\tIn order to verify Admin Of Reseller feature functionality\r\n\twe run next scenari" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "B2B Pricing feature", "\tIn order to verify Admin Of Reseller feature functionality\r\n\twe run next scenari" +
                     "os", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -71,49 +71,23 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_AdminOfReseller_01 - Checking the dashboard elements")]
-        [NUnit.Framework.CategoryAttribute("b2b")]
-        [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AdminOfReseller_01_CheckingTheDashboardElements()
+        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public virtual void AddTwoNumbers()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_AdminOfReseller_01 - Checking the dashboard elements", null, new string[] {
-                        "b2b",
-                        "web"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", null, new string[] {
+                        "mytag"});
 #line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_AdminOfReseller_02 - Manage Groups - Add User Group")]
-        [NUnit.Framework.CategoryAttribute("b2b")]
-        [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AdminOfReseller_02_ManageGroups_AddUserGroup()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_AdminOfReseller_02 - Manage Groups - Add User Group", null, new string[] {
-                        "b2b",
-                        "web"});
-#line 13
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_AdminOfReseller_03 - Manage Groups - Delete User Group")]
-        [NUnit.Framework.CategoryAttribute("b2b")]
-        [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AdminOfReseller_03_ManageGroups_DeleteUserGroup()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_AdminOfReseller_03 - Manage Groups - Delete User Group", null, new string[] {
-                        "b2b",
-                        "web"});
-#line 22
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
+#line 7
+ testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+ testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+ testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

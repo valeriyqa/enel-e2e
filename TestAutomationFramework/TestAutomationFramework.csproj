@@ -112,6 +112,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AllowedCurrent.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\B2B_UI\CompanyAsRootOfLocations.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyAsRootOfLocations.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\B2B_UI\LoadBalancing.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoadBalancing.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\B2B_UI\ManageDevices.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,10 +132,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ManageUsers.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\B2B_UI\Mobile\Charging.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Charging.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\B2B_UI\Mobile\Mobile.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mobile.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\B2B_UI\Offline behaviour\CommercialUnits.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommercialUnits.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\B2B_UI\Offline behaviour\HomeUnits.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeUnits.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\B2B_UI\Payment.feature.cs">
       <DependentUpon>Payment.feature</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\B2B_UI\Pricing.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pricing.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\B2B_UI\Rates.feature.cs">
       <DependentUpon>Rates.feature</DependentUpon>
@@ -151,6 +186,21 @@
       <DependentUpon>PublicAccess.feature</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\B2B_UI\Reports.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reports.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\B2B_UI\RFID.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RFID.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\B2B_UI\SupportTools.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SupportTools.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\B2B_UI\_test.feature.cs">
       <AutoGen>True</AutoGen>
@@ -284,6 +334,14 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>AllowedCurrent.feature.cs</LastGenOutput>
     </None>
+    <None Include="Features\B2B_UI\CompanyAsRootOfLocations.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CompanyAsRootOfLocations.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\LoadBalancing.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LoadBalancing.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\B2B_UI\ManageDevices.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ManageDevices.feature.cs</LastGenOutput>
@@ -292,9 +350,29 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ManageUsers.feature.cs</LastGenOutput>
     </None>
+    <None Include="Features\B2B_UI\Mobile\Charging.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Charging.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\Mobile\Mobile.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Mobile.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\Offline behaviour\CommercialUnits.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CommercialUnits.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\Offline behaviour\HomeUnits.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>HomeUnits.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\B2B_UI\Payment.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Payment.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\Pricing.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Pricing.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\B2B_UI\Rates.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -315,6 +393,18 @@
     <None Include="Features\B2B_UI\PublicAccess.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PublicAccess.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\Reports.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Reports.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\RFID.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RFID.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\B2B_UI\SupportTools.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SupportTools.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\B2B_UI\_test.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

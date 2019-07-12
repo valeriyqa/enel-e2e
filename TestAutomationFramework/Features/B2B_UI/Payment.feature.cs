@@ -70,12 +70,12 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Add client")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Payment_01 - Add client")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AddClient()
+        public virtual void B2B_Web_Payment_01_AddClient()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Add client", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Payment_01 - Add client", null, new string[] {
                         "b2b",
                         "web"});
 #line 6
@@ -86,12 +86,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Charging cases")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Payment_02 -  Charging cases")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_ChargingCases()
+        public virtual void B2B_Web_Payment_02_ChargingCases()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Charging cases", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Payment_02 -  Charging cases", null, new string[] {
                         "b2b",
                         "web"});
 #line 9
@@ -102,12 +102,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Stripe integration (positive cases)")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Payment_03 -  Stripe integration (positive cases)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_StripeIntegrationPositiveCases()
+        public virtual void B2B_Web_Payment_03_StripeIntegrationPositiveCases()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Stripe integration (positive cases)", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Payment_03 -  Stripe integration (positive cases)", null, new string[] {
                         "b2b",
                         "web"});
 #line 12
@@ -118,15 +118,43 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Stripe (negative cases)")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Payment_04 -  Stripe (negative cases)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_StripeNegativeCases()
+        public virtual void B2B_Web_Payment_04_StripeNegativeCases()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Stripe (negative cases)", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Payment_04 -  Stripe (negative cases)", @"	Correct card number, correct CVC, incorrect expiration date  
+	Correct card number, incorrect CVC, correct expiration date  
+	Correct card number, incorrect CVC, incorrect expiration date  
+	If a CVC number is provided, the cvc_check fails. 4000000000000101  
+	Charge is declined with an incorrect_cvc code. 4000000000000127
+	Charge is declined with an expired_card code. 4000000000000069
+	Charge is declined with a processing_error code. 4000000000000119 
+	Charge is declined with an incorrect_number code as the card number fails the Luhn check. 4242424242424241 ", new string[] {
                         "b2b",
                         "web"});
 #line 15
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Payment_05 -  Check stripe warning while device is offline")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_Payment_05_CheckStripeWarningWhileDeviceIsOffline()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Payment_05 -  Check stripe warning while device is offline", @"	Preconditions: you must have commercial device, and account linked to stripe 
+	Link device to location, set no free rate 
+	Go to emulator set device to offline status 
+	Device goes offline 
+	Try to authorise in stripe for this device(in mobile app or by payment link)
+	Warning that device is Currently Offline ", new string[] {
+                        "b2b",
+                        "web"});
+#line 26
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -136,3 +164,4 @@ this.ScenarioInitialize(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+

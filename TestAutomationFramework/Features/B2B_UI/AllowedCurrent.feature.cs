@@ -71,12 +71,12 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Change Allowed Current on device")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_AllowedCurrent_01 - Change Allowed Current on device")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_ChangeAllowedCurrentOnDevice()
+        public virtual void B2B_Web_AllowedCurrent_01_ChangeAllowedCurrentOnDevice()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Change Allowed Current on device", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_AllowedCurrent_01 - Change Allowed Current on device", null, new string[] {
                         "b2b",
                         "web"});
 #line 6
@@ -87,15 +87,15 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Set Allowed Current for Location")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_AllowedCurrent_02 - Set Allowed Current for Location")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_SetAllowedCurrentForLocation()
+        public virtual void B2B_Web_AllowedCurrent_02_SetAllowedCurrentForLocation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Set Allowed Current for Location", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_AllowedCurrent_02 - Set Allowed Current for Location", null, new string[] {
                         "b2b",
                         "web"});
-#line 9
+#line 13
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -103,15 +103,17 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Same as Parent functionality when link device to Location")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_AllowedCurrent_03 - Same as Parent functionality when link device to Loca" +
+            "tion")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_SameAsParentFunctionalityWhenLinkDeviceToLocation()
+        public virtual void B2B_Web_AllowedCurrent_03_SameAsParentFunctionalityWhenLinkDeviceToLocation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Same as Parent functionality when link device to Location", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_AllowedCurrent_03 - Same as Parent functionality when link device to Loca" +
+                    "tion", null, new string[] {
                         "b2b",
                         "web"});
-#line 12
+#line 19
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -119,15 +121,15 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Same as Parent functionality for sublocation")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_AllowedCurrent_04 - Same as Parent functionality for sublocation")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_SameAsParentFunctionalityForSublocation()
+        public virtual void B2B_Web_AllowedCurrent_04_SameAsParentFunctionalityForSublocation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Same as Parent functionality for sublocation", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_AllowedCurrent_04 - Same as Parent functionality for sublocation", null, new string[] {
                         "b2b",
                         "web"});
-#line 15
+#line 30
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -135,15 +137,15 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Check the boarding value 6")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_AllowedCurrent_05 - Check the boarding value 6")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_CheckTheBoardingValue6()
+        public virtual void B2B_Web_AllowedCurrent_05_CheckTheBoardingValue6()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Check the boarding value 6", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_AllowedCurrent_05 - Check the boarding value 6", null, new string[] {
                         "b2b",
                         "web"});
-#line 18
+#line 38
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -153,3 +155,4 @@ this.ScenarioInitialize(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+
