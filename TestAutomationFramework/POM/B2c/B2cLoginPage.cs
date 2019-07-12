@@ -10,7 +10,9 @@ namespace TestAutomationFramework.POM
 
         IWebElement emailField => driver.FindElementById("Email");
         IWebElement passwordField => driver.FindElementByName("Password");
-        IWebElement loginButton => driver.FindElementByClassName("btn-primary");
+        //IWebElement loginButton => driver.FindElementByClassName("btn-primary");
+        IWebElement loginButton => driver.FindElementByXPath("//button[contains(text(),'Login')]");
+
 
         public void LoginToApplication(string userEmail, string userPassword)
         {

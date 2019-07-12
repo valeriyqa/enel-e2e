@@ -13,7 +13,8 @@ namespace TestAutomationFramework.POM
         public B2cGeneralPage(RemoteWebDriver driver) => this.driver = driver;
 
         IWebElement userNameButton => driver.FindElementByXPath("//*[@id='wrapper']/nav/ul/li[3]/a");
-
+        
+        //Obsolete
         public string GetUserName()
         {
             return userNameButton.Text.ToString();
@@ -244,5 +245,9 @@ namespace TestAutomationFramework.POM
             return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert') and not(contains(concat(' ',@style,' '),'display:none'))]")).Text;
         }
 
+        public void clickCheckBoxTest(string cheboxText)
+        {
+            driver.FindElement(By.XPath("//div[contains(@class,'checkbox')]//label[contains(text(),'" + cheboxText + "')]")).Click();
+        }
     }
 }

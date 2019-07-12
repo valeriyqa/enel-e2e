@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using TechTalk.SpecFlow;
 using TestAutomationFramework.POM;
+using TestAutomationFramework.POM.B2c;
 
 namespace TestAutomationFramework.Steps.UI
 {
@@ -30,6 +31,13 @@ namespace TestAutomationFramework.Steps.UI
             this.driver = driver;
             this.scenarioContext = scenarioContext;
         }
+
+        //public B2cUiRegistrationAndLogInSteps(RemoteWebDriver driver, Dictionary<string, Tools.LoadFromConf.User> usersDictionary)
+        //{
+        //    this.driver = driver;
+        //    this.usersDictionary = usersDictionary;
+        //}
+
 
         [Given(@"I navigate to ""(.*)"" page \(b2c\)")] //done
         public void GivenINavigateToPage(string page)
@@ -108,11 +116,26 @@ namespace TestAutomationFramework.Steps.UI
             Console.WriteLine(File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_not_local.txt")));
         }
 
-        [Then(@"I should be logged into the application \(b2c\)")]
-        public void ThenIShouldBeLoggedIntoTheApplication()
+        [Then(@"I should be logged into the application as ""(.*)"" \(b2c\)")]
+        public void ThenIShouldBeLoggedIntoTheApplicationAsBc(string userName)
         {
-            Console.WriteLine("I should be logged into the application");
+            Tools.LoadFromConf.User currentUser = usersDictionary[userName];
+            var managePage = new B2cManagePage(driver);
+
+            Assert.AreEqual(managePage.getUserDescription(), currentUser.userDescription);
+            Assert.AreEqual(managePage.getUserEmail(), currentUser.userEmail);
         }
+
+
+        //[Then(@"I should be logged into the application \(b2c\)")]
+        //public void ThenIShouldBeLoggedIntoTheApplicationBc()
+        //{
+        //    Tools.LoadFromConf.User currentUser = usersDictionary[userName];
+        //    var managePage = new B2cManagePage(driver);
+
+        //    Assert.AreEqual(managePage.getUserDescription(), usersDictionary["userDescription"]);
+        //    Assert.AreEqual(managePage.getUserEmail(), usersDictionary["userDescription"]);
+        //}
 
         [Given(@"I login to the system as ""(.*)"" \(b2c\)")]
         public void GivenILoginToTheB2cSystemAs(string userName)
@@ -122,7 +145,6 @@ namespace TestAutomationFramework.Steps.UI
             Tools.LoadFromConf.User currentUser = usersDictionary[userName];
             loginPage.LoginToApplication(currentUser.userEmail, currentUser.userPassword);
             B2cGeneralPage generalPage = new B2cGeneralPage(driver);
-            Assert.AreEqual(generalPage.GetUserName(), currentUser.userDescription);
         }
 
         //Delete it if work normally

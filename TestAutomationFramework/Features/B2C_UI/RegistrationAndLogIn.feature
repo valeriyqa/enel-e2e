@@ -70,8 +70,8 @@ Scenario: B2C_Web_Registration_and_Login_04 - Registration via Google account**
 @b2c @web
 Scenario: B2C_Web_Registration_and_Login_05 - Login with valid email and password
 	Given I login to the system as "WebUser" (b2c)
-	Then I should be navigated to the "Portal" page (b2c)
-
+	And I navigate to "Manage" page (b2c)
+	Then I should be logged into the application as "WebUser" (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Registration_and_Login_06 - Login with unregistered email
