@@ -65,7 +65,9 @@ namespace TestAutomationFramework.Steps.UDP
         [Then(@"UDP response should contain amperage higher than ""(.*)""")]
         public void ThenUDPResponseShouldContainAmperageHigherThan(string amperage)
         {
-            Assert.IsTrue(Int32.Parse(testData.requestRxUdp.Substring(9, 2)) > Int32.Parse(amperage));
+            var response = testData.requestRxUdp;
+            Console.WriteLine(response);
+            Assert.IsTrue(Int32.Parse(response.Substring(9, 2)) > Int32.Parse(amperage), "Current amperage = " + response.Substring(9, 2));
         }
 
 

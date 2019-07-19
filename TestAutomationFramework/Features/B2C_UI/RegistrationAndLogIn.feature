@@ -5,7 +5,7 @@
 @b2c @web
 Scenario: B2C_Web_Registration_and_Login_01 - Registration with email
 	Given I navigate to "Account/Login" page (b2c)
-	When I click on "Register new user with email" link (b2c)
+	When I click on "Sign up now!" link (b2c)
 	Then I should be navigated to the "Account/Register" page (b2c)
 	When I set field "<FieldId>" to "<Value>" (b2c)
 		| FieldId         | Value               |

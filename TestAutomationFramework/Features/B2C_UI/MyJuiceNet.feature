@@ -13,7 +13,6 @@ Scenario: B2C_Web_MyJuiceNet_01 - Add/Delete JuiceNet Device
 	When I click on button with name "Add JuiceNet Device" (b2c)
 	When I set field "inputUnitID" to "test2_unit_id" from config (b2c)
 	And I click on button with name "Add JuiceNet Device" (b2c)
-	And I click on "Browse My JuiceNet Devices" link (b2c)
 	Then JuiceNet device with key in config "test2_unit_id" should exist is "True" (b2c)
 	When I click More Details for device with key in config "test2_unit_id" (b2c)
 	And I click on button with name "Delete" (b2c)
@@ -43,14 +42,14 @@ Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
 Scenario: B2C_Web_MyJuiceNet_04 - JuiceNet Device states on dashboard
 	Given  I login to the system as "WebUser" (b2c)
 	When I send UDP package with status "Standby" to device with key in config "test3_unit_id"
-	Then panel color for device with key in config "test3_unit_id" should be changed to "primary" (b2c)
-	And device with key in config "test3_unit_id" should have status "Standby" (b2c)
+	Then icon color for device with key in config "test3_unit_id" should be changed to "grey" (b2c)
+	And device with key in config "test3_unit_id" should have status "Available" (b2c)
 	When I send UDP package with status "Connected" to device with key in config "test3_unit_id"
-	Then panel color for device with key in config "test3_unit_id" should be changed to "green" (b2c)
+	Then icon color for device with key in config "test3_unit_id" should be changed to "violet" (b2c)
 	And device with key in config "test3_unit_id" should have status "Plugged in" (b2c)
 	When I remember charging and saving values for device with key in config "test3_unit_id" (b2c)
 	And I send UDP package with status "Charging" to device with key in config "test3_unit_id"
-	Then panel color for device with key in config "test3_unit_id" should be changed to "yellow" (b2c)
+	Then icon color for device with key in config "test3_unit_id" should be changed to "green" (b2c)
 	And device with key in config "test3_unit_id" should have status "Charging" (b2c)
 	And energy and savings for device with key in config "test3_unit_id" should grow (b2c)
 	Then I send UDP package with status "Standby" to device with key in config "test3_unit_id"
@@ -89,7 +88,7 @@ Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
 	And I click on tab with label "Settings" (b2c)
 	Given switch with Id "toggleTOU" is not activated (b2c)
 	And field with Id "MinChargeKWh" is equal to "0.0" (b2c)
-	When I click on swith with Id "toggleTOU" (b2c)
+	When I click on switch with Id "toggleTOU" (b2c)
 	Then switch with Id "toggleTOU" should be enabled is "True" (b2c)
 	When I remeber the current time on device (b2c)
 	And I set TOU time to "not current" (b2c)
@@ -100,20 +99,20 @@ Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
 	When I click on tab with label "Status" (b2c)
 	And I send UDP package with status "Standby" to device with key in config "test3_unit_id"
 	Then UDP response should contain "A00"
-	And panel with Id "panelStatus" should change color to "primary" (b2c)
+	And device should cheange status to "Available" (b2c)
 	When I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain "A00"
-	Then panel with Id "panelStatus" should change color to "green" (b2c)
-	When I click on swith with Id "overrideCheckBox" (b2c)
+	And device should cheange status to "Plugged In" (b2c)
+	When I click on the override switch (b2c)
 	And I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain amperage higher than "00"
 	Then I send UDP package with status "Charging" to device with key in config "test3_unit_id"
-	And panel with Id "panelStatus" should change color to "yellow" (b2c)
-	When I click on swith with Id "overrideCheckBox" (b2c)
+	And device should cheange status to "Charging" (b2c)
+	When I click on the override switch (b2c)
 	And I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain "A00"
 	Then I send UDP package with status "Connected" to device with key in config "test3_unit_id"
-	And panel with Id "panelStatus" should change color to "green" (b2c)
+	And device should cheange status to "Plugged In" (b2c)
 	When I click on tab with label "Settings" (b2c)
 	And I set TOU time to "current" (b2c)
 	And I click on the Update button for pannel with Id "panelTOU" (b2c)
@@ -121,9 +120,9 @@ Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
 	And I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain amperage higher than "00"
 	Then I send UDP package with status "Charging" to device with key in config "test3_unit_id"
-	And panel with Id "panelStatus" should change color to "yellow" (b2c)
+	And device should cheange status to "Charging" (b2c)
 	When I click on tab with label "Settings" (b2c)
-	And I click on swith with Id "toggleTOU" (b2c)
+	And I click on switch with Id "toggleTOU" (b2c)
 	And I click on the Update button for pannel with Id "panelTOU" (b2c)
 	Then switch with Id "toggleTOU" should be enabled is "False" (b2c)
 	And I send UDP package with status "Standby" to device with key in config "test3_unit_id"
@@ -174,7 +173,7 @@ Scenario: B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU sta
 	Given switch with Id "toggleTOU" is not activated (b2c)
 	And field with Id "MinChargeKWh" is equal to "0.0" (b2c)
 	When I set field "MinChargeKWh" to "10" (b2c)
-	And I click on swith with Id "toggleTOU" (b2c)
+	And I click on switch with Id "toggleTOU" (b2c)
 	Then switch with Id "toggleTOU" should be enabled is "True" (b2c)
 	When I remeber the current time on device (b2c)
 	And I set TOU time to "not current" (b2c)
@@ -186,7 +185,7 @@ Scenario: B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU sta
 	When I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain amperage higher than "00"
 	Then I send UDP package with status "Charging" to device with key in config "test3_unit_id"
-	And panel with Id "panelStatus" should change color to "yellow" (b2c)
+	And device should cheange status to "Charging" (b2c)
 	When I click on tab with label "Settings" (b2c)
 	And I set field "MinChargeKWh" to "0.0" (b2c)
 	And I click on the Update button for pannel with Id "panelTOU" (b2c)
@@ -196,7 +195,7 @@ Scenario: B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU sta
 	When I click on tab with label "Status" (b2c)
 	And I send UDP package with status "Connected" to device with key in config "test3_unit_id"
 	Then UDP response should contain "A00"
-	And panel with Id "panelStatus" should change color to "green" (b2c)
+	And device should cheange status to "Plugged In" (b2c)
 
 	#it looks like previous test cover this funtionality
 @b2c @web 
@@ -255,26 +254,26 @@ Scenario: B2C_Web_MyJuiceNet_13 - Add empty Load groups.**
 	Given load group table is empty (b2c)
 	When I click on button with name "New Load Group" (b2c)
 	And I set field with Id "lg-add-modal-group-name" to "TestGroup1" (b2c)
-	And I click on button with name "Save changes" (b2c)
+	And I click on button with name "Save" (b2c)
 	Then Alert with status "success" and text "Load Group TestGroup1 created sucessfully" should be displayed (b2c)
 	When I click on button with name "Close" (b2c)
 	Then Load group with name "TestGroup1" should apear in the table is "true" (b2c)
 	When I click on button with name "New Load Group" (b2c)
 	And I set field with Id "lg-add-modal-group-name" to "TestGroup2" (b2c)
-	And I click on button with name "Save changes" (b2c)
-	Then Alert with status "danger" and text "User already has one empty load group" should be displayed (b2c)
+	And I click on button with name "Save" (b2c)
+	Then Alert with status "error" and text "User already has one empty load group" should be displayed (b2c)
 	When I click on button with name "Close" (b2c)
 	Then Load group with name "TestGroup2" should apear in the table is "false" (b2c)
-	When I click on button with name "Edit" (b2c)
+	When I click "edit" button for load group "TestGroup1" (b2c)
 	And I set field with Id "lg-add-modal-group-name" to "TestGroup2" (b2c)
 	And I set field with Id "lg-add-modal-max-current" to "5" (b2c)
-	And I click on button with name "Save changes" (b2c)
+	And I click on button with name "Save" (b2c)
 	Then Alert with status "success" and text "Load Group TestGroup2 modified successfully" should be displayed (b2c)
 	When I click on button with name "Close" (b2c)
 	Then Load group with name "TestGroup2" should apear in the table is "true" (b2c)
-	#check maximum current
-	When I click on button with name "Delete" (b2c)
-	Then Alert with status "danger" and text "Are you sure you want delete the group TestGroup2" should be displayed (b2c)
+	#Probably we have to check maximum current, or maybe it should be another test
+	When I click "delete" button for load group "TestGroup2" (b2c)
+	Then Alert with status "" and text "Are you sure you want delete the group TestGroup2 ?" should be displayed (b2c)
 	When I click on button with name "Delete LoadGroup" (b2c)
 	And I click on button with name "Close" (b2c)
 	Then Load group table should be empty (b2c)
@@ -287,7 +286,7 @@ Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.
 	Given load group table is empty (b2c)
 	When I click on button with name "New Load Group" (b2c)
 	And I set field with Id "lg-add-modal-group-name" to "TestGroup14" (b2c)
-	And I click on button with name "Save changes" (b2c)
+	And I click on button with name "Save" (b2c)
 	Then Alert with status "success" and text "Load Group TestGroup14 created sucessfully" should be displayed (b2c)
 	When I click on button with name "Close" (b2c)
 	Then Load group with name "TestGroup14" should apear in the table is "true" (b2c)
@@ -298,7 +297,7 @@ Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.
 		| test1_unit_id |
 		| test4_unit_id |
 	And I click on button with name "Add selected JNDevices to Load Group" (b2c)
-	Then Alert with status "success" and text "This devices were added successfully:" should be displayed (b2c)
+	#Then Alert with status "success" and text "This devices were added successfully:" should be displayed (b2c)
 	When I click on button with name "Close" (b2c)
 	Then I check load group "TestGroup14" for "2" units in table (b2c)
 	And I navigate to the "My JuiceNet Devices" page (b2c)

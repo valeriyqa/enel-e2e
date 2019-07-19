@@ -45,6 +45,13 @@ namespace TestAutomationFramework.Steps.UI
             driver.Navigate().GoToUrl(host + page);
         }
 
+        //[When(@"I click on ""(.*)"" link \(b2c\)")]  //done
+        //public void WhenIClickOnLink(string linkText)
+        //{
+        //    var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        //    wait.Until(wd => driver.FindElementByPartialLinkText(linkText).Displayed);
+        //    driver.FindElementByPartialLinkText(linkText).Click();
+        //}
         [When(@"I click on ""(.*)"" link \(b2c\)")]  //done
         public void WhenIClickOnLink(string linkText)
         {

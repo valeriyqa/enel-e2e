@@ -125,15 +125,26 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I select multiple keys from config ""(.*)"" on selector with Id ""(.*)"" \(b2c\)")]
         public void WhenISelectMultipleKeysFromConfigOnSelectorWithIdBc(string configKey, string multipleSelectorId, Table table)
         {
-            driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//button[contains(@class,'dropdown-toggle')]")).Click();
+            driver.FindElement(By.XPath("//*[@id ='" + multipleSelectorId + "']/..//span[contains(@class, 'pull-right enel-select-arrow')]")).Click();
             foreach (var row in table.Rows)
             {
-                driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//input[@value='" + Config.Global[row[0]] + "']")).Click();
+                driver.FindElement(By.XPath("//*[@id ='" + multipleSelectorId + "']/..//input[contains(@value, '" + Config.Global[row[0]] + "')]/../span")).Click();
             }
-            driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//button[contains(@class,'dropdown-toggle')]")).Click();
+            driver.FindElement(By.XPath("//*[@id ='" + multipleSelectorId + "']/..//span[contains(@class, 'pull-right enel-select-arrow')]")).Click();
         }
 
+        //[When(@"I select multiple keys from config ""(.*)"" on selector with Id ""(.*)"" \(b2c\)")]
+        //public void WhenISelectMultipleKeysFromConfigOnSelectorWithIdBc(string configKey, string multipleSelectorId, Table table)
+        //{
+        //    driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//button[contains(@class,'dropdown-toggle')]")).Click();
+        //    foreach (var row in table.Rows)
+        //    {
+        //        driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//input[@value='" + Config.Global[row[0]] + "']")).Click();
+        //    }
+        //    driver.FindElement(By.XPath("//select[@id='" + multipleSelectorId + "']/..//button[contains(@class,'dropdown-toggle')]")).Click();
+        //}
 
+        //probably should be fixed
         [When(@"I select multiple ""(.*)"" on selector with Id ""(.*)"" \(b2c\)")]
         public void WhenISelectMultipleOnSelectorWithIdBc(string value, string multipleSelectorId, Table table)
         {
@@ -225,7 +236,8 @@ namespace TestAutomationFramework.Steps.UI
             //System.Threading.Thread.Sleep(1000);
         }
 
-        [When(@"I click on swith with Id ""(.*)"" \(b2c\)")]
+
+        [When(@"I click on switch with Id ""(.*)"" \(b2c\)")]
         public void WhenIClickOnSwithWithIdBc(string switchId)
         {
             var generalPage = new B2cGeneralPage(driver);

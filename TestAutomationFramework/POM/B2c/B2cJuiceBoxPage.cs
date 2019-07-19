@@ -38,7 +38,10 @@ namespace TestAutomationFramework.POM
         public void ClickOnUpdateButtonForPannelWithId(string panelId)
         {
             driver.FindElement(By.XPath("//div[@id ='" + panelId + "']//button[@type ='submit']")).Click();
-            System.Threading.Thread.Sleep(1000);
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.XPath("//div[@id ='" + panelId + "']//button[@type ='submit'][contains(@class, 'disabled')]")));
+            wait.Until(wd => driver.FindElement(By.XPath("//div[@id ='" + panelId + "']//button[@type ='submit'][not(contains(@class, 'disabled'))]")));
+            //System.Threading.Thread.Sleep(1000);
         }
 
     }

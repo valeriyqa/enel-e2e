@@ -89,16 +89,28 @@ namespace TestAutomationFramework.POM
 
         public void SelectValueById(string selectId, string selectValue)
         {
-            //We use this xpath, since we have two types of selector (select with Id) and (div with Id and select inside).
-            //See Reports/UserSessions page for example
-            var selectElement = new SelectElement(driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/descendant-or-self::select")));
-            selectElement.SelectByValue(selectValue);
+            driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/..//span[contains(@class, 'pull-right enel-select-arrow')]")).Click();
+            driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/..//span[contains(text(), '" + selectValue + "')]")).Click();
         }
+
+        //public void SelectValueById(string selectId, string selectValue)
+        //{
+        //    //We use this xpath, since we have two types of selector (select with Id) and (div with Id and select inside).
+        //    //See Reports/UserSessions page for example
+        //    var selectElement = new SelectElement(driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/descendant-or-self::select")));
+        //    selectElement.SelectByValue(selectValue);
+        //}
 
         public string getSelectValueById(string selectId)
         {
-            return driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/descendant-or-self::select")).GetAttribute("value").ToString();
+            return driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/..//span[contains(@class,'multiselect-selected-text')]")).Text;
+            //return driver.FindElement(By.XPath("//li//span[contains(text(), '" + selectText + "')]/../input")).GetAttribute("value").ToString();
         }
+
+        //public string getSelectValueById(string selectId)
+        //{
+        //    return driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/descendant-or-self::select")).GetAttribute("value").ToString();
+        //}
 
         public void SelectTextById(string selectId, string selectText)
         {
@@ -127,22 +139,41 @@ namespace TestAutomationFramework.POM
 
         public void ClickSwitchWithId(string switchId)
         {
-            driver.FindElement(By.XPath("//div[contains(@class,'bootstrap-switch-id-" + switchId + "')]")).Click();
+            driver.FindElement(By.XPath("//input[contains(@id,'" + switchId + "')]/..")).Click();
         }
+
+        //public void ClickSwitchWithId(string switchId)
+        //{
+        //    driver.FindElement(By.XPath("//div[contains(@class,'bootstrap-switch-id-" + switchId + "')]")).Click();
+        //}
 
         public bool IsSwitchWithIdOn(string switchId)
         {
-            if (driver.FindElement(By.XPath("//div[contains(@class,'bootstrap-switch-id-" + switchId + "')]")).GetAttribute("class").Contains("bootstrap-switch-on"))
+            if (driver.FindElement(By.XPath("//input[contains(@id,'" + switchId + "')]/..")).GetAttribute("class").Contains("off"))
             {
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
+
+        //public bool IsSwitchWithIdOn(string switchId)
+        //{
+        //    if (driver.FindElement(By.XPath("//div[contains(@class,'bootstrap-switch-id-" + switchId + "')]")).GetAttribute("class").Contains("bootstrap-switch-on"))
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         public string GetPanelIdForSwitchWithId(string switchId)
         {
-            return driver.FindElement(By.XPath("//div[contains(@class,'bootstrap-switch-id-" + switchId + "')]/ancestor::form/..")).GetAttribute("id");
+            return driver.FindElement(By.XPath("//input[contains(@id,'" + switchId + "')]/ancestor::form/..")).GetAttribute("id");
         }
+
+        //public string GetPanelIdForSwitchWithId(string switchId)
+        //{
+        //    return driver.FindElement(By.XPath("//div[contains(@class,'bootstrap-switch-id-" + switchId + "')]/ancestor::form/..")).GetAttribute("id");
+        //}
 
         public void ClickButtonWithName(string buttonName)
         {
@@ -230,6 +261,7 @@ namespace TestAutomationFramework.POM
             return dt;
         }
 
+        //probably obsolete
         public String getDisplayedAlertId()
         {
             return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert') and not(contains(concat(' ',@style,' '),'display:none'))]")).GetAttribute("id");
@@ -237,12 +269,12 @@ namespace TestAutomationFramework.POM
 
         public String getDisplayedAlertClass()
         {
-            return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert') and not(contains(concat(' ',@style,' '),'display:none'))]")).GetAttribute("class");
+            return driver.FindElement(By.XPath("//div[@class='modal fade in']//span[contains(@class, 'message-placeholder')]")).GetAttribute("class");
         }
 
         public String getDisplayedAlertText()
         {
-            return driver.FindElement(By.XPath("//div[@class='modal fade in']//div[contains(@class, 'alert') and not(contains(concat(' ',@style,' '),'display:none'))]")).Text;
+            return driver.FindElement(By.XPath("//div[@class='modal fade in']//p[contains(@role, 'alert')]")).Text;
         }
 
         public void clickCheckBoxTest(string cheboxText)

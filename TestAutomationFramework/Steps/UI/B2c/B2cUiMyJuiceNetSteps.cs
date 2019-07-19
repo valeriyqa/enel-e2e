@@ -97,18 +97,34 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"JuiceNet device with key in config ""(.*)"" should exist is ""(.*)"" \(b2c\)")] //Ok
         public void ThenJuiceNetDeviceWithKeyInConfigShouldExistIsBc(string configKey, string shouldExist)
         {
-            IList<IWebElement> all = driver.FindElements(By.ClassName("unit-info-container"));
+            IList<IWebElement> all;
             bool elementExist = false;
+            bool elementShouldExist = bool.Parse(shouldExist);
 
-            foreach (IWebElement element in all)
+            for (int i = 0; i < 10; i++)
             {
-                if (element.GetAttribute("data-unitid").Equals(Config.Global[configKey]))
+                System.Threading.Thread.Sleep(500);
+                all = driver.FindElements(By.ClassName("unit-info-container"));
+
+                foreach (IWebElement element in all)
                 {
-                    elementExist = true;
-                    break;
+                    if (element.GetAttribute("data-unitid").Equals(Config.Global[configKey]))
+                    {
+                        elementExist = true;
+                        break;
+                    }
                 }
+                if (elementShouldExist.Equals(elementExist))
+                {
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Try number: " + i);
+                }
+
             }
-            Assert.AreEqual(bool.Parse(shouldExist), elementExist);
+            Assert.AreEqual(elementShouldExist, elementExist);
         }
 
 
@@ -132,7 +148,8 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I click More Details for device with key in config ""(.*)"" \(b2c\)")] //Ok
         public void WhenIClickMoreDetailsForDeviceWithKeyInConfigBc(string configKey)
         {
-            driver.FindElementByXPath("//div[@data-unitid = '" + Config.Global[configKey] + "']//div[contains(@class, 'panel-footer')]//span").Click();
+            //driver.FindElementByXPath("//div[@data-unitid = '" + Config.Global[configKey] + "']//div[contains(@class, 'panel-footer')]//span").Click();
+            driver.FindElementByXPath("//div[@data-unitid = '" + Config.Global[configKey] + "']//div[contains(@class, 'row')]//a").Click();
         }
 
 
@@ -146,10 +163,15 @@ namespace TestAutomationFramework.Steps.UI
         public void WhenIClickAllCheckboxesOnPanelWithId(string panelId)
         {
             IList<IWebElement> allCheckboxes = driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"));
-            foreach (var checkbox in allCheckboxes)
+            for (int i = 0; i < allCheckboxes.Count; i++)
             {
-                checkbox.Click();
+                driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]/../ label"))[i].Click();
             }
+            //IList<IWebElement> allCheckboxes = driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"));
+            //foreach (var checkbox in allCheckboxes)
+            //{
+            //    checkbox.Click();
+            //}
         }
 
         [Then(@"all checkboxes on panel with Id ""(.*)"" should be activated \(b2c\)")]
@@ -166,13 +188,14 @@ namespace TestAutomationFramework.Steps.UI
         public void AllCheckboxesOnPanelWithIdIsNotActivated(string panelId)
         {
             IList<IWebElement> allCheckboxes = driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"));
-            foreach (var checkbox in allCheckboxes)
+            for (int i = 0; i < allCheckboxes.Count; i++)
             {
-                if (null != checkbox.GetAttribute("checked") && checkbox.GetAttribute("checked").Equals("true"))
+                if (null != driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"))[i].GetAttribute("checked") && driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"))[i].GetAttribute("checked").Equals("true"))
                 {
-                    checkbox.Click();
+                    driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]/../ label"))[i].Click();
                 }
             }
+
             var generalPage = new B2cGeneralPage(driver);
             generalPage.ClickButtonWithId("saveNotificationsButton");
 
@@ -198,6 +221,24 @@ namespace TestAutomationFramework.Steps.UI
             Assert.True(driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + deviceId + "')]/div")).GetAttribute("class").Contains(color));
         }
 
+        [Then(@"icon color for device with key in config ""(.*)"" should be changed to ""(.*)"" \(b2c\)")]
+        public void ThenIconColorForDeviceWithKeyInConfigShouldBeChangedToBc(string configKey, string color)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                System.Threading.Thread.Sleep(1000);
+                var result = driver.FindElement(By.XPath("//div[contains(@data-unitid,'" + Config.Global[configKey] + "')]//div[@id = 'unit-status-icon']//div[contains(@class,'icon-enel')]")).GetAttribute("class").Contains(color);
+                Console.WriteLine(result);
+                if (result)
+                {
+                    Assert.True(true);
+                    return;
+                }
+            }
+            Assert.False(true);
+        }
+
+
         [Then(@"panel color for device with key in config ""(.*)"" should be changed to ""(.*)"" \(b2c\)")]
         public void ThenPanelColorForDeviceWithKeyInConfigShouldBeChangedToBc(string configKey, string color)
         {
@@ -212,7 +253,7 @@ namespace TestAutomationFramework.Steps.UI
                     return;
                 }
             }
-            Assert.False(false);
+            Assert.Fail();
         }
 
 
@@ -231,9 +272,29 @@ namespace TestAutomationFramework.Steps.UI
                     return;
                 }
             }
-            Assert.False(false);
+            Assert.Fail();
         }
 
+        [Then(@"device should cheange status to ""(.*)"" \(b2c\)")]
+        public void ThenDeviceStatusShouldCheangeToBc(string deviceStatus)
+        {
+            string result = "";
+            for (int i = 0; i < 10; i++)
+            {
+                System.Threading.Thread.Sleep(1000);
+                result = driver.FindElement(By.XPath("//span[@id ='statusText']")).Text;
+                Console.WriteLine(result);
+                if (result.Contains(deviceStatus))
+                {
+                    Assert.True(true);
+                    return;
+                }
+            }
+            Assert.Fail("Device status equals to \"" + result + "\", not to \"" + deviceStatus + "\"");
+        }
+
+
+        //probably obsolete
         [Then(@"panel with Id ""(.*)"" should change color to ""(.*)"" \(b2c\)")]
         public void ThenPanelWithIdShouldChangeColorToBc(string panelId, string color)
         {
@@ -342,6 +403,21 @@ namespace TestAutomationFramework.Steps.UI
             var JuiceBoxPage = new B2cJuiceBoxPage(driver);
             JuiceBoxPage.ClickOnUpdateButtonForPannelWithId(panelId);
         }
+
+        [When(@"I click on the override switch \(b2c\)")]
+        public void WhenIClickOnTheOwerrideSwitchBc()
+        {
+            IJavaScriptExecutor js = driver;
+            js.ExecuteScript("$('input#overrideCheckBox').click();");
+            //driver.FindElement(By.XPath("//input[contains(@id,'overrideCheckBox')]"));
+        }
+
+        [When(@"I click ""(.*)"" button for load group ""(.*)"" \(b2c\)")]
+        public void WhenIClickButtonForLoadGroupBc(string buttonName, string loadGroupName)
+        {
+            driver.FindElement(By.XPath("//table[contains(@id, 'loadgroups-table')]//tbody//*[text()[contains(.,'" + loadGroupName + "')]]/ancestor::tr//button[contains(@class, '" + buttonName + "')]")).Click();
+        }
+
 
         [Then(@"JuiceNet Device Settings form fields values should be equal to ""(.*)"" data \(b2c\)")]
         public void ThenJuiceNetDeviceSettingsFormFieldsValuesShouldBeEqualToDataBc(string sheetName)

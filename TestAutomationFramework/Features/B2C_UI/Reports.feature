@@ -10,7 +10,7 @@ Scenario: B2C_Web_Reports_01 - Single unit report
 	#Then field with Label "End date" should be equal to "today" (b2c)
 	#When I select "373709011" on selector with Label "Unit" (b2c)
 	#When I click on button with name "Build" (b2c)
-	When I get all data from table with Id "reportTable" (b2c)
+	#When I get all data from table with Id "reportTable" (b2c)
 	
 
 	

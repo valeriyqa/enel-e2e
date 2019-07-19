@@ -21,7 +21,7 @@ Scenario: B2C_Web_Admin_Utilities_02 - JuiceNet Device Lookup with active TOU
 	When I click More Details for device with key in config "test3_unit_id" (b2c)
 	And I click on tab with label "Settings" (b2c)
 	Given switch with Id "toggleTOU" is not activated (b2c)
-	When I click on swith with Id "toggleTOU" (b2c)
+	When I click on switch with Id "toggleTOU" (b2c)
 	And I remeber the current time on device (b2c)
 	And I set TOU time to "current" (b2c)
 	And I click on the Update button for pannel with Id "panelTOU" (b2c)

@@ -44,6 +44,28 @@ namespace TestAutomationFramework.Steps.UI
             }
         }
 
+        [Then(@"Add JuiceNet Device window should show message ""(.*)"" for device ""(.*)"" from config \(b2c\)")]
+        public void ThenAddJuiceNetDeviceWindowShouldShowMessageForDeviceFromConfigBc(string messageType, string configKey)
+        {
+            var message = driver.FindElement(By.XPath("//p[contains(@id, 'add-unit')][not(contains(@style,'display: none;'))]"));
+            string messageText = message.Text;
+            string messageClass = message.GetAttribute("class");
+            switch (messageType.ToLower())
+            {
+                case "success":
+                    Assert.IsTrue(messageText.Equals("JuiceNet Device " + Config.Global[configKey] + " was added successfully."));
+                    Assert.IsTrue(messageClass.Equals("green"));
+                    break;
+                case "fail":
+                    Assert.IsTrue(messageClass.Equals("pink"));
+                    break;
+                default:
+                    Assert.Fail("Uncnown message type: " + messageType);
+                    return;
+            }
+        }
+
+        //Probably obsolete
         [Then(@"Alert with status ""(.*)"" and text ""(.*)"" should be displayed \(b2c\)")]
         public void ThenAlertWithStatusAndTextShouldBeDisplayedBc(string alertStatus, string alertString)
         {
@@ -52,7 +74,12 @@ namespace TestAutomationFramework.Steps.UI
             {
                 if (generalPage.getDisplayedAlertText().Contains(alertString))
                 {
-                    Assert.True(generalPage.getDisplayedAlertClass().Contains(alertStatus.ToLower()));
+                    if (!alertStatus.Equals(""))
+                    {
+                        Assert.True(generalPage.getDisplayedAlertClass().Contains(alertStatus.ToLower()));
+                        return;
+                    }
+                    Assert.True(generalPage.getDisplayedAlertText().Contains(alertString));
                     return;
                 }
                 else
