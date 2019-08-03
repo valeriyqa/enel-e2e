@@ -100,7 +100,7 @@ Scenario: B2C_Web_Registration_and_Login_08 - Login with unconfirmed email**
 		| Email           | ksenia+unconfirmed@emotorwerks.com |
 		| Password        | eMW2018 |
 	And I click on button with name "Login" (b2c)
-#  - User is navigated to Error page. "You must have a confirmed email to log on. The confirmation token has been resent to your email account." alert appears.
+	Then panel with message "You must have a confirmed email to log on. The confirmation token has been resent to your email account." should be displayed (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Registration_and_Login_09 - Set password after registration via Social account**
@@ -141,10 +141,3 @@ Scenario: B2C_Web_Registration_and_Login_11 - Login with invalid email
 	When I click on button with name "Login" (b2c) 
 	Then Error message "The Email field is not a valid e-mail address." is displayed (b2c)
 
-# ScenarioContext.Current demo mock
-#@b2c @web
-#Scenario: B2C_Web_Registration_and_Login_12 - Login with ScenarioContext.Current**
-#
-#	Given I navigate to "Account/Login" page (b2c)
-#	When I save this number "7755" (b2c)
-#	Then I sum that number with "22" (b2c)

@@ -3,24 +3,24 @@
 	we run next scenarios
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_01 - Add/Delete JuiceNet Device
+Scenario: B2C_Web_MyJuiceNet_01and02 - Add/Delete JuiceNet Device
 	Preconditions: corresponding config file should contains correctly filled fields "api_account_token",
 	"api_device_id", "xxx_unit_id" and "xxx_token". Where "xxx" prefix shoulde be single word without
 	underscore symble, since we use it for parsing. 
 
-	Given JuiceNet device with key in config "test2_unit_id" is not added (b2c)
+	Given JuiceNet device with key in config "test1_unit_id" is not added (b2c)
 	And I login to the system as "WebUser" (b2c)
 	When I click on button with name "Add JuiceNet Device" (b2c)
-	When I set field "inputUnitID" to "test2_unit_id" from config (b2c)
+	When I set field "inputUnitID" to "test1_unit_id" from config (b2c)
 	And I click on button with name "Add JuiceNet Device" (b2c)
-	Then JuiceNet device with key in config "test2_unit_id" should exist is "True" (b2c)
-	When I click More Details for device with key in config "test2_unit_id" (b2c)
+	Then JuiceNet device with key in config "test1_unit_id" should exist is "True" (b2c)
+	When I click More Details for device with key in config "test1_unit_id" (b2c)
 	And I click on button with name "Delete" (b2c)
 	And I click on button with name "Yes, remove from my account" (b2c)
-	Then JuiceNet device with key in config "test2_unit_id" should exist is "False" (b2c)
+	Then JuiceNet device with key in config "test1_unit_id" should exist is "False" (b2c)
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_02 - JuiceNet Device Status
+Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device Status
 	Given I login to the system as "WebUser" (b2c)
 	When I click More Details for device with key in config "test4_unit_id" (b2c)
 	Then field with Label "Allowed Current" should be equal to "60" (b2c)
@@ -31,7 +31,7 @@ Scenario: B2C_Web_MyJuiceNet_02 - JuiceNet Device Status
 	Then all checkboxes on panel with Id "panelNotify" should be activated (b2c)
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
+Scenario: B2C_Web_MyJuiceNet_04 - JuiceNet Device History
 	Given I login to the system as "WebUser" (b2c)
 	When I click More Details for device with key in config "test4_unit_id" (b2c)
 	And I click on tab with label "History" (b2c)
@@ -39,7 +39,7 @@ Scenario: B2C_Web_MyJuiceNet_03 - JuiceNet Device History
 	Then table should be empty (b2c)
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_04 - JuiceNet Device states on dashboard
+Scenario: B2C_Web_MyJuiceNet_05 - JuiceNet Device states on dashboard
 	Given  I login to the system as "WebUser" (b2c)
 	When I send UDP package with status "Standby" to device with key in config "test3_unit_id"
 	Then icon color for device with key in config "test3_unit_id" should be changed to "grey" (b2c)
@@ -55,7 +55,7 @@ Scenario: B2C_Web_MyJuiceNet_04 - JuiceNet Device states on dashboard
 	Then I send UDP package with status "Standby" to device with key in config "test3_unit_id"
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_05 - JuiceNet Device Settings and Savings Parameters
+Scenario: B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings and Savings Parameters
 	Given  I login to the system as "WebUser" (b2c)
 	When I click More Details for device with key in config "test3_unit_id" (b2c)
 	And I click on tab with label "Settings" (b2c)
@@ -67,7 +67,7 @@ Scenario: B2C_Web_MyJuiceNet_05 - JuiceNet Device Settings and Savings Parameter
 	Then JuiceNet Device Settings form fields values should be equal to "updated_JDS" data (b2c)
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code
+Scenario: B2C_Web_MyJuiceNet_07 - JuiceNet Device Settings. Empty Zip code
 	Given  I login to the system as "WebUser" (b2c)
 	When I click More Details for device with key in config "test3_unit_id" (b2c)
 	And I click on tab with label "Settings" (b2c)
@@ -82,7 +82,7 @@ Scenario: B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code
 	Then JuiceNet Device Settings form fields values should be equal to "initial_JDS" data (b2c)
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
+Scenario: B2C_Web_MyJuiceNet_08 - Time-of-Use (TOU)
 	Given I login to the system as "WebUser" (b2c)
 	When I click More Details for device with key in config "test3_unit_id" (b2c)
 	And I click on tab with label "Settings" (b2c)
@@ -128,7 +128,7 @@ Scenario: B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)
 	And I send UDP package with status "Standby" to device with key in config "test3_unit_id"
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_08 - TOU Persistence
+Scenario: B2C_Web_MyJuiceNet_09 - TOU Persistence
 	#Given I login to the system as "WebUser" (b2c)
 	#When I click More Details for device with key in config "test3_unit_id" (b2c)
 	#And I click on tab with label "Settings" (b2c)
@@ -166,7 +166,7 @@ Scenario: B2C_Web_MyJuiceNet_08 - TOU Persistence
 
 
 @b2c @web
-Scenario: B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU start time.
+Scenario: B2C_Web_MyJuiceNet_10 - Minimal charge. Charging starts before TOU start time.
 	Given I login to the system as "WebUser" (b2c)
 	When I click More Details for device with key in config "test3_unit_id" (b2c)
 	And I click on tab with label "Settings" (b2c)
@@ -294,15 +294,15 @@ Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.
 	Given I click on empty Load group with name "TestGroup14" string in table (b2c)
 	When I select multiple keys from config "<ConfigKey>" on selector with Id "user-device-list" (b2c)
 		| ConfigKey     |
-		| test1_unit_id |
+		| test3_unit_id |
 		| test4_unit_id |
 	And I click on button with name "Add selected JNDevices to Load Group" (b2c)
 	#Then Alert with status "success" and text "This devices were added successfully:" should be displayed (b2c)
 	When I click on button with name "Close" (b2c)
 	Then I check load group "TestGroup14" for "2" units in table (b2c)
 	And I navigate to the "My JuiceNet Devices" page (b2c)
-	Then Device with key in config "test1_unit_id" area contain load group icon (b2c)
-	And Device with key in config "test1_unit_id" area contain load group icon (b2c)
+	Then Device with key in config "test3_unit_id" area contain load group icon (b2c)
+	And Device with key in config "test3_unit_id" area contain load group icon (b2c)
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_15 - Notifications**
@@ -331,3 +331,114 @@ Scenario: B2C_Web_MyJuiceNet_16 - SW corrections**
 #  - Energy 1
 #* Go to Admin Utilities - Cars
 #* Check that you can change phase for some car
+
+@b2c @web 
+Scenario: B2C_Web_MyJuiceNet_17 - Load group balancing 
+	Given I login to the system as "WebUser" (b2c)
+	And I navigate to the "Load groups" page (b2c)
+	Given load group table is empty (b2c)
+	When I click on button with name "New Load Group" (b2c)
+	And I set field with Id "lg-add-modal-group-name" to "TestGroupZ" (b2c)
+	And I set field with Id "lg-add-modal-max-current" to "50" (b2c)
+	And I click on button with name "Save" (b2c)
+	Then Alert with status "success" and text "Load Group TestGroupZ created sucessfully" should be displayed (b2c)
+	When I click on button with name "Close" (b2c)
+	Then Load group with name "TestGroupZ" should apear in the table is "true" (b2c)
+	When I click on empty Load group with name "TestGroupZ" string in table (b2c)
+	And I select key from config "test4_unit_id" on selector with Id "user-device-list" (b2c)
+	And I click on button with name "Add selected JNDevices to Load Group" (b2c)
+	And I click on button with name "Close" (b2c)
+	Then sum of the Current Limit for all devices should be lower then "50" (b2c)
+
+	When I navigate to the "My JuiceNet Devices" page (b2c)
+	And I click More Details for device with key in config "test2_unit_id" (b2c)
+	And I click on tab with label "Settings" (b2c)
+	Given switch with Id "toggleTOU" is not activated (b2c)
+	When I click on tab with label "Status" (b2c)
+	And I send UDP package with status "Standby" to device with key in config "test2_unit_id"
+	Then device should cheange status to "Available" (b2c)
+	And I navigate to the "Load groups" page (b2c)
+	When I click on empty Load group with name "TestGroupZ" string in table (b2c)
+	And I select key from config "test2_unit_id" on selector with Id "user-device-list" (b2c)
+	And I click on button with name "Add selected JNDevices to Load Group" (b2c)
+	And I click on button with name "Close" (b2c)
+	Then sum of the Current Limit for all devices should be lower then "50" (b2c)
+
+	When I navigate to the "My JuiceNet Devices" page (b2c)
+	And I click More Details for device with key in config "test3_unit_id" (b2c)
+	And I click on tab with label "Settings" (b2c)
+	Given switch with Id "toggleTOU" is not activated (b2c)
+	When I click on tab with label "Status" (b2c)
+	And I send UDP package with status "Charging" to device with key in config "test3_unit_id"
+	Then device should cheange status to "Charging" (b2c)
+	And I navigate to the "Load groups" page (b2c)
+	When I click on empty Load group with name "TestGroupZ" string in table (b2c)
+	And I select key from config "test3_unit_id" on selector with Id "user-device-list" (b2c)
+	And I click on button with name "Add selected JNDevices to Load Group" (b2c)
+	And I click on button with name "Close" (b2c)
+	Then sum of the Current Limit for all devices should be lower then "50" (b2c)
+
+	When I click "delete" button for load group "TestGroupZ" (b2c)
+	Then Alert with status "" and text "Are you sure you want delete the group TestGroupZ ?" should be displayed (b2c)
+	When I click on button with name "Delete LoadGroup" (b2c)
+	And I click on button with name "Close" (b2c)
+	Then Load group table should be empty (b2c)
+	And I send UDP package with status "Standby" to device with key in config "test2_unit_id"
+	And I send UDP package with status "Standby" to device with key in config "test3_unit_id"
+
+
+@b2c @web 
+Scenario: B2C_Web_MyJuiceNet_18 - Get shared pin
+	Given I login to the system as "WebUser" (b2c)
+	When I switch view to "list" (b2c)
+	And I click pair to "Guest Pin" button for device with key in config "test4_unit_id" (b2c)
+	Then Modal with Id "request-share-pin-modal" should be displayed (b2c)
+	And Modal with Id "request-share-pin-modal" should contain title "JuiceNet Device Pairing Pin Code" (b2c)
+	And field with Id "request-share-pin-modal" should be equal to value from config "test4_unit_id" (b2c)
+	And field with Id "request-share-pin-modal-pincode" should contains "4" symbols (b2c)
+	When I close current modal window (b2c)
+	And I switch view to "grid" (b2c)
+	And I click pair to "Guest Pin" button for device with key in config "test4_unit_id" (b2c)
+	Then Modal with Id "request-share-pin-modal" should be displayed (b2c)
+	And Modal with Id "request-share-pin-modal" should contain title "JuiceNet Device Pairing Pin Code" (b2c)
+	And field with Id "request-share-pin-modal" should be equal to value from config "test4_unit_id" (b2c)
+	And I remember Guest pairing pin (b2c)
+
+	Given I login to the system as "Admin" (b2c)
+	Given I delete device with key in config "test4_unit_id" via UI if added (b2c)
+	When I click on button with name "Add JuiceNet Device" (b2c)
+	When I set field "inputUnitID" to "test4_unit_id" from config (b2c)
+	And I click on button with name "Add JuiceNet Device" (b2c)
+	Then Modal with Id "share-pin-modal" should be displayed (b2c)
+	And Modal with Id "share-pin-modal" should contain title "JuiceNet Device Sharing PIN Required" (b2c)
+	And field with Id "unit-share-unitid" should be equal to value from config "test4_unit_id" (b2c)
+	When I set previously remembered Guest pairing pin (b2c)
+	And I click on button with name "Share JuiceNet Device" (b2c)
+	Then Modal with Id "unit-added-modal" should be displayed (b2c)
+	And Modal with Id "unit-added-modal" should contain title "Success" (b2c)
+	When I close current modal window (b2c)
+	Then JuiceNet device with key in config "test4_unit_id" should exist is "True" (b2c)
+	Given I delete device with key in config "test4_unit_id" via UI if added (b2c)
+
+@b2c @web 
+Scenario: B2C_Web_MyJuiceNet_19 - CO2
+#	Проверяем, что на дашборде в хистори по юниту отображаются две колонки:
+#EV CO2
+#JN Green CO2
+#Колонки должны отображаться только, если у юнита грин полиси
+#Проверяем, что на дашборде значения EV CO2
+#JN Green CO2 записываются только по окончанию длинной сессии (При текущем чардже - стоит прочерк)
+#Проверяем, что расчет энергии происходит “на лету” и не пересчитывается в дальнейшем
+#Проверяем, что при смене BA рассчет будет новый при новой сессии
+#Проверяем расчет энергии по сессии в БД PendingSessionCalculations и jb_session и jb_unit
+#Проверка определения BA автоматической службой ip2location
+#Проверка определения BA если задать координаты руками через дашборд
+#Проверка определения BA если задать координаты в базе данных
+#Проверка работы BA для NY CA BY default (caiso)
+#Проверка смены BA если координаты удаляются
+#Проверка работы CO2 через API
+#Проверка отсутсвия “ошибки”, если координаты не валидны
+#Проверка отказоустойчивости при многочисленных юнитах
+#Проверяем, что если сессия была без остановок, то экономия энергии = 0
+#Проверяем, что данные на дашборде по цо2 совпадают с теми что в базе
+#Проверяем, что если мы не сэкономили энергию, в дашборде отображается 0

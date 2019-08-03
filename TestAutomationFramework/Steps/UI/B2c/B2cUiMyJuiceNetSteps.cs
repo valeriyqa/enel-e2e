@@ -10,9 +10,11 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using TestAutomationFramework.POM;
+using TestAutomationFramework.POM.B2c;
 using TestAutomationFramework.Services;
 using TestAutomationFramework.Services.ApiService;
 
@@ -59,40 +61,26 @@ namespace TestAutomationFramework.Steps.UI
             Assert.IsTrue(response.Content.Contains("\"success\": true"));
         }
 
-        //[Then(@"JuiceNet device with Id ""(.*)"" should be added")]
-        //public void ThenJuiceNetDeviceWithIdShouldBeAdded(string deviceId)
-        //{
-        //    IList<IWebElement> all = driver.FindElements(By.ClassName("unit-info-container"));
-        //    bool elementExist = false;
+        [Given(@"I delete device with key in config ""(.*)"" via UI if added \(b2c\)")]
+        public void GivenIDeleteDeviceWithKeyInConfigViaUIIfAddedBc(string configKey)
+        {
+            IList<IWebElement> all = driver.FindElements(By.ClassName("unit-info-container"));
 
-        //    foreach (IWebElement element in all)
-        //    {
-        //        Console.WriteLine(element.GetAttribute("data-unitid"));
-        //        if (element.GetAttribute("data-unitid").Equals(deviceId))
-        //        {
-        //            elementExist = true;
-        //            break;
-        //        }
-        //    }
-        //    Assert.IsTrue(elementExist);
-        //}
+            foreach (IWebElement element in all)
+            {
+                if (element.GetAttribute("data-unitid").Equals(Config.Global[configKey]))
+                {
+                    driver.FindElementByXPath("//div[@data-unitid = '" + Config.Global[configKey] + "']//div[contains(@class, 'row')]//a").Click();
+                    var generalPage = new B2cGeneralPage(driver);
+                    generalPage.ClickButtonWithName("Delete");
+                    generalPage.ClickButtonWithName("Yes, remove from my account");
+                    ThenJuiceNetDeviceWithKeyInConfigShouldExistIsBc(configKey, "False");
+                    return;
+                }
+            }
 
-        //[Then(@"JuiceNet device with Id ""(.*)"" should NOT exist")]
-        //public void ThenJuiceNetDeviceWithIdShouldNOTExist(int deviceId)
-        //{
-        //    IList<IWebElement> all = driver.FindElements(By.ClassName("unit-info-container"));
-        //    bool elementExist = false;
+        }
 
-        //    foreach (IWebElement element in all)
-        //    {
-        //        if (element.GetAttribute("data-unitid").Equals(deviceId))
-        //        {
-        //            elementExist = true;
-        //            break;
-        //        }
-        //    }
-        //    Assert.IsFalse(elementExist);
-        //}
 
         [Then(@"JuiceNet device with key in config ""(.*)"" should exist is ""(.*)"" \(b2c\)")] //Ok
         public void ThenJuiceNetDeviceWithKeyInConfigShouldExistIsBc(string configKey, string shouldExist)
@@ -108,11 +96,19 @@ namespace TestAutomationFramework.Steps.UI
 
                 foreach (IWebElement element in all)
                 {
-                    if (element.GetAttribute("data-unitid").Equals(Config.Global[configKey]))
+                    try
                     {
-                        elementExist = true;
-                        break;
+                        if (element.GetAttribute("data-unitid").Equals(Config.Global[configKey]))
+                        {
+                            elementExist = true;
+                            break;
+                        }
                     }
+                    catch (Exception)
+                    {
+
+                    }
+
                 }
                 if (elementShouldExist.Equals(elementExist))
                 {
@@ -553,11 +549,133 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(generalPage.GetInputValueById("timepickerWeE"), endTime);
         }
 
-        [Given(@"blablabla")]
-        public void GivenBlablabla()
+        [Then(@"device with Id ""(.*)"" should have Current Limit equqal to ""(.*)"" \(b2c\)")]
+        public void ThenDeviceWithIdShouldHaveCurrentLimitEquqalToBc(string deviceId, string currentLimit)
         {
-            ScenarioContext.Current.Pending();
+            string cLimitFromPage = driver.FindElement(By.XPath("//table[@id='load-group-devices-table']//tbody/tr/td/a[contains(text(), '" + deviceId + "')]/../../td[3]")).Text;
+            Assert.AreEqual(Int32.Parse(cLimitFromPage), Int32.Parse(currentLimit));
         }
+
+        [Then(@"device with Id ""(.*)"" should have Current Limit lower then ""(.*)"" \(b2c\)")]
+        public void ThenDeviceWithIdShouldHaveCurrentLimitLowerThenBc(string deviceId, string currentLimit)
+        {
+            string cLimitFromPage = driver.FindElement(By.XPath("//table[@id='load-group-devices-table']//tbody/tr/td/a[contains(text(), '" + deviceId + "')]/../../td[3]")).Text;
+            Assert.True(Int32.Parse(cLimitFromPage) <= Int32.Parse(currentLimit) & Int32.Parse(cLimitFromPage) >= 0);
+        }
+
+        [Then(@"sum of the Current Limit for all devices should be lower then ""(.*)"" \(b2c\)")]
+        public void ThenSumOfTheCurrentLimitForAllDevicesShouldBeLowerThenBc(string currentLimit)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.XPath("//div[@id='lg-device-add-result-modal'][contains(@style,'display: none;')]")));
+            System.Threading.Thread.Sleep(500);
+
+            var allCurrentLimits = driver.FindElements(By.XPath("//table[@id='load-group-devices-table']//tbody/tr/td[3]"));
+            var total = 0;
+            foreach (var item in allCurrentLimits)
+            {
+                total += Int32.Parse(item.Text);
+            }
+            Assert.True(total <= Int32.Parse(currentLimit) & total >= 0);
+        }
+
+        //posible values "list", "grid"
+        [When(@"I switch view to ""(.*)"" \(b2c\)")]
+        public void WhenISwitchViewToBc(string viewType)
+        {
+            Console.WriteLine("Trying to click view button: " + viewType);
+            switch (viewType.ToLower())
+            {
+                case "list":
+                    driver.FindElement(By.XPath("//span[contains(@data-display-mode, '" + viewType.ToLower() + "')]")).Click();
+                    Assert.IsTrue(driver.FindElement(By.XPath("//div[@id='unitsList']//table")).Displayed);
+                    break;
+                case "grid":
+                    driver.FindElement(By.XPath("//span[contains(@data-display-mode, '" + viewType.ToLower() + "')]")).Click();
+                    Assert.IsTrue(driver.FindElement(By.XPath("//div[@id='unitsList'][not(table)]")).Displayed);
+                    break;
+                default:
+                    Assert.Fail("Unknown view type: " + viewType);
+                    return;
+            }
+        }
+
+        //possible pair options "Google App", "Amazon Alexa", "Guest Pin"
+        [When(@"I click pair to ""(.*)"" button for device with key in config ""(.*)"" \(b2c\)")]
+        public void WhenIClickPairToButtonForDeviceWithKeyInConfigBc(string pairOption, string configKey)
+        {
+            var pairOptionFormatted = Regex.Replace(pairOption, @"(^\w)|(\s\w)", m => m.Value.ToUpper()).Replace(" ", string.Empty);
+            Enum.TryParse(pairOptionFormatted, out B2cMyJuiceNetDevicesPage.pairButtonType pairButton);
+            
+            var page = new B2cMyJuiceNetDevicesPage(driver);
+            page.clickPairButtonForDeviceWithId(pairButton, Config.Global[configKey]);
+        }
+
+        [When(@"I remember Guest pairing pin \(b2c\)")]
+        [Then(@"I remember Guest pairing pin \(b2c\)")]
+        public void GivenIRememberGuestPairingPinBc()
+        {
+            testData.guestPairingPin = driver.FindElement(By.Id("request-share-pin-modal-pincode")).Text;
+            Console.WriteLine("Guest pairing pin equals to: " + testData.guestPairingPin);
+        }
+
+        [When(@"I set previously remembered Guest pairing pin \(b2c\)")]
+        public void WhenISetPreviouslyRememberedGuestPairingPinBc()
+        {
+            driver.FindElement(By.Id("unit-share-pin")).Clear();
+            driver.FindElement(By.Id("unit-share-pin")).SendKeys(testData.guestPairingPin);
+        }
+
+
+        [Then(@"Guest pairing pin should be equal to the previously remembered one \(b2c\)")]
+        public void ThenGuestPairingPinShouldBeEqualToThePreviouslyRememberedOneBc()
+        {
+            Assert.AreEqual(testData.guestPairingPin, driver.FindElement(By.Id("request-share-pin-modal-pincode")).Text);
+        }
+
+        [When(@"I remeber my current IP address \(b2c\)")]
+        public void WhenIRemeberMyCurrentIPAddressBc()
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.XPath("//div[@id = 'AddUnitModal']//div[contains(@class, 'panel-inner')]//div[contains(@class, 'panel-heading')]")).Displayed);
+            string headingText = driver.FindElement(By.XPath("//div[@id = 'AddUnitModal']//div[contains(@class, 'panel-inner')]//div[contains(@class, 'panel-heading')]")).Text;
+            int startIndex = headingText.IndexOf("IP Address: ") + "IP Address: ".Length;
+            int endIndex = headingText.IndexOf(")");
+            testData.ipAddress = headingText.Substring(startIndex, endIndex - startIndex);
+        }
+
+        [When(@"I set field ""(.*)"" to remembered IP addess \(b2c\)")]
+        public void WhenISetFieldToRememberedIPAddessBc(string fieldId)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElementById(fieldId).Displayed);
+            driver.FindElementById(fieldId).Clear();
+            driver.FindElementById(fieldId).SendKeys(testData.ipAddress);
+        }
+
+        [When(@"click search button for field with id ""(.*)"" \(b2c\)")]
+        public void WhenClickSearchButtonForFieldWithIdBc(string fieldId)
+        {
+            driver.FindElement(By.XPath("//input[@id='inputIPAddress']/..//a")).Click();
+        }
+
+        [Then(@"I wait until element with Id ""(.*)"" will be displayed \(b2c\)")]
+        public void ThenIWaitUntilElementWithIdWillBeDisplayedBc(string elementId)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            wait.Until(wd => driver.FindElementById(elementId).Displayed);
+        }
+
+        [When(@"I remeber id for all added devices \(b2c\)")]
+        public void WhenIRemeberIdForAllAddedDevicesBc()
+        {
+            IList<IWebElement> all = driver.FindElements(By.ClassName("unit-info-container"));
+            foreach (IWebElement element in all)
+            {
+                testData.devicesId.Add(element.GetAttribute("data-unitid"));
+            }
+        }
+
 
     }
 }

@@ -6,12 +6,12 @@
 Scenario: B2C_Web_Admin_Utilities_01 - JuiceNet Device Lookup
 	Given I login to the system as "WebUser" (b2c)
 	And I navigate to the "My JuiceNet Devices" page (b2c)
-	Then JuiceNet device with key in config "test1_unit_id" should exist is "True" (b2c)
+	Then JuiceNet device with key in config "test2_unit_id" should exist is "True" (b2c)
 	Given I login to the system as "Admin" (b2c)
 	And I navigate to the "JuiceNet Device Lookup" page (b2c)
-	When I set field "inputUnitID" to "test1_unit_id" from config (b2c)
+	When I set field "inputUnitID" to "test2_unit_id" from config (b2c)
 	And I click on related to the field with Id "inputUnitID" search button (b2c)
-	Then Info tab should contains unit with Id "test1_unit_id" from config file (b2c)
+	Then Info tab should contains unit with Id "test2_unit_id" from config file (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_02 - JuiceNet Device Lookup with active TOU
@@ -55,31 +55,23 @@ Scenario: B2C_Web_Admin_Utilities_03 - JuiceNet Device Lookup. Policy changes
 	When I click on button with name "Default" (b2c)
 	Then I should see related to Device ID policy "Default" (b2c)
 
-#Select Green Policy by clicking Set Green WT button
-#Current policy display "Green WT" name and green round
-#Navigate to JuiceNet Device Lookup page from Admin Utilities menu
-#User is navigated to Device Lookup page with active Info tab
-#Enter Device ID
-#Confirm Policy name
-#Poly name changed to Green Box
-#Navigate to Manage Device Policies page from Admin Utilities menu
-#User is navigated to empty Manage Device Policies page with just search area cell
-#Enter Device ID and click search button
-#Device information with Id, Name and Current policy appears
-#Select Set Deafult
+#Probably we have to add method that change status for all devices to Stanby before check them in the Admin UI,
+#since sometimes they can be missing
+#@b2c @web
+#Scenario: B2C_Web_Admin_Utilities_04 - JuiceNet Device Lookup. Search by IP
+#	Given I login to the system as "WebUser" (b2c)
+#	And I navigate to the "My JuiceNet Devices" page (b2c)
+#	When I remeber id for all added devices (b2c)
+#	When I click on button with name "Add JuiceNet Device" (b2c)
+#	And I remeber my current IP address (b2c)
+#	Given I login to the system as "Admin" (b2c)
+#	And I navigate to the "JuiceNet Device Lookup" page (b2c)
+#	When I set field "inputIPAddress" to remembered IP addess (b2c)
+#	And click search button for field with id "inputIPAddress" (b2c)
+#	Then I wait until element with Id "unitBoxInfoAll" will be displayed (b2c)
+#	When I get all data from table with Id "table_of_juiceboxes_wrapper" (b2c)
+#	Then I assert that column with name "Device ID" contains all remembered IDs (b2c)
 
-@b2c @web
-Scenario: B2C_Web_Admin_Utilities_04 - JuiceNet Device Lookup. Search by IP
-#Run "Add JuiceNet Device" test case
-#Navigate to dashboard
-#User is navigated to device page with active Status tab
-#Open Add JuiceNet Device page
-#Copy IP Address
-#Login as Admin
-#Navigate to JuiceNet Device Lookup page from Admin Utilities menu
-#User is navigated to Device Lookup page with active Info tab
-#Enter IP Address
-#Confirm all devices display
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_05 - Add Device from User Lookup page

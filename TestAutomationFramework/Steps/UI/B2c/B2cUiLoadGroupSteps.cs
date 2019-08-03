@@ -150,6 +150,7 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual((Int64)js.ExecuteScript("return $('button.btn-delete-load-group').length;"), 0);
         }
 
+        [When(@"I click on empty Load group with name ""(.*)"" string in table \(b2c\)")]
         [Given(@"I click on empty Load group with name ""(.*)"" string in table \(b2c\)")]
         public void GivenIClickOnEmptyLoadGroupWithNameStringInTableBc(string groupName)
         {

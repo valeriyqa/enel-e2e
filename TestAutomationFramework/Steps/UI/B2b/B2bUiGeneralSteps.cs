@@ -1,6 +1,5 @@
-﻿using JsonConfig;
-using Newtonsoft.Json;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
 using TechTalk.SpecFlow;
@@ -20,7 +19,7 @@ namespace TestAutomationFramework.Steps.UI
         {
             var generalPage = new B2bGeneralPage(driver);
             generalPage.ClickMenuByName(pageName);
-            Assert.AreEqual(driver.Url.Contains(pageName.ToLower()), true);
+            Assert.IsTrue(driver.Url.Contains(driver.FindElement(By.XPath("//*[contains(@class, 'sidebar')]//sidebar-item//span[contains(text(), '" + pageName + "')]/ancestor::a")).GetAttribute("href")));
         }
 
         [Given(@"I click on the ""(.*)"" button \(b2b\)")]

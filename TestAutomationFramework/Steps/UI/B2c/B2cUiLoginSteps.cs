@@ -36,6 +36,13 @@ namespace TestAutomationFramework.Steps.UI
             Assert.AreEqual(errMsg, currentMessage);
         }
 
+        [Then(@"panel with message ""(.*)"" should be displayed \(b2c\)")]
+        public void ThenPanelWithMessageShouldBeDisplayedBc(string errMsg)
+        {
+            Assert.True(driver.FindElement(By.XPath("//div[contains(@class, 'panel-danger')]//div[contains(@class, 'panel-body')]/p")).Text.Contains(errMsg));
+        }
+
+
         //public LoginSteps(RemoteWebDriver driver)
         //{
         //    this.driver = driver;

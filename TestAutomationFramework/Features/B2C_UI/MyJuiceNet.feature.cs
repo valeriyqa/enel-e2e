@@ -70,12 +70,12 @@ namespace TestAutomationFramework.Features.B2C_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_01 - Add/Delete JuiceNet Device")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_01and02 - Add/Delete JuiceNet Device")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_01_AddDeleteJuiceNetDevice()
+        public virtual void B2C_Web_MyJuiceNet_01And02_AddDeleteJuiceNetDevice()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_01 - Add/Delete JuiceNet Device", "\tPreconditions: corresponding config file should contains correctly filled fields" +
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_01and02 - Add/Delete JuiceNet Device", "\tPreconditions: corresponding config file should contains correctly filled fields" +
                     " \"api_account_token\",\r\n\t\"api_device_id\", \"xxx_unit_id\" and \"xxx_token\". Where \"x" +
                     "xx\" prefix shoulde be single word without\r\n\tunderscore symble, since we use it f" +
                     "or parsing. ", new string[] {
@@ -85,36 +85,36 @@ namespace TestAutomationFramework.Features.B2C_UI
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 11
- testRunner.Given("JuiceNet device with key in config \"test2_unit_id\" is not added (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("JuiceNet device with key in config \"test1_unit_id\" is not added (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 12
  testRunner.And("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
  testRunner.When("I click on button with name \"Add JuiceNet Device\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
- testRunner.When("I set field \"inputUnitID\" to \"test2_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I set field \"inputUnitID\" to \"test1_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
  testRunner.And("I click on button with name \"Add JuiceNet Device\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
- testRunner.Then("JuiceNet device with key in config \"test2_unit_id\" should exist is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("JuiceNet device with key in config \"test1_unit_id\" should exist is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 17
- testRunner.When("I click More Details for device with key in config \"test2_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click More Details for device with key in config \"test1_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18
  testRunner.And("I click on button with name \"Delete\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
  testRunner.And("I click on button with name \"Yes, remove from my account\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
- testRunner.Then("JuiceNet device with key in config \"test2_unit_id\" should exist is \"False\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("JuiceNet device with key in config \"test1_unit_id\" should exist is \"False\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_02 - JuiceNet Device Status")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_03 - JuiceNet Device Status")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_02_JuiceNetDeviceStatus()
+        public virtual void B2C_Web_MyJuiceNet_03_JuiceNetDeviceStatus()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_02 - JuiceNet Device Status", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_03 - JuiceNet Device Status", null, new string[] {
                         "b2c",
                         "web"});
 #line 23
@@ -141,12 +141,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_03 - JuiceNet Device History")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_04 - JuiceNet Device History")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_03_JuiceNetDeviceHistory()
+        public virtual void B2C_Web_MyJuiceNet_04_JuiceNetDeviceHistory()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_03 - JuiceNet Device History", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_04 - JuiceNet Device History", null, new string[] {
                         "b2c",
                         "web"});
 #line 34
@@ -167,12 +167,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_04 - JuiceNet Device states on dashboard")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_05 - JuiceNet Device states on dashboard")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_04_JuiceNetDeviceStatesOnDashboard()
+        public virtual void B2C_Web_MyJuiceNet_05_JuiceNetDeviceStatesOnDashboard()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_04 - JuiceNet Device states on dashboard", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_05 - JuiceNet Device states on dashboard", null, new string[] {
                         "b2c",
                         "web"});
 #line 42
@@ -218,12 +218,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_05 - JuiceNet Device Settings and Savings Parameters")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings and Savings Parameters")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_05_JuiceNetDeviceSettingsAndSavingsParameters()
+        public virtual void B2C_Web_MyJuiceNet_06_JuiceNetDeviceSettingsAndSavingsParameters()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_05 - JuiceNet Device Settings and Savings Parameters", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings and Savings Parameters", null, new string[] {
                         "b2c",
                         "web"});
 #line 58
@@ -254,12 +254,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_07 - JuiceNet Device Settings. Empty Zip code")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_06_JuiceNetDeviceSettings_EmptyZipCode()
+        public virtual void B2C_Web_MyJuiceNet_07_JuiceNetDeviceSettings_EmptyZipCode()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_06 - JuiceNet Device Settings. Empty Zip code", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_07 - JuiceNet Device Settings. Empty Zip code", null, new string[] {
                         "b2c",
                         "web"});
 #line 70
@@ -296,12 +296,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_08 - Time-of-Use (TOU)")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_07_Time_Of_UseTOU()
+        public virtual void B2C_Web_MyJuiceNet_08_Time_Of_UseTOU()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_07 - Time-of-Use (TOU)", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_08 - Time-of-Use (TOU)", null, new string[] {
                         "b2c",
                         "web"});
 #line 85
@@ -407,12 +407,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_08 - TOU Persistence")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_09 - TOU Persistence")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_08_TOUPersistence()
+        public virtual void B2C_Web_MyJuiceNet_09_TOUPersistence()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_08 - TOU Persistence", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_09 - TOU Persistence", null, new string[] {
                         "b2c",
                         "web"});
 #line 131
@@ -423,12 +423,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU start time.")]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_10 - Minimal charge. Charging starts before TOU start time.")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_MyJuiceNet_09_MinimalCharge_ChargingStartsBeforeTOUStartTime_()
+        public virtual void B2C_Web_MyJuiceNet_10_MinimalCharge_ChargingStartsBeforeTOUStartTime_()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_09 - Minimal charge. Charging starts before TOU start time.", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_10 - Minimal charge. Charging starts before TOU start time.", null, new string[] {
                         "b2c",
                         "web"});
 #line 169
@@ -644,7 +644,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "ConfigKey"});
             table1.AddRow(new string[] {
-                        "test1_unit_id"});
+                        "test3_unit_id"});
             table1.AddRow(new string[] {
                         "test4_unit_id"});
 #line 295
@@ -659,9 +659,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 303
  testRunner.And("I navigate to the \"My JuiceNet Devices\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 304
- testRunner.Then("Device with key in config \"test1_unit_id\" area contain load group icon (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Device with key in config \"test3_unit_id\" area contain load group icon (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 305
- testRunner.And("Device with key in config \"test1_unit_id\" area contain load group icon (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Device with key in config \"test3_unit_id\" area contain load group icon (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -692,6 +692,226 @@ this.ScenarioInitialize(scenarioInfo);
                         "b2c",
                         "web"});
 #line 319
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_17 - Load group balancing")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2C_Web_MyJuiceNet_17_LoadGroupBalancing()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_17 - Load group balancing", null, new string[] {
+                        "b2c",
+                        "web"});
+#line 336
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 337
+ testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 338
+ testRunner.And("I navigate to the \"Load groups\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 339
+ testRunner.Given("load group table is empty (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 340
+ testRunner.When("I click on button with name \"New Load Group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 341
+ testRunner.And("I set field with Id \"lg-add-modal-group-name\" to \"TestGroupZ\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 342
+ testRunner.And("I set field with Id \"lg-add-modal-max-current\" to \"50\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 343
+ testRunner.And("I click on button with name \"Save\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 344
+ testRunner.Then("Alert with status \"success\" and text \"Load Group TestGroupZ created sucessfully\" " +
+                    "should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 345
+ testRunner.When("I click on button with name \"Close\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 346
+ testRunner.Then("Load group with name \"TestGroupZ\" should apear in the table is \"true\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 347
+ testRunner.When("I click on empty Load group with name \"TestGroupZ\" string in table (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 348
+ testRunner.And("I select key from config \"test4_unit_id\" on selector with Id \"user-device-list\" (" +
+                    "b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 349
+ testRunner.And("I click on button with name \"Add selected JNDevices to Load Group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 350
+ testRunner.And("I click on button with name \"Close\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 351
+ testRunner.Then("sum of the Current Limit for all devices should be lower then \"50\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 353
+ testRunner.When("I navigate to the \"My JuiceNet Devices\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 354
+ testRunner.And("I click More Details for device with key in config \"test2_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 355
+ testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 356
+ testRunner.Given("switch with Id \"toggleTOU\" is not activated (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 357
+ testRunner.When("I click on tab with label \"Status\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 358
+ testRunner.And("I send UDP package with status \"Standby\" to device with key in config \"test2_unit" +
+                    "_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 359
+ testRunner.Then("device should cheange status to \"Available\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 360
+ testRunner.And("I navigate to the \"Load groups\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 361
+ testRunner.When("I click on empty Load group with name \"TestGroupZ\" string in table (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 362
+ testRunner.And("I select key from config \"test2_unit_id\" on selector with Id \"user-device-list\" (" +
+                    "b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 363
+ testRunner.And("I click on button with name \"Add selected JNDevices to Load Group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 364
+ testRunner.And("I click on button with name \"Close\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 365
+ testRunner.Then("sum of the Current Limit for all devices should be lower then \"50\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 367
+ testRunner.When("I navigate to the \"My JuiceNet Devices\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 368
+ testRunner.And("I click More Details for device with key in config \"test3_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 369
+ testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 370
+ testRunner.Given("switch with Id \"toggleTOU\" is not activated (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 371
+ testRunner.When("I click on tab with label \"Status\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 372
+ testRunner.And("I send UDP package with status \"Charging\" to device with key in config \"test3_uni" +
+                    "t_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 373
+ testRunner.Then("device should cheange status to \"Charging\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 374
+ testRunner.And("I navigate to the \"Load groups\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 375
+ testRunner.When("I click on empty Load group with name \"TestGroupZ\" string in table (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 376
+ testRunner.And("I select key from config \"test3_unit_id\" on selector with Id \"user-device-list\" (" +
+                    "b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 377
+ testRunner.And("I click on button with name \"Add selected JNDevices to Load Group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 378
+ testRunner.And("I click on button with name \"Close\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 379
+ testRunner.Then("sum of the Current Limit for all devices should be lower then \"50\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 381
+ testRunner.When("I click \"delete\" button for load group \"TestGroupZ\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 382
+ testRunner.Then("Alert with status \"\" and text \"Are you sure you want delete the group TestGroupZ " +
+                    "?\" should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 383
+ testRunner.When("I click on button with name \"Delete LoadGroup\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 384
+ testRunner.And("I click on button with name \"Close\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 385
+ testRunner.Then("Load group table should be empty (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 386
+ testRunner.And("I send UDP package with status \"Standby\" to device with key in config \"test2_unit" +
+                    "_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 387
+ testRunner.And("I send UDP package with status \"Standby\" to device with key in config \"test3_unit" +
+                    "_id\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_18 - Get shared pin")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2C_Web_MyJuiceNet_18_GetSharedPin()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_18 - Get shared pin", null, new string[] {
+                        "b2c",
+                        "web"});
+#line 391
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 392
+ testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 393
+ testRunner.When("I switch view to \"list\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 394
+ testRunner.And("I click pair to \"Guest Pin\" button for device with key in config \"test4_unit_id\" " +
+                    "(b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 395
+ testRunner.Then("Modal with Id \"request-share-pin-modal\" should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 396
+ testRunner.And("Modal with Id \"request-share-pin-modal\" should contain title \"JuiceNet Device Pai" +
+                    "ring Pin Code\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 397
+ testRunner.And("field with Id \"request-share-pin-modal\" should be equal to value from config \"tes" +
+                    "t4_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 398
+ testRunner.And("field with Id \"request-share-pin-modal-pincode\" should contains \"4\" symbols (b2c)" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 399
+ testRunner.When("I close current modal window (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 400
+ testRunner.And("I switch view to \"grid\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 401
+ testRunner.And("I click pair to \"Guest Pin\" button for device with key in config \"test4_unit_id\" " +
+                    "(b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 402
+ testRunner.Then("Modal with Id \"request-share-pin-modal\" should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 403
+ testRunner.And("Modal with Id \"request-share-pin-modal\" should contain title \"JuiceNet Device Pai" +
+                    "ring Pin Code\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 404
+ testRunner.And("field with Id \"request-share-pin-modal\" should be equal to value from config \"tes" +
+                    "t4_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 405
+ testRunner.And("I remember Guest pairing pin (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 407
+ testRunner.Given("I login to the system as \"Admin\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 408
+ testRunner.Given("I delete device with key in config \"test4_unit_id\" via UI if added (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 409
+ testRunner.When("I click on button with name \"Add JuiceNet Device\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 410
+ testRunner.When("I set field \"inputUnitID\" to \"test4_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 411
+ testRunner.And("I click on button with name \"Add JuiceNet Device\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 412
+ testRunner.Then("Modal with Id \"share-pin-modal\" should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 413
+ testRunner.And("Modal with Id \"share-pin-modal\" should contain title \"JuiceNet Device Sharing PIN" +
+                    " Required\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 414
+ testRunner.And("field with Id \"unit-share-unitid\" should be equal to value from config \"test4_uni" +
+                    "t_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 415
+ testRunner.When("I set previously remembered Guest pairing pin (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 416
+ testRunner.And("I click on button with name \"Share JuiceNet Device\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 417
+ testRunner.Then("Modal with Id \"unit-added-modal\" should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 418
+ testRunner.And("Modal with Id \"unit-added-modal\" should contain title \"Success\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 419
+ testRunner.When("I close current modal window (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 420
+ testRunner.Then("JuiceNet device with key in config \"test4_unit_id\" should exist is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 421
+ testRunner.Given("I delete device with key in config \"test4_unit_id\" via UI if added (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_19 - CO2")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2C_Web_MyJuiceNet_19_CO2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_19 - CO2", null, new string[] {
+                        "b2c",
+                        "web"});
+#line 424
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden

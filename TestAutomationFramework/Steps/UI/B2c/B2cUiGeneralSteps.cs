@@ -3,9 +3,12 @@ using Newtonsoft.Json;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.Linq;
 using TechTalk.SpecFlow;
 using TestAutomationFramework.POM;
 
@@ -20,6 +23,9 @@ namespace TestAutomationFramework.Steps.UI
             public string energy;
             public string savings;
             public DataTable table;
+            public string guestPairingPin;
+            public string ipAddress;
+            public List<string> devicesId =new List<string>();
         }
 
         private readonly TestData testData;
@@ -133,6 +139,15 @@ namespace TestAutomationFramework.Steps.UI
             driver.FindElement(By.XPath("//*[@id ='" + multipleSelectorId + "']/..//span[contains(@class, 'pull-right enel-select-arrow')]")).Click();
         }
 
+        [When(@"I select key from config ""(.*)"" on selector with Id ""(.*)"" \(b2c\)")]
+        public void WhenISelectKeysFromConfigOnSelectorWithIdBc(string configKey, string selectorId)
+        {
+            driver.FindElement(By.XPath("//*[@id ='" + selectorId + "']/..//span[contains(@class, 'pull-right enel-select-arrow')]")).Click();
+            driver.FindElement(By.XPath("//*[@id ='" + selectorId + "']/..//input[contains(@value, '" + Config.Global[configKey] + "')]/../span")).Click();
+            driver.FindElement(By.XPath("//*[@id ='" + selectorId + "']/..//span[contains(@class, 'pull-right enel-select-arrow')]")).Click();
+        }
+
+
         //[When(@"I select multiple keys from config ""(.*)"" on selector with Id ""(.*)"" \(b2c\)")]
         //public void WhenISelectMultipleKeysFromConfigOnSelectorWithIdBc(string configKey, string multipleSelectorId, Table table)
         //{
@@ -211,6 +226,17 @@ namespace TestAutomationFramework.Steps.UI
             testData.table = Table;
         }
 
+        [Then(@"I assert that column with name ""(.*)"" contains all remembered IDs \(b2c\)")]
+        public void ThenIAssertThatRawWithIndexContainsAllRememberedIDsBc(string columnName)
+        {
+            foreach (var deviceId in testData.devicesId)
+            {
+                Assert.IsTrue(testData.table.AsEnumerable().Any(row => deviceId == row.Field<String>(columnName)), "Unable to locate device with Id: " + deviceId);
+            }
+
+        }
+
+
         [Then(@"I print table \(test\)")]
         public void ThenIPrintTableTest()
         {
@@ -275,6 +301,52 @@ namespace TestAutomationFramework.Steps.UI
 
         }
 
-        
+        [Given(@"Wait for (.*) sec")]
+        [When(@"Wait for (.*) sec")]
+        [Then(@"Wait for (.*) sec")]
+        public void WhenWaitForSec(int p0)
+        {
+            Console.WriteLine("Waitong for: " + p0 + " seconds");
+            System.Threading.Thread.Sleep(p0 * 1000);
+        }
+
+        [Then(@"Modal with Id ""(.*)"" should be displayed \(b2c\)")]
+        public void ThenModalWithIdShouldBeDisplayedBc(string modalId)
+        {
+            Assert.IsTrue(driver.FindElement(By.XPath("//div[@id = '" + modalId + "'][contains(@style, 'display: block;')]")).Displayed);
+        }
+
+        [Then(@"Modal with Id ""(.*)"" should contain title ""(.*)"" \(b2c\)")]
+        public void ThenModalWithIdShouldContainTitleBc(string modalId, string title)
+        {
+            Assert.IsTrue(driver.FindElement(By.XPath("//div[@id = '" + modalId + "']//div[@class = 'modal-header']//*[contains(@class, 'modal-title')]")).Text.Contains(title));
+        }
+
+        [Then(@"field with Id ""(.*)"" should be equal to value from config ""(.*)"" \(b2c\)")]
+        public void ThenFieldWithIdShouldBeEqualToValueFromConfigBc(string fieldId, string configKey)
+        {
+            Assert.IsTrue(driver.FindElement(By.XPath("//*[@id = '" + fieldId + "']")).Text.Contains(Config.Global[configKey]));
+        }
+
+        [Then(@"field with Id ""(.*)"" should contains ""(.*)"" symbols \(b2c\)")]
+        public void ThenFieldWithIdShouldContainsSymbolsBc(string fieldId, int numberOfSymbols)
+        {
+            Assert.AreEqual(numberOfSymbols, driver.FindElement(By.XPath("//*[@id = '" + fieldId + "']")).Text.Length);
+        }
+
+
+        [When(@"I close current modal window \(b2c\)")]
+        public void WhenICloseCurrentModalWindowBc()
+        {
+            var modalId = driver.FindElement(By.XPath("//div[contains(@class, 'modal fade')][contains(@style, 'display: block;')]")).GetAttribute("id");
+            driver.FindElement(By.XPath("//div[@id = '" + modalId + "']//button[contains(@class, 'close')]")).Click();
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.XPath("//div[@id = '" + modalId + "'][contains(@style, 'display: none;')]")));
+            System.Threading.Thread.Sleep(1000);
+
+        }
+
+
+
     }
 }

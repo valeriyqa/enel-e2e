@@ -34,10 +34,13 @@ Scenario: B2B_Web_ManageUsers_02 - Update User's information
 
 @b2b @web
 Scenario: B2B_Web_ManageUsers_03 - Add new user(Incorrect Email)
-	#Go to Users page
-	#Manage Users page is opened 
-	#Click on Add user button 
-	#Add new User tab is opened 
+	Given I login to the system as "Web user" (b2b)
+	When I navigate to the "Users" page (b2b)
+	#And I click on the "Add User" button (b2b)
+	#And I set input "First Name" to the value "Test user" (b2b)
+	#And I set input "Last Name" to the value "Test user" (b2b)
+	#And I set input "Email" to the value "Incorrect" (b2b)
+	#And I select "{value}" on the Assign rate selector (b2b)
 	#Fill First, Last name, email (Fill Email filed with incorrect credentials ), choose Admin role
 	#Next button stays grey, and you see label tat "Email is invalid"
 

@@ -113,6 +113,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 36
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
+#line 37
+ testRunner.Given("I login to the system as \"Web user\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 38
+ testRunner.When("I navigate to the \"Users\" page (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -126,7 +130,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ManageUsers_04 - Add existing user", null, new string[] {
                         "b2b",
                         "web"});
-#line 45
+#line 48
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -142,7 +146,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ManageUsers_05 - Assign/Remove user from group", null, new string[] {
                         "b2b",
                         "web"});
-#line 61
+#line 64
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -158,7 +162,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ManageUsers_06 - Delete User", null, new string[] {
                         "b2b",
                         "web"});
-#line 76
+#line 79
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -174,7 +178,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ManageUsers_07 - Charging sessions tab", null, new string[] {
                         "b2b",
                         "web"});
-#line 88
+#line 91
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden

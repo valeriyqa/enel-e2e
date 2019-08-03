@@ -281,6 +281,9 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I set field \"<FieldId>\" to \"<Value>\" (b2c)", ((string)(null)), table4, "When ");
 #line 102
  testRunner.And("I click on button with name \"Login\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 103
+ testRunner.Then("panel with message \"You must have a confirmed email to log on. The confirmation t" +
+                    "oken has been resent to your email account.\" should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
