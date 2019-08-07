@@ -306,6 +306,7 @@
     <Compile Include="Steps\UDP\B2cUdpTestSteps.cs" />
     <Compile Include="Steps\UI\B2c\B2cUiLoginSteps.cs" />
     <Compile Include="Steps\UI\B2c\B2cUiLoadGroupSteps.cs" />
+    <Compile Include="Steps\UI\B2c\B2cUiServiceBusEventsSteps.cs" />
     <Compile Include="Steps\UI\B2c\B2cUiMyJuiceNetSteps.cs" />
     <Compile Include="Steps\UI\B2c\B2cUiRegistrationAndLogInSteps.cs" />
     <Compile Include="Steps\UI\Joomla\JoomlaCheckoutSteps.cs" />

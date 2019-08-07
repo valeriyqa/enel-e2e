@@ -346,6 +346,11 @@ namespace TestAutomationFramework.Steps.UI
 
         }
 
+        [Given(@"I wait for ""(.*)"" seconds \(b2c\)")]
+        public void GivenIWaitForSecondsBc(int sec)
+        {
+            System.Threading.Thread.Sleep(sec * 1000);
+        }
 
 
     }

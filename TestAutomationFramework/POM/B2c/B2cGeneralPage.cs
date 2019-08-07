@@ -134,7 +134,8 @@ namespace TestAutomationFramework.POM
         }
         public void ClickButtonWithId(string buttonId)
         {
-            driver.FindElementById(buttonId).Submit();
+            //driver.FindElementById(buttonId).Submit();
+            driver.FindElementById(buttonId).Click();
         }
 
         public void ClickSwitchWithId(string switchId)

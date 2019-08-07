@@ -305,15 +305,98 @@ Scenario: B2C_Web_MyJuiceNet_14 - Add devices to Load group.
 	And Device with key in config "test3_unit_id" area contain load group icon (b2c)
 
 @b2c @web 
-Scenario: B2C_Web_MyJuiceNet_15 - Notifications**
-#Add and test all of notifications types
-#Email and popup
-#Charging start
-#Charging stop
-#Charging delayed due to ToU
-#Unit is back online
-#Unit offline
-#Unit is not plugged in by (set time in settings)
+Scenario: B2C_Web_MyJuiceNet_15a - Notifications Charging start/stop
+	Then I send UDP package with status "Standby" to device with key in config "test3_unit_id"
+
+	Given I login to the system as "WebUser" (b2c)
+	When I click More Details for device with key in config "test3_unit_id" (b2c)
+	Given all checkboxes on panel with Id "panelNotify" is not activated (b2c)
+	When I click all checkboxes on panel with Id "panelNotify" (b2c)
+	When I click on button with Id "saveNotificationsButton" (b2c)
+	Then all checkboxes on panel with Id "panelNotify" should be activated (b2c)
+	Then I click on tab with label "Settings" (b2c)
+	Given switch with Id "toggleTOU" is not activated (b2c)
+	When I click on switch with Id "toggleTOU" (b2c)
+	Then switch with Id "toggleTOU" should be enabled is "True" (b2c)
+	When I remeber the current time on device (b2c)
+	And I click on tab with label "Status" (b2c)
+	And I send UDP package with status "Charging" to device with key in config "test3_unit_id"
+	Then device should cheange status to "Charging" (b2c)
+
+	Given I login to the system as "Admin" (b2c)
+	And I navigate to the "Service Bus Events" page (b2c)
+	When I set field with Id "dateRangeStart" to "current" DateTime (b2c)
+	And I set field with Id "dateRangeEnd" to "currentPlusHour" DateTime (b2c)
+	And I click on button with Id "get-sb-events-button" (b2c)
+	Then event with the label "ChargingStarted" for the device with key in config "test3_unit_id" should contains text "charging started" (b2c)
+	And event with the label "NotificationCreated" for the device with key in config "test3_unit_id" should contains text "Email" (b2c)
+	And event with the label "NotificationCreated" for the device with key in config "test3_unit_id" should contains text "Push" (b2c)
+
+	Given I login to the system as "WebUser" (b2c)
+	When I click More Details for device with key in config "test3_unit_id" (b2c)
+	Then I click on tab with label "Settings" (b2c)
+	Given switch with Id "toggleTOU" is not activated (b2c)
+	When I click on switch with Id "toggleTOU" (b2c)
+	Then switch with Id "toggleTOU" should be enabled is "True" (b2c)
+	When I remeber the current time on device (b2c)
+	And I click on tab with label "Status" (b2c)
+	And I send UDP package with status "Connected" to device with key in config "test3_unit_id"
+	Then device should cheange status to "Plugged In" (b2c)
+
+	Given I login to the system as "Admin" (b2c)
+	And I navigate to the "Service Bus Events" page (b2c)
+	When I set field with Id "dateRangeStart" to "current" DateTime (b2c)
+	And I set field with Id "dateRangeEnd" to "currentPlusHour" DateTime (b2c)
+	And I click on button with Id "get-sb-events-button" (b2c)
+	Then event with the label "ChargingStoped" for the device with key in config "test3_unit_id" should contains text "charging stop" (b2c)
+	And event with the label "NotificationCreated" for the device with key in config "test3_unit_id" should contains text "Email" (b2c)
+	And event with the label "NotificationCreated" for the device with key in config "test3_unit_id" should contains text "Push" (b2c)
+
+	Then I send UDP package with status "Standby" to device with key in config "test3_unit_id"
+
+@b2c @web
+Scenario: B2C_Web_MyJuiceNet_15b - Notifications Charging delayed due to ToU
+
+@b2c @web
+Scenario: B2C_Web_MyJuiceNet_15c - Notifications Unit is offline/back online
+#	Then event with the label "Online" for the device with key in config "test3_unit_id" should contains text "is online" (b2c)
+#	And event with the label "NotificationCreated" for the device with key in config "test3_unit_id" should contains text "Email" (b2c)
+#	And event with the label "NotificationCreated" for the device with key in config "test3_unit_id" should contains text "Push" (b2c)
+#
+#	Then event with the label "Offline" for the device with key in config "test3_unit_id" should contains text "goes offline" (b2c)
+#	And event with the label "NotificationCreated" for the device with key in config "test3_unit_id" should contains text "Email" (b2c)
+#	And event with the label "NotificationCreated" for the device with key in config "test3_unit_id" should contains text "Push" (b2c)
+
+@b2c @web
+Scenario: B2C_Web_MyJuiceNet_15d - Notifications Unit is not plugged in by
+	Given I login to the system as "WebUser" (b2c)
+	When I click More Details for device with key in config "test5_unit_id" (b2c)
+	Then I click on tab with label "Settings" (b2c)
+	Given switch with Id "toggleTOU" is not activated (b2c)
+	When I click on switch with Id "toggleTOU" (b2c)
+	Then switch with Id "toggleTOU" should be enabled is "True" (b2c)
+	When I remeber the current time on device (b2c)
+	And I click on tab with label "Status" (b2c)
+	Given all checkboxes on panel with Id "panelNotify" is not activated (b2c)
+	When I click all checkboxes on panel with Id "panelNotify" (b2c)
+	And I click on button with Id "saveNotificationsButton" (b2c)
+	Then all checkboxes on panel with Id "panelNotify" should be activated (b2c)
+	When I click on button with Id "settings-button-is_not_plugged_in_by" (b2c)
+	And I set field with Id "NotPluggedDateTime" to current time (b2c)
+	And I click on button with Id "saveExtendedSettingsButton" (b2c)
+	And I close current modal window (b2c)
+	And I click on button with Id "saveNotificationsButton" (b2c)
+	Given I wait for "60" seconds (b2c)
+
+	Given I login to the system as "Admin" (b2c)
+	And I navigate to the "Service Bus Events" page (b2c)
+	When I set field with Id "dateRangeStart" to "current" DateTime (b2c)
+	And I set field with Id "dateRangeEnd" to "currentPlusHour" DateTime (b2c)
+	And I click on button with Id "get-sb-events-button" (b2c)
+	Then event with the label "NotPluggedBy" for the device with key in config "test5_unit_id" should contains text "not plugged by" (b2c)
+	And event with the label "NotificationCreated" for the device with key in config "test5_unit_id" should contains text "Email" (b2c)
+	And event with the label "NotificationCreated" for the device with key in config "test5_unit_id" should contains text "Push" (b2c)
+
 
 @b2c @web 
 Scenario: B2C_Web_MyJuiceNet_16 - SW corrections**
