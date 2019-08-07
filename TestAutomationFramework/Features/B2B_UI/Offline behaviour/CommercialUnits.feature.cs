@@ -31,8 +31,8 @@ namespace TestAutomationFramework.Features.B2B_UI.OfflineBehaviour
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CommercialUnits", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CommercialUnits", "\tIn order to verify Сommercial Units feature functionality\r\n\twe run next scenario" +
+                    "s", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -71,23 +71,167 @@ namespace TestAutomationFramework.Features.B2B_UI.OfflineBehaviour
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AddTwoNumbers()
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_СommercialUnits_01 From Charging to Offline")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_СommercialUnits_01FromChargingToOffline()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", null, new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_СommercialUnits_01 From Charging to Offline", null, new string[] {
+                        "b2b",
+                        "web"});
+#line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 8
- testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_СommercialUnits_02 From Offline(with existed session) to Charging")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_СommercialUnits_02FromOfflineWithExistedSessionToCharging()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_СommercialUnits_02 From Offline(with existed session) to Charging", null, new string[] {
+                        "b2b",
+                        "web"});
 #line 9
- testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_СommercialUnits_03 From Offline(without existed session) to Charging")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_СommercialUnits_03FromOfflineWithoutExistedSessionToCharging()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_СommercialUnits_03 From Offline(without existed session) to Charging", null, new string[] {
+                        "b2b",
+                        "web"});
+#line 12
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_СommercialUnits_04 From StandBy to Offline")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_СommercialUnits_04FromStandByToOffline()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_СommercialUnits_04 From StandBy to Offline", null, new string[] {
+                        "b2b",
+                        "web"});
+#line 15
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_СommercialUnits_05 From Pluggedin to Offline")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_СommercialUnits_05FromPluggedinToOffline()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_СommercialUnits_05 From Pluggedin to Offline", null, new string[] {
+                        "b2b",
+                        "web"});
+#line 18
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_СommercialUnits_06 From Offline to Standby")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_СommercialUnits_06FromOfflineToStandby()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_СommercialUnits_06 From Offline to Standby", null, new string[] {
+                        "b2b",
+                        "web"});
+#line 21
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_СommercialUnits_07 From Offline to Pluggedin")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_СommercialUnits_07FromOfflineToPluggedin()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_СommercialUnits_07 From Offline to Pluggedin", null, new string[] {
+                        "b2b",
+                        "web"});
+#line 24
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_СommercialUnits_08 Check correct session finish after device stays offlin" +
+            "e more than 1h")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_СommercialUnits_08CheckCorrectSessionFinishAfterDeviceStaysOfflineMoreThan1H()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_СommercialUnits_08 Check correct session finish after device stays offlin" +
+                    "e more than 1h", null, new string[] {
+                        "b2b",
+                        "web"});
+#line 27
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_СommercialUnits_09 Check correct energy value after stopping charging ses" +
+            "sion few times")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_СommercialUnits_09CheckCorrectEnergyValueAfterStoppingChargingSessionFewTimes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_СommercialUnits_09 Check correct energy value after stopping charging ses" +
+                    "sion few times", null, new string[] {
+                        "b2b",
+                        "web"});
+#line 30
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_СommercialUnits_10 Check correct energy value after stopping charging ses" +
+            "sion few times and stay offline more than one hour(hard offline time)")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_СommercialUnits_10CheckCorrectEnergyValueAfterStoppingChargingSessionFewTimesAndStayOfflineMoreThanOneHourHardOfflineTime()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_СommercialUnits_10 Check correct energy value after stopping charging ses" +
+                    "sion few times and stay offline more than one hour(hard offline time)", null, new string[] {
+                        "b2b",
+                        "web"});
+#line 33
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
 #line hidden
             this.ScenarioCleanup();
         }

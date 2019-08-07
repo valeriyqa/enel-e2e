@@ -71,6 +71,7 @@ namespace TestAutomationFramework.Features.B2C_UDP
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("All_UDP_ Test UDP endpoint")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("udp")]
         [NUnit.Framework.TestCaseAttribute("TestUdpEndpoint_State_Standby", null)]
         [NUnit.Framework.TestCaseAttribute("TestUdpEndpoint_State_Connected", null)]
@@ -79,6 +80,7 @@ namespace TestAutomationFramework.Features.B2C_UDP
         public virtual void All_UDP_TestUDPEndpoint(string udpData, string[] exampleTags)
         {
             string[] @__tags = new string[] {
+                    "b2c",
                     "udp"};
             if ((exampleTags != null))
             {
@@ -96,10 +98,12 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("All_UDP_ Test UDP response contains S section with unique  value")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("udp")]
         public virtual void All_UDP_TestUDPResponseContainsSSectionWithUniqueValue()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All_UDP_ Test UDP response contains S section with unique  value", null, new string[] {
+                        "b2c",
                         "udp"});
 #line 17
 this.ScenarioInitialize(scenarioInfo);

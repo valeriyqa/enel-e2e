@@ -1,10 +1,12 @@
 ﻿Feature: B2B Support Tools feature
-	In order to verify ... feature functionality
+	In order to verify Support Tools feature functionality
 	we run next scenarios
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+@b2b @web
+Scenario: B2B_Web_SupportTools_01 Add new support\admin
+
+@b2b @web
+Scenario: B2B_Web_SupportTools_02 Check that support can't perform any actions, that admin can
+
+@b2b @web
+Scenario: B2B_Web_SupportTools_03 Device Lookup

@@ -70,12 +70,12 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Set a permissions for user in Device setting")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Permissions_01 Set a permissions for user in Device setting")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_SetAPermissionsForUserInDeviceSetting()
+        public virtual void B2B_Web_Permissions_01SetAPermissionsForUserInDeviceSetting()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Set a permissions for user in Device setting", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Permissions_01 Set a permissions for user in Device setting", null, new string[] {
                         "b2b",
                         "web"});
 #line 6
@@ -86,12 +86,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Check Modify User Access permission for Device")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Permissions_02 Check Modify User Access permission for Device")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_CheckModifyUserAccessPermissionForDevice()
+        public virtual void B2B_Web_Permissions_02CheckModifyUserAccessPermissionForDevice()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Check Modify User Access permission for Device", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Permissions_02 Check Modify User Access permission for Device", null, new string[] {
                         "b2b",
                         "web"});
 #line 9
@@ -102,12 +102,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Check Modify Locations/Chargers for Device")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Permissions_03 Check Modify Locations/Chargers for Device")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_CheckModifyLocationsChargersForDevice()
+        public virtual void B2B_Web_Permissions_03CheckModifyLocationsChargersForDevice()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Check Modify Locations/Chargers for Device", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Permissions_03 Check Modify Locations/Chargers for Device", null, new string[] {
                         "b2b",
                         "web"});
 #line 12
@@ -118,12 +118,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Check if User not have any permission for the device")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Permissions_04 Check if User not have any permission for the device")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_CheckIfUserNotHaveAnyPermissionForTheDevice()
+        public virtual void B2B_Web_Permissions_04CheckIfUserNotHaveAnyPermissionForTheDevice()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Check if User not have any permission for the device", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Permissions_04 Check if User not have any permission for the device", null, new string[] {
                         "b2b",
                         "web"});
 #line 15
@@ -134,12 +134,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Add User to The Driver tab in Device settings")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Permissions_05 Add User to The Driver tab in Device settings")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AddUserToTheDriverTabInDeviceSettings()
+        public virtual void B2B_Web_Permissions_05AddUserToTheDriverTabInDeviceSettings()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Add User to The Driver tab in Device settings", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Permissions_05 Add User to The Driver tab in Device settings", null, new string[] {
                         "b2b",
                         "web"});
 #line 18
@@ -150,12 +150,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Check Modify User Access permission for Location")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Permissions_06 Check Modify User Access permission for Location")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_CheckModifyUserAccessPermissionForLocation()
+        public virtual void B2B_Web_Permissions_06CheckModifyUserAccessPermissionForLocation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Check Modify User Access permission for Location", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Permissions_06 Check Modify User Access permission for Location", null, new string[] {
                         "b2b",
                         "web"});
 #line 21
@@ -166,12 +166,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Check Modify Locations/Chargers for Location")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Permissions_07 Check Modify Locations/Chargers for Location")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_CheckModifyLocationsChargersForLocation()
+        public virtual void B2B_Web_Permissions_07CheckModifyLocationsChargersForLocation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Check Modify Locations/Chargers for Location", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Permissions_07 Check Modify Locations/Chargers for Location", null, new string[] {
                         "b2b",
                         "web"});
 #line 24
@@ -182,12 +182,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Check if User not have any permission for the Location")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Permissions_08 Check if User not have any permission for the Location")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_CheckIfUserNotHaveAnyPermissionForTheLocation()
+        public virtual void B2B_Web_Permissions_08CheckIfUserNotHaveAnyPermissionForTheLocation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Check if User not have any permission for the Location", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Permissions_08 Check if User not have any permission for the Location", null, new string[] {
                         "b2b",
                         "web"});
 #line 27
@@ -198,12 +198,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Add User to The Driver tab in Location settings")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Permissions_09 Add User to The Driver tab in Location settings")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AddUserToTheDriverTabInLocationSettings()
+        public virtual void B2B_Web_Permissions_09AddUserToTheDriverTabInLocationSettings()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Add User to The Driver tab in Location settings", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Permissions_09 Add User to The Driver tab in Location settings", null, new string[] {
                         "b2b",
                         "web"});
 #line 30
@@ -214,17 +214,33 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Check that restricted users in Drivers tab in Location appears in Device" +
-            " after linking")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Permissions_10 Check that restricted users in Drivers tab in Location app" +
+            "ears in Device after linking")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_CheckThatRestrictedUsersInDriversTabInLocationAppearsInDeviceAfterLinking()
+        public virtual void B2B_Web_Permissions_10CheckThatRestrictedUsersInDriversTabInLocationAppearsInDeviceAfterLinking()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Check that restricted users in Drivers tab in Location appears in Device" +
-                    " after linking", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Permissions_10 Check that restricted users in Drivers tab in Location app" +
+                    "ears in Device after linking", null, new string[] {
                         "b2b",
                         "web"});
 #line 33
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Permissions_11 Add group with new name to permissions tab")]
+        [NUnit.Framework.CategoryAttribute("b2b")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2B_Web_Permissions_11AddGroupWithNewNameToPermissionsTab()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Permissions_11 Add group with new name to permissions tab", null, new string[] {
+                        "b2b",
+                        "web"});
+#line 36
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -234,3 +250,4 @@ this.ScenarioInitialize(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+

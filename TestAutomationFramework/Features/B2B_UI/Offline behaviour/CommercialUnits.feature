@@ -1,11 +1,33 @@
 ﻿Feature: CommercialUnits
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+	In order to verify Сommercial Units feature functionality
+	we run next scenarios
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+@b2b @web
+Scenario: B2B_Web_СommercialUnits_01 From Charging to Offline
+
+@b2b @web
+Scenario: B2B_Web_СommercialUnits_02 From Offline(with existed session) to Charging 
+
+@b2b @web
+Scenario: B2B_Web_СommercialUnits_03 From Offline(without existed session) to Charging 
+
+@b2b @web
+Scenario: B2B_Web_СommercialUnits_04 From StandBy to Offline
+
+@b2b @web
+Scenario: B2B_Web_СommercialUnits_05 From Pluggedin to Offline
+
+@b2b @web
+Scenario: B2B_Web_СommercialUnits_06 From Offline to Standby
+
+@b2b @web
+Scenario: B2B_Web_СommercialUnits_07 From Offline to Pluggedin
+
+@b2b @web
+Scenario: B2B_Web_СommercialUnits_08 Check correct session finish after device stays offline more than 1h
+
+@b2b @web
+Scenario: B2B_Web_СommercialUnits_09 Check correct energy value after stopping charging session few times
+
+@b2b @web
+Scenario: B2B_Web_СommercialUnits_10 Check correct energy value after stopping charging session few times and stay offline more than one hour(hard offline time)

@@ -70,12 +70,12 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Log in as a reseller (Positive)")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Reseller_01 Log in as a reseller (Positive)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_LogInAsAResellerPositive()
+        public virtual void B2B_Web_Reseller_01LogInAsAResellerPositive()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Log in as a reseller (Positive)", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Reseller_01 Log in as a reseller (Positive)", null, new string[] {
                         "b2b",
                         "web"});
 #line 6
@@ -86,12 +86,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Log in as a reseller (Negative)")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Reseller_02 Log in as a reseller (Negative)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_LogInAsAResellerNegative()
+        public virtual void B2B_Web_Reseller_02LogInAsAResellerNegative()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Log in as a reseller (Negative)", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Reseller_02 Log in as a reseller (Negative)", null, new string[] {
                         "b2b",
                         "web"});
 #line 9
@@ -102,12 +102,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Add New Client")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Reseller_03 Add New Client")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AddNewClient()
+        public virtual void B2B_Web_Reseller_03AddNewClient()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Add New Client", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Reseller_03 Add New Client", null, new string[] {
                         "b2b",
                         "web"});
 #line 12
@@ -118,12 +118,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Log in as a client")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Reseller_04 Log in as a client")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_LogInAsAClient()
+        public virtual void B2B_Web_Reseller_04LogInAsAClient()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Log in as a client", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Reseller_04 Log in as a client", null, new string[] {
                         "b2b",
                         "web"});
 #line 15
@@ -134,12 +134,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Update client information")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Reseller_05 Update client information")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_UpdateClientInformation()
+        public virtual void B2B_Web_Reseller_05UpdateClientInformation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Update client information", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Reseller_05 Update client information", null, new string[] {
                         "b2b",
                         "web"});
 #line 18
@@ -150,12 +150,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Reset password")]
+        [NUnit.Framework.DescriptionAttribute("B2B_WebReseller_06_ Reset password")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_ResetPassword()
+        public virtual void B2B_WebReseller_06_ResetPassword()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Reset password", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_WebReseller_06_ Reset password", null, new string[] {
                         "b2b",
                         "web"});
 #line 21
@@ -166,12 +166,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Logout")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Reseller_07 Logout")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_Logout()
+        public virtual void B2B_Web_Reseller_07Logout()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Logout", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Reseller_07 Logout", null, new string[] {
                         "b2b",
                         "web"});
 #line 24
@@ -182,12 +182,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Forgot password (login form)")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Reseller_08 Forgot password (login form)")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_ForgotPasswordLoginForm()
+        public virtual void B2B_Web_Reseller_08ForgotPasswordLoginForm()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Forgot password (login form)", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Reseller_08 Forgot password (login form)", null, new string[] {
                         "b2b",
                         "web"});
 #line 27
@@ -200,3 +200,4 @@ this.ScenarioInitialize(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+

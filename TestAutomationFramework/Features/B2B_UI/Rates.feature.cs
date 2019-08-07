@@ -70,12 +70,12 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Add rate")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Rates_01 Add rate")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AddRate()
+        public virtual void B2B_Web_Rates_01AddRate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Add rate", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Rates_01 Add rate", null, new string[] {
                         "b2b",
                         "web"});
 #line 6
@@ -86,12 +86,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Change rate")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Rates_02 Change rate")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_ChangeRate()
+        public virtual void B2B_Web_Rates_02ChangeRate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Change rate", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Rates_02 Change rate", null, new string[] {
                         "b2b",
                         "web"});
 #line 9
@@ -102,12 +102,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Assign Rate")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Rates_03 Assign Rate")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AssignRate()
+        public virtual void B2B_Web_Rates_03AssignRate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Assign Rate", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Rates_03 Assign Rate", null, new string[] {
                         "b2b",
                         "web"});
 #line 12
@@ -118,12 +118,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Rate inheritance")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Rates_04 Rate inheritance")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_RateInheritance()
+        public virtual void B2B_Web_Rates_04RateInheritance()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Rate inheritance", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Rates_04 Rate inheritance", null, new string[] {
                         "b2b",
                         "web"});
 #line 15
@@ -134,12 +134,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Charging")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Rates_05 Charging")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_Charging()
+        public virtual void B2B_Web_Rates_05Charging()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Charging", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Rates_05 Charging", null, new string[] {
                         "b2b",
                         "web"});
 #line 18
@@ -150,12 +150,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Rate details combinations")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_Rates_06 Rate details combinations")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_RateDetailsCombinations()
+        public virtual void B2B_Web_Rates_06RateDetailsCombinations()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Rate details combinations", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Rates_06 Rate details combinations", null, new string[] {
                         "b2b",
                         "web"});
 #line 21
@@ -168,3 +168,4 @@ this.ScenarioInitialize(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+

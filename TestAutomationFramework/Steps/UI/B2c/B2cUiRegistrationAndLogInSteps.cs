@@ -63,7 +63,7 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"I should be navigated to the ""(.*)"" page \(b2c\)")] //done
         public void ThenIShouldBeNavigatedToThePage(string page)
         {
-            Assert.AreEqual(driver.Url, host + page);
+            Assert.AreEqual(host + page, driver.Url);
         }
 
         //Get value from config by key and set to field

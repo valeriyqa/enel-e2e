@@ -1,11 +1,24 @@
 ﻿Feature: HomeUnits
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+	In order to verify Home Units feature functionality
+	we run next scenarios
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+@b2b @web
+Scenario: B2B_Web_HomeUnits_01 From StandBy to Offline
+
+@b2b @web
+Scenario: B2B_Web_HomeUnits_02 From Pluggedin to Offline
+
+@b2b @web
+Scenario: B2B_Web_HomeUnits_03 From Charging to Offline
+
+@b2b @web
+Scenario: B2B_Web_HomeUnits_04 From Offline to Standby
+
+@b2b @web
+Scenario: B2B_Web_HomeUnits_05 From Offline to Pluggedin
+
+@b2b @web
+Scenario: B2B_Web_HomeUnits_06 From Offline(with existed session) to Charging 
+
+@b2b @web
+Scenario: B2B_Web_HomeUnits_07 From Offline(without existed session) to Charging 

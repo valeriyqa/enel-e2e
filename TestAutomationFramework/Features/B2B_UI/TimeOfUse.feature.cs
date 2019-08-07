@@ -70,12 +70,12 @@ namespace TestAutomationFramework.Features.B2B_UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Add Time of Use to Location")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_TimeOfUse_01 Add Time of Use to Location")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_AddTimeOfUseToLocation()
+        public virtual void B2B_Web_TimeOfUse_01AddTimeOfUseToLocation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Add Time of Use to Location", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_TimeOfUse_01 Add Time of Use to Location", null, new string[] {
                         "b2b",
                         "web"});
 #line 6
@@ -86,12 +86,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Create Sublocation to check Same as parent functionality")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_TimeOfUse_02 Create Sublocation to check Same as parent functionality")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_CreateSublocationToCheckSameAsParentFunctionality()
+        public virtual void B2B_Web_TimeOfUse_02CreateSublocationToCheckSameAsParentFunctionality()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Create Sublocation to check Same as parent functionality", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_TimeOfUse_02 Create Sublocation to check Same as parent functionality", null, new string[] {
                         "b2b",
                         "web"});
 #line 9
@@ -102,12 +102,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Link device to Location with Time of use value")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_TimeOfUse_03 Link device to Location with Time of use value")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_LinkDeviceToLocationWithTimeOfUseValue()
+        public virtual void B2B_Web_TimeOfUse_03LinkDeviceToLocationWithTimeOfUseValue()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Link device to Location with Time of use value", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_TimeOfUse_03 Link device to Location with Time of use value", null, new string[] {
                         "b2b",
                         "web"});
 #line 12
@@ -118,12 +118,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2B_Web_ Check functionality of Time of use while device is charging")]
+        [NUnit.Framework.DescriptionAttribute("B2B_Web_TimeOfUse_04 Check functionality of Time of use while device is charging")]
         [NUnit.Framework.CategoryAttribute("b2b")]
         [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2B_Web_CheckFunctionalityOfTimeOfUseWhileDeviceIsCharging()
+        public virtual void B2B_Web_TimeOfUse_04CheckFunctionalityOfTimeOfUseWhileDeviceIsCharging()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_ Check functionality of Time of use while device is charging", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_TimeOfUse_04 Check functionality of Time of use while device is charging", null, new string[] {
                         "b2b",
                         "web"});
 #line 15
@@ -136,3 +136,4 @@ this.ScenarioInitialize(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+

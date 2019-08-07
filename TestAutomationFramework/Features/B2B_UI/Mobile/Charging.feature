@@ -1,11 +1,15 @@
 ﻿Feature: Charging
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+	In order to verify Charging feature functionality
+	we run next scenarios
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+@b2b @web
+Scenario: B2B_Web_Charging_01 Charging device via app(charge in app - plug in)
+
+@b2b @web
+Scenario: B2B_Web_Charging_02 Charging via scan
+
+@b2b @web
+Scenario: B2B_Web_Charging_03 Charging device via app(plug in - charge in app)
+
+@b2b @web
+Scenario: B2B_Web_Charging_04 Check device status in menu tab

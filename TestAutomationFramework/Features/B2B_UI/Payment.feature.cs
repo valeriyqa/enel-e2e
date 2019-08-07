@@ -123,14 +123,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("web")]
         public virtual void B2B_Web_Payment_04_StripeNegativeCases()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Payment_04 -  Stripe (negative cases)", @"	Correct card number, correct CVC, incorrect expiration date  
-	Correct card number, incorrect CVC, correct expiration date  
-	Correct card number, incorrect CVC, incorrect expiration date  
-	If a CVC number is provided, the cvc_check fails. 4000000000000101  
-	Charge is declined with an incorrect_cvc code. 4000000000000127
-	Charge is declined with an expired_card code. 4000000000000069
-	Charge is declined with a processing_error code. 4000000000000119 
-	Charge is declined with an incorrect_number code as the card number fails the Luhn check. 4242424242424241 ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Payment_04 -  Stripe (negative cases)", null, new string[] {
                         "b2b",
                         "web"});
 #line 15
@@ -146,12 +139,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("web")]
         public virtual void B2B_Web_Payment_05_CheckStripeWarningWhileDeviceIsOffline()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Payment_05 -  Check stripe warning while device is offline", @"	Preconditions: you must have commercial device, and account linked to stripe 
-	Link device to location, set no free rate 
-	Go to emulator set device to offline status 
-	Device goes offline 
-	Try to authorise in stripe for this device(in mobile app or by payment link)
-	Warning that device is Currently Offline ", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Payment_05 -  Check stripe warning while device is offline", null, new string[] {
                         "b2b",
                         "web"});
 #line 26
