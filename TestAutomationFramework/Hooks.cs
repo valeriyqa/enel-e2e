@@ -31,7 +31,14 @@ namespace TestAutomationFramework
                 //Use this variable to set local environment;
                 //string environment = "b2b_beta2";
                 string environment = "b2c_prod";
-                //string environment = "b2c_alpha"; 
+                //string environment = "b2b_prod";
+                //string environment = "b2b_alpha";
+                //string environment = "b2c_alpha";
+                //string environment = "joomla_beta";
+                //string environment = "b2c_v12alpha";
+                //string environment = "b2c_v12beta";
+                //string environment = "b2b_v12beta";
+                //string environment = "b2c_beta";
 
                 string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
                 ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
@@ -39,30 +46,23 @@ namespace TestAutomationFramework
             }
             else
             {
-                string jsonString = "{\"env_system_type\": \"" + Environment.GetEnvironmentVariable("env_system_type") +
-                    "\", \"env_dashboard_address\": \"" + Environment.GetEnvironmentVariable("env_dashboard_address") +
-                    "\", \"env_api_address\": \"" + Environment.GetEnvironmentVariable("env_api_address") +
-                    "\", \"env_udp_address\": \"" + Environment.GetEnvironmentVariable("env_udp_address") +
+                string systemType = Environment.GetEnvironmentVariable("env_system_type");
+                string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", systemType + ".conf");
+                ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
+                Config.SetDefaultConfig(configFromFile);
 
-                     "\", \"start_web\": \"" + Environment.GetEnvironmentVariable("start_web") +
-                    "\", \"start_api\": \"" + Environment.GetEnvironmentVariable("start_api") +
-                    "\", \"start_udp\": \"" + Environment.GetEnvironmentVariable("start_udp") +
-                    "\", \"start_p_term\": \"" + Environment.GetEnvironmentVariable("start_p_term") +
+                string jsonString = "{";
+                foreach (dynamic userData in Config.Global)
+                {
+                    jsonString += "\"" + userData.Key + "\": \"" + Environment.GetEnvironmentVariable(userData.Key) + "\", ";
+                }
 
-                    "\", \"web_user_id\": \"" + Environment.GetEnvironmentVariable("web_user_id") +
-                    "\", \"web_user_email\": \"" + Environment.GetEnvironmentVariable("web_user_email") +
-                    "\", \"web_user_password\": \"" + Environment.GetEnvironmentVariable("web_user_password") +
-                    "\", \"web_user_description\": \"" + Environment.GetEnvironmentVariable("web_user_description") +
+                jsonString = jsonString.Remove(jsonString.Length - 2);
+                jsonString += "}";
 
-                    "\", \"api_account_token\": \"" + Environment.GetEnvironmentVariable("api_account_token") +
-                    "\", \"api_device_id\": \"" + Environment.GetEnvironmentVariable("api_device_id") +
-                    "\", \"api_token\": \"" + Environment.GetEnvironmentVariable("api_token") +
-
-                    "\", \"pterm_unit_id\": \"" + Environment.GetEnvironmentVariable("pterm_unit_id") +
-                    "\", \"pterm_terminal_id\": \"" + Environment.GetEnvironmentVariable("pterm_terminal_id") + "\"}";
-
+                Config.Global.Clear();
                 ConfigObject configFromJson = Config.ApplyJson(jsonString);
-                Config.SetUserConfig(configFromJson);
+                Config.SetDefaultConfig(configFromJson);
             }
         }
 
@@ -115,6 +115,15 @@ namespace TestAutomationFramework
         public void InitializePaymentTerminal()
         {
             if (!Boolean.Parse(Config.Global.start_p_term))
+            {
+                Assert.Inconclusive();
+            }
+        }
+
+        [BeforeScenario("joomla")]
+        public void InitializeJoomla()
+        {
+            if (!Boolean.Parse(Config.Global.start_joomla))
             {
                 Assert.Inconclusive();
             }

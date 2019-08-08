@@ -74,6 +74,19 @@ namespace TestAutomationFramework.Services
             return ProtConvert.SerializeToServer(deviceState);
         }
 
+        public void TestUdpEndpoint_AddUnit()
+        {
+            var deviceState = new DeviceState
+            {
+                UnitId = "373708001",
+                Voltage = 220,
+                ChargeState = ChargeStateE.Standby,
+                Temperature = 35,
+                GridFrequency = 6000
+            };
+            TxRxRaw(ProtConvert.SerializeToServer(deviceState));
+        }
+
         public void TestUdpEndpoint_State_Standby()
         {
             var deviceState = new DeviceState
@@ -86,6 +99,7 @@ namespace TestAutomationFramework.Services
             };
             TxRxRaw(ProtConvert.SerializeToServer(deviceState));
         }
+    
 
         public void TestUdpEndpoint_State_Connected()
         {

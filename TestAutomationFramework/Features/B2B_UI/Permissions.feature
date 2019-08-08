@@ -3,31 +3,34 @@
 	we run next scenarios
 
 @b2b @web
-Scenario: B2B_Web_ Set a permissions for user in Device setting
+Scenario: B2B_Web_Permissions_01 Set a permissions for user in Device setting
 
 @b2b @web
-Scenario: B2B_Web_ Check Modify User Access permission for Device
+Scenario: B2B_Web_Permissions_02 Check Modify User Access permission for Device
 
 @b2b @web
-Scenario: B2B_Web_ Check Modify Locations/Chargers for Device
+Scenario: B2B_Web_Permissions_03 Check Modify Locations/Chargers for Device
 
 @b2b @web
-Scenario: B2B_Web_ Check if User not have any permission for the device
+Scenario: B2B_Web_Permissions_04 Check if User not have any permission for the device
 
 @b2b @web
-Scenario: B2B_Web_ Add User to The Driver tab in Device settings
+Scenario: B2B_Web_Permissions_05 Add User to The Driver tab in Device settings
 
 @b2b @web
-Scenario: B2B_Web_ Check Modify User Access permission for Location
+Scenario: B2B_Web_Permissions_06 Check Modify User Access permission for Location
 
 @b2b @web
-Scenario: B2B_Web_ Check Modify Locations/Chargers for Location
+Scenario: B2B_Web_Permissions_07 Check Modify Locations/Chargers for Location
 
 @b2b @web
-Scenario: B2B_Web_ Check if User not have any permission for the Location
+Scenario: B2B_Web_Permissions_08 Check if User not have any permission for the Location
 
 @b2b @web
-Scenario: B2B_Web_ Add User to The Driver tab in Location settings
+Scenario: B2B_Web_Permissions_09 Add User to The Driver tab in Location settings
 
 @b2b @web
-Scenario: B2B_Web_ Check that restricted users in Drivers tab in Location appears in Device after linking
+Scenario: B2B_Web_Permissions_10 Check that restricted users in Drivers tab in Location appears in Device after linking
+
+@b2b @web
+Scenario: B2B_Web_Permissions_11 Add group with new name to permissions tab

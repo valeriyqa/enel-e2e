@@ -45,9 +45,9 @@ namespace TestAutomationFramework.POM
         public void ClickMenuByName(string menuName)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(wd => driver.FindElement(By.ClassName("navbar-nav")).Displayed);
+            wait.Until(wd => driver.FindElement(By.ClassName("sidebar")).Displayed);
 
-            driver.FindElement(By.ClassName("navbar-nav")).FindElement(By.CssSelector("[href*='" + menuName.ToLower() + "']")).Click();
+            driver.FindElement(By.XPath("//*[contains(@class, 'sidebar')]//sidebar-item//span[contains(text(), '" + menuName + "')]/ancestor::a")).Click();
         }
 
         public void ClickButtonByName(string buttonName)
@@ -57,8 +57,10 @@ namespace TestAutomationFramework.POM
 
         public void SetInputByName(string inputName, string inputValue)
         {
-            driver.FindElement(By.XPath("//input[@formcontrolname='" + inputName + "']")).Clear();
-            driver.FindElement(By.XPath("//input[@formcontrolname='" + inputName + "']")).SendKeys(inputValue);
+            driver.FindElement(By.XPath("//div[contains(@class, 'form-group')]//label[contains(text(), '" + inputName + "')]/..//input")).Clear();
+            driver.FindElement(By.XPath("//div[contains(@class, 'form-group')]//label[contains(text(), '" + inputName + "')]/..//input")).SendKeys(inputValue);
+            //driver.FindElement(By.XPath("//input[@formcontrolname='" + inputName + "']")).Clear();
+            //driver.FindElement(By.XPath("//input[@formcontrolname='" + inputName + "']")).SendKeys(inputValue);
         }
 
         public void SetInputByName(string inputName, string inputValue, bool waitForFill)

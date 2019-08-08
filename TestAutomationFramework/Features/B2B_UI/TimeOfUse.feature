@@ -3,13 +3,13 @@
 	we run next scenarios
 
 @b2b @web
-Scenario: B2B_Web_ Add Time of Use to Location
+Scenario: B2B_Web_TimeOfUse_01 Add Time of Use to Location
 
 @b2b @web
-Scenario: B2B_Web_ Create Sublocation to check Same as parent functionality
+Scenario: B2B_Web_TimeOfUse_02 Create Sublocation to check Same as parent functionality
 
 @b2b @web
-Scenario: B2B_Web_ Link device to Location with Time of use value
+Scenario: B2B_Web_TimeOfUse_03 Link device to Location with Time of use value
 
 @b2b @web
-Scenario: B2B_Web_ Check functionality of Time of use while device is charging
+Scenario: B2B_Web_TimeOfUse_04 Check functionality of Time of use while device is charging

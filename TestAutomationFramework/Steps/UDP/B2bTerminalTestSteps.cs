@@ -65,7 +65,9 @@ namespace TestAutomationFramework.Steps.UDP
         [Then(@"UDP response should contain amperage higher than ""(.*)""")]
         public void ThenUDPResponseShouldContainAmperageHigherThan(string amperage)
         {
-            Assert.IsTrue(Int32.Parse(testData.requestRxUdp.Substring(9, 2)) > Int32.Parse(amperage));
+            var response = testData.requestRxUdp;
+            Console.WriteLine(response);
+            Assert.IsTrue(Int32.Parse(response.Substring(9, 2)) > Int32.Parse(amperage), "Current amperage = " + response.Substring(9, 2));
         }
 
 
@@ -77,6 +79,41 @@ namespace TestAutomationFramework.Steps.UDP
             Assert.AreEqual(testData.responseApi.StatusCode, HttpStatusCode.OK);
         }
 
+        [Then(@"I send UDP package with status ""(.*)"" to device with key in config ""(.*)""")]
+        [When(@"I send UDP package with status ""(.*)"" to device with key in config ""(.*)""")]
+        public void WhenISendUDPPackageWithStatusToDeviceWithKeyInConfig(string deviceChargeState, string configKey)
+        {
+            System.Threading.Thread.Sleep(3000);
+
+            testData.unitId = Config.Global[configKey];
+            var testName = new UdpEndpointTest();
+            var step = 0;
+            var resultNotFound = true;
+            while (step < 5 && resultNotFound)
+            {
+                step++;
+                try
+                {
+                    if (deviceChargeState.Equals("Charging"))
+                    {
+                        testData.energy = testData.energy + new Random().Next(500, 1000);
+                        testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage(deviceChargeState, testData.unitId, testData.energy));
+                    }
+                    else
+                    {
+                        testData.requestRxUdp = testName.GetRxRaw(testName.GetUdpPackage(deviceChargeState, testData.unitId));
+                    }
+                    resultNotFound = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("WARNING!!! No UPD response, step: " + step);
+                }
+            }
+        }
+
+
+        [Then(@"I send UDP package with status ""(.*)"" to unit ""(.*)""")]
         [When(@"I send UDP package with status ""(.*)"" to unit ""(.*)""")]
         public void WhenISendUDPPackageWithStatusToUnit(string deviceChargeState, string unitId)
         {
