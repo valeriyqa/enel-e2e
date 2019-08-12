@@ -39,6 +39,21 @@ namespace TestAutomationFramework.Steps.UI
             this.scenarioContext = scenarioContext;
         }
 
+        [Given(@"I verify TFS test config")]
+        public void GivenIVerifyTFSTestConfig()
+        {
+            Console.WriteLine("--> I verify TFS test config test step started");
+
+            foreach (var item in Config.Global)
+            {
+                Console.WriteLine("-> " + item.Key + " = " + item.Value);
+            }
+
+
+            Console.WriteLine("--> I verify TFS test config test step finished");
+        }
+
+
         [Given(@"I navigate to the ""(.*)"" page \(b2c\)")]
         [Then(@"I navigate to the ""(.*)"" page \(b2c\)")]
         [When(@"I navigate to the ""(.*)"" page \(b2c\)")]

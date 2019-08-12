@@ -68,7 +68,26 @@ namespace TestAutomationFramework.Features.B2C_UI
         {
             testRunner.CollectScenarioErrors();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Test config from TFS for debug")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void TestConfigFromTFSForDebug()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test config from TFS for debug", null, new string[] {
+                        "b2c",
+                        "web"});
+#line 41
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 42
+ testRunner.Given("I verify TFS test config", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
 #endregion
+

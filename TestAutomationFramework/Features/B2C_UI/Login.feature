@@ -36,3 +36,7 @@
 #	And I navigate to the " Cars" page (b2c)
 #	And I navigate to the " Utils" page (b2c)
 #	And I navigate to the " OCPP" page (b2c)
+
+@b2c @web
+Scenario: Test config from TFS for debug
+	Given I verify TFS test config
