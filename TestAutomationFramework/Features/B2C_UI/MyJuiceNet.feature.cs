@@ -868,6 +868,89 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_18 - Get shared pin")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2C_Web_MyJuiceNet_18_GetSharedPin()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_MyJuiceNet_18 - Get shared pin", null, new string[] {
+                        "b2c",
+                        "web"});
+#line 474
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 475
+ testRunner.Given("I login to the system as \"WebUser\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 476
+ testRunner.When("I switch view to \"list\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 477
+ testRunner.And("I click pair to \"Guest Pin\" button for device with key in config \"test4_unit_id\" " +
+                    "(b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 478
+ testRunner.Then("Modal with Id \"request-share-pin-modal\" should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 479
+ testRunner.And("Modal with Id \"request-share-pin-modal\" should contain title \"JuiceNet Device Pai" +
+                    "ring Pin Code\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 480
+ testRunner.And("field with Id \"request-share-pin-modal\" should be equal to value from config \"tes" +
+                    "t4_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 481
+ testRunner.And("field with Id \"request-share-pin-modal-pincode\" should contains \"4\" symbols (b2c)" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 482
+ testRunner.When("I close current modal window (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 483
+ testRunner.And("I switch view to \"grid\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 484
+ testRunner.And("I click pair to \"Guest Pin\" button for device with key in config \"test4_unit_id\" " +
+                    "(b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 485
+ testRunner.Then("Modal with Id \"request-share-pin-modal\" should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 486
+ testRunner.And("Modal with Id \"request-share-pin-modal\" should contain title \"JuiceNet Device Pai" +
+                    "ring Pin Code\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 487
+ testRunner.And("field with Id \"request-share-pin-modal\" should be equal to value from config \"tes" +
+                    "t4_unit_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 488
+ testRunner.And("I remember Guest pairing pin (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 490
+ testRunner.Given("I login to the system as \"Admin\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 491
+ testRunner.Given("I delete device with key in config \"test4_unit_id\" via UI if added (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 492
+ testRunner.When("I click on button with name \"Add JuiceNet Device\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 493
+ testRunner.When("I set field \"inputUnitID\" to \"test4_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 494
+ testRunner.And("I click on button with name \"Add JuiceNet Device\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 495
+ testRunner.Then("Modal with Id \"share-pin-modal\" should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 496
+ testRunner.And("Modal with Id \"share-pin-modal\" should contain title \"JuiceNet Device Sharing PIN" +
+                    " Required\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 497
+ testRunner.And("field with Id \"unit-share-unitid\" should be equal to value from config \"test4_uni" +
+                    "t_id\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 498
+ testRunner.When("I set previously remembered Guest pairing pin (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 499
+ testRunner.And("I click on button with name \"Share JuiceNet Device\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 500
+ testRunner.Then("Modal with Id \"unit-added-modal\" should be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 501
+ testRunner.And("Modal with Id \"unit-added-modal\" should contain title \"Success\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 502
+ testRunner.When("I close current modal window (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 503
+ testRunner.Then("JuiceNet device with key in config \"test4_unit_id\" should exist is \"True\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 504
+ testRunner.Given("I delete device with key in config \"test4_unit_id\" via UI if added (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("B2C_Web_MyJuiceNet_19 - CO2")]
         [NUnit.Framework.CategoryAttribute("b2c")]
         [NUnit.Framework.CategoryAttribute("web")]

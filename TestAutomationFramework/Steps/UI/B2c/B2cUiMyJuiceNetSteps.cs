@@ -615,6 +615,8 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"I remember Guest pairing pin \(b2c\)")]
         public void GivenIRememberGuestPairingPinBc()
         {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElementById("request-share-pin-modal-pincode").Displayed);
             testData.guestPairingPin = driver.FindElement(By.Id("request-share-pin-modal-pincode")).Text;
             Console.WriteLine("Guest pairing pin equals to: " + testData.guestPairingPin);
         }
@@ -622,8 +624,22 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I set previously remembered Guest pairing pin \(b2c\)")]
         public void WhenISetPreviouslyRememberedGuestPairingPinBc()
         {
-            driver.FindElement(By.Id("unit-share-pin")).Clear();
-            driver.FindElement(By.Id("unit-share-pin")).SendKeys(testData.guestPairingPin);
+            Console.WriteLine("Set field with Id: unit-share-pin to: " + testData.guestPairingPin);
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElementById("unit-share-pin").Displayed);
+            for (int i = 0; i < 5; i++)
+            {
+                System.Threading.Thread.Sleep(500);
+                driver.FindElement(By.Id("unit-share-pin")).Clear();
+                driver.FindElement(By.Id("unit-share-pin")).SendKeys(testData.guestPairingPin);
+                if (driver.FindElementById("unit-share-pin").GetAttribute("value").Equals(testData.guestPairingPin))
+                {
+                    break;
+                }
+            }
+            //driver.FindElement(By.Id("unit-share-pin")).Clear();
+            //driver.FindElement(By.Id("unit-share-pin")).SendKeys(testData.guestPairingPin);
+            Console.WriteLine("Field with Id: unit-share-pin equals to: " + driver.FindElementById("unit-share-pin").GetAttribute("value"));
         }
 
 

@@ -328,6 +328,8 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"Modal with Id ""(.*)"" should be displayed \(b2c\)")]
         public void ThenModalWithIdShouldBeDisplayedBc(string modalId)
         {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.XPath("//div[@id = '" + modalId + "'][contains(@style, 'display: block;')]")).Displayed);
             Assert.IsTrue(driver.FindElement(By.XPath("//div[@id = '" + modalId + "'][contains(@style, 'display: block;')]")).Displayed);
         }
 
