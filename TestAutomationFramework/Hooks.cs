@@ -36,9 +36,10 @@ namespace TestAutomationFramework
                 //string environment = "b2c_alpha";
                 //string environment = "joomla_beta";
                 //string environment = "b2c_v12alpha";
-                string environment = "b2c_v12beta";
+                //string environment = "b2c_v12beta";
                 //string environment = "b2b_v12beta";
                 //string environment = "b2c_beta";
+                string environment = "utility_ui_v12alpha";
 
                 string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
                 ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
@@ -63,6 +64,15 @@ namespace TestAutomationFramework
                 Config.Global.Clear();
                 ConfigObject configFromJson = Config.ApplyJson(jsonString);
                 Config.SetDefaultConfig(configFromJson);
+            }
+        }
+
+        [BeforeScenario("utility_ui")]
+        public void InitializeUtilityUI()
+        {
+            if (!Config.Global.env_system_type.Contains("utility_ui"))
+            {
+                Assert.Inconclusive();
             }
         }
 

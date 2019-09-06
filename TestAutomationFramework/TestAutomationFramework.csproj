@@ -329,6 +329,7 @@
     <EmbeddedResource Include="Configuration\joomla_beta.conf" />
     <EmbeddedResource Include="Configuration\b2c_v12alpha.conf" />
     <EmbeddedResource Include="Configuration\b2c_v12beta.conf" />
+    <EmbeddedResource Include="Configuration\utility_ui_v12alpha.conf" />
     <None Include="Features\B2B_UDP\DirectUdpCommands.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DirectUdpCommands.feature.cs</LastGenOutput>
