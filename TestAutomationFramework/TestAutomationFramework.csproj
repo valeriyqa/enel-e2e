@@ -549,7 +549,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Energy\" />
+    <Folder Include="Features\Utility_UI\" />
     <Folder Include="Misc\" />
+    <Folder Include="POM\Utility_UI\" />
+    <Folder Include="Steps\UI\Utility_UI\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
