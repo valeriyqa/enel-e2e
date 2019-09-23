@@ -72,10 +72,12 @@ namespace TestAutomationFramework.Features.Utility_UI
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Utility_UI Login as Administrator")]
         [NUnit.Framework.CategoryAttribute("utility_ui")]
+        [NUnit.Framework.CategoryAttribute("web")]
         public virtual void Utility_UILoginAsAdministrator()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Utility_UI Login as Administrator", null, new string[] {
-                        "utility_ui"});
+                        "utility_ui",
+                        "web"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
