@@ -93,13 +93,21 @@ namespace TestAutomationFramework.POM
             driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/..//span[contains(text(), '" + selectValue + "')]")).Click();
         }
 
-        //public void SelectValueById(string selectId, string selectValue)
-        //{
-        //    //We use this xpath, since we have two types of selector (select with Id) and (div with Id and select inside).
-        //    //See Reports/UserSessions page for example
-        //    var selectElement = new SelectElement(driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/descendant-or-self::select")));
-        //    selectElement.SelectByValue(selectValue);
-        //}
+        public void SelectValueByIdGeneral(string selectId, string selectValue)
+        {
+            //We use this xpath, since we have two types of selector (select with Id) and (div with Id and select inside).
+            //See Reports/UserSessions page for example
+            var selectElement = new SelectElement(driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/descendant-or-self::select")));
+            selectElement.SelectByValue(selectValue);
+        }
+
+        public void SelectTextByIdGeneral(string selectId, string selectText)
+        {
+            //We use this xpath, since we have two types of selector (select with Id) and (div with Id and select inside).
+            //See Reports/UserSessions page for example
+            var selectElement = new SelectElement(driver.FindElement(By.XPath("//*[@id ='" + selectId + "']/descendant-or-self::select")));
+            selectElement.SelectByText(selectText);
+        }
 
         public string getSelectValueById(string selectId)
         {

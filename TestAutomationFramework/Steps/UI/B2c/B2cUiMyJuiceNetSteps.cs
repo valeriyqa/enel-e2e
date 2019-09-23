@@ -692,6 +692,11 @@ namespace TestAutomationFramework.Steps.UI
             }
         }
 
+        [When(@"I open details page for device ""(.*)"" from config \(b2c\)")]
+        public void WhenIOpenDetailsPageForDeviceFromConfigBc(string configKey)
+        {
+            driver.FindElement(By.XPath("//a[contains(@href, '/Portal/Details?unitID=" + Config.Global[configKey] + "')]")).Click();
+        }
 
     }
 }

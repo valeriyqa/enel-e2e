@@ -194,6 +194,13 @@ namespace TestAutomationFramework.Steps.UI
             generalPage.SelectValueById(selectId, selectValue);
         }
 
+        [When(@"I select ""(.*)"" on general selector with Id ""(.*)"" \(b2c\)")]
+        public void WhenISelectOnGeneralSelectorWithIdBc(string selectValue, string selectId)
+        {
+            var generalPage = new B2cGeneralPage(driver);
+            generalPage.SelectTextByIdGeneral(selectId, selectValue);
+        }
+
         [When(@"I select ""(.*)"" on selector with Label ""(.*)"" \(b2c\)")]
         public void WhenISelectOnSelectorWithLabelBc(string selectValue, string selectLabel)
         {
@@ -321,7 +328,7 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"Wait for (.*) sec")]
         public void WhenWaitForSec(int p0)
         {
-            Console.WriteLine("Waitong for: " + p0 + " seconds");
+            Console.WriteLine("Waiting for: " + p0 + " seconds");
             System.Threading.Thread.Sleep(p0 * 1000);
         }
 

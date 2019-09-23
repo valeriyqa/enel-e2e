@@ -349,6 +349,88 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("B2C_Web_Admin_Utilities_14 - Energy Groups HeatMaps")]
+        [NUnit.Framework.CategoryAttribute("b2c")]
+        [NUnit.Framework.CategoryAttribute("web")]
+        public virtual void B2C_Web_Admin_Utilities_14_EnergyGroupsHeatMaps()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_14 - Energy Groups HeatMaps", null, new string[] {
+                        "b2c",
+                        "web"});
+#line 228
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 229
+ testRunner.Given("I login to the system as \"Admin\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 230
+ testRunner.When("I navigate to the \"JuiceNet Device Lookup\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 231
+ testRunner.And("I set field \"inputUnitID\" to \"test5_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 232
+ testRunner.And("I click on related to the field with Id \"inputUnitID\" search button (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 233
+ testRunner.And("I select \"Xcel\" on general selector with Id \"ListOfUtilsDropdown\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 234
+ testRunner.And("I set field \"UtilNumInput\" to \"test5_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 235
+ testRunner.And("I click on button with Id \"UtilityUpdateBtn\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 236
+ testRunner.And("I open details page for device \"test5_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 237
+ testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 238
+ testRunner.And("I remember device timezone (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 239
+ testRunner.Given("I send heatmap API request for device \"test5_unit_id\" from config, with \"today\" d" +
+                    "ate to endpoint \"v1\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 240
+ testRunner.When("I navigate to the \"Energy Groups\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 241
+ testRunner.And("I set field \"groupNameInput\" to \"TestAutomationGroup\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 242
+ testRunner.And("I click on button with name \"Add Energy group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 243
+ testRunner.And("I click on the text \"TestAutomationGroup\" in the table \"List of groups\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 244
+ testRunner.And("I set field \"energy-group-add-unit-unitid\" to \"test5_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 245
+ testRunner.And("I click on button with Id \"energy-group-add-unit-btn\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 246
+ testRunner.Then("I wait until table with header \"Total energy (kW) 15 min period heat map under se" +
+                    "lected group\" will be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 247
+ testRunner.When("I set correct date range (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 248
+ testRunner.Then("heatmap data for date \"today\" with offset should be equal to previously sent (b2c" +
+                    ")", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 249
+ testRunner.Given("I send heatmap API request for device \"test5_unit_id\" from config, with \"today\" d" +
+                    "ate to endpoint \"v2\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 250
+ testRunner.When("I navigate to the \"Energy Groups\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 251
+ testRunner.And("I set field \"groupNameInput\" to \"TestAutomationGroup\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 252
+ testRunner.And("I click on button with name \"Add Energy group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 253
+ testRunner.And("I click on the text \"TestAutomationGroup\" in the table \"List of groups\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 254
+ testRunner.And("I set field \"energy-group-add-unit-unitid\" to \"test5_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 255
+ testRunner.And("I click on button with Id \"energy-group-add-unit-btn\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 256
+ testRunner.Then("I wait until table with header \"Total energy (kW) 15 min period heat map under se" +
+                    "lected group\" will be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 257
+ testRunner.When("I set correct date range (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 258
+ testRunner.Then("heatmap data for date \"yesterday\" with offset should be equal to previously sent " +
+                    "(b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -312,6 +312,7 @@
     <Compile Include="Steps\UI\Joomla\JoomlaCheckoutSteps.cs" />
     <Compile Include="Steps\UI\Joomla\JoomlaGeneralSteps.cs" />
     <Compile Include="Tools\ConvertDateTime.cs" />
+    <Compile Include="Tools\HeatMap.cs" />
     <Compile Include="Tools\LoadTableFromFile.cs" />
     <Compile Include="Tools\LoadFromConf.cs" />
   </ItemGroup>

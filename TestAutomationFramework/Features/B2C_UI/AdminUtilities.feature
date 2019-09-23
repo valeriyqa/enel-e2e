@@ -223,3 +223,36 @@ Scenario: B2C_Web_Admin_Utilities_13 - Delete Load Group with units in it
 #Click on Add selected JNDevices to Load Group
 #Display Add JuiceNet Devices To Load Group modal window with list of added IDs
 #Confirm devices added to dropdown list
+
+@b2c @web
+Scenario: B2C_Web_Admin_Utilities_14 - Energy Groups HeatMaps
+	Given I login to the system as "Admin" (b2c)
+	When I navigate to the "JuiceNet Device Lookup" page (b2c)
+	And I set field "inputUnitID" to "test5_unit_id" from config (b2c)
+	And I click on related to the field with Id "inputUnitID" search button (b2c)
+	And I select "Xcel" on general selector with Id "ListOfUtilsDropdown" (b2c)
+	And I set field "UtilNumInput" to "test5_unit_id" from config (b2c)
+	And I click on button with Id "UtilityUpdateBtn" (b2c)
+	And I open details page for device "test5_unit_id" from config (b2c)
+	And I click on tab with label "Settings" (b2c)
+	And I remember device timezone (b2c)
+	Given I send heatmap API request for device "test5_unit_id" from config, with "today" date to endpoint "v1" (b2c)
+	When I navigate to the "Energy Groups" page (b2c)
+	And I set field "groupNameInput" to "TestAutomationGroup" (b2c)
+	And I click on button with name "Add Energy group" (b2c)
+	And I click on the text "TestAutomationGroup" in the table "List of groups" (b2c)
+	And I set field "energy-group-add-unit-unitid" to "test5_unit_id" from config (b2c)
+	And I click on button with Id "energy-group-add-unit-btn" (b2c)
+	Then I wait until table with header "Total energy (kW) 15 min period heat map under selected group" will be displayed (b2c)
+	When I set correct date range (b2c)
+	Then heatmap data for date "today" with offset should be equal to previously sent (b2c)
+	Given I send heatmap API request for device "test5_unit_id" from config, with "today" date to endpoint "v2" (b2c)
+	When I navigate to the "Energy Groups" page (b2c)
+	And I set field "groupNameInput" to "TestAutomationGroup" (b2c)
+	And I click on button with name "Add Energy group" (b2c)
+	And I click on the text "TestAutomationGroup" in the table "List of groups" (b2c)
+	And I set field "energy-group-add-unit-unitid" to "test5_unit_id" from config (b2c)
+	And I click on button with Id "energy-group-add-unit-btn" (b2c)
+	Then I wait until table with header "Total energy (kW) 15 min period heat map under selected group" will be displayed (b2c)
+	When I set correct date range (b2c)
+	Then heatmap data for date "yesterday" with offset should be equal to previously sent (b2c)
