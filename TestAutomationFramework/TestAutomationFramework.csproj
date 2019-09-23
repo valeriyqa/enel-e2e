@@ -330,6 +330,7 @@
     <EmbeddedResource Include="Configuration\joomla_beta.conf" />
     <EmbeddedResource Include="Configuration\b2c_v12alpha.conf" />
     <EmbeddedResource Include="Configuration\b2c_v12beta.conf" />
+    <EmbeddedResource Include="Configuration\utility_ui_v12alpha.conf" />
     <None Include="Features\B2B_UDP\DirectUdpCommands.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DirectUdpCommands.feature.cs</LastGenOutput>
@@ -550,7 +551,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Energy\" />
+    <Folder Include="Features\Utility_UI\" />
     <Folder Include="Misc\" />
+    <Folder Include="POM\Utility_UI\" />
+    <Folder Include="Steps\UI\Utility_UI\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
