@@ -343,18 +343,42 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"Modal with Id ""(.*)"" should contain title ""(.*)"" \(b2c\)")]
         public void ThenModalWithIdShouldContainTitleBc(string modalId, string title)
         {
+            //
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.XPath("//div[@id = '" + modalId + "']//div[@class = 'modal-header']//*[contains(@class, 'modal-title')]")).Displayed);
+            //
             Assert.IsTrue(driver.FindElement(By.XPath("//div[@id = '" + modalId + "']//div[@class = 'modal-header']//*[contains(@class, 'modal-title')]")).Text.Contains(title));
         }
 
         [Then(@"field with Id ""(.*)"" should be equal to value from config ""(.*)"" \(b2c\)")]
         public void ThenFieldWithIdShouldBeEqualToValueFromConfigBc(string fieldId, string configKey)
         {
+            //
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.XPath("//*[@id = '" + fieldId + "']")).Displayed);
+            //
             Assert.IsTrue(driver.FindElement(By.XPath("//*[@id = '" + fieldId + "']")).Text.Contains(Config.Global[configKey]));
         }
 
         [Then(@"field with Id ""(.*)"" should contains ""(.*)"" symbols \(b2c\)")]
         public void ThenFieldWithIdShouldContainsSymbolsBc(string fieldId, int numberOfSymbols)
         {
+            //
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.XPath("//*[@id = '" + fieldId + "']")).Displayed);
+            //
+            for (int i = 0; i < 10; i++)
+            {
+                if (driver.FindElement(By.XPath("//*[@id = '" + fieldId + "']")).Text.Length == numberOfSymbols)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Try number: " + i);
+                    System.Threading.Thread.Sleep(500);
+                }
+            }
             Assert.AreEqual(numberOfSymbols, driver.FindElement(By.XPath("//*[@id = '" + fieldId + "']")).Text.Length);
         }
 
@@ -362,13 +386,40 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I close current modal window \(b2c\)")]
         public void WhenICloseCurrentModalWindowBc()
         {
-            var modalId = driver.FindElement(By.XPath("//div[contains(@class, 'modal fade')][contains(@style, 'display: block;')]")).GetAttribute("id");
-            driver.FindElement(By.XPath("//div[@id = '" + modalId + "']//button[contains(@class, 'close')]")).Click();
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(wd => driver.FindElement(By.XPath("//div[contains(@class, 'modal fade')][contains(@style, 'display: block;')]")));
+            var modalId = driver.FindElement(By.XPath("//div[contains(@class, 'modal fade')][contains(@style, 'display: block;')]")).GetAttribute("id");
+            for (int i = 0; i < 5; i++)
+            {
+                try
+                {
+                    driver.FindElement(By.XPath("//div[@id = '" + modalId + "']//button[contains(@class, 'close')]")).Click();
+                    break;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Unable to click modal window, try number:" + i+1);
+                    
+                }
+            }
+            //driver.FindElement(By.XPath("//div[@id = '" + modalId + "']//button[contains(@class, 'close')]")).Click();
+            //var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(wd => driver.FindElement(By.XPath("//div[@id = '" + modalId + "'][contains(@style, 'display: none;')]")));
             System.Threading.Thread.Sleep(1000);
 
         }
+
+
+        //[When(@"I close current modal window \(b2c\)")]
+        //public void WhenICloseCurrentModalWindowBc()
+        //{
+        //    var modalId = driver.FindElement(By.XPath("//div[contains(@class, 'modal fade')][contains(@style, 'display: block;')]")).GetAttribute("id");
+        //    driver.FindElement(By.XPath("//div[@id = '" + modalId + "']//button[contains(@class, 'close')]")).Click();
+        //    var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        //    wait.Until(wd => driver.FindElement(By.XPath("//div[@id = '" + modalId + "'][contains(@style, 'display: none;')]")));
+        //    System.Threading.Thread.Sleep(1000);
+
+        //}
 
         [Given(@"I wait for ""(.*)"" seconds \(b2c\)")]
         public void GivenIWaitForSecondsBc(int sec)

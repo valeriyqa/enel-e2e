@@ -485,6 +485,7 @@ Scenario: B2C_Web_MyJuiceNet_18 - Get shared pin
 	Then Modal with Id "request-share-pin-modal" should be displayed (b2c)
 	And Modal with Id "request-share-pin-modal" should contain title "JuiceNet Device Pairing Pin Code" (b2c)
 	And field with Id "request-share-pin-modal" should be equal to value from config "test4_unit_id" (b2c)
+	And field with Id "request-share-pin-modal-pincode" should contains "4" symbols (b2c)
 	And I remember Guest pairing pin (b2c)
 
 	Given I login to the system as "Admin" (b2c)

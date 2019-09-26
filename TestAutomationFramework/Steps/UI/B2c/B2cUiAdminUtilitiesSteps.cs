@@ -281,7 +281,8 @@ namespace TestAutomationFramework.Steps.UI
                 heatMapDate = heatMapDate + "Z";
             }
 
-            var urlPath = Config.Global.env_api_address.Replace("http://", "https://") + endPoint.ToLower() + "/unit/" + Config.Global[configKey] + "/data";
+            //var urlPath = Config.Global.env_api_address.Replace("http://", "https://") + endPoint.ToLower() + "/unit/" + Config.Global[configKey] + "/data";
+            var urlPath = "https://" +  Config.Global.env_udp_address + "/" + endPoint.ToLower() + "/unit/" + Config.Global[configKey] + "/data";
             Console.WriteLine(urlPath);
             var client = new RestClient(urlPath);
             var request = new RestRequest(Method.POST);
