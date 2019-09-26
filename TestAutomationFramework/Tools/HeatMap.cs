@@ -31,7 +31,8 @@ namespace TestAutomationFramework.Tools
                 {
                     list.Add(string.Empty);
                 }
-                else if (item == -1)
+                // Add "|| item == 0" since string "0" is not equal to "0.00"
+                else if (item == -1 || item == 0)
                 {
                     list.Add("0");
                 }
