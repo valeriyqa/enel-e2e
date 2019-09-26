@@ -277,6 +277,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>General.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\Utility_UI\Login.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.feature</DependentUpon>
+    </Compile>
     <Compile Include="Hooks.cs" />
     <Compile Include="POM\B2b\B2bGeneralPage.cs" />
     <Compile Include="POM\B2b\B2bLocationPage.cs" />
@@ -311,6 +316,7 @@
     <Compile Include="Steps\UI\B2c\B2cUiRegistrationAndLogInSteps.cs" />
     <Compile Include="Steps\UI\Joomla\JoomlaCheckoutSteps.cs" />
     <Compile Include="Steps\UI\Joomla\JoomlaGeneralSteps.cs" />
+    <Compile Include="Steps\UI\Utility_UI\Utility_UI_LoginSteps.cs" />
     <Compile Include="Tools\ConvertDateTime.cs" />
     <Compile Include="Tools\HeatMap.cs" />
     <Compile Include="Tools\LoadTableFromFile.cs" />
@@ -471,6 +477,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>General.feature.cs</LastGenOutput>
     </None>
+    <None Include="Features\Utility_UI\Login.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Login.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Services\ApiService\B2cRequests\add_account_unit.json" />
     <None Include="Services\ApiService\B2cRequests\add_car.json" />
@@ -551,10 +561,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Energy\" />
-    <Folder Include="Features\Utility_UI\" />
     <Folder Include="Misc\" />
     <Folder Include="POM\Utility_UI\" />
-    <Folder Include="Steps\UI\Utility_UI\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
