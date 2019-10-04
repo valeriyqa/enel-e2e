@@ -17,8 +17,8 @@ namespace TestAutomationFramework.Steps.UI
     public class Utility_UILoginSteps
     {
         private readonly string host            = Config.Global.env_utility_ui_address;
-        private readonly string userEmail       = Config.Global.admin_user_email;
-        private readonly string userPassword    = Config.Global.admin_user_password;
+        private readonly string userEmail       = Config.Global.utility_ui_admin_user_email;
+        private readonly string userPassword    = Config.Global.utility_ui_admin_user_password;
 
         private readonly RemoteWebDriver driver;
 
