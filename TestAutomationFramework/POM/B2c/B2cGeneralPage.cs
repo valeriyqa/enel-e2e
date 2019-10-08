@@ -133,7 +133,8 @@ namespace TestAutomationFramework.POM
             //We use this xpath, since we have two types of selector (select with label as brother) and (select with label as child).
             //See Reports/UserSessions page for example
             var selectElement = new SelectElement(driver.FindElement(By.XPath("//div//label[contains(text(),'" + selectLabel + "')]/..//select")));
-            selectElement.SelectByValue(selectValue);
+            //selectElement.SelectByValue(selectValue);
+            selectElement.SelectByText(selectValue);
         }
         public void SelectCheckboxByLabel(string selectLabel)
         {

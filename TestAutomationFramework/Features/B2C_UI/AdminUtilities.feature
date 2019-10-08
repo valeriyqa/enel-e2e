@@ -75,53 +75,58 @@ Scenario: B2C_Web_Admin_Utilities_03 - JuiceNet Device Lookup. Policy changes
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_05 - Add Device from User Lookup page
-#Create new device in JuiceBox Emulator
-#Copy Device ID
-#Login as Admin
-#Navigate to User Lookup page from Admin Utilities menu
-#User is navigated to empty User Lookup page with just search area cell
-#Enter user name (user should have 1 or more devices)
-#Confirm all user data and devices display
-#Go to "Add a JuiceNet device to this user's account" area and enter Device ID
-#Select Unit Admin Role
-#Click Add JuiceNet Device button
-#Device is added to unit table with selected role
-#Login as user
-#Check dashboard for a new device
-#Device display on dashboard
+	Given JuiceNet device with key in config "test1_unit_id" is not added (b2c)
+	And I login to the system as "Admin" (b2c)
+	When I navigate to the "User Lookup" page (b2c)
+	And I set field "userInfoInput" to "web_user_email" from config (b2c)
+	And I click on related to the field with Id "userInfoInput" search button (b2c)
+	And I set field "unitIDInput" to "test1_unit_id" from config (b2c)
+	When I select "Unit administrator" on selector with Label "Ownership Role" (b2c)
+	And I click on button with Id "addbox-button" (b2c)
+	Then unit with key in config "test1_unit_id" exist in the UserDevices table is "True" (b2c)
+
+	Given I login to the system as "WebUser" (b2c)
+	And I navigate to the "My JuiceNet Devices" page (b2c)
+	Then JuiceNet device with key in config "test1_unit_id" should exist is "True" (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_06 - Delete Device from User Lookup page
-#Login as Admin
-#Navigate to User Lookup page from Admin Utilities menu
-#User is navigated to empty User Lookup page with just search area cell
-#Enter user name (user should have 1 or more devices)
-#Confirm all user data and devices display
-#Click Remove button on a device row
-#Device is deleted from unit table
-#Login as user
-#Check dashboard for a deleted device
-#Device is deleted from dashboard
+	Given I login to the system as "Admin" (b2c)
+	When I navigate to the "User Lookup" page (b2c)
+	And I set field "userInfoInput" to "web_user_email" from config (b2c)
+	And I click on related to the field with Id "userInfoInput" search button (b2c)
+	Then unit with key in config "test1_unit_id" exist in the UserDevices table is "True" (b2c)
+	When I click remove button in the UserDevices table for unit with key in config "test1_unit_id" (b2c)
+	Then unit with key in config "test1_unit_id" exist in the UserDevices table is "False" (b2c)
+	
+	Given I login to the system as "WebUser" (b2c)
+	And I navigate to the "My JuiceNet Devices" page (b2c)
+	Then JuiceNet device with key in config "test1_unit_id" should exist is "False" (b2c)
+
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_07 - Assign admin role to user
-#Login as Admin
-#Navigate to User Lookup page from Admin Utilities menu
-#User is navigated to empty User Lookup page with just search area cell
-#Enter user name
-#Confirm all user data and devices display
-#Set user role to Admins
-#Login as user
-#Check License Agreement appear
-#Click Confirm buttom
-#Confirm Admin Utilities and OCPP menu items display
-#Login as Admin
-#Navigate to User Lookup page from Admin Utilities menu
-#Enter user name
-#Confirm all user data and devices display
-#Cancel Admins role
-#Login as user
-#Confirm no Admin Utilities and OCPP menu items display
+	Given I login to the system as "Admin" (b2c)
+	When I navigate to the "User Lookup" page (b2c)
+	And I set field "userInfoInput" to "web_user_email" from config (b2c)
+	And I click on related to the field with Id "userInfoInput" search button (b2c)
+	Given the "Admins" button from User roles button activated is "False" (b2c)
+	When I activate User roles button "Admins" (b2c)
+
+	Given I login to the system as "WebUser" (b2c)
+	And I accept user agreement is needed (b2c)
+	Then item with name "Admin Utilities" in the navigation menu should exist is "True" (b2c)
+	Then item with name "OCPP" in the navigation menu should exist is "True" (b2c)
+
+	Given I login to the system as "Admin" (b2c)
+	When I navigate to the "User Lookup" page (b2c)
+	And I set field "userInfoInput" to "web_user_email" from config (b2c)
+	And I click on related to the field with Id "userInfoInput" search button (b2c)
+	When I deactivate User roles button "Admins" (b2c)
+
+	Given I login to the system as "WebUser" (b2c)
+	Then item with name "Admin Utilities" in the navigation menu should exist is "False" (b2c)
+	Then item with name "OCPP" in the navigation menu should exist is "False" (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_08 - Add a new role
