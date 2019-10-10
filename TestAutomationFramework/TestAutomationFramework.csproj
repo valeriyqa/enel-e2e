@@ -301,6 +301,7 @@
     <Compile Include="Services\UdpService\UdpEndpointTest.cs" />
     <Compile Include="Steps\UDP\B2bTerminalTestSteps.cs" />
     <Compile Include="Steps\UI\B2b\B2bUiDeviceSteps.cs" />
+    <Compile Include="Steps\UI\B2c\B2cUiAdminManageRolesSteps.cs" />
     <Compile Include="Steps\UI\B2c\B2cUiAdminUserLookupSteps.cs" />
     <Compile Include="Steps\UI\B2c\B2cUiAdminUtilitiesSteps.cs" />
     <Compile Include="Steps\UI\B2c\B2cUiGeneralSteps.cs" />
