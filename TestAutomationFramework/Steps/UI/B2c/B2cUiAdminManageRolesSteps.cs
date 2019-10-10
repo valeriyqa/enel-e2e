@@ -33,7 +33,7 @@ namespace TestAutomationFramework.Steps.UI.B2c
                 {
                     try
                     {
-                        if (element.Text.Equals("roleName"))
+                        if (element.Text.Equals(roleName))
                         {
                             elementExist = true;
                             break;
@@ -59,9 +59,23 @@ namespace TestAutomationFramework.Steps.UI.B2c
         }
 
         [When(@"I click on switch for permission with id ""(.*)"" in the table ListOfPermissions \(b2c\)")]
-        public void WhenIClickOnSwitchForPermissionWithIdInTheTableListOfPermissionsBc(string permissionId)
+        public void WhenIClickOnSwitchForPermissionWithIdInTheTableListOfPermissionsBc(string permissionId, Table table)
         {
-            driver.FindElement(By.XPath("//table[@id = 'listOfPerm']//tbody//tr/td[1][contains(text(), '" + permissionId + "')]/..//div[contains(@class, 'btn')]//span")).Click();
+            foreach (var row in table.Rows)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    try
+                    {
+                        driver.FindElement(By.XPath("//table[@id = 'listOfPerm']//tbody//tr/td[1][contains(text(), '" + row[0] + "')]/..//div[contains(@class, 'btn')]//span")).Click();
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Unable to click switch " + row[0] + ", try: " + i);
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                }
+            }
         }
 
         [Then(@"all permissions in the table ListOfPermissions should be activated is ""(.*)"" \(b2c\)")]

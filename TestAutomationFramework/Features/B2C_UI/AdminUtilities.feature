@@ -129,18 +129,15 @@ Scenario: B2C_Web_Admin_Utilities_07 - Assign admin role to user
 	Then item with name "OCPP" in the navigation menu should exist is "False" (b2c)
 
 @b2c @web
-Scenario Outline: B2C_Web_Admin_Utilities_08 - Add a new role
+Scenario: B2C_Web_Admin_Utilities_08 - Add a new role
 	Given I login to the system as "Admin" (b2c)
 	When I navigate to the "Manage Roles" page (b2c)
 	And I set field with Id "roleNameInput" to "TestAutomationRole" (b2c)
 	And I click on button with name "Add role" (b2c)
-	Then unit with key in config "test1_unit_id" exist in the UserDevices table is "True" (b2c)
 	Then role with name "TestAutomationRole" exist in the ListOfRoles table is "True" (b2c)
 	When I click on the text "TestAutomationRole" in the table "List of roles" (b2c)
 	Then I wait until table with header "List of permissions" will be displayed (b2c)
 	When I click on switch for permission with id "<PermissionId>" in the table ListOfPermissions (b2c)
-	Then all permissions in the table ListOfPermissions should be activated is "True" (b2c)
-	Examples: 
 		| PermissionId     |
 		| GetSharePin      |
 		| SetChargingTime  |
@@ -150,6 +147,8 @@ Scenario Outline: B2C_Web_Admin_Utilities_08 - Add a new role
 		| SetUnitCurrent   |
 		| SetWireRating    |
 		| ViewHistory      |
+	Then all permissions in the table ListOfPermissions should be activated is "True" (b2c)
+
 
 
 
