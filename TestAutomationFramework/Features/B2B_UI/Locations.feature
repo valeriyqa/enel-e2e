@@ -4,7 +4,8 @@
 
 @b2b @web
 Scenario: B2B_Web_Locations_01 - Add location
-	#Given I login to the system as "Web user" (b2b)
+	Given I wait for "5" seconds (b2c)
+	Given I login to the system as "Web user" (b2b)
 	#And I navigate to the "Locations" page (b2b)
 	#And I delete location "Test Location" if exist (b2b)
 	#Then Location with name "Test Location" exist in the table is "False" (b2b)
@@ -49,4 +50,5 @@ Scenario: B2B_Web_Locations_05 - Delete Location
 	#And I click on the "Delete Location" button (b2b)
 	#And I click on the "Remove" button (b2b)
 	#Then Location with name "Test Location" exist in the table is "False" (b2b)
+
 

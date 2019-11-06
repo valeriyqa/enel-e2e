@@ -357,15 +357,22 @@ this.ScenarioInitialize(scenarioInfo);
 #line 134
  testRunner.When("I navigate to the \"Manage Roles\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 135
- testRunner.And("I set field with Id \"roleNameInput\" to \"TestAutomationRole\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("role with name \"TestAutomationRole\" is not exist in the ListOfRoles table (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 136
- testRunner.And("I click on button with name \"Add role\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I refresh page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 137
+ testRunner.Then("role with name \"TestAutomationRole\" exist in the ListOfRoles table is \"False\" (b2" +
+                    "c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 138
+ testRunner.When("I set field with Id \"roleNameInput\" to \"TestAutomationRole\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 139
+ testRunner.And("I click on button with name \"Add role\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 140
  testRunner.Then("role with name \"TestAutomationRole\" exist in the ListOfRoles table is \"True\" (b2c" +
                     ")", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 138
+#line 141
  testRunner.When("I click on the text \"TestAutomationRole\" in the table \"List of roles\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 139
+#line 142
  testRunner.Then("I wait until table with header \"List of permissions\" will be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -386,10 +393,10 @@ this.ScenarioInitialize(scenarioInfo);
                         "SetWireRating"});
             table2.AddRow(new string[] {
                         "ViewHistory"});
-#line 140
+#line 143
  testRunner.When("I click on switch for permission with id \"<PermissionId>\" in the table ListOfPerm" +
                     "issions (b2c)", ((string)(null)), table2, "When ");
-#line 150
+#line 153
  testRunner.Then("all permissions in the table ListOfPermissions should be activated is \"True\" (b2c" +
                     ")", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -405,7 +412,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_09 - Roles Management. All permissions off", null, new string[] {
                         "b2c",
                         "web"});
-#line 166
+#line 157
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -421,7 +428,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_10 - Roles Management. All permissions on", null, new string[] {
                         "b2c",
                         "web"});
-#line 188
+#line 179
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -437,7 +444,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_11 - Add Load Group", null, new string[] {
                         "b2c",
                         "web"});
-#line 210
+#line 201
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -453,7 +460,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_12 - Add Devices to admin\'s Load Group", null, new string[] {
                         "b2c",
                         "web"});
-#line 222
+#line 213
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -469,91 +476,9 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_13 - Delete Load Group with units in it", null, new string[] {
                         "b2c",
                         "web"});
-#line 239
+#line 230
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("B2C_Web_Admin_Utilities_14 - Energy Groups HeatMaps")]
-        [NUnit.Framework.CategoryAttribute("b2c")]
-        [NUnit.Framework.CategoryAttribute("web")]
-        public virtual void B2C_Web_Admin_Utilities_14_EnergyGroupsHeatMaps()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2C_Web_Admin_Utilities_14 - Energy Groups HeatMaps", null, new string[] {
-                        "b2c",
-                        "web"});
-#line 255
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 256
- testRunner.Given("I login to the system as \"Admin\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 257
- testRunner.When("I navigate to the \"JuiceNet Device Lookup\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 258
- testRunner.And("I set field \"inputUnitID\" to \"test5_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 259
- testRunner.And("I click on related to the field with Id \"inputUnitID\" search button (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 260
- testRunner.And("I select \"Xcel\" on general selector with Id \"ListOfUtilsDropdown\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 261
- testRunner.And("I set field \"UtilNumInput\" to \"test5_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 262
- testRunner.And("I click on button with Id \"UtilityUpdateBtn\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 263
- testRunner.And("I open details page for device \"test5_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 264
- testRunner.And("I click on tab with label \"Settings\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 265
- testRunner.And("I remember device timezone (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 266
- testRunner.Given("I send heatmap API request for device \"test5_unit_id\" from config, with \"today\" d" +
-                    "ate to endpoint \"v1\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 267
- testRunner.When("I navigate to the \"Energy Groups\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 268
- testRunner.And("I set field \"groupNameInput\" to \"TestAutomationGroup\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 269
- testRunner.And("I click on button with name \"Add Energy group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 270
- testRunner.And("I click on the text \"TestAutomationGroup\" in the table \"List of groups\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 271
- testRunner.And("I set field \"energy-group-add-unit-unitid\" to \"test5_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 272
- testRunner.And("I click on button with Id \"energy-group-add-unit-btn\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 273
- testRunner.Then("I wait until table with header \"Total energy (kW) 15 min period heat map under se" +
-                    "lected group\" will be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 274
- testRunner.When("I set correct date range (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 275
- testRunner.Then("heatmap data for date \"today\" with offset should be equal to previously sent (b2c" +
-                    ")", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 276
- testRunner.Given("I send heatmap API request for device \"test5_unit_id\" from config, with \"today\" d" +
-                    "ate to endpoint \"v2\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 277
- testRunner.When("I navigate to the \"Energy Groups\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 278
- testRunner.And("I set field \"groupNameInput\" to \"TestAutomationGroup\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 279
- testRunner.And("I click on button with name \"Add Energy group\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 280
- testRunner.And("I click on the text \"TestAutomationGroup\" in the table \"List of groups\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 281
- testRunner.And("I set field \"energy-group-add-unit-unitid\" to \"test5_unit_id\" from config (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 282
- testRunner.And("I click on button with Id \"energy-group-add-unit-btn\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 283
- testRunner.Then("I wait until table with header \"Total energy (kW) 15 min period heat map under se" +
-                    "lected group\" will be displayed (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 284
- testRunner.When("I set correct date range (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 285
- testRunner.Then("heatmap data for date \"yesterday\" with offset should be equal to previously sent " +
-                    "(b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

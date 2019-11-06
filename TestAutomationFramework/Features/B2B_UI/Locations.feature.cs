@@ -81,6 +81,10 @@ namespace TestAutomationFramework.Features.B2B_UI
 #line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
+#line 7
+ testRunner.Given("I wait for \"5\" seconds (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.Given("I login to the system as \"Web user\" (b2b)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -94,7 +98,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Locations_02 - Create sublocations", null, new string[] {
                         "b2b",
                         "web"});
-#line 19
+#line 20
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -110,7 +114,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Locations_03 - Delete Sublocations", null, new string[] {
                         "b2b",
                         "web"});
-#line 33
+#line 34
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -126,7 +130,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Locations_04 - Add second location with existing Location name", null, new string[] {
                         "b2b",
                         "web"});
-#line 36
+#line 37
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden
@@ -142,7 +146,7 @@ this.ScenarioInitialize(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("B2B_Web_Locations_05 - Delete Location", null, new string[] {
                         "b2b",
                         "web"});
-#line 45
+#line 46
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line hidden

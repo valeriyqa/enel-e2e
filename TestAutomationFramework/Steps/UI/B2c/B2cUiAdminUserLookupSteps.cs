@@ -64,8 +64,8 @@ namespace TestAutomationFramework.Steps.UI.B2c
         public void WhenIClickRemoveButtonInTheUserDevicesTableForUnitWithKeyInConfigBc(string configKey)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(wd => driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '373708001')]")).Displayed);
-            driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '373708001')]")).Click();
+            wait.Until(wd => driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")).Displayed);
+            driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")).Click();
         }
 
         [Then(@"item with name ""(.*)"" in the navigation menu should exist is ""(.*)"" \(b2c\)")]
