@@ -28,20 +28,20 @@ namespace TestAutomationFramework
         {
             if (File.Exists(Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents", "taf_is_local.txt")))
             {
-                //Use this variable to set local environment;
-                //string environment = "b2b_beta2";
-                //string environment = "b2c_prod";
-                //string environment = "b2b_prod";
-                //string environment = "b2b_alpha";
-                //string environment = "b2c_alpha";
-                //string environment = "joomla_beta";
-                //string environment = "b2c_v12alpha";
-                string environment = "b2c_v12beta";
-                //string environment = "b2b_v12beta";
-                //string environment = "b2c_beta";
-                //string environment = "utility_ui_v12alpha";
+                //Use this variable to set local myEnvironment;
+                //string myEnvironment = "b2b_beta2";
+                //string myEnvironment = "b2c_prod";
+                //string myEnvironment = "b2b_prod";
+                //string myEnvironment = "b2b_alpha";
+                //string myEnvironment = "b2c_alpha";
+                //string myEnvironment = "joomla_beta";
+                //string myEnvironment = "b2c_v12alpha";
+                string myEnvironment = "b2c_v12beta";
+                //string myEnvironment = "b2b_v12beta";
+                //string myEnvironment = "b2c_beta";
+                //string myEnvironment = "utility_ui_v12alpha";
 
-                string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", environment + ".conf");
+                string systemConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Configuration\", myEnvironment + ".conf");
                 ConfigObject configFromFile = Config.ApplyJsonFromFileInfo(new FileInfo(systemConfigPath));
                 Config.SetDefaultConfig(configFromFile);
             }
