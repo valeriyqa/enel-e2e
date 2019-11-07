@@ -91,6 +91,7 @@ Scenario: B2C_Web_Admin_Utilities_05 - Add Device from User Lookup page
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_06 - Delete Device from User Lookup page
+	Given JuiceNet device with key in config "test1_unit_id" is added (b2c)
 	Given I login to the system as "Admin" (b2c)
 	When I navigate to the "User Lookup" page (b2c)
 	And I set field "userInfoInput" to "web_user_email" from config (b2c)

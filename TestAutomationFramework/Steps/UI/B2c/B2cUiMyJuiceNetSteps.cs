@@ -47,6 +47,21 @@ namespace TestAutomationFramework.Steps.UI
             RestApi.SendApiRequest(RestApi.GetApiRequest("delete_account_unit"));
         }
 
+        [Given(@"JuiceNet device with key in config ""(.*)"" is added \(b2c\)")]
+        public void GivenJuiceNetDeviceWithKeyInConfigIsAddedBc(string configKey)
+        {
+            string prefix = configKey.Substring(0, configKey.IndexOf('_'));
+
+            var dictionary = new Dictionary<string, Object>();
+            dictionary.Add("account_token", Config.Global["api_account_token"]);
+            dictionary.Add("device_id", Config.Global["api_device_id"]);
+            dictionary.Add("token", Config.Global[prefix + "_token"]);
+
+            var response = RestApi.SendApiRequest(RestApi.GetApiRequest("add_account_unit", dictionary));
+            Assert.IsTrue(response.Content.Contains("\"success\": true"));
+        }
+
+
         [Given(@"JuiceNet device with key in config ""(.*)"" is not added \(b2c\)")]
         public void GivenJuiceNetDeviceWithIdInConfigIsNotAddedBc(string configKey)
         {
