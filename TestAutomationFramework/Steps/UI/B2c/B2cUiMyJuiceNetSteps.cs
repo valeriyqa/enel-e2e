@@ -50,15 +50,25 @@ namespace TestAutomationFramework.Steps.UI
         [Given(@"JuiceNet device with key in config ""(.*)"" is added \(b2c\)")]
         public void GivenJuiceNetDeviceWithKeyInConfigIsAddedBc(string configKey)
         {
+            //Clean it
+            Console.WriteLine("Step: JuiceNet device with key in config " + configKey + " is added (b2c) Started");
             string prefix = configKey.Substring(0, configKey.IndexOf('_'));
+            //Clean it
+            Console.WriteLine("Prefix = " + prefix);
 
             var dictionary = new Dictionary<string, Object>();
             dictionary.Add("account_token", Config.Global["api_account_token"]);
             dictionary.Add("device_id", Config.Global["api_device_id"]);
             dictionary.Add("token", Config.Global[prefix + "_token"]);
+            //Clean it
+            Console.WriteLine("Add to dictionary: account_token = " + Config.Global["api_account_token"]);
+            Console.WriteLine("Add to dictionary: device_id = " + Config.Global["api_device_id"]);
+            Console.WriteLine("Add to dictionary: token = " + Config.Global["_token"]);
 
             var response = RestApi.SendApiRequest(RestApi.GetApiRequest("add_account_unit", dictionary));
             Assert.IsTrue(response.Content.Contains("\"success\": true"));
+            //Clean it
+            Console.WriteLine("Step: JuiceNet device with key in config " + configKey + " is added (b2c) Finished");
         }
 
 

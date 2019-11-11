@@ -149,11 +149,16 @@ namespace TestAutomationFramework.Steps.UI
         [Given(@"I login to the system as ""(.*)"" \(b2c\)")]
         public void GivenILoginToTheB2cSystemAs(string userName)
         {
+            //Clean it
+            Console.WriteLine("Step: I login to the system as " + userName + " (b2c) Started");
+
             driver.Navigate().GoToUrl(host + "Account/Login");
             B2cLoginPage loginPage = new B2cLoginPage(driver);
             Tools.LoadFromConf.User currentUser = usersDictionary[userName];
             loginPage.LoginToApplication(currentUser.userEmail, currentUser.userPassword);
             B2cGeneralPage generalPage = new B2cGeneralPage(driver);
+            //Clean it
+            Console.WriteLine("Step: I login to the system as " + userName + " (b2c) Finished");
         }
 
         //Delete it if work normally
