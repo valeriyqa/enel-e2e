@@ -83,8 +83,18 @@ namespace TestAutomationFramework.Steps.UI.B2c
         {
             //Clean it
             Console.WriteLine("Step: I click remove button in the UserDevices table for unit with key in config " + configKey + "  (b2c) Started");
+            
+            //Clean it
+            Console.WriteLine("Set wait to 10 sec");
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            
+            //Clean it
+            Console.WriteLine("Wait until element will displayed");
             wait.Until(wd => driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")).Displayed);
+
+            //Clean it
+            Console.WriteLine("Trying to click element");
+            Console.WriteLine("element" + driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")));
             driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")).Click();
             //Clean it
             Console.WriteLine("Step: I click remove button in the UserDevices table for unit with key in config " + configKey + "  (b2c) Finished");
