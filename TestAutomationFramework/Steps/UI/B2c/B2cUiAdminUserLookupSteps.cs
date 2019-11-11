@@ -21,6 +21,8 @@ namespace TestAutomationFramework.Steps.UI.B2c
         [Then(@"unit with key in config ""(.*)"" exist in the UserDevices table is ""(.*)"" \(b2c\)")]
         public void ThenUnitWithKeyInConfigExistInTheUserDevicesTableIsBc(string configKey, string shouldExist)
         {
+            //Clean it
+            Console.WriteLine("Step: unit with key in config " + configKey + " exist in the UserDevices table is " + shouldExist + "  (b2c) Started");
 
             IList<IWebElement> all;
             bool elementExist = false;
@@ -58,6 +60,8 @@ namespace TestAutomationFramework.Steps.UI.B2c
 
             }
             Assert.AreEqual(elementShouldExist, elementExist);
+            //Clean it
+            Console.WriteLine("Step: unit with key in config " + configKey + " exist in the UserDevices table is " + shouldExist + "  (b2c) Started");
         }
 
         [When(@"I click remove button in the UserDevices table for unit with key in config ""(.*)"" \(b2c\)")]

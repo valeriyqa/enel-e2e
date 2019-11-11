@@ -57,7 +57,11 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I click on related to the field with Id ""(.*)"" search button \(b2c\)")]
         public void WhenIClickOnRelatedToTheFieldWithIdSearchButtonBc(string deviceID)
         {
+            //Clean it
+            Console.WriteLine("Step: I click on related to the field with Id " + deviceID + " search button (b2c) Started");
             driver.FindElement(By.XPath("//input[@id='" + deviceID + "']/ancestor-or-self::div/span//i")).Click();
+            //Clean it
+            Console.WriteLine("Step: I click on related to the field with Id " + deviceID + " search button (b2c) Started");
         }
 
         [Then(@"I wait ""(.*)"" seconds \(b2c\)")]
