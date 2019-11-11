@@ -63,7 +63,7 @@ namespace TestAutomationFramework.Steps.UI.B2c
                 {
                     //Clean it
                     Console.WriteLine("We leave internal foreach since elementExist = true");
-                    return;
+                    break;
                 }
                 else
                 {
@@ -81,9 +81,13 @@ namespace TestAutomationFramework.Steps.UI.B2c
         [When(@"I click remove button in the UserDevices table for unit with key in config ""(.*)"" \(b2c\)")]
         public void WhenIClickRemoveButtonInTheUserDevicesTableForUnitWithKeyInConfigBc(string configKey)
         {
+            //Clean it
+            Console.WriteLine("Step: I click remove button in the UserDevices table for unit with key in config " + configKey + "  (b2c) Started");
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(wd => driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")).Displayed);
             driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")).Click();
+            //Clean it
+            Console.WriteLine("Step: I click remove button in the UserDevices table for unit with key in config " + configKey + "  (b2c) Finished");
         }
 
         [Then(@"item with name ""(.*)"" in the navigation menu should exist is ""(.*)"" \(b2c\)")]
