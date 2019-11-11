@@ -63,7 +63,7 @@ namespace TestAutomationFramework.Steps.UI
             //Clean it
             Console.WriteLine("Add to dictionary: account_token = " + Config.Global["api_account_token"]);
             Console.WriteLine("Add to dictionary: device_id = " + Config.Global["api_device_id"]);
-            Console.WriteLine("Add to dictionary: token = " + Config.Global["_token"]);
+            Console.WriteLine("Add to dictionary: token = " + Config.Global[prefix + "_token"]);
 
             var response = RestApi.SendApiRequest(RestApi.GetApiRequest("add_account_unit", dictionary));
             Assert.IsTrue(response.Content.Contains("\"success\": true"));

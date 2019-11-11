@@ -59,9 +59,12 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I navigate to the ""(.*)"" page \(b2c\)")]
         public void INavigateToThePageB2B(string pageName)
         {
+            //Clean it
+            Console.WriteLine("Step: I navigate to the " + pageName + " page (b2c) Started");
             var generalPage = new B2cGeneralPage(driver);
             generalPage.ClickMenuByName(pageName);
             Assert.AreEqual(driver.Url, generalPage.GetAddressByMenuName(pageName));
+            Console.WriteLine("Step: I navigate to the " + pageName + " page (b2c) Finished");
         }
 
         [Given(@"field with Id ""(.*)"" is equal to ""(.*)"" \(b2c\)")]

@@ -70,12 +70,16 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I set field ""(.*)"" to ""(.*)"" from config \(b2c\)")] //Ok
         public void WhenISetFieldToFromConfigBc(string fieldId, string configKey)
         {
+            //Clean it
+            Console.WriteLine("Step: I set field " + fieldId + " to " + Config.Global[configKey] + " from config (b2c) Started");
             Console.WriteLine("Set field with Id: " + fieldId + " to: " + Config.Global[configKey]);
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(wd => driver.FindElementById(fieldId).Displayed);
             driver.FindElementById(fieldId).Clear();
             driver.FindElementById(fieldId).SendKeys(Config.Global[configKey]);
             Console.WriteLine("Field with Id: " + fieldId + " equals to: " + driver.FindElementById(fieldId).GetAttribute("value"));
+            //Clean it
+            Console.WriteLine("Step: I set field " + fieldId + " to " + Config.Global[configKey] + " from config (b2c) Finished");
         }
 
         //Set value to field
