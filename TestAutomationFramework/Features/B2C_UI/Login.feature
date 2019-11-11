@@ -2,7 +2,7 @@
 	Check if login functionality works
 
 #@b2c @web
-#Scenario: B2C_Web_ Login to the application as registered user
+Scenario: B2C_Web_ Login to the application as registered user
 #	Given I login to the system as "Oleksii" (b2c)
 #	#And I navigate to the "My JuiceNet" page (b2c)
 #	And I navigate to the "My JuiceNet Devices" page (b2c)

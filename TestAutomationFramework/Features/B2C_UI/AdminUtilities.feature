@@ -4,61 +4,61 @@
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_01 - JuiceNet Device Lookup
-	Given I login to the system as "WebUser" (b2c)
-	And I navigate to the "My JuiceNet Devices" page (b2c)
-	Then JuiceNet device with key in config "test2_unit_id" should exist is "True" (b2c)
-	Given I login to the system as "Admin" (b2c)
-	And I navigate to the "JuiceNet Device Lookup" page (b2c)
-	When I set field "inputUnitID" to "test2_unit_id" from config (b2c)
-	And I click on related to the field with Id "inputUnitID" search button (b2c)
-	Then Info tab should contains unit with Id "test2_unit_id" from config file (b2c)
+	#Given I login to the system as "WebUser" (b2c)
+	#And I navigate to the "My JuiceNet Devices" page (b2c)
+	#Then JuiceNet device with key in config "test2_unit_id" should exist is "True" (b2c)
+	#Given I login to the system as "Admin" (b2c)
+	#And I navigate to the "JuiceNet Device Lookup" page (b2c)
+	#When I set field "inputUnitID" to "test2_unit_id" from config (b2c)
+	#And I click on related to the field with Id "inputUnitID" search button (b2c)
+	#Then Info tab should contains unit with Id "test2_unit_id" from config file (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_02 - JuiceNet Device Lookup with active TOU
-	Given I login to the system as "WebUser" (b2c)
-	And I navigate to the "My JuiceNet Devices" page (b2c)
-	Then JuiceNet device with key in config "test3_unit_id" should exist is "True" (b2c)
-	When I click More Details for device with key in config "test3_unit_id" (b2c)
-	And I click on tab with label "Settings" (b2c)
-	Given switch with Id "toggleTOU" is not activated (b2c)
-	When I click on switch with Id "toggleTOU" (b2c)
-	And I remeber the current time on device (b2c)
-	And I set TOU time to "current" (b2c)
-	And I click on the Update button for pannel with Id "panelTOU" (b2c)
-	Given I login to the system as "Admin" (b2c)
-	And I navigate to the "JuiceNet Device Lookup" page (b2c)
-	When I set field "inputUnitID" to "test3_unit_id" from config (b2c)
-	And I click on related to the field with Id "inputUnitID" search button (b2c)
-	Then Info tab should contains unit with Id "test3_unit_id" from config file (b2c)
-	Then TOU time on the Admin/JuiceNetDeviceLookup page should be equal to "current" (b2c)
+	#Given I login to the system as "WebUser" (b2c)
+	#And I navigate to the "My JuiceNet Devices" page (b2c)
+	#Then JuiceNet device with key in config "test3_unit_id" should exist is "True" (b2c)
+	#When I click More Details for device with key in config "test3_unit_id" (b2c)
+	#And I click on tab with label "Settings" (b2c)
+	#Given switch with Id "toggleTOU" is not activated (b2c)
+	#When I click on switch with Id "toggleTOU" (b2c)
+	#And I remeber the current time on device (b2c)
+	#And I set TOU time to "current" (b2c)
+	#And I click on the Update button for pannel with Id "panelTOU" (b2c)
+	#Given I login to the system as "Admin" (b2c)
+	#And I navigate to the "JuiceNet Device Lookup" page (b2c)
+	#When I set field "inputUnitID" to "test3_unit_id" from config (b2c)
+	#And I click on related to the field with Id "inputUnitID" search button (b2c)
+	#Then Info tab should contains unit with Id "test3_unit_id" from config file (b2c)
+	#Then TOU time on the Admin/JuiceNetDeviceLookup page should be equal to "current" (b2c)
 	
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_03 - JuiceNet Device Lookup. Policy changes
-	Given I login to the system as "WebUser" (b2c)
-	And I navigate to the "My JuiceNet Devices" page (b2c)
-	Then JuiceNet device with key in config "test3_unit_id" should exist is "True" (b2c)
-	Given I login to the system as "Admin" (b2c)
-	And I navigate to the "Manage Device Policies" page (b2c)
-	When I set field "inputUnitID" to "test3_unit_id" from config (b2c)
-	And I click on related to the field with Id "inputUnitID" search button (b2c)
-	Given related to Device ID policy set to "Default" (b2c)
-	When I click on button with name "Set Green WT" (b2c)
-	Then I should see related to Device ID policy "Green WT" (b2c)
-	When I navigate to the "JuiceNet Device Lookup" page (b2c)
-	And I set field "inputUnitID" to "test3_unit_id" from config (b2c)
-	And I click on related to the field with Id "inputUnitID" search button (b2c)
-	Then Info tab should contains unit with Id "test3_unit_id" from config file (b2c)
-	And I should see Unit Policy "Green Box" (b2c)
-	When I navigate to the "Manage Device Policies" page (b2c)
-	And I set field "inputUnitID" to "test3_unit_id" from config (b2c)
-	And I click on related to the field with Id "inputUnitID" search button (b2c)
-	When I click on button with name "Default" (b2c)
-	Then I should see related to Device ID policy "Default" (b2c)
+	#Given I login to the system as "WebUser" (b2c)
+	#And I navigate to the "My JuiceNet Devices" page (b2c)
+	#Then JuiceNet device with key in config "test3_unit_id" should exist is "True" (b2c)
+	#Given I login to the system as "Admin" (b2c)
+	#And I navigate to the "Manage Device Policies" page (b2c)
+	#When I set field "inputUnitID" to "test3_unit_id" from config (b2c)
+	#And I click on related to the field with Id "inputUnitID" search button (b2c)
+	#Given related to Device ID policy set to "Default" (b2c)
+	#When I click on button with name "Set Green WT" (b2c)
+	#Then I should see related to Device ID policy "Green WT" (b2c)
+	#When I navigate to the "JuiceNet Device Lookup" page (b2c)
+	#And I set field "inputUnitID" to "test3_unit_id" from config (b2c)
+	#And I click on related to the field with Id "inputUnitID" search button (b2c)
+	#Then Info tab should contains unit with Id "test3_unit_id" from config file (b2c)
+	#And I should see Unit Policy "Green Box" (b2c)
+	#When I navigate to the "Manage Device Policies" page (b2c)
+	#And I set field "inputUnitID" to "test3_unit_id" from config (b2c)
+	#And I click on related to the field with Id "inputUnitID" search button (b2c)
+	#When I click on button with name "Default" (b2c)
+	#Then I should see related to Device ID policy "Default" (b2c)
 
 #Probably we have to add method that change status for all devices to Stanby before check them in the Admin UI,
 #since sometimes they can be missing
-#@b2c @web
-#Scenario: B2C_Web_Admin_Utilities_04 - JuiceNet Device Lookup. Search by IP
+@b2c @web
+Scenario: B2C_Web_Admin_Utilities_04 - JuiceNet Device Lookup. Search by IP
 #	Given I login to the system as "WebUser" (b2c)
 #	And I navigate to the "My JuiceNet Devices" page (b2c)
 #	When I remeber id for all added devices (b2c)
@@ -75,83 +75,83 @@ Scenario: B2C_Web_Admin_Utilities_03 - JuiceNet Device Lookup. Policy changes
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_05 - Add Device from User Lookup page
-	Given JuiceNet device with key in config "test1_unit_id" is not added (b2c)
-	And I login to the system as "Admin" (b2c)
-	When I navigate to the "User Lookup" page (b2c)
-	And I set field "userInfoInput" to "web_user_email" from config (b2c)
-	And I click on related to the field with Id "userInfoInput" search button (b2c)
-	And I set field "unitIDInput" to "test1_unit_id" from config (b2c)
-	When I select "Unit administrator" on selector with Label "Ownership Role" (b2c)
-	And I click on button with Id "addbox-button" (b2c)
-	Then unit with key in config "test1_unit_id" exist in the UserDevices table is "True" (b2c)
-
-	Given I login to the system as "WebUser" (b2c)
-	And I navigate to the "My JuiceNet Devices" page (b2c)
-	Then JuiceNet device with key in config "test1_unit_id" should exist is "True" (b2c)
+#	Given JuiceNet device with key in config "test1_unit_id" is not added (b2c)
+#	And I login to the system as "Admin" (b2c)
+#	When I navigate to the "User Lookup" page (b2c)
+#	And I set field "userInfoInput" to "web_user_email" from config (b2c)
+#	And I click on related to the field with Id "userInfoInput" search button (b2c)
+#	And I set field "unitIDInput" to "test1_unit_id" from config (b2c)
+#	When I select "Unit administrator" on selector with Label "Ownership Role" (b2c)
+#	And I click on button with Id "addbox-button" (b2c)
+#	Then unit with key in config "test1_unit_id" exist in the UserDevices table is "True" (b2c)
+#
+#	Given I login to the system as "WebUser" (b2c)
+#	And I navigate to the "My JuiceNet Devices" page (b2c)
+#	Then JuiceNet device with key in config "test1_unit_id" should exist is "True" (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_06 - Delete Device from User Lookup page
-	Given JuiceNet device with key in config "test1_unit_id" is added (b2c)
-	Given I login to the system as "Admin" (b2c)
-	When I navigate to the "User Lookup" page (b2c)
-	And I set field "userInfoInput" to "web_user_email" from config (b2c)
-	And I click on related to the field with Id "userInfoInput" search button (b2c)
-	Then unit with key in config "test1_unit_id" exist in the UserDevices table is "True" (b2c)
-	When I click remove button in the UserDevices table for unit with key in config "test1_unit_id" (b2c)
-	Then unit with key in config "test1_unit_id" exist in the UserDevices table is "False" (b2c)
-	
-	Given I login to the system as "WebUser" (b2c)
-	And I navigate to the "My JuiceNet Devices" page (b2c)
-	Then JuiceNet device with key in config "test1_unit_id" should exist is "False" (b2c)
+	#Given JuiceNet device with key in config "test1_unit_id" is added (b2c)
+	#Given I login to the system as "Admin" (b2c)
+	#When I navigate to the "User Lookup" page (b2c)
+	#And I set field "userInfoInput" to "web_user_email" from config (b2c)
+	#And I click on related to the field with Id "userInfoInput" search button (b2c)
+	#Then unit with key in config "test1_unit_id" exist in the UserDevices table is "True" (b2c)
+	#When I click remove button in the UserDevices table for unit with key in config "test1_unit_id" (b2c)
+	#Then unit with key in config "test1_unit_id" exist in the UserDevices table is "False" (b2c)
+	#
+	#Given I login to the system as "WebUser" (b2c)
+	#And I navigate to the "My JuiceNet Devices" page (b2c)
+	#Then JuiceNet device with key in config "test1_unit_id" should exist is "False" (b2c)
 
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_07 - Assign admin role to user
-	Given I login to the system as "Admin" (b2c)
-	When I navigate to the "User Lookup" page (b2c)
-	And I set field "userInfoInput" to "web_user_email" from config (b2c)
-	And I click on related to the field with Id "userInfoInput" search button (b2c)
-	Given the "Admins" button from User roles button activated is "False" (b2c)
-	When I activate User roles button "Admins" (b2c)
-
-	Given I login to the system as "WebUser" (b2c)
-	And I accept user agreement is needed (b2c)
-	Then item with name "Admin Utilities" in the navigation menu should exist is "True" (b2c)
-	Then item with name "OCPP" in the navigation menu should exist is "True" (b2c)
-
-	Given I login to the system as "Admin" (b2c)
-	When I navigate to the "User Lookup" page (b2c)
-	And I set field "userInfoInput" to "web_user_email" from config (b2c)
-	And I click on related to the field with Id "userInfoInput" search button (b2c)
-	When I deactivate User roles button "Admins" (b2c)
-
-	Given I login to the system as "WebUser" (b2c)
-	Then item with name "Admin Utilities" in the navigation menu should exist is "False" (b2c)
-	Then item with name "OCPP" in the navigation menu should exist is "False" (b2c)
+#	Given I login to the system as "Admin" (b2c)
+#	When I navigate to the "User Lookup" page (b2c)
+#	And I set field "userInfoInput" to "web_user_email" from config (b2c)
+#	And I click on related to the field with Id "userInfoInput" search button (b2c)
+#	Given the "Admins" button from User roles button activated is "False" (b2c)
+#	When I activate User roles button "Admins" (b2c)
+#
+#	Given I login to the system as "WebUser" (b2c)
+#	And I accept user agreement is needed (b2c)
+#	Then item with name "Admin Utilities" in the navigation menu should exist is "True" (b2c)
+#	Then item with name "OCPP" in the navigation menu should exist is "True" (b2c)
+#
+#	Given I login to the system as "Admin" (b2c)
+#	When I navigate to the "User Lookup" page (b2c)
+#	And I set field "userInfoInput" to "web_user_email" from config (b2c)
+#	And I click on related to the field with Id "userInfoInput" search button (b2c)
+#	When I deactivate User roles button "Admins" (b2c)
+#
+#	Given I login to the system as "WebUser" (b2c)
+#	Then item with name "Admin Utilities" in the navigation menu should exist is "False" (b2c)
+#	Then item with name "OCPP" in the navigation menu should exist is "False" (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_08 - Add a new role
-	Given I login to the system as "Admin" (b2c)
-	When I navigate to the "Manage Roles" page (b2c)
-	Given role with name "TestAutomationRole" is not exist in the ListOfRoles table (b2c)
-	When I refresh page (b2c)
-	Then role with name "TestAutomationRole" exist in the ListOfRoles table is "False" (b2c)
-	When I set field with Id "roleNameInput" to "TestAutomationRole" (b2c)
-	And I click on button with name "Add role" (b2c)
-	Then role with name "TestAutomationRole" exist in the ListOfRoles table is "True" (b2c)
-	When I click on the text "TestAutomationRole" in the table "List of roles" (b2c)
-	Then I wait until table with header "List of permissions" will be displayed (b2c)
-	When I click on switch for permission with id "<PermissionId>" in the table ListOfPermissions (b2c)
-		| PermissionId     |
-		| GetSharePin      |
-		| SetChargingTime  |
-		| SetNotifications |
-		| SetOverride      |
-		| SetTOU           |
-		| SetUnitCurrent   |
-		| SetWireRating    |
-		| ViewHistory      |
-	Then all permissions in the table ListOfPermissions should be activated is "True" (b2c)
+	#Given I login to the system as "Admin" (b2c)
+	#When I navigate to the "Manage Roles" page (b2c)
+	#Given role with name "TestAutomationRole" is not exist in the ListOfRoles table (b2c)
+	#When I refresh page (b2c)
+	#Then role with name "TestAutomationRole" exist in the ListOfRoles table is "False" (b2c)
+	#When I set field with Id "roleNameInput" to "TestAutomationRole" (b2c)
+	#And I click on button with name "Add role" (b2c)
+	#Then role with name "TestAutomationRole" exist in the ListOfRoles table is "True" (b2c)
+	#When I click on the text "TestAutomationRole" in the table "List of roles" (b2c)
+	#Then I wait until table with header "List of permissions" will be displayed (b2c)
+	#When I click on switch for permission with id "<PermissionId>" in the table ListOfPermissions (b2c)
+	#	| PermissionId     |
+	#	| GetSharePin      |
+	#	| SetChargingTime  |
+	#	| SetNotifications |
+	#	| SetOverride      |
+	#	| SetTOU           |
+	#	| SetUnitCurrent   |
+	#	| SetWireRating    |
+	#	| ViewHistory      |
+	#Then all permissions in the table ListOfPermissions should be activated is "True" (b2c)
 
 
 @b2c @web
