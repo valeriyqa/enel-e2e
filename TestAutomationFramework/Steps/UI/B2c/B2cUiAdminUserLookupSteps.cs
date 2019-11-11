@@ -28,29 +28,41 @@ namespace TestAutomationFramework.Steps.UI.B2c
             bool elementExist = false;
             bool elementShouldExist = bool.Parse(shouldExist);
 
+            //Clean it
+            Console.WriteLine("We before external for circle");
             for (int i = 0; i < 10; i++)
             {
                 System.Threading.Thread.Sleep(500);
                 all = driver.FindElements(By.XPath("//table[@id = 'boxlist']//tbody//tr/td[2]/a"));
-
+                //Clean it
+                Console.WriteLine("Iteration: " + i + ", we before internal foreach");
                 foreach (IWebElement element in all)
                 {
                     try
                     {
+                        //Clean it
+                        Console.WriteLine("Check element text (" + element.Text + ") equals (" + Config.Global[configKey] + ")");
                         if (element.Text.Equals(Config.Global[configKey]))
                         {
+                            //Clean it
+                            Console.WriteLine("Yes it true. Set elementExist variable to True");
                             elementExist = true;
                             break;
                         }
+                        //Clean it
+                        Console.WriteLine("No it false");
                     }
                     catch (Exception)
                     {
-
+                        //Clean it
+                        Console.WriteLine("We catch exception");
                     }
 
                 }
                 if (elementShouldExist.Equals(elementExist))
                 {
+                    //Clean it
+                    Console.WriteLine("We leave internal foreach since elementExist = true");
                     return;
                 }
                 else
@@ -59,9 +71,11 @@ namespace TestAutomationFramework.Steps.UI.B2c
                 }
 
             }
+            //Clean it
+            Console.WriteLine("We assert are equal: " + elementShouldExist + " and " + elementExist);
             Assert.AreEqual(elementShouldExist, elementExist);
             //Clean it
-            Console.WriteLine("Step: unit with key in config " + configKey + " exist in the UserDevices table is " + shouldExist + "  (b2c) Started");
+            Console.WriteLine("Step: unit with key in config " + configKey + " exist in the UserDevices table is " + shouldExist + "  (b2c) Finished");
         }
 
         [When(@"I click remove button in the UserDevices table for unit with key in config ""(.*)"" \(b2c\)")]
