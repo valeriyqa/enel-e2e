@@ -628,18 +628,24 @@ namespace TestAutomationFramework.Steps.UI
             }
 
             //Clean it
-            Console.WriteLine("Step: I switch view to " + viewType + " (b2c) Started");
+            Console.WriteLine("Step: I switch view to " + viewType + " (b2c) Finished");
         }
 
         //possible pair options "Google App", "Amazon Alexa", "Guest Pin"
         [When(@"I click pair to ""(.*)"" button for device with key in config ""(.*)"" \(b2c\)")]
         public void WhenIClickPairToButtonForDeviceWithKeyInConfigBc(string pairOption, string configKey)
         {
+            //Clean it
+            Console.WriteLine("Step: I click pair to " + pairOption + " button for device with key in config " + Config.Global[configKey] + " (b2c) Started");
+
             var pairOptionFormatted = Regex.Replace(pairOption, @"(^\w)|(\s\w)", m => m.Value.ToUpper()).Replace(" ", string.Empty);
             Enum.TryParse(pairOptionFormatted, out B2cMyJuiceNetDevicesPage.pairButtonType pairButton);
             
             var page = new B2cMyJuiceNetDevicesPage(driver);
             page.clickPairButtonForDeviceWithId(pairButton, Config.Global[configKey]);
+
+            //Clean it
+            Console.WriteLine("Step: I click pair to " + pairOption + " button for device with key in config " + Config.Global[configKey] + " (b2c) Finished");
         }
 
         [When(@"I remember Guest pairing pin \(b2c\)")]
