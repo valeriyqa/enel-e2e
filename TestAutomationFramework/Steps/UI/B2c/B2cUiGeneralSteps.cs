@@ -61,7 +61,9 @@ namespace TestAutomationFramework.Steps.UI
         {
             Console.WriteLine("Step: I navigate to the " + pageName + " page (b2c) Started");
             var generalPage = new B2cGeneralPage(driver);
+            Console.WriteLine("Go to method generalPage.ClickMenuByName(" + pageName + ")");
             generalPage.ClickMenuByName(pageName);
+            Console.WriteLine("Assert are equal: " + driver.Url + " = " + generalPage.GetAddressByMenuName(pageName));
             Assert.AreEqual(driver.Url, generalPage.GetAddressByMenuName(pageName));
             Console.WriteLine("Step: I navigate to the " + pageName + " page (b2c) Finished");
         }
@@ -109,6 +111,7 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"field with Label ""(.*)"" should be equal to ""(.*)"" \(b2c\)")]
         public void ThenFieldWithLabelShouldBeEqualToBc(string fieldLabel, string fieldValue)
         {
+            Console.WriteLine("Step: field with Label " + fieldLabel + " should be equal to " + fieldValue + " (b2c) Started");
             var generalPage = new B2cGeneralPage(driver);
             string result = generalPage.GetInputValueByLabel(fieldLabel);
             string expectedResult;
@@ -129,6 +132,7 @@ namespace TestAutomationFramework.Steps.UI
             Console.WriteLine("Expected result:" + expectedResult);
 
             Assert.AreEqual(expectedResult, result);
+            Console.WriteLine("Step: field with Label " + fieldLabel + " should be equal to " + fieldValue + " (b2c) Finished");
         }
 
         [When(@"I set field with Id ""(.*)"" to ""(.*)"" \(b2c\)")]
@@ -217,9 +221,11 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I click on button with Id ""(.*)"" \(b2c\)")]
         public void WhenIClickOnButtonWithId(string buttonId)
         {
+            Console.WriteLine("Step: I click on button with Id " + buttonId + " (b2c) Started");
             var generalPage = new B2cGeneralPage(driver);
             generalPage.ClickButtonWithId(buttonId);
             //System.Threading.Thread.Sleep(5000);
+            Console.WriteLine("Step: I click on button with Id " + buttonId + " (b2c) Finished");
         }
 
         [When(@"I click on button with name ""(.*)"" \(b2c\)")]

@@ -185,6 +185,7 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I click all checkboxes on panel with Id ""(.*)"" \(b2c\)")]
         public void WhenIClickAllCheckboxesOnPanelWithId(string panelId)
         {
+            Console.WriteLine("Step: I click all checkboxes on panel with Id " + panelId + " (b2c) Started");
             IList<IWebElement> allCheckboxes = driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"));
             for (int i = 0; i < allCheckboxes.Count; i++)
             {
@@ -195,21 +196,25 @@ namespace TestAutomationFramework.Steps.UI
             //{
             //    checkbox.Click();
             //}
+            Console.WriteLine("Step: I click all checkboxes on panel with Id " + panelId + " (b2c) Finished");
         }
 
         [Then(@"all checkboxes on panel with Id ""(.*)"" should be activated \(b2c\)")]
         public void ThenAllCheckboxesOnPanelWithIdShouldBeActivated(string panelId)
         {
+            Console.WriteLine("Step: all checkboxes on panel with Id " + panelId + " should be activated (b2c) Started");
             IList<IWebElement> allCheckboxes = driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"));
             foreach (var checkbox in allCheckboxes)
             {
                 Assert.AreEqual("true", checkbox.GetAttribute("checked"));
             }
+            Console.WriteLine("Step: all checkboxes on panel with Id " + panelId + " should be activated (b2c) Started");
         }
 
         [Given(@"all checkboxes on panel with Id ""(.*)"" is not activated \(b2c\)")]
         public void AllCheckboxesOnPanelWithIdIsNotActivated(string panelId)
         {
+            Console.WriteLine("Step: all checkboxes on panel with Id " + panelId + " is not activated (b2c) Started");
             IList<IWebElement> allCheckboxes = driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"));
             for (int i = 0; i < allCheckboxes.Count; i++)
             {
@@ -223,6 +228,7 @@ namespace TestAutomationFramework.Steps.UI
             generalPage.ClickButtonWithId("saveNotificationsButton");
 
             System.Threading.Thread.Sleep(1000);
+            Console.WriteLine("Step: all checkboxes on panel with Id " + panelId + " is not activated (b2c) Finished");
         }
 
         [Then(@"I click on tab with label ""(.*)"" \(b2c\)")]

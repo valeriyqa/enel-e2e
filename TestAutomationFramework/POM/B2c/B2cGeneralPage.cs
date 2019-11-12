@@ -22,16 +22,22 @@ namespace TestAutomationFramework.POM
 
         public void ClickMenuByName(string menuName)
         {
+            Console.WriteLine("Method: ClickMenuByName Started, with menuName = " + menuName);
+            Console.WriteLine("Wait until side menu will be displayed");
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(wd => driver.FindElement(By.Id("side-menu")).Displayed);
 
+            Console.WriteLine("Before IF");
             if (!driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]")).Displayed)
             {
+                Console.WriteLine("Insided IF");
                 driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]//ancestor::ul[@class='nav nav-second-level collapse']/../a")).Click();
                 System.Threading.Thread.Sleep(500);
             }
+            Console.WriteLine("After IF");
             wait.Until(wd => driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]")).Displayed);
             driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]")).Click();
+            Console.WriteLine("Method: ClickMenuByName Finished");
         }
 
         public string GetAddressByMenuName(string menuName)
