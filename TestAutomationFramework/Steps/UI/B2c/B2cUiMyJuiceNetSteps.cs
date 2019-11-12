@@ -640,11 +640,13 @@ namespace TestAutomationFramework.Steps.UI
 
             var pairOptionFormatted = Regex.Replace(pairOption, @"(^\w)|(\s\w)", m => m.Value.ToUpper()).Replace(" ", string.Empty);
             Enum.TryParse(pairOptionFormatted, out B2cMyJuiceNetDevicesPage.pairButtonType pairButton);
+            
             //Clean it
             Console.WriteLine("pairOptionFormatted = " + pairOptionFormatted);
-
-
+            
             var page = new B2cMyJuiceNetDevicesPage(driver);
+            //Clean it
+            Console.WriteLine("Starting clickPairButtonForDeviceWithId method");
             page.clickPairButtonForDeviceWithId(pairButton, Config.Global[configKey]);
 
             //Clean it
