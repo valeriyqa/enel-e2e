@@ -608,6 +608,9 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I switch view to ""(.*)"" \(b2c\)")]
         public void WhenISwitchViewToBc(string viewType)
         {
+            //Clean it
+            Console.WriteLine("Step: I switch view to " + viewType + " (b2c) Started");
+
             Console.WriteLine("Trying to click view button: " + viewType);
             switch (viewType.ToLower())
             {
@@ -623,6 +626,9 @@ namespace TestAutomationFramework.Steps.UI
                     Assert.Fail("Unknown view type: " + viewType);
                     return;
             }
+
+            //Clean it
+            Console.WriteLine("Step: I switch view to " + viewType + " (b2c) Started");
         }
 
         //possible pair options "Google App", "Amazon Alexa", "Guest Pin"

@@ -75,19 +75,19 @@ Scenario: B2C_Web_Admin_Utilities_04 - JuiceNet Device Lookup. Search by IP
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_05 - Add Device from User Lookup page
-	Given JuiceNet device with key in config "test1_unit_id" is not added (b2c)
-	And I login to the system as "Admin" (b2c)
-	When I navigate to the "User Lookup" page (b2c)
-	And I set field "userInfoInput" to "web_user_email" from config (b2c)
-	And I click on related to the field with Id "userInfoInput" search button (b2c)
-	And I set field "unitIDInput" to "test1_unit_id" from config (b2c)
-	When I select "Unit administrator" on selector with Label "Ownership Role" (b2c)
-	And I click on button with Id "addbox-button" (b2c)
-	Then unit with key in config "test1_unit_id" exist in the UserDevices table is "True" (b2c)
-
-	Given I login to the system as "WebUser" (b2c)
-	And I navigate to the "My JuiceNet Devices" page (b2c)
-	Then JuiceNet device with key in config "test1_unit_id" should exist is "True" (b2c)
+#	Given JuiceNet device with key in config "test1_unit_id" is not added (b2c)
+#	And I login to the system as "Admin" (b2c)
+#	When I navigate to the "User Lookup" page (b2c)
+#	And I set field "userInfoInput" to "web_user_email" from config (b2c)
+#	And I click on related to the field with Id "userInfoInput" search button (b2c)
+#	And I set field "unitIDInput" to "test1_unit_id" from config (b2c)
+#	When I select "Unit administrator" on selector with Label "Ownership Role" (b2c)
+#	And I click on button with Id "addbox-button" (b2c)
+#	Then unit with key in config "test1_unit_id" exist in the UserDevices table is "True" (b2c)
+#
+#	Given I login to the system as "WebUser" (b2c)
+#	And I navigate to the "My JuiceNet Devices" page (b2c)
+#	Then JuiceNet device with key in config "test1_unit_id" should exist is "True" (b2c)
 
 @b2c @web
 Scenario: B2C_Web_Admin_Utilities_06 - Delete Device from User Lookup page
