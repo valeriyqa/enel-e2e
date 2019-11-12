@@ -31,7 +31,9 @@ namespace TestAutomationFramework.POM
             if (!driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]")).Displayed)
             {
                 Console.WriteLine("Insided IF");
-                driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]//ancestor::ul[@class='nav nav-second-level collapse']/../a")).Click();
+                //driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]//ancestor::ul[@class='nav nav-second-level collapse']/../a")).Click();
+                IJavaScriptExecutor executor = (IJavaScriptExecutor)driver;
+                executor.ExecuteScript("arguments[0].click();", driver.FindElement(By.XPath("//ul[@id = 'side-menu']//a[contains(text(),'" + menuName + "')]//ancestor::ul[@class='nav nav-second-level collapse']/../a")));
                 System.Threading.Thread.Sleep(500);
             }
             Console.WriteLine("After IF");
