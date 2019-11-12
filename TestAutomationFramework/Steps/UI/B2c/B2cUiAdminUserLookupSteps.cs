@@ -91,11 +91,14 @@ namespace TestAutomationFramework.Steps.UI.B2c
             //Clean it
             Console.WriteLine("Wait until element will displayed");
             wait.Until(wd => driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")).Displayed);
-            System.Threading.Thread.Sleep(500);
             //Clean it
             Console.WriteLine("Trying to click element");
-            Console.WriteLine("element" + driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")));
-            driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")).Click();
+            //Console.WriteLine("element" + driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")));
+            //driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")).Click();
+
+            IJavaScriptExecutor executor = (IJavaScriptExecutor)driver;
+            executor.ExecuteScript("arguments[0].click();", driver.FindElement(By.XPath("//table[@id = 'boxlist']//tbody//tr/td/a[contains(@data-unit-id, '" + Config.Global[configKey] + "')]")));
+
             //Clean it
             Console.WriteLine("Step: I click remove button in the UserDevices table for unit with key in config " + configKey + "  (b2c) Finished");
         }
