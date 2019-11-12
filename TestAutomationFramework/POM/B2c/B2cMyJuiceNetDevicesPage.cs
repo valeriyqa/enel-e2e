@@ -19,7 +19,9 @@ namespace TestAutomationFramework.POM.B2c
                     driver.FindElement(By.XPath("//*[contains(@data-unitid, '" + deviceId + "')]//button[@data-target = '#googleAppPairInfo']")).Click();
                     break;
                 case pairButtonType.GuestPin:
-                    driver.FindElement(By.XPath("//*[contains(@data-unitid, '" + deviceId + "')]//a[contains(@class, 'request-share-pin-button')]")).Click();
+                    //driver.FindElement(By.XPath("//*[contains(@data-unitid, '" + deviceId + "')]//a[contains(@class, 'request-share-pin-button')]")).Click();
+                    IJavaScriptExecutor executor = (IJavaScriptExecutor)driver;
+                    executor.ExecuteScript("arguments[0].click();", driver.FindElement(By.XPath("//*[contains(@data-unitid, '" + deviceId + "')]//a[contains(@class, 'request-share-pin-button')]")));
                     break;
                 
             }
