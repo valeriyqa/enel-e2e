@@ -88,29 +88,29 @@ this.ScenarioInitialize(scenarioInfo);
 #line 9
  testRunner.Then("I should be navigated to the \"Account/Register\" page (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "FieldId",
                         "Value"});
-            table2.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "Email",
                         "example@example.com"});
-            table2.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "pwdinpuit",
                         "Pa$$w0rd"});
-            table2.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "ConfirmPassword",
                         "Pa$$w0rd"});
 #line 10
- testRunner.When("I set field \"<FieldId>\" to \"<Value>\" (b2c)", ((string)(null)), table2, "When ");
+ testRunner.When("I set field \"<FieldId>\" to \"<Value>\" (b2c)", ((string)(null)), table4, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "FieldId"});
-            table3.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "pwdinpuit"});
-            table3.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "ConfirmPassword"});
 #line 15
- testRunner.Then("field \"<FieldId>\" should be masked (b2c)", ((string)(null)), table3, "Then ");
+ testRunner.Then("field \"<FieldId>\" should be masked (b2c)", ((string)(null)), table5, "Then ");
 #line 19
  testRunner.When("I set field \"Fullname\" to \"Vasia Pupkin\" (b2c)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 21
