@@ -59,7 +59,6 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I navigate to the ""(.*)"" page \(b2c\)")]
         public void INavigateToThePageB2B(string pageName)
         {
-            //Clean it
             Console.WriteLine("Step: I navigate to the " + pageName + " page (b2c) Started");
             var generalPage = new B2cGeneralPage(driver);
             generalPage.ClickMenuByName(pageName);
@@ -135,8 +134,10 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I set field with Id ""(.*)"" to ""(.*)"" \(b2c\)")]
         public void WhenISetFieldWithIdToBc(string fieldId, string fieldValue)
         {
+            Console.WriteLine("Step: I set field with Id " + fieldId + " to " + fieldValue + " (b2c) Started");
             var generalPage = new B2cGeneralPage(driver);
             generalPage.SetInputValueById(fieldId, fieldValue);
+            Console.WriteLine("Step: I set field with Id " + fieldId + " to " + fieldValue + " (b2c) Finished");
         }
 
         [When(@"I set field with Label ""(.*)"" to ""(.*)"" \(b2c\)")]
@@ -160,9 +161,11 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I select key from config ""(.*)"" on selector with Id ""(.*)"" \(b2c\)")]
         public void WhenISelectKeysFromConfigOnSelectorWithIdBc(string configKey, string selectorId)
         {
+            Console.WriteLine("Step: I select key from config " + configKey + " on selector with Id " + selectorId + " (b2c) Started");
             driver.FindElement(By.XPath("//*[@id ='" + selectorId + "']/..//span[contains(@class, 'pull-right enel-select-arrow')]")).Click();
             driver.FindElement(By.XPath("//*[@id ='" + selectorId + "']/..//input[contains(@value, '" + Config.Global[configKey] + "')]/../span")).Click();
             driver.FindElement(By.XPath("//*[@id ='" + selectorId + "']/..//span[contains(@class, 'pull-right enel-select-arrow')]")).Click();
+            Console.WriteLine("Step: I select key from config " + configKey + " on selector with Id " + selectorId + " (b2c) Finished");
         }
 
 
@@ -222,9 +225,11 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I click on button with name ""(.*)"" \(b2c\)")]
         public void WhenIClickOnButton(string buttonText)
         {
+            Console.WriteLine("Step: I click on button with name " + buttonText + " (b2c) Started");
             var generalPage = new B2cGeneralPage(driver);
             generalPage.ClickButtonWithName(buttonText);
             //System.Threading.Thread.Sleep(5000);
+            Console.WriteLine("Step: I click on button with name " + buttonText + " (b2c) Finished");
         }
 
         [When(@"I get all data from table with Id ""(.*)"" \(b2c\)")]
@@ -307,6 +312,7 @@ namespace TestAutomationFramework.Steps.UI
         [Given(@"switch with Id ""(.*)"" is not activated \(b2c\)")]
         public void GivenSwitchWithIdIsNotActivatedBc(string switchId)
         {
+            Console.WriteLine("Step: switch with Id " + switchId + " is not activated (b2c) Started");
             var generalPage = new B2cGeneralPage(driver);
             var JuiceBoxPage = new B2cJuiceBoxPage(driver);
             if (generalPage.IsSwitchWithIdOn(switchId))
@@ -317,6 +323,7 @@ namespace TestAutomationFramework.Steps.UI
 
             }
             Assert.False(generalPage.IsSwitchWithIdOn(switchId));
+            Console.WriteLine("Step: switch with Id " + switchId + " is not activated (b2c) Finished");
         }
         [When(@"I select item by checkbox name ""(.*)"" \(b2c\)")]
         public void WhenISelectItemByCheckboxNameBc(string deviceName)

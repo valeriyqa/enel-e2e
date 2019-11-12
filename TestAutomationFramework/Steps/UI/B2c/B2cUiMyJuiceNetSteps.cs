@@ -169,8 +169,10 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I click More Details for device with key in config ""(.*)"" \(b2c\)")] //Ok
         public void WhenIClickMoreDetailsForDeviceWithKeyInConfigBc(string configKey)
         {
+            Console.WriteLine("Step: I click More Details for device with key in config " + configKey + " (b2c) Started");
             //driver.FindElementByXPath("//div[@data-unitid = '" + Config.Global[configKey] + "']//div[contains(@class, 'panel-footer')]//span").Click();
             driver.FindElementByXPath("//div[@data-unitid = '" + Config.Global[configKey] + "']//div[contains(@class, 'row')]//a").Click();
+            Console.WriteLine("Step: I click More Details for device with key in config " + configKey + " (b2c) Finished");
         }
 
 
@@ -227,8 +229,11 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I click on tab with label ""(.*)"" \(b2c\)")]
         public void WhenIClickOnTabWithLable(string label)
         {
+            Console.WriteLine("Step: I click on tab with label " + label + " (b2c) Started");
             driver.FindElement(By.XPath("//ul[@id = 'unit_details_tabs']//span[contains(text(),'" + label + "')]//ancestor::a")).Click();
+            Console.WriteLine("Step: I click on tab with label " + label + " (b2c) Finished");
         }
+
 
         [Then(@"table should be empty \(b2c\)")]
         public void ThenTableShouldBeEmptyBc()
@@ -299,6 +304,7 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"device should cheange status to ""(.*)"" \(b2c\)")]
         public void ThenDeviceStatusShouldCheangeToBc(string deviceStatus)
         {
+            Console.WriteLine("Step: device should cheange status to " + deviceStatus + " (B2C) Started");
             string result = "";
             for (int i = 0; i < 10; i++)
             {
@@ -312,6 +318,7 @@ namespace TestAutomationFramework.Steps.UI
                 }
             }
             Assert.Fail("Device status equals to \"" + result + "\", not to \"" + deviceStatus + "\"");
+            Console.WriteLine("Step: device should cheange status to " + deviceStatus + " (B2C) Finished");
         }
 
 
@@ -436,7 +443,9 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I click ""(.*)"" button for load group ""(.*)"" \(b2c\)")]
         public void WhenIClickButtonForLoadGroupBc(string buttonName, string loadGroupName)
         {
+            Console.WriteLine("Step: I click " + buttonName + " button for load group " + loadGroupName + " (B2C) Started");
             driver.FindElement(By.XPath("//table[contains(@id, 'loadgroups-table')]//tbody//*[text()[contains(.,'" + loadGroupName + "')]]/ancestor::tr//button[contains(@class, '" + buttonName + "')]")).Click();
+            Console.WriteLine("Step: I click " + buttonName + " button for load group " + loadGroupName + " (B2C) Finished");
         }
 
 
@@ -591,6 +600,7 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"sum of the Current Limit for all devices should be lower then ""(.*)"" \(b2c\)")]
         public void ThenSumOfTheCurrentLimitForAllDevicesShouldBeLowerThenBc(string currentLimit)
         {
+            Console.WriteLine("Step: sum of the Current Limit for all devices should be lower then " + currentLimit + " (b2c) Started");
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(wd => driver.FindElement(By.XPath("//div[@id='lg-device-add-result-modal'][contains(@style,'display: none;')]")));
             System.Threading.Thread.Sleep(500);
@@ -602,6 +612,7 @@ namespace TestAutomationFramework.Steps.UI
                 total += Int32.Parse(item.Text);
             }
             Assert.True(total <= Int32.Parse(currentLimit) & total >= 0);
+            Console.WriteLine("Step: sum of the Current Limit for all devices should be lower then " + currentLimit + " (b2c) Finished");
         }
 
         //posible values "list", "grid"

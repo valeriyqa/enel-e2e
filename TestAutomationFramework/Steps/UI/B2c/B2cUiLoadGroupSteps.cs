@@ -27,6 +27,7 @@ namespace TestAutomationFramework.Steps.UI
         [Given(@"load group table is empty \(b2c\)")]
         public void GivenLoadGroupTableIsEmptyBc()
         {
+            Console.WriteLine("Step: load group table is empty (b2c) Started");
             var generalPage = new B2cGeneralPage(driver);
             IJavaScriptExecutor js = driver;
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -42,6 +43,7 @@ namespace TestAutomationFramework.Steps.UI
                     generalPage.ClickButtonWithName("Close");
                 }
             }
+            Console.WriteLine("Step: load group table is empty (b2c) Finished");
         }
 
         [Then(@"Add JuiceNet Device window should show message ""(.*)"" for device ""(.*)"" from config \(b2c\)")]
@@ -69,6 +71,7 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"Alert with status ""(.*)"" and text ""(.*)"" should be displayed \(b2c\)")]
         public void ThenAlertWithStatusAndTextShouldBeDisplayedBc(string alertStatus, string alertString)
         {
+            Console.WriteLine("Step: Alert with status " + alertStatus + " and text " + alertString + " should be displayed (b2c) Started");
             var generalPage = new B2cGeneralPage(driver);
             for (int i = 0; i < 10; i++)
             {
@@ -88,11 +91,13 @@ namespace TestAutomationFramework.Steps.UI
                 }
             }
             Assert.Fail();
+            Console.WriteLine("Step: Alert with status " + alertStatus + " and text " + alertString + " should be displayed (b2c) Finished");
         }
 
         [Then(@"Load group with name ""(.*)"" should apear in the table is ""(.*)"" \(b2c\)")]
         public void ThenLoadGroupWithNameShouldApearInTheTableIsBc(string groupName, string isExist)
         {
+            Console.WriteLine("Step: Load group with name " + groupName + " should apear in the table is " + isExist + " (b2c) Started");
             System.Threading.Thread.Sleep(500);
             var generalPage = new B2cGeneralPage(driver);
             DataTable Table = generalPage.GetTableById("loadgroups-table");
@@ -105,6 +110,7 @@ namespace TestAutomationFramework.Steps.UI
                 }
             }
             Assert.AreEqual(Boolean.Parse(isExist), false);
+            Console.WriteLine("Step: Load group with name " + groupName + " should apear in the table is " + isExist + " (b2c) Finished");
         }
 
         [Then(@"I check load group ""(.*)"" for ""(.*)"" units in table \(b2c\)")]
@@ -145,16 +151,20 @@ namespace TestAutomationFramework.Steps.UI
         [Then(@"Load group table should be empty \(b2c\)")]
         public void ThenLoadGroupTableShouldBeEmptyBc()
         {
+            Console.WriteLine("Step: Load group table should be empty (b2c) Started");
             System.Threading.Thread.Sleep(500);
             IJavaScriptExecutor js = driver;
             Assert.AreEqual((Int64)js.ExecuteScript("return $('button.btn-delete-load-group').length;"), 0);
+            Console.WriteLine("Step: Load group table should be empty (b2c) Finished");
         }
 
         [When(@"I click on empty Load group with name ""(.*)"" string in table \(b2c\)")]
         [Given(@"I click on empty Load group with name ""(.*)"" string in table \(b2c\)")]
         public void GivenIClickOnEmptyLoadGroupWithNameStringInTableBc(string groupName)
         {
+            Console.WriteLine("Step: I click on empty Load group with name " + groupName + " string in table (b2c) Started");
             driver.FindElement(By.XPath("//*[@id='loadgroups-table']//input[contains(@value,'" + groupName + "')]//ancestor::td")).Click();
+            Console.WriteLine("Step: I click on empty Load group with name " + groupName + " string in table (b2c) Finished");
         }
 
         [Then(@"Device with key in config ""(.*)"" area contain load group icon \(b2c\)")]

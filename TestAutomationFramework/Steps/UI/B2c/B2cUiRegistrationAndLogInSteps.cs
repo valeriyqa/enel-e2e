@@ -70,7 +70,7 @@ namespace TestAutomationFramework.Steps.UI
         [When(@"I set field ""(.*)"" to ""(.*)"" from config \(b2c\)")] //Ok
         public void WhenISetFieldToFromConfigBc(string fieldId, string configKey)
         {
-            //Clean it
+            
             Console.WriteLine("Step: I set field " + fieldId + " to " + Config.Global[configKey] + " from config (b2c) Started");
             Console.WriteLine("Set field with Id: " + fieldId + " to: " + Config.Global[configKey]);
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -78,7 +78,7 @@ namespace TestAutomationFramework.Steps.UI
             driver.FindElementById(fieldId).Clear();
             driver.FindElementById(fieldId).SendKeys(Config.Global[configKey]);
             Console.WriteLine("Field with Id: " + fieldId + " equals to: " + driver.FindElementById(fieldId).GetAttribute("value"));
-            //Clean it
+            
             Console.WriteLine("Step: I set field " + fieldId + " to " + Config.Global[configKey] + " from config (b2c) Finished");
         }
 
@@ -153,7 +153,6 @@ namespace TestAutomationFramework.Steps.UI
         [Given(@"I login to the system as ""(.*)"" \(b2c\)")]
         public void GivenILoginToTheB2cSystemAs(string userName)
         {
-            //Clean it
             Console.WriteLine("Step: I login to the system as " + userName + " (b2c) Started");
 
             driver.Navigate().GoToUrl(host + "Account/Login");
@@ -161,7 +160,7 @@ namespace TestAutomationFramework.Steps.UI
             Tools.LoadFromConf.User currentUser = usersDictionary[userName];
             loginPage.LoginToApplication(currentUser.userEmail, currentUser.userPassword);
             B2cGeneralPage generalPage = new B2cGeneralPage(driver);
-            //Clean it
+
             Console.WriteLine("Step: I login to the system as " + userName + " (b2c) Finished");
         }
 

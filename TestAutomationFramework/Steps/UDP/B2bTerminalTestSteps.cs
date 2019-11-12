@@ -83,6 +83,7 @@ namespace TestAutomationFramework.Steps.UDP
         [When(@"I send UDP package with status ""(.*)"" to device with key in config ""(.*)""")]
         public void WhenISendUDPPackageWithStatusToDeviceWithKeyInConfig(string deviceChargeState, string configKey)
         {
+            Console.WriteLine("Step: I send UDP package with status " + deviceChargeState + " to device with key in config " + configKey + " Started");
             System.Threading.Thread.Sleep(3000);
 
             testData.unitId = Config.Global[configKey];
@@ -110,6 +111,7 @@ namespace TestAutomationFramework.Steps.UDP
                     Console.WriteLine("WARNING!!! No UPD response, step: " + step);
                 }
             }
+            Console.WriteLine("Step: I send UDP package with status " + deviceChargeState + " to device with key in config " + configKey + " Finished");
         }
 
 
