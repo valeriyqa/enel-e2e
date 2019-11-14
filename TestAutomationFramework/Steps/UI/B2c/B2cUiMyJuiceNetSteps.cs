@@ -189,7 +189,9 @@ namespace TestAutomationFramework.Steps.UI
             IList<IWebElement> allCheckboxes = driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"));
             for (int i = 0; i < allCheckboxes.Count; i++)
             {
+                Console.WriteLine("Click on the " + i + " element");
                 driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]/../ label"))[i].Click();
+                Console.WriteLine("Element value after click is: " + driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"))[i].GetAttribute("checked"));
             }
 
             Console.WriteLine("Step: I click all checkboxes on panel with Id " + panelId + " (b2c) Finished");
@@ -202,8 +204,23 @@ namespace TestAutomationFramework.Steps.UI
             IList<IWebElement> allCheckboxes = driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"));
             foreach (var checkbox in allCheckboxes)
             {
-                Console.WriteLine("Check box attribute: " + checkbox.GetAttribute("checked"));
-                Assert.AreEqual("true", checkbox.GetAttribute("checked"));
+                for (int i = 0; i < 3; i++)
+                {
+                    try
+                    {
+                        Console.WriteLine("Try to get checkbox attribute, try nember: " + i);
+                        var attrValue = checkbox.GetAttribute("checked");
+                        Assert.IsTrue(attrValue.Equals("true"));
+                        break;
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Unable to get checkbox attribute, try nember: " + i);
+                        System.Threading.Thread.Sleep(500);
+                    }
+                }
+                
+                
             }
             Console.WriteLine("Step: all checkboxes on panel with Id " + panelId + " should be activated (b2c) Started");
         }
