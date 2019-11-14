@@ -211,6 +211,7 @@ namespace TestAutomationFramework.Steps.UI
                         Console.WriteLine("Try to get checkbox attribute, try nember: " + i);
                         var attrValue = checkbox.GetAttribute("checked");
                         Assert.IsTrue(attrValue.Equals("true"));
+                        break;
                     }
                     catch (Exception)
                     {
