@@ -189,7 +189,9 @@ namespace TestAutomationFramework.Steps.UI
             IList<IWebElement> allCheckboxes = driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"));
             for (int i = 0; i < allCheckboxes.Count; i++)
             {
+                Console.WriteLine("Click on the " + i + " element");
                 driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]/../ label"))[i].Click();
+                Console.WriteLine("Element value after click is: " + driver.FindElements(By.XPath("//div[@id = '" + panelId + "']//input[contains(@type, 'checkbox')]"))[i].GetAttribute("checked"));
             }
 
             Console.WriteLine("Step: I click all checkboxes on panel with Id " + panelId + " (b2c) Finished");
