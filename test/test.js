@@ -28,43 +28,40 @@ describe('Reward moderator, rewards validation checks', () => {
   });
   test('Login as reward admin', async () => {
     await util.login(driver, page.loginUrl, page.resellerEmail, page.resellerPassword);
+    await util.findByXpathAndClick(driver, "//div/a[text() = ' Login as Client ']");
   });
-  test('Create a new client for a current reseller', async () => {
-    const newClientButton = await util.findElementWithXpath(driver, page.createNewClientButtonXpath);
-    await newClientButton.click();
-    //region new Client form locators finding
-    const nameField = await util.findElementWithXpath(driver, page.nameFieldXpath);
-    const emailField =  await util.findElementWithXpath(driver, page.emailFieldXpath);
-    const adminFirstName = await util.findElementWithXpath(driver, page.adminFirstName);
-    const adminLastName = await util.findElementWithXpath(driver, page.adminLastName);
-    const currencyDropdown = await util.findElementWithXpath(driver, page.currency);
-
-    const address = await util.findElementWithXpath(driver, page.address);
-    const city = await util.findElementWithXpath(driver, page.city);
-    const state = await util.findElementWithXpath(driver, page.state);
-    const zipCode = await util.findElementWithXpath(driver, page.zipCode);
+ /* test('Create a new client for a current reseller', async () => {
+    await util.findByXpathAndClick(driver, page.createNewClientButtonXpath);
+    await util.findAndType(driver, page.nameFieldXpath, clientName);
+    await util.findAndType(driver, page.emailFieldXpath, clientEmail);
+    await util.findAndType(driver, page.adminFirstName, "Admin first name");
+    await util.findAndType(driver, page.adminLastName, "Admin last name");
+    await util.findByXpathAndClick(driver, page.currency);
+    await util.findByXpathAndClick(driver, page.dollarSpanXpath);
+    await util.findAndType(driver, page.address, 'emotorwerks autotest str 54a');
+    await util.findAndType(driver, page.city, 'Zaporizhzhia');
+    await util.findAndType(driver, page.state, 'Zaporizhzhya');
+    await util.findAndType(driver, page.zipCode, '69005');
     const timezone = await util.findElementWithXpath(driver, page.timeZone);
-
-
-    //endregion
-    
-    await nameField.sendKeys(clientName);
-    await emailField.sendKeys(clientEmail);
-    adminFirstName.sendKeys("Admin first name");
-    await adminLastName.sendKeys("Admin last name");
-    await currencyDropdown.click();
-    const currencyValue = await util.findElementWithXpath(driver, page.dollarSpanXpath);
-    await currencyValue.click();
-    await address.sendKeys('emotorwerks street 54a');
-    await city.sendKeys("Zaporizhzhia");
-    await state.sendKeys("Zaporizhzhia");
-    await zipCode.sendKeys("69005");
     timezone.selectedIndex = 19;
-    const createButton = await util.findElementWithXpath(driver, page.createButton);//sendKeys("(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius");
-    await createButton.click();
-    const viewClientsButton = await util.findElementWithXpath(driver, page.viewClientsButton);
-    await viewClientsButton.click();
-    const createdclient = await util.findElementWithXpath(driver, "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']")
-    await createdclient.click();e
+    await util.findByXpathAndClick(driver, page.createButton);
+    await driver.wait(sleep(3000), 4000);
+    await util.findByXpathAndClick(driver, page.viewClientsButton);
+    await util.findByXpathAndClick(driver, page.sortButton);
+    const createdclient = await util.findElementWithXpath(driver, "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']")
+    await createdclient.click();
+  });*/
+  test('Create a new rate', async () => {
+    await util.findByXpathAndClick(driver, page.ratesMenuOption);
+    await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
+    await driver.wait(sleep(3000), 4000);
+    await util.findByXpathAndClick(driver, page.newRateSpan);
+    await util.findAndType(driver, page.rateName, page.rateNameString);
+    await util.findByXpathAndClick(driver, page.saveRateButton);
+    await util.findByXpathAndClick(driver, page.createdRateXpath);
+    await util.findAndType(driver, page.editRateName, page.rateNameString + "edited");
+    await util.findByXpathAndClick(driver, page.saveOnEditButton);
+    await driver.wait(sleep(3000), 4000);
+    await util.findByXpathAndClick(driver, page.alertOkButton);
   });
 });
