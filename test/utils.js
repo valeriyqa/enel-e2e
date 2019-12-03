@@ -34,7 +34,7 @@ export async function login(driver, loginUrl, login, password, timeout = 20000)
   await passwordInput.sendKeys(password);
   await loginButton.click();
   await driver.wait(sleep(3000), 4000);
-  let expected = await driver.getCurrentUrl();
+  // let expected = await driver.getCurrentUrl();
 }
 
 

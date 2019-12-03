@@ -29,7 +29,7 @@ describe('Reward moderator, rewards validation checks', () => {
   test('Login as reward admin', async () => {
     await util.login(driver, page.loginUrl, page.resellerEmail, page.resellerPassword);
     await util.findByXpathAndClick(driver, "//div/a[text() = ' Login as Client ']");
-  });
+  }, 30000);
  /* test('Create a new client for a current reseller', async () => {
     await util.findByXpathAndClick(driver, page.createNewClientButtonXpath);
     await util.findAndType(driver, page.nameFieldXpath, clientName);
@@ -51,7 +51,7 @@ describe('Reward moderator, rewards validation checks', () => {
     const createdclient = await util.findElementWithXpath(driver, "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']")
     await createdclient.click();
   });*/
-  test('Create a new rate', async () => {
+/*  test('Create a new rate', async () => {
     await util.findByXpathAndClick(driver, page.ratesMenuOption);
     await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
     await driver.wait(sleep(3000), 4000);
@@ -63,5 +63,20 @@ describe('Reward moderator, rewards validation checks', () => {
     await util.findByXpathAndClick(driver, page.saveOnEditButton);
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.alertOkButton);
+  });*/
+  test('Create a new group', async () => {
+    await util.findByXpathAndClick(driver, page.groupsMenuOption);
+    await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
+    await driver.wait(sleep(3000), 4000);
+    await util.findByXpathAndClick(driver, page.newGroupSpan);
+    await util.findAndType(driver, page.groupNameInput, "Autotest user group");
+    await util.findByXpathAndClick(driver, page.groupCreationNextStepButton);
+    await util.findByXpathAndClick(driver, page.groupCreationDoneButton);
+    await util.findByXpathAndClick(driver, page.createdGroup);
+    await util.findAndType(driver, page.editGroupNameField, "Autotest Edit name");
+    await util.findByXpathAndClick(driver, page.usersTabOfGroups);
+    await util.findByXpathAndClick(driver, page.assignNewUSerButton);
+
   });
+
 });

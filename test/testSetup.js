@@ -33,7 +33,7 @@ import webdriver, {Builder, By, Key, until, util} from "selenium-webdriver";
     this.sortButton = "//span[text() = 'Client Name']";
     // this.createdClientInList = "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']";
   //endregion ##############################################
-
+//region RATE
       this.ratesMenuOption = "//a[@href = '/rates']";
       this.freeRateHref = "//a[@href = '/rates/00000000-0000-0000-0000-000000000000']";
       this.globalAddButtonXpath = "//fab-button/a[@class = 'accent add']";
@@ -45,7 +45,17 @@ import webdriver, {Builder, By, Key, until, util} from "selenium-webdriver";
       this.saveOnEditButton = "//flat-button[@icon = 'icon-save']";
       this.alertOkButton = "//flat-button/button/span[text() = 'Ok']/../..";
       this.editRateName = "//input[@formcontrolname = 'name']";
+//endregion
 
+      this.groupsMenuOption = "//a[@href = '/users/groups']";
+      this.newGroupSpan = "//button/span[text() = 'New group']/..";
+      this.groupNameInput = "//input[@name='name']";
+      this.groupCreationNextStepButton = "//flat-button/button/span[text()='Next']";
+      this.groupCreationDoneButton = "//flat-button/button/span[text()='Done']";
+      this.createdGroup = "//a[text()='Autotest user group']";
+      this.editGroupNameField = "//input[@formcontrolname = 'name']";
+      this.usersTabOfGroups = "//div[text()= 'Users']";
+      this.assignNewUSerButton = "//fab-button/a/span[text()= 'Assign New']";
 
 
 
