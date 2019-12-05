@@ -26,7 +26,7 @@ export async function findElementWithID (driver, id, timeout = 20000) {
 export async function login(driver, loginUrl, login, password, timeout = 20000)
 {
   await driver.get(loginUrl);
-  //await driver.wait(sleep(2000), 3000);
+  await driver.wait(sleep(2000), 3000);
   const emailInput = await driver.findElement(By.id(page.emailFieldID));
   const passwordInput = await driver.findElement(By.id(page.passwordFieldID));
   const loginButton = await driver.findElement(By.id(page.submitLoginButtonXpath));

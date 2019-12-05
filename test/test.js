@@ -10,7 +10,7 @@ const sleep = (milliseconds) => {
 const today = new Date();
 const clientName = "client autotest"  + today;
 const clientEmail = "parkhval+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
-describe('Reward moderator, rewards validation checks', () => {
+describe('Reseller, main actions', () => {
   let driver;
   let page;
   jest.setTimeout(30000);
@@ -26,7 +26,7 @@ describe('Reward moderator, rewards validation checks', () => {
   afterAll(async () => {
     // await driver.quit();
   });
-  test('Login as reward admin', async () => {
+  test('Login as reseller', async () => {
     await util.login(driver, page.loginUrl, page.resellerEmail, page.resellerPassword);
     await util.findByXpathAndClick(driver, "//div/a[text() = ' Login as Client ']");
   }, 30000);
@@ -64,7 +64,7 @@ describe('Reward moderator, rewards validation checks', () => {
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.alertOkButton);
   });*/
-  test('Create a new group', async () => {
+ /* test('Create a new group', async (done) => {
     await util.findByXpathAndClick(driver, page.groupsMenuOption);
     await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
     await driver.wait(sleep(3000), 4000);
@@ -75,8 +75,16 @@ describe('Reward moderator, rewards validation checks', () => {
     await util.findByXpathAndClick(driver, page.createdGroup);
     await util.findAndType(driver, page.editGroupNameField, "Autotest Edit name");
     await util.findByXpathAndClick(driver, page.usersTabOfGroups);
+    await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.assignNewUSerButton);
-
+    await util.findAndType(driver, page.userSearchInput, "Admin");
+    await util.findByXpathAndClick(driver, page.searchUserButton);
+    await util.findByXpathAndClick(driver, page.selectUserCheckbox);
+    await util.findByXpathAndClick(driver, page.saveUserSearchButton);
+    await util.findByXpathAndClick(driver, page.deleteGroupButton);
+    await util.findByXpathAndClick(driver, page.confirmDeleteButton);
+    await done();
   });
+*/
 
 });

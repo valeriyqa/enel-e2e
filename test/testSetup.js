@@ -55,10 +55,13 @@ import webdriver, {Builder, By, Key, until, util} from "selenium-webdriver";
       this.createdGroup = "//a[text()='Autotest user group']";
       this.editGroupNameField = "//input[@formcontrolname = 'name']";
       this.usersTabOfGroups = "//div[text()= 'Users']";
-      this.assignNewUSerButton = "//fab-button/a/span[text()= 'Assign New']";
-
-
-
+      this.assignNewUSerButton = "(//fab-button)[2]";
+      this.userSearchInput = "//input";
+      this.searchUserButton = "//button[@class = 'mat-icon-button']/span/mat-icon";
+      this.selectUserCheckbox = "//mat-pseudo-checkbox";
+      this.saveUserSearchButton = "//flat-button/button/span[text()='Save']";
+      this.deleteGroupButton = "//flat-button/button/span[text()='Delete']";
+      this.confirmDeleteButton = "(//flat-button/button/span[text()='Delete'])[2]/../..";
   }
 
 
