@@ -1,4 +1,4 @@
-import {By, until} from "selenium-webdriver";
+import {By, until, wait} from "selenium-webdriver";
 import SignInPage from "./testSetup";
 let page  = new SignInPage();
 

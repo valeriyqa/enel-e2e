@@ -1,4 +1,4 @@
-import {Builder, By, error, Key, until} from 'selenium-webdriver';
+import {Builder, By, error, Key} from 'selenium-webdriver';
 import webdriver from 'selenium-webdriver';
 import SignInPage from './testSetup';
 import * as util from './utils';
@@ -28,9 +28,9 @@ describe('Reseller, main actions', () => {
   });
   test('Login as reseller', async () => {
     await util.login(driver, page.loginUrl, page.resellerEmail, page.resellerPassword);
-    await util.findByXpathAndClick(driver, "//div/a[text() = ' Login as Client ']");
+    // await util.findByXpathAndClick(driver, "//div/a[text() = ' Login as Client ']");
   }, 30000);
- /* test('Create a new client for a current reseller', async () => {
+  test('Create a new client for a current reseller', async () => {
     await util.findByXpathAndClick(driver, page.createNewClientButtonXpath);
     await util.findAndType(driver, page.nameFieldXpath, clientName);
     await util.findAndType(driver, page.emailFieldXpath, clientEmail);
@@ -44,14 +44,16 @@ describe('Reseller, main actions', () => {
     await util.findAndType(driver, page.zipCode, '69005');
     const timezone = await util.findElementWithXpath(driver, page.timeZone);
     timezone.selectedIndex = 19;
+    await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.createButton);
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.viewClientsButton);
-    await util.findByXpathAndClick(driver, page.sortButton);
+           await console.log("AAAAAAAAAAAAAAAAAAAAAAA" + util.findByXpathAndClick(driver, page.viewClientsButton));
+        await util.findByXpathAndClick(driver, page.sortButton);
     const createdclient = await util.findElementWithXpath(driver, "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']")
     await createdclient.click();
-  });*/
-/*  test('Create a new rate', async () => {
+  });
+  test('Create a new rate', async () => {
     await util.findByXpathAndClick(driver, page.ratesMenuOption);
     await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
     await driver.wait(sleep(3000), 4000);
@@ -63,8 +65,8 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, page.saveOnEditButton);
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.alertOkButton);
-  });*/
- /* test('Create a new group', async (done) => {
+  });
+  test('Create a new group', async (done) => {
     await util.findByXpathAndClick(driver, page.groupsMenuOption);
     await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
     await driver.wait(sleep(3000), 4000);
@@ -85,6 +87,31 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, page.confirmDeleteButton);
     await done();
   });
-*/
+  test('location test', async (done) => {
+
+  await util.findByXpathAndClick(driver, page.locationsMenuOption);
+  await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
+  await driver.wait(sleep(3000), 4000);
+  await util.findByXpathAndClick(driver, page.newLocationSpan);
+  await util.findAndType(driver, page.locationNameFieldXpath, page.locationName);
+  await driver.wait(sleep(3000), 4000);
+  await util.findByXpathAndClick(driver, page.locationCreateNextButton);
+  await util.findByXpathAndClick(driver, page.locationCreateDoneButton);
+  await driver.wait(sleep(3000), 4000);
+  await util.findByXpathAndClick(driver, page.viewLocationsButton);
+  await util.findByXpathAndClick(driver, page.createdLocationInTable);
+  await util.findByXpathAndClick(driver, page.sublocationsTab);
+  await util.findByXpathAndClick(driver, page.addNewSublocation);
+  await done();
+  });
 
 });
+
+
+
+
+
+
+
+
+

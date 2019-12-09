@@ -1,5 +1,17 @@
 {
   "name": "whistler-qa-interview",
+  "jest": {
+    "verbose": true,
+    "reporters": [
+      "default",
+      [
+        "./node_modules/jest-html-reporter",
+        {
+          "pageTitle": "Test Report"
+        }
+      ]
+    ]
+  },
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -24,6 +36,7 @@
     "babel-polyfill": "^6.26.0",
     "jest": "^24.9.0",
     "jest-environment-selenium": "^2.1.2",
+    "jest-html-reporter": "^2.7.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-test-renderer": "^16.10.1"

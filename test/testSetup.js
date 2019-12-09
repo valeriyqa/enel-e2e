@@ -1,13 +1,14 @@
-import webdriver, {Builder, By, Key, until, util} from "selenium-webdriver";
+import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
  export default class SignInPage {
 
   constructor() {
     const today = new Date();
     const clientName = "client autotest"  + today;
+    this.locationName = "Autotest location " + today;
 
     this.loginUrl = "https://enterprise.dev.juice.net";
     this.resellerPassword = "12qw!@QW";
-    this.resellerEmail = "parkhval+r4alfa@gmail.com";
+    this.resellerEmail = "parkhval+r1alfaauto@gmail.com";
     this.pathToLXLSFile = `${__dirname}/users.xlsx`;
 
     //region LOGIN FORM
@@ -27,9 +28,10 @@ import webdriver, {Builder, By, Key, until, util} from "selenium-webdriver";
     this.address = "//input[@formcontrolname = 'address']";
     this.city = "//input[@formcontrolname = 'city']";
     this.state = "//input[@formcontrolname = 'state']";
+    this.zipCode = "//input[@formcontrolname='zip']";
     this.timeZone = "//mat-select[@formcontrolname = 'timeZone']";
     this.createButton = "//button/span[text() = 'Create']";
-    this.viewClientsButton = "//flat-button/button/span[text() = 'View clients']";
+    this.viewClientsButton = "//flat-button/button/span[text()='View clients']";
     this.sortButton = "//span[text() = 'Client Name']";
     // this.createdClientInList = "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']";
   //endregion ##############################################
@@ -62,6 +64,19 @@ import webdriver, {Builder, By, Key, until, util} from "selenium-webdriver";
       this.saveUserSearchButton = "//flat-button/button/span[text()='Save']";
       this.deleteGroupButton = "//flat-button/button/span[text()='Delete']";
       this.confirmDeleteButton = "(//flat-button/button/span[text()='Delete'])[2]/../..";
+
+    //region locations
+
+    this.locationsMenuOption = "//a[@href = '/locations']";
+    this.newLocationSpan = "//button/span[text() = 'New location']/..";
+    this.locationNameFieldXpath = "//input[@formcontrolname = 'name']";
+    this.locationCreateNextButton = "//flat-button/button/span[text()='Next']";
+    this.locationCreateDoneButton = "//flat-button/button/span[text()='Done']";
+    this.viewLocationsButton = "//flat-button/button/span[text()='View locations']";
+    this.createdLocationInTable = "//tbody/tr/td/div/div/div/a[text()=' " + this.locationName + " ']";
+    this.sublocationsTab = "//div[text()='Sublocations']";
+    this.addNewSublocation = "//fab-button/a/span[text()='Add New']";
+    //endregion
   }
 
 
