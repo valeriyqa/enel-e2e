@@ -1,0 +1,51 @@
+[ {
+  "uid" : "f2cf0904addf74b6",
+  "name" : "Create a new group",
+  "time" : {
+    "start" : 1575896232340,
+    "stop" : 1575896241854,
+    "duration" : 9514
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "128da4722b5d54fc",
+  "name" : "location test",
+  "time" : {
+    "start" : 1575896241854,
+    "stop" : 1575896254245,
+    "duration" : 12391
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "77b2d17895677029",
+  "name" : "Create a new client for a current reseller",
+  "time" : {
+    "start" : 1575896193014,
+    "stop" : 1575896212431,
+    "duration" : 19417
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "45a62594d6fddf2f",
+  "name" : "Login as reseller",
+  "time" : {
+    "start" : 1575896171705,
+    "stop" : 1575896193014,
+    "duration" : 21309
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5f11a408be00d3e",
+  "name" : "Create a new rate",
+  "time" : {
+    "start" : 1575896212431,
+    "stop" : 1575896232339,
+    "duration" : 19908
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

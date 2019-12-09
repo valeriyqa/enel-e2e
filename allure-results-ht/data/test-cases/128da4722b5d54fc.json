@@ -1,0 +1,46 @@
+{
+  "uid" : "128da4722b5d54fc",
+  "name" : "location test",
+  "fullName" : "Reseller, main actions.location test",
+  "historyId" : "46852bd5a03fd4b15eed0ae34f238c47",
+  "time" : {
+    "start" : 1575896241854,
+    "stop" : 1575896254245,
+    "duration" : 12391
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "testClass",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "testMethod",
+    "value" : "location test"
+  }, {
+    "name" : "package",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "128da4722b5d54fc.json",
+  "parameterValues" : [ ]
+}

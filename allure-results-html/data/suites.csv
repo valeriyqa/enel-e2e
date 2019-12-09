@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Dec 09 14:56:52 EET 2019","Mon Dec 09 14:57:12 EET 2019","19908","","Reseller, main actions","","Reseller, main actions","Create a new rate","Create a new rate",""
+"passed","Mon Dec 09 14:56:11 EET 2019","Mon Dec 09 14:56:33 EET 2019","21309","","Reseller, main actions","","Reseller, main actions","Login as reseller","Login as reseller",""
+"passed","Mon Dec 09 14:57:12 EET 2019","Mon Dec 09 14:57:21 EET 2019","9514","","Reseller, main actions","","Reseller, main actions","Create a new group","Create a new group",""
+"failed","Mon Dec 09 14:56:33 EET 2019","Mon Dec 09 14:56:52 EET 2019","19417","","Reseller, main actions","","Reseller, main actions","Create a new client for a current reseller","Create a new client for a current reseller",""
+"passed","Mon Dec 09 14:57:21 EET 2019","Mon Dec 09 14:57:34 EET 2019","12391","","Reseller, main actions","","Reseller, main actions","location test","location test",""

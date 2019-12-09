@@ -1,0 +1,74 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "Reseller, main actions",
+    "children" : [ {
+      "name" : "Login as reseller",
+      "uid" : "45a62594d6fddf2f",
+      "parentUid" : "aa96ba3f26131d6135364c5961a5f89c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1575896171705,
+        "stop" : 1575896193014,
+        "duration" : 21309
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "Create a new client for a current reseller",
+      "uid" : "77b2d17895677029",
+      "parentUid" : "aa96ba3f26131d6135364c5961a5f89c",
+      "status" : "failed",
+      "time" : {
+        "start" : 1575896193014,
+        "stop" : 1575896212431,
+        "duration" : 19417
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "Create a new rate",
+      "uid" : "5f11a408be00d3e",
+      "parentUid" : "aa96ba3f26131d6135364c5961a5f89c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1575896212431,
+        "stop" : 1575896232339,
+        "duration" : 19908
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "Create a new group",
+      "uid" : "f2cf0904addf74b6",
+      "parentUid" : "aa96ba3f26131d6135364c5961a5f89c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1575896232340,
+        "stop" : 1575896241854,
+        "duration" : 9514
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "location test",
+      "uid" : "128da4722b5d54fc",
+      "parentUid" : "aa96ba3f26131d6135364c5961a5f89c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1575896241854,
+        "stop" : 1575896254245,
+        "duration" : 12391
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "aa96ba3f26131d6135364c5961a5f89c"
+  } ]
+}

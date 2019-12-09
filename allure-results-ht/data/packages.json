@@ -1,0 +1,74 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "Reseller, main actions",
+    "children" : [ {
+      "name" : "Login as reseller",
+      "uid" : "45a62594d6fddf2f",
+      "parentUid" : "528550c766fdab1a9339bbd89fea7954",
+      "status" : "passed",
+      "time" : {
+        "start" : 1575896171705,
+        "stop" : 1575896193014,
+        "duration" : 21309
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "Create a new client for a current reseller",
+      "uid" : "77b2d17895677029",
+      "parentUid" : "528550c766fdab1a9339bbd89fea7954",
+      "status" : "failed",
+      "time" : {
+        "start" : 1575896193014,
+        "stop" : 1575896212431,
+        "duration" : 19417
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "Create a new rate",
+      "uid" : "5f11a408be00d3e",
+      "parentUid" : "528550c766fdab1a9339bbd89fea7954",
+      "status" : "passed",
+      "time" : {
+        "start" : 1575896212431,
+        "stop" : 1575896232339,
+        "duration" : 19908
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "Create a new group",
+      "uid" : "f2cf0904addf74b6",
+      "parentUid" : "528550c766fdab1a9339bbd89fea7954",
+      "status" : "passed",
+      "time" : {
+        "start" : 1575896232340,
+        "stop" : 1575896241854,
+        "duration" : 9514
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "location test",
+      "uid" : "128da4722b5d54fc",
+      "parentUid" : "528550c766fdab1a9339bbd89fea7954",
+      "status" : "passed",
+      "time" : {
+        "start" : 1575896241854,
+        "stop" : 1575896254245,
+        "duration" : 12391
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "528550c766fdab1a9339bbd89fea7954"
+  } ]
+}

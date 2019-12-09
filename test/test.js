@@ -47,9 +47,9 @@ describe('Reseller, main actions', () => {
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.createButton);
     await driver.wait(sleep(3000), 4000);
+    await util.findElementWithXpath(driver, page.viewClientsButton);
     await util.findByXpathAndClick(driver, page.viewClientsButton);
-           await console.log("AAAAAAAAAAAAAAAAAAAAAAA" + util.findByXpathAndClick(driver, page.viewClientsButton));
-        await util.findByXpathAndClick(driver, page.sortButton);
+    await util.findByXpathAndClick(driver, page.sortButton);
     const createdclient = await util.findElementWithXpath(driver, "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']")
     await createdclient.click();
   });

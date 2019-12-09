@@ -1,0 +1,46 @@
+{
+  "uid" : "a374973b1aae7c03",
+  "name" : "Login as reseller",
+  "fullName" : "Reseller, main actions.Login as reseller",
+  "historyId" : "a5074bd57c4458895013620d0444f468",
+  "time" : {
+    "start" : 1575896171705,
+    "stop" : 1575896193014,
+    "duration" : 21309
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "testClass",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "testMethod",
+    "value" : "Login as reseller"
+  }, {
+    "name" : "package",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a374973b1aae7c03.json",
+  "parameterValues" : [ ]
+}

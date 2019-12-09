@@ -1,0 +1,63 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1575896171691' stop='1575896254245'>
+    <name>Reseller, main actions</name>
+    <title>Reseller, main actions</title>
+    <test-cases>
+        <test-case start='1575896171705' status='passed' stop='1575896193014'>
+            <name>Login as reseller</name>
+            <title>Login as reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575896193014' status='failed' stop='1575896212431'>
+            <name>Create a new client for a current reseller</name>
+            <title>Create a new client for a current reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//flat-button/button/span[text()='View clients']"}
+                  (Session info: chrome=78.0.3904.108)</message>
+                <stack-trace>NoSuchElementError: no such element: Unable to locate element: {"method":"xpath","selector":"//flat-button/button/span[text()='View clients']"}
+                  (Session info: chrome=78.0.3904.108)
+                    at Object.throwDecodedError (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\error.js:550:15)
+                    at parseHttpResponse (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\http.js:563:13)
+                    at Executor.execute (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\http.js:489:26)
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+                    at thenableWebDriverProxy.execute (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:699:17)
+                    at toWireValue (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:138:15)
+                    at C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:189:16
+                    at forEachKey (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:183:9)
+                    at convertKeys (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:188:3)
+                    at thenableWebDriverProxy.execute (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:697:22)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1575896212431' status='passed' stop='1575896232339'>
+            <name>Create a new rate</name>
+            <title>Create a new rate</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575896232340' status='passed' stop='1575896241854'>
+            <name>Create a new group</name>
+            <title>Create a new group</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575896241854' status='passed' stop='1575896254245'>
+            <name>location test</name>
+            <title>location test</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

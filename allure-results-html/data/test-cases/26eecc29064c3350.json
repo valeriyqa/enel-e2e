@@ -1,0 +1,46 @@
+{
+  "uid" : "26eecc29064c3350",
+  "name" : "Create a new group",
+  "fullName" : "Reseller, main actions.Create a new group",
+  "historyId" : "a1d4b111c7cd079338631866df455bb9",
+  "time" : {
+    "start" : 1575896232340,
+    "stop" : 1575896241854,
+    "duration" : 9514
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "testClass",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "testMethod",
+    "value" : "Create a new group"
+  }, {
+    "name" : "package",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "26eecc29064c3350.json",
+  "parameterValues" : [ ]
+}

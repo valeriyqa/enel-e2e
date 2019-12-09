@@ -1,0 +1,26 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//flat-button/button/span[text()='View clients']\"}\n                  (Session info: chrome=78.0.3904.108)",
+      "children" : [ {
+        "name" : "Create a new client for a current reseller",
+        "uid" : "77b2d17895677029",
+        "parentUid" : "c1f1701c0299e83e83ac087b59379f97",
+        "status" : "failed",
+        "time" : {
+          "start" : 1575896193014,
+          "stop" : 1575896212431,
+          "duration" : 19417
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "c1f1701c0299e83e83ac087b59379f97"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}

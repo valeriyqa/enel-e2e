@@ -2,14 +2,12 @@
   "name": "whistler-qa-interview",
   "jest": {
     "verbose": true,
+    "setupFilesAfterEnv": [
+      "jest-allure/dist/setup"
+    ],
     "reporters": [
       "default",
-      [
-        "./node_modules/jest-html-reporter",
-        {
-          "pageTitle": "Test Report"
-        }
-      ]
+      "jest-allure"
     ]
   },
   "version": "1.0.0",
@@ -31,10 +29,12 @@
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.6.2",
+    "allure": "0.0.0",
     "babel-jest": "^24.9.0",
     "babel-plugin-import": "^1.12.2",
     "babel-polyfill": "^6.26.0",
     "jest": "^24.9.0",
+    "jest-allure": "^0.1.1",
     "jest-environment-selenium": "^2.1.2",
     "jest-html-reporter": "^2.7.0",
     "react": "^16.10.1",

@@ -1,0 +1,46 @@
+{
+  "uid" : "5f11a408be00d3e",
+  "name" : "Create a new rate",
+  "fullName" : "Reseller, main actions.Create a new rate",
+  "historyId" : "18d34c531d05c822a8229b528ded0d9c",
+  "time" : {
+    "start" : 1575896212431,
+    "stop" : 1575896232339,
+    "duration" : 19908
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "testClass",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "testMethod",
+    "value" : "Create a new rate"
+  }, {
+    "name" : "package",
+    "value" : "Reseller, main actions"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5f11a408be00d3e.json",
+  "parameterValues" : [ ]
+}
