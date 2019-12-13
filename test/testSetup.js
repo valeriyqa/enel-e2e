@@ -6,7 +6,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     const clientName = "client autotest"  + today;
     this.locationName = "Autotest location " + today;
 
-    this.loginUrl = "https://enterprise.dev.juice.net";
+    this.loginUrl = "https://enterprise-new.dev.juice.net/";
     this.resellerPassword = "12qw!@QW";
     this.resellerEmail = "parkhval+r1alfaauto@gmail.com";
     this.pathToLXLSFile = `${__dirname}/users.xlsx`;
@@ -28,7 +28,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.address = "//input[@formcontrolname = 'address']";
     this.city = "//input[@formcontrolname = 'city']";
     this.state = "//input[@formcontrolname = 'state']";
-    this.zipCode = "//input[@formcontrolname='zip']";
+    this.zipCode = "//input[@id='input-zip']";
     this.timeZone = "//mat-select[@formcontrolname = 'timeZone']";
     this.createButton = "//button/span[text() = 'Create']";
     this.viewClientsButton = "//flat-button/button/span[text()='View clients']";
@@ -73,7 +73,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.locationCreateNextButton = "//flat-button/button/span[text()='Next']";
     this.locationCreateDoneButton = "//flat-button/button/span[text()='Done']";
     this.viewLocationsButton = "//flat-button/button/span[text()='View locations']";
-    this.createdLocationInTable = "//tbody/tr/td/div/div/div/a[text()=' " + this.locationName + " ']";
+    this.createdLocationInTable = "//tbody/tr/td/div/div/div/a[text()='" + this.locationName + "']";
     this.sublocationsTab = "//div[text()='Sublocations']";
     this.addNewSublocation = "//fab-button/a/span[text()='Add New']";
     //endregion

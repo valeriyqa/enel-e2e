@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1575900395464' stop='1575900465424'>
+    <name>Reseller, main actions</name>
+    <title>Reseller, main actions</title>
+    <test-cases>
+        <test-case start='1575900395475' status='passed' stop='1575900416055'>
+            <name>Login as reseller</name>
+            <title>Login as reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575900416055' status='passed' stop='1575900433624'>
+            <name>Create a new client for a current reseller</name>
+            <title>Create a new client for a current reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575900433624' status='passed' stop='1575900443550'>
+            <name>Create a new rate</name>
+            <title>Create a new rate</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575900443550' status='passed' stop='1575900453171'>
+            <name>Create a new group</name>
+            <title>Create a new group</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575900453171' status='passed' stop='1575900465424'>
+            <name>location test</name>
+            <title>location test</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -1,0 +1,58 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1575900612257' stop='1575900667609'>
+    <name>Reseller, main actions</name>
+    <title>Reseller, main actions</title>
+    <test-cases>
+        <test-case start='1575900612270' status='passed' stop='1575900632938'>
+            <name>Login as reseller</name>
+            <title>Login as reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575900632938' status='passed' stop='1575900641745'>
+            <name>Create a new client for a current reseller</name>
+            <title>Create a new client for a current reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575900641745' status='passed' stop='1575900651484'>
+            <name>Create a new rate</name>
+            <title>Create a new rate</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575900651485' status='passed' stop='1575900661112'>
+            <name>Create a new group</name>
+            <title>Create a new group</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575900661112' status='failed' stop='1575900667608'>
+            <name>location test</name>
+            <title>location test</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>ElementClickInterceptedError: element click intercepted: Element &lt;span _ngcontent-c15="">...&lt;/span> is not clickable at point (471, 334). Other element would receive the click: &lt;div _ngcontent-c44="" class="center-line" ng-reflect-ng-class="[object Object]">...&lt;/div>
+                  (Session info: chrome=78.0.3904.108)</message>
+                <stack-trace>ElementClickInterceptedError: element click intercepted: Element &lt;span _ngcontent-c15="">...&lt;/span> is not clickable at point (471, 334). Other element would receive the click: &lt;div _ngcontent-c44="" class="center-line" ng-reflect-ng-class="[object Object]">...&lt;/div>
+                  (Session info: chrome=78.0.3904.108)
+                    at Object.throwDecodedError (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\error.js:550:15)
+                    at parseHttpResponse (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\http.js:563:13)
+                    at Executor.execute (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\http.js:489:26)
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+                    at thenableWebDriverProxy.execute (C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:699:17)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

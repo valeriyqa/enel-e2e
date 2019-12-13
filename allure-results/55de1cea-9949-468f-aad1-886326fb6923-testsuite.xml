@@ -1,0 +1,79 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1575901777497' stop='1575901887085'>
+    <name>Reseller, main actions</name>
+    <title>Reseller, main actions</title>
+    <test-cases>
+        <test-case start='1575901777509' status='passed' stop='1575901798495'>
+            <name>Login as reseller</name>
+            <title>Login as reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1575901798495' status='failed' stop='1575901826233'>
+            <name>Create a new client for a current reseller</name>
+            <title>Create a new client for a current reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: Waiting for element to be located By(xpath, //span[text() = 'Client Name'])
+                Wait timed out after 20239ms</message>
+                <stack-trace>TimeoutError: Waiting for element to be located By(xpath, //span[text() = 'Client Name'])
+                Wait timed out after 20239ms
+                    at C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:841:17
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1575901826234' status='failed' stop='1575901846495'>
+            <name>Create a new rate</name>
+            <title>Create a new rate</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: Waiting for element to be located By(xpath, //a[@href = '/rates'])
+                Wait timed out after 20260ms</message>
+                <stack-trace>TimeoutError: Waiting for element to be located By(xpath, //a[@href = '/rates'])
+                Wait timed out after 20260ms
+                    at C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:841:17
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1575901846495' status='failed' stop='1575901866798'>
+            <name>Create a new group</name>
+            <title>Create a new group</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: Waiting for element to be located By(xpath, //a[@href = '/users/groups'])
+                Wait timed out after 20302ms</message>
+                <stack-trace>TimeoutError: Waiting for element to be located By(xpath, //a[@href = '/users/groups'])
+                Wait timed out after 20302ms
+                    at C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:841:17
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1575901866798' status='failed' stop='1575901887085'>
+            <name>location test</name>
+            <title>location test</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: Waiting for element to be located By(xpath, //a[@href = '/locations'])
+                Wait timed out after 20285ms</message>
+                <stack-trace>TimeoutError: Waiting for element to be located By(xpath, //a[@href = '/locations'])
+                Wait timed out after 20285ms
+                    at C:\Users\Valeriy\Desktop\Work\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:841:17
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
