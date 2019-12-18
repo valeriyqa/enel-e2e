@@ -1,0 +1,31 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1576245766227' stop='1576245812522'>
+    <name>Reseller, main actions</name>
+    <title>Reseller, main actions</title>
+    <test-cases>
+        <test-case start='1576245766248' status='passed' stop='1576245788194'>
+            <name>Login as reseller</name>
+            <title>Login as reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1576245788194' status='failed' stop='1576245812521'>
+            <name>create new user</name>
+            <title>create new user</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: Waiting for element to be located By(xpath, //div[@id='cdk-overlay-1'])
+                Wait timed out after 20350ms</message>
+                <stack-trace>TimeoutError: Waiting for element to be located By(xpath, //div[@id='cdk-overlay-1'])
+                Wait timed out after 20350ms
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:841:17
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

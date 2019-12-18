@@ -1,0 +1,34 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1576658494434' stop='1576658534650'>
+    <name>Reseller, main actions</name>
+    <title>Reseller, main actions</title>
+    <test-cases>
+        <test-case start='1576658494450' status='passed' stop='1576658522378'>
+            <name>Login as client</name>
+            <title>Login as client</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1576658522378' status='failed' stop='1576658534649'>
+            <name>connect with stripe</name>
+            <title>connect with stripe</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>ElementNotInteractableError: element not interactable
+                  (Session info: chrome=79.0.3945.79)</message>
+                <stack-trace>ElementNotInteractableError: element not interactable
+                  (Session info: chrome=79.0.3945.79)
+                    at Object.throwDecodedError (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\error.js:550:15)
+                    at parseHttpResponse (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\http.js:563:13)
+                    at Executor.execute (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\http.js:489:26)
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+                    at thenableWebDriverProxy.execute (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:699:17)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -1,0 +1,34 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1576590026733' stop='1576590048457'>
+    <name>Reseller, main actions</name>
+    <title>Reseller, main actions</title>
+    <test-cases>
+        <test-case start='1576590026751' status='passed' stop='1576590048199'>
+            <name>Login as client</name>
+            <title>Login as client</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1576590048199' status='failed' stop='1576590048457'>
+            <name>connect with stripe</name>
+            <title>connect with stripe</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>ElementClickInterceptedError: element click intercepted: Element &lt;app-icon _ngcontent-c1="" class="m-l-20 m-b-5 pointer" iconname="icon-single-user" _nghost-c3="" tabindex="0" ng-reflect-router-link="/users/account" ng-reflect-icon-name="icon-single-user">...&lt;/app-icon> is not clickable at point (1821, 91). Other element would receive the click: &lt;div id="cdk-overlay-0" class="cdk-overlay-pane" style="pointer-events: auto; position: static;">...&lt;/div>
+                  (Session info: chrome=79.0.3945.79)</message>
+                <stack-trace>ElementClickInterceptedError: element click intercepted: Element &lt;app-icon _ngcontent-c1="" class="m-l-20 m-b-5 pointer" iconname="icon-single-user" _nghost-c3="" tabindex="0" ng-reflect-router-link="/users/account" ng-reflect-icon-name="icon-single-user">...&lt;/app-icon> is not clickable at point (1821, 91). Other element would receive the click: &lt;div id="cdk-overlay-0" class="cdk-overlay-pane" style="pointer-events: auto; position: static;">...&lt;/div>
+                  (Session info: chrome=79.0.3945.79)
+                    at Object.throwDecodedError (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\error.js:550:15)
+                    at parseHttpResponse (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\http.js:563:13)
+                    at Executor.execute (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\http.js:489:26)
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+                    at thenableWebDriverProxy.execute (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:699:17)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

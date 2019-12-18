@@ -1,0 +1,74 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1576573487254' stop='1576573567344'>
+    <name>Reseller, main actions</name>
+    <title>Reseller, main actions</title>
+    <test-cases>
+        <test-case start='1576573487273' status='failed' stop='1576573506531'>
+            <name>Login as reseller</name>
+            <title>Login as reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: timeout
+                  (Session info: chrome=79.0.3945.79)</message>
+                <stack-trace>TimeoutError: timeout
+                  (Session info: chrome=79.0.3945.79)
+                    at Object.throwDecodedError (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\error.js:550:15)
+                    at parseHttpResponse (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\http.js:563:13)
+                    at Executor.execute (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\http.js:489:26)
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+                    at thenableWebDriverProxy.execute (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:699:17)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1576573506531' status='failed' stop='1576573526794'>
+            <name>create new user</name>
+            <title>create new user</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: Waiting for element to be located By(xpath, //fab-button/a[@class = 'accent add'])
+                Wait timed out after 20260ms</message>
+                <stack-trace>TimeoutError: Waiting for element to be located By(xpath, //fab-button/a[@class = 'accent add'])
+                Wait timed out after 20260ms
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:841:17
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1576573526794' status='failed' stop='1576573547070'>
+            <name>change user information</name>
+            <title>change user information</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: Waiting for element to be located By(xpath, //a/span[text() = 'Users'])
+                Wait timed out after 20276ms</message>
+                <stack-trace>TimeoutError: Waiting for element to be located By(xpath, //a/span[text() = 'Users'])
+                Wait timed out after 20276ms
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:841:17
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1576573547070' status='failed' stop='1576573567343'>
+            <name>delete user</name>
+            <title>delete user</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: Waiting for element to be located By(xpath, //a/span[text() = 'Users'])
+                Wait timed out after 20271ms</message>
+                <stack-trace>TimeoutError: Waiting for element to be located By(xpath, //a/span[text() = 'Users'])
+                Wait timed out after 20271ms
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:841:17
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

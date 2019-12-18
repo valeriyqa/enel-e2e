@@ -1,0 +1,31 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1576659098692' stop='1576659141869'>
+    <name>Reseller, main actions</name>
+    <title>Reseller, main actions</title>
+    <test-cases>
+        <test-case start='1576659098708' status='passed' stop='1576659119574'>
+            <name>Login as client</name>
+            <title>Login as client</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1576659119574' status='failed' stop='1576659141868'>
+            <name>connect with stripe</name>
+            <title>connect with stripe</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: Waiting for element to be located By(xpath, //app-icon[@iconname='icon-single-user'])
+                Wait timed out after 20282ms</message>
+                <stack-trace>TimeoutError: Waiting for element to be located By(xpath, //app-icon[@iconname='icon-single-user'])
+                Wait timed out after 20282ms
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:841:17
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -5,10 +5,17 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     const today = new Date();
     const clientName = "client autotest"  + today;
     this.locationName = "Autotest location " + today;
-
+    const clientEmail = "parkhval+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
+    const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
+    this.userName = "AutoTest_user" + today.getDay() + today.getHours() +  today.getMinutes();
+    this.userSurName = "AutoTest_SurName";
+    this.changedUserName = "+Vasya";
+    this.changedUserSurName = "+Pumpkin";
     this.loginUrl = "https://enterprise-new.dev.juice.net/";
     this.resellerPassword = "12qw!@QW";
     this.resellerEmail = "parkhval+r1alfaauto@gmail.com";
+    this.clientEmail = "6dofik+c10n@gmail.com";
+    this.clientPassword= "emotorwerks";
     this.pathToLXLSFile = `${__dirname}/users.xlsx`;
 
     //region LOGIN FORM
@@ -49,6 +56,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
       this.editRateName = "//input[@formcontrolname = 'name']";
 //endregion
 
+//region groups
       this.groupsMenuOption = "//a[@href = '/users/groups']";
       this.newGroupSpan = "//button/span[text() = 'New group']/..";
       this.groupNameInput = "//input[@name='name']";
@@ -64,7 +72,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
       this.saveUserSearchButton = "//flat-button/button/span[text()='Save']";
       this.deleteGroupButton = "//flat-button/button/span[text()='Delete']";
       this.confirmDeleteButton = "(//flat-button/button/span[text()='Delete'])[2]/../..";
-
+//endregion
     //region locations
 
     this.locationsMenuOption = "//a[@href = '/locations']";
@@ -76,6 +84,40 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.createdLocationInTable = "//tbody/tr/td/div/div/div/a[text()='" + this.locationName + "']";
     this.sublocationsTab = "//div[text()='Sublocations']";
     this.addNewSublocation = "//fab-button/a/span[text()='Add New']";
+    //endregion
+
+
+    //region users
+
+    this.newUserSpan = "//button[@id='btn-add-user']";
+    this.userNameFieldXpath = "//input[@name='name']";
+    this.userSurnameFieldXpath = "//input[@name='surname']";
+    this.userTypeDropdown = "//div[@class='mat-select-value']";
+    this.userTypeAdmin = "//span[text()=' Admin ']";
+    this.userEmailFieldXpath = "//input[@name='email']";
+    this.userCreationNextStepButton = "//flat-button/button/span[text()='Next']";
+    this.userCreationDoneButton = "//flat-button/button/span[text()='Done']";
+    this.createdUser = "//div/a[text()='"+ this.userName +" "+ this.changedUserName+" "+ this.userSurName +" "+ this.changedUserSurName+"']";
+    this.createdUser1 = "//div/a[text()='"+ this.userName +" "+ this.userSurName +"']";
+    this.UsersButton = "//a/span[text() = 'Users']";
+    this.changedUserFirstNameFieldXpath = "//input[@formcontrolname = 'firstName']";
+    this.changedUserLastNameFieldXpath = "//input[@formcontrolname = 'lastName']";
+    this.changedUserSaveButton = "//flat-button/button/span[text()=' Save ']";
+    this.deleteUserButton = "//flat-button/button/span[text()='Delete user']";
+    this.confirmDeleteUserButton = "//flat-button/button/span[text()='Delete']";
+    this.viewUsersButton = "//flat-button/button/span[text()='View users']";
+    //endregion
+
+
+
+    //region Stripe
+
+    this.clientsIcon = "//app-icon[@iconname='icon-single-user']";
+    this.clientsIcon2 = "//div[@class='user-info center-both']/app-icon";
+    this.paymentTab = "//div[text()='Payment']";
+    this.stripeTab = "//div[text()='Stripe']";
+    this.connectWithStripeButton = "//flat-button/button/span[text()='Connect with Stripe']";
+    this.skipRegisterForm = "//a[@id='skip-account-app']";
     //endregion
   }
 

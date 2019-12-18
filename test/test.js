@@ -9,6 +9,7 @@ const sleep = (milliseconds) => {
 }
 const today = new Date();
 const clientName = "client autotest"  + today;
+const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
 const clientEmail = "parkhval+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
 describe('Reseller, main actions', () => {
   let driver;
@@ -26,7 +27,7 @@ describe('Reseller, main actions', () => {
   afterAll(async () => {
     // await driver.quit();
   });
-  test('Login as reseller', async () => {
+  /*test('Login as reseller', async () => {
     await util.login(driver, page.loginUrl, page.resellerEmail, page.resellerPassword);
     await util.findByXpathAndClick(driver, "//div/a[text() = ' Login as Client ']");
   }, 30000);
@@ -114,6 +115,57 @@ describe('Reseller, main actions', () => {
   await util.findByXpathAndClick(driver, page.viewLocationsButton);
   await done();
   }, 50000);
+
+
+   */
+  test('Login as client', async () => {
+    await util.login(driver, page.loginUrl, page.clientEmail, page.clientPassword);
+  } );
+
+  test('create new user', async (done) => {
+    await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
+    await driver.wait(sleep(2000), 3000);
+    await util.findByXpathAndClick(driver, page.newUserSpan);
+    await util.findAndType(driver, page.userNameFieldXpath, page.userName);
+    await util.findAndType(driver, page.userSurnameFieldXpath, page.userSurName);
+    await util.findByXpathAndClick(driver, page.userTypeDropdown);
+    await util.findByXpathAndClick(driver, page.userTypeAdmin);
+    await util.findAndType(driver, page.userEmailFieldXpath, userEmail);
+    await util.findByXpathAndClick(driver,page.userCreationNextStepButton);
+    await util.findByXpathAndClick(driver, page.userCreationDoneButton);
+    await util.findByXpathAndClick(driver, page.createdUser);
+  });
+
+  test('change user information', async (done) => {
+    await util.findByXpathAndClick(driver, page.UsersButton);
+    await util.findByXpathAndClick(driver, page.createdUser);
+    await util.findAndType(driver, page.changedUserFirstNameFieldXpath, page.changedUserName);
+    await util.findAndType(driver, page.changedUserLastNameFieldXpath, page.changedUserSurName);
+    await util.findByXpathAndClick(driver, page.changedUserSaveButton);
+  });
+
+  test ('delete user', async (done) => {
+    await util.findByXpathAndClick(driver, page.UsersButton);
+    console.log (page.createdUser);
+    await util.findByXpathAndClick(driver, page.createdUser);
+    await util.findByXpathAndClick(driver, page.deleteUserButton);
+    await util.findByXpathAndClick(driver, page.confirmDeleteUserButton);
+    await util.findByXpathAndClick(driver, page.viewUsersButton);
+  });
+
+  test('connect with stripe', async (done) => {
+    await driver.wait(sleep(2000), 3000);
+    await util.findByXpathAndClick(driver, page.clientsIcon);
+    await driver.wait(sleep(2000), 3000);
+    await util.findByXpathAndClick(driver, page.clientsIcon2);
+    await util.findByXpathAndClick(driver, page.paymentTab);
+    await util.findByXpathAndClick(driver, page.stripeTab, );
+    await driver.wait(sleep(2000), 3000);
+    await util.findByXpathAndClick(driver, page.connectWithStripeButton);
+    await util.findElementWithXpath(driver, page.skipRegisterForm);
+      });
+
+
 
 });
 

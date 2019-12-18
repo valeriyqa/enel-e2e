@@ -1,0 +1,42 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1576246708661' stop='1576246748275'>
+    <name>Reseller, main actions</name>
+    <title>Reseller, main actions</title>
+    <test-cases>
+        <test-case start='1576246708680' status='failed' stop='1576246727990'>
+            <name>Login as reseller</name>
+            <title>Login as reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: timeout
+                  (Session info: chrome=79.0.3945.79)</message>
+                <stack-trace>TimeoutError: timeout
+                  (Session info: chrome=79.0.3945.79)
+                    at Object.throwDecodedError (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\error.js:550:15)
+                    at parseHttpResponse (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\http.js:563:13)
+                    at Executor.execute (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\http.js:489:26)
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+                    at thenableWebDriverProxy.execute (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:699:17)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1576246727991' status='failed' stop='1576246748274'>
+            <name>create new user</name>
+            <title>create new user</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: Waiting for element to be located By(xpath, //fab-button/a[@class = 'accent add'])
+                Wait timed out after 20280ms</message>
+                <stack-trace>TimeoutError: Waiting for element to be located By(xpath, //fab-button/a[@class = 'accent add'])
+                Wait timed out after 20280ms
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:841:17
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

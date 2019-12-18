@@ -1,0 +1,109 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1576586112690' stop='1576586215304'>
+    <name>Reseller, main actions</name>
+    <title>Reseller, main actions</title>
+    <test-cases>
+        <test-case start='1576586112709' status='passed' stop='1576586134828'>
+            <name>Login as reseller</name>
+            <title>Login as reseller</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1576586134828' status='failed' stop='1576586164833'>
+            <name>create new user</name>
+            <title>create new user</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>: Timeout - Async callback was not invoked within the 30000ms timeout specified by jest.setTimeout.</message>
+                <stack-trace>Timeout - Async callback was not invoked within the 30000ms timeout specified by jest.setTimeout.Error: 
+                    at new Spec (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+                    at new Spec (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+                    at specFactory (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+                    at Env.it (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+                    at Env.it (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:88:25)
+                    at it (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+                    at Suite.test (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\test\test.js:119:3)
+                    at addSpecsToSuite (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\Env.js:496:51)
+                    at Env.describe (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\Env.js:466:11)
+                    at describe (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:81:18)
+                    at Object.describe (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\test\test.js:14:1)
+                    at Runtime._execModule (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runtime\build\index.js:867:68)
+                    at Runtime._loadModule (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runtime\build\index.js:577:12)
+                    at Runtime.requireModule (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runtime\build\index.js:433:10)
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:202:13
+                    at Generator.next (&lt;anonymous>)
+                    at asyncGeneratorStep (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:27:24)
+                    at _next (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:47:9)
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:52:7
+                    at new Promise (&lt;anonymous>)
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:44:12
+                    at _jasmine (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:207:19)
+                    at jasmine2 (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:60:19)
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runner\build\runTest.js:385:24
+                    at Generator.next (&lt;anonymous>)
+                    at asyncGeneratorStep (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runner\build\runTest.js:161:24)
+                    at _next (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runner\build\runTest.js:181:9)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1576586164833' status='failed' stop='1576586194837'>
+            <name>change user information</name>
+            <title>change user information</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>: Timeout - Async callback was not invoked within the 30000ms timeout specified by jest.setTimeout.</message>
+                <stack-trace>Timeout - Async callback was not invoked within the 30000ms timeout specified by jest.setTimeout.Error: 
+                    at new Spec (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+                    at new Spec (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+                    at specFactory (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+                    at Env.it (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+                    at Env.it (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:88:25)
+                    at it (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+                    at Suite.test (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\test\test.js:133:3)
+                    at addSpecsToSuite (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\Env.js:496:51)
+                    at Env.describe (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\Env.js:466:11)
+                    at describe (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:81:18)
+                    at Object.describe (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\test\test.js:14:1)
+                    at Runtime._execModule (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runtime\build\index.js:867:68)
+                    at Runtime._loadModule (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runtime\build\index.js:577:12)
+                    at Runtime.requireModule (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runtime\build\index.js:433:10)
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:202:13
+                    at Generator.next (&lt;anonymous>)
+                    at asyncGeneratorStep (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:27:24)
+                    at _next (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:47:9)
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:52:7
+                    at new Promise (&lt;anonymous>)
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:44:12
+                    at _jasmine (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:207:19)
+                    at jasmine2 (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-jasmine2\build\index.js:60:19)
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runner\build\runTest.js:385:24
+                    at Generator.next (&lt;anonymous>)
+                    at asyncGeneratorStep (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runner\build\runTest.js:161:24)
+                    at _next (C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\jest-runner\build\runTest.js:181:9)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1576586194837' status='failed' stop='1576586215302'>
+            <name>delete user</name>
+            <title>delete user</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TimeoutError: Waiting for element to be located By(xpath, //div/a[text()='AutoTest_user21535 AutoTest_SurName'])
+                Wait timed out after 20305ms</message>
+                <stack-trace>TimeoutError: Waiting for element to be located By(xpath, //div/a[text()='AutoTest_user21535 AutoTest_SurName'])
+                Wait timed out after 20305ms
+                    at C:\Users\6dofi\OneDrive\Рабочий стол\autotests\b2b-e2e-autotests\enel-e2e\node_modules\selenium-webdriver\lib\webdriver.js:841:17
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
