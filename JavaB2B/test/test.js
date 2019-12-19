@@ -84,6 +84,7 @@ describe('Reseller, main actions', () => {
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.assignNewUSerButton);
     await util.findAndType(driver, page.userSearchInput, "Admin");
+    await driver.wait(sleep(2000), 4000);
     await util.findByXpathAndClick(driver, page.searchUserButton);
     await util.findByXpathAndClick(driver, page.selectUserCheckbox);
     await util.findByXpathAndClick(driver, page.saveUserSearchButton);
