@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="9" failures="0" time="121.22">
+  <testsuite name="Reseller, main actions" errors="0" failures="0" skipped="0" timestamp="2019-12-19T12:36:29" time="120.44" tests="9">
+    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="24.937">
+    </testcase>
+    <testcase classname="Reseller, main actions Create a new client for a current reseller" name="Reseller, main actions Create a new client for a current reseller" time="7.45">
+    </testcase>
+    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="10.91">
+    </testcase>
+    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="10.757">
+    </testcase>
+    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="9.751">
+    </testcase>
+    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="25.094">
+    </testcase>
+    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="19.694">
+    </testcase>
+    <testcase classname="Client, main actions change user information" name="Client, main actions change user information" time="4.94">
+    </testcase>
+    <testcase classname="Client, main actions delete user" name="Client, main actions delete user" time="4.954">
+    </testcase>
+  </testsuite>
+</testsuites>

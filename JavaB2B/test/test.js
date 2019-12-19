@@ -9,6 +9,7 @@ const sleep = (milliseconds) => {
 }
 const today = new Date();
 const clientName = "client autotest"  + today;
+const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
 const clientEmail = "parkhval+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
 describe('Reseller, main actions', () => {
   let driver;
@@ -103,7 +104,7 @@ describe('Reseller, main actions', () => {
   await util.findByXpathAndClick(driver, page.locationCreateDoneButton);
   await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.viewLocationsButton);
-  await util.findByXpathAndClick(driver, page.createdLocationInTable);
+/*  await util.findByXpathAndClick(driver, page.createdLocationInTable);
   await util.findByXpathAndClick(driver, page.sublocationsTab);
   await util.findByXpathAndClick(driver, page.addNewSublocation);
   await util.findAndType(driver, page.locationNameFieldXpath, "Sublocation name asdasdasdas dasd asd asd asd asd");
@@ -111,17 +112,82 @@ describe('Reseller, main actions', () => {
   await util.findByXpathAndClick(driver, page.locationCreateNextButton);
   await util.findByXpathAndClick(driver, page.locationCreateDoneButton);
   await driver.wait(sleep(3000), 4000);
-  await util.findByXpathAndClick(driver, page.viewLocationsButton);
+  await util.findByXpathAndClick(driver, page.viewLocationsButton);*/
   await done();
   }, 50000);
+ });
 
+
+describe('Client, main actions', () => {
+  let driver;
+  let page;
+  jest.setTimeout(30000);
+  beforeAll(async () => {
+    driver = new webdriver.Builder().forBrowser("chrome").build();
+    driver.manage().window().maximize();
+    driver.manage().setTimeouts({
+      implicit: 10000, pageLoad:
+          10000, script: 10000
+    });
+    page = new SignInPage();
+  }, 20000);
+  afterAll(async () => {
+    // await driver.quit();
+  });
+
+
+test('Login as client', async (done) => {
+  await util.login(driver, page.loginUrl, page.clientEmail, page.clientPassword);
+   await done();
+} );
+
+test('create new user', async (done) => {
+  await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
+  await driver.wait(sleep(2000), 3000);
+  await util.findByXpathAndClick(driver, page.newUserSpan);
+  await util.findAndType(driver, page.userNameFieldXpath, page.userName);
+  await util.findAndType(driver, page.userSurnameFieldXpath, page.userSurName);
+  await util.findByXpathAndClick(driver, page.userTypeDropdown);
+  await util.findByXpathAndClick(driver, page.userTypeAdmin);
+  await util.findAndType(driver, page.userEmailFieldXpath, userEmail);
+  await util.findByXpathAndClick(driver,page.userCreationNextStepButton);
+  await util.findByXpathAndClick(driver, page.userCreationDoneButton);
+  await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);
+  await done();
 });
 
+test('change user information', async (done) => {
+  await util.findByXpathAndClick(driver, page.UsersButton);
+  console.log(page.createdUserBeforeUpdate);
+  await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);
+  await util.findAndType(driver, page.changedUserFirstNameFieldXpath, page.changedUserName);
+  await util.findAndType(driver, page.changedUserLastNameFieldXpath, page.changedUserSurName);
+  await util.findByXpathAndClick(driver, page.changedUserSaveButton);
+  await driver.wait(sleep(2000), 3000);
+  await done();
+});
 
+test ('delete user', async (done) => {
+  await util.findByXpathAndClick(driver, page.UsersButton);
+  console.log (page.createdUser);
+  await util.findByXpathAndClick(driver, page.createdUser);
+  await driver.wait(sleep(2000), 3000);
+  await util.findByXpathAndClick(driver, page.deleteUserButton);
+  await util.findByXpathAndClick(driver, page.confirmDeleteUserButton);
+  await util.findByXpathAndClick(driver, page.viewUsersButton);
+  await done();
+});
 
-
-
-
-
-
-
+/*test('connect with stripe', async (done) => {
+  await driver.wait(sleep(2000), 3000);
+  await util.findByXpathAndClick(driver, page.clientsIcon);
+  await driver.wait(sleep(2000), 3000);
+  await util.findByXpathAndClick(driver, page.clientsIcon2);
+  await util.findByXpathAndClick(driver, page.paymentTab);
+  await util.findByXpathAndClick(driver, page.stripeTab, );
+  await driver.wait(sleep(2000), 3000);
+  await util.findByXpathAndClick(driver, page.connectWithStripeButton);
+  await util.findElementWithXpath(driver, page.skipRegisterForm);
+  await done();
+});*/
+});

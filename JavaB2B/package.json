@@ -1,20 +1,18 @@
 {
   "name": "whistler-qa-interview",
   "jest": {
+    "testResultsProcessor": "./node_modules/jest-junit-reporter",
     "verbose": true,
-    "setupFilesAfterEnv": [
-      "jest-allure/dist/setup"
-    ],
-    "reporters": [
-      "default",
-      "jest-allure"
-    ]
+
+    "reporters": [ "default", "jest-junit" ]
   },
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "license": "MIT",
   "dependencies": {
+    "jest-junit": "^10.0.0",
+    "jest-junit-reporter": "^1.1.0",
     "protractor": "^5.4.2",
     "selenium-webdriver": "^4.0.0-alpha.5"
   },
