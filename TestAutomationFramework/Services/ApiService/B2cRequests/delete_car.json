@@ -1,9 +1,0 @@
-﻿{
-  "cmd": "delete_car",
-  "account_token": "",
-  "token": "",
-  "device_id": "",
-  "info": {
-    "car_id": 0
-  }
-}
