@@ -11,6 +11,7 @@ const today = new Date();
 const clientName = "client autotest"  + today;
 const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
 const clientEmail = "parkhval+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
+
 describe('Reseller, main actions', () => {
   let driver;
   let page;
@@ -28,11 +29,16 @@ describe('Reseller, main actions', () => {
     // await driver.quit();
   });
   test('Login as reseller', async () => {
+    try {
     await util.login(driver, page.loginUrl, page.resellerEmail, page.resellerPassword);
+  }catch{
+    driver.refresh();
+    await util.login(driver, page.loginUrl, page.resellerEmail, page.resellerPassword);
+  }
     await util.findByXpathAndClick(driver, "//div/a[text() = ' Login as Client ']");
   }, 30000);
 
-  test('Create a new client for a current reseller', async () => {
+ /* test('Create a new client for a current reseller', async () => {
     await util.findByXpathAndClick(driver, page.createNewClientButtonXpath);
     await util.findAndType(driver, page.nameFieldXpath, clientName);
     await util.findAndType(driver, page.emailFieldXpath, clientEmail);
@@ -53,10 +59,9 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, page.viewClientsButton);
     await util.findByXpathAndClick(driver, page.sortButton);
     await util.findByXpathAndClick(driver, page.sortButton);
-
     const createdclient = await util.findElementWithXpath(driver, "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']")
     await createdclient.click();
-  });
+  });*/
   test('Create a new rate', async () => {
     await util.findByXpathAndClick(driver, page.ratesMenuOption);
     await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
@@ -84,7 +89,7 @@ describe('Reseller, main actions', () => {
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.assignNewUSerButton);
     await util.findAndType(driver, page.userSearchInput, "Admin");
-    await driver.wait(sleep(2000), 4000);
+    await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.searchUserButton);
     await util.findByXpathAndClick(driver, page.selectUserCheckbox);
     await util.findByXpathAndClick(driver, page.saveUserSearchButton);
@@ -92,7 +97,7 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, page.deleteGroupButton);
     await util.findByXpathAndClick(driver, page.confirmDeleteButton);
     await done();
-  });
+  }, 50000);
   test('location test', async (done) => {
 
   await util.findByXpathAndClick(driver, page.locationsMenuOption);
@@ -138,9 +143,16 @@ describe('Client, main actions', () => {
 
 
 test('Login as client', async (done) => {
-  await util.login(driver, page.loginUrl, page.clientEmail, page.clientPassword);
+  try {
+
+    await util.login(driver, page.loginUrl, page.clientEmail, page.clientPassword);
+  }catch
+  {
+    driver.refresh();
+    await util.login(driver, page.loginUrl, page.clientEmail, page.clientPassword);
+  }
    await done();
-} );
+},40000);
 
 test('create new user', async (done) => {
   await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
@@ -174,6 +186,7 @@ test ('delete user', async (done) => {
   await util.findByXpathAndClick(driver, page.createdUser);
   await driver.wait(sleep(2000), 3000);
   await util.findByXpathAndClick(driver, page.deleteUserButton);
+  await driver.wait(sleep(1000), 3000);
   await util.findByXpathAndClick(driver, page.confirmDeleteUserButton);
   await util.findByXpathAndClick(driver, page.viewUsersButton);
   await done();
