@@ -6,7 +6,7 @@ import * as util from './utils';
 
 const sleep = (milliseconds) => {
   return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
+};
 const today = new Date();
 const clientName = "client autotest"  + today;
 const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
@@ -26,15 +26,10 @@ describe('Reseller, main actions', () => {
     page = new SignInPage();
   }, 20000);
   afterAll(async () => {
-    // await driver.quit();
+   // await driver.quit();
   });
   test('Login as reseller', async () => {
-    try {
     await util.login(driver, page.loginUrl, page.resellerEmail, page.resellerPassword);
-  }catch{
-    driver.refresh();
-    await util.login(driver, page.loginUrl, page.resellerEmail, page.resellerPassword);
-  }
     await util.findByXpathAndClick(driver, "//div/a[text() = ' Login as Client ']");
   }, 30000);
 
@@ -85,6 +80,7 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, page.groupCreationDoneButton);
     await util.findByXpathAndClick(driver, page.createdGroup);
     await util.findAndType(driver, page.editGroupNameField, "Autotest Edit name");
+    await util.findByXpathAndClick(driver, page.saveEditedGroupName);
     await util.findByXpathAndClick(driver, page.usersTabOfGroups);
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.assignNewUSerButton);
@@ -138,7 +134,7 @@ describe('Client, main actions', () => {
     page = new SignInPage();
   }, 20000);
   afterAll(async () => {
-    // await driver.quit();
+  // await driver.quit();
   });
 
 

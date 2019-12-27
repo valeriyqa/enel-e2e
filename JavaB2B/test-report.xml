@@ -1,39 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="8" failures="4" time="120.139" timestamp="2019-12-26T12:13:39">
+  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="8" failures="0" time="116.348" timestamp="2019-12-27T08:16:51">
     <properties>
     </properties>
     <testcase classname="Reseller, main actions" name="Login as reseller" time="0">
-      <failure message="TypeError: driver.refresh is not a function
-    at refresh (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js:35:12)
-    at tryCatch (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\regenerator-runtime\runtime.js:45:40)
-    at Generator.invoke [as _invoke] (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\regenerator-runtime\runtime.js:271:22)
-    at Generator.prototype.&lt;computed&gt; [as throw] (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\regenerator-runtime\runtime.js:97:21)
-    at asyncGeneratorStep (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\@babel\runtime\helpers\asyncToGenerator.js:3:24)
-    at _throw (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\@babel\runtime\helpers\asyncToGenerator.js:29:9)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)" type="AssertionError">
-      </failure>
     </testcase>
     <testcase classname="Reseller, main actions" name="Create a new rate" time="0">
-      <failure message="TimeoutError: Waiting for element to be located By(xpath, //a[@href = &apos;/rates&apos;])
-Wait timed out after 20282ms
-    at C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\selenium-webdriver\lib\webdriver.js:841:17
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)" type="AssertionError">
-      </failure>
     </testcase>
     <testcase classname="Reseller, main actions" name="Create a new group" time="0">
-      <failure message="TimeoutError: Waiting for element to be located By(xpath, //a[@href = &apos;/users/groups&apos;])
-Wait timed out after 20259ms
-    at C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\selenium-webdriver\lib\webdriver.js:841:17
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)" type="AssertionError">
-      </failure>
     </testcase>
     <testcase classname="Reseller, main actions" name="location test" time="0">
-      <failure message="TimeoutError: Waiting for element to be located By(xpath, //a[@href = &apos;/locations&apos;])
-Wait timed out after 20268ms
-    at C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\selenium-webdriver\lib\webdriver.js:841:17
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)" type="AssertionError">
-      </failure>
     </testcase>
     <testcase classname="Client, main actions" name="Login as client" time="0">
     </testcase>

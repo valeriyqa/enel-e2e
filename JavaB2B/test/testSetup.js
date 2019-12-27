@@ -14,8 +14,8 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.loginUrl = "https://enterprise-new.dev.juice.net";
     this.resellerPassword = "12qw!@QW";
     this.resellerEmail = "parkhval+r2alfaauto@gmail.com";
-    this.clientEmail = "6dofik+c11@gmail.com";
-    this.clientPassword= "emotorwerks";
+    this.clientEmail = "parkhval+c4alfa@gmail.com";
+    this.clientPassword= "12qw!@QW";
     this.pathToLXLSFile = `${__dirname}/users.xlsx`;
 
     //region LOGIN FORM
@@ -64,6 +64,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
       this.groupCreationDoneButton = "//flat-button/button/span[text()='Done']";
       this.createdGroup = "//a[text()='Autotest user group']";
       this.editGroupNameField = "//input[@formcontrolname = 'name']";
+      this.saveEditedGroupName = "//flat-button/button/span[text()='Save']";
       this.usersTabOfGroups = "//div[text()= 'Users']";
       this.assignNewUSerButton = "(//fab-button)[2]";
       this.userSearchInput = "//input";

@@ -3,8 +3,10 @@
   "jest": {
     "testResultsProcessor": "./node_modules/jest-junit-reporter",
     "verbose": true,
-
-    "reporters": [ "default", "jest-junit" ]
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
   },
   "version": "1.0.0",
   "main": "index.js",

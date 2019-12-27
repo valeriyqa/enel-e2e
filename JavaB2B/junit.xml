@@ -1,41 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="8" failures="4" time="120.915">
-  <testsuite name="Reseller, main actions" errors="0" failures="4" skipped="0" timestamp="2019-12-26T12:13:39" time="120.139" tests="8">
-    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="19.204">
-      <failure>TypeError: driver.refresh is not a function
-    at refresh (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js:35:12)
-    at tryCatch (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\regenerator-runtime\runtime.js:45:40)
-    at Generator.invoke [as _invoke] (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\regenerator-runtime\runtime.js:271:22)
-    at Generator.prototype.&lt;computed&gt; [as throw] (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\regenerator-runtime\runtime.js:97:21)
-    at asyncGeneratorStep (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\@babel\runtime\helpers\asyncToGenerator.js:3:24)
-    at _throw (C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\@babel\runtime\helpers\asyncToGenerator.js:29:9)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)</failure>
+<testsuites name="jest tests" tests="8" failures="0" time="117.156">
+  <testsuite name="Reseller, main actions" errors="0" failures="0" skipped="0" timestamp="2019-12-27T08:16:51" time="116.348" tests="8">
+    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="25.737">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="20.282">
-      <failure>TimeoutError: Waiting for element to be located By(xpath, //a[@href = &apos;/rates&apos;])
-Wait timed out after 20282ms
-    at C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\selenium-webdriver\lib\webdriver.js:841:17
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)</failure>
+    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="24.36">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="20.26">
-      <failure>TimeoutError: Waiting for element to be located By(xpath, //a[@href = &apos;/users/groups&apos;])
-Wait timed out after 20259ms
-    at C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\selenium-webdriver\lib\webdriver.js:841:17
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)</failure>
+    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="14.387">
     </testcase>
-    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="20.27">
-      <failure>TimeoutError: Waiting for element to be located By(xpath, //a[@href = &apos;/locations&apos;])
-Wait timed out after 20268ms
-    at C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\node_modules\selenium-webdriver\lib\webdriver.js:841:17
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)</failure>
+    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="9.804">
     </testcase>
-    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="20.649">
+    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="26.148">
     </testcase>
-    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="4.472">
+    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="4.329">
     </testcase>
-    <testcase classname="Client, main actions change user information" name="Client, main actions change user information" time="4.692">
+    <testcase classname="Client, main actions change user information" name="Client, main actions change user information" time="4.201">
     </testcase>
-    <testcase classname="Client, main actions delete user" name="Client, main actions delete user" time="8.223">
+    <testcase classname="Client, main actions delete user" name="Client, main actions delete user" time="5.297">
     </testcase>
   </testsuite>
 </testsuites>
