@@ -55,8 +55,8 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, page.sortButton);
     await util.findByXpathAndClick(driver, page.sortButton);
     const createdclient = await util.findElementWithXpath(driver, "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']")
-    await createdclient.click();*/
-  });
+    await createdclient.click();
+  });*/
   test('Create a new rate', async () => {
     await util.findByXpathAndClick(driver, page.ratesMenuOption);
     await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
@@ -169,7 +169,7 @@ test('change user information', async (done) => {
     await driver.wait(sleep(2000), 3000);
     await done();
   }
-  catch (Error) {console.log(Error)}
+  catch (error) {console.log(error)}
 });
 
 test ('delete user', async (done) => {

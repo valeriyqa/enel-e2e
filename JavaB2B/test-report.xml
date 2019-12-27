@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="9" failures="0" time="100.321" timestamp="2019-12-27T10:09:38">
+  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="8" failures="0" time="91.57" timestamp="2019-12-27T10:50:30">
     <properties>
     </properties>
     <testcase classname="Reseller, main actions" name="Login as reseller" time="0">
-    </testcase>
-    <testcase classname="Reseller, main actions" name="Create a new client for a current reseller" time="0">
     </testcase>
     <testcase classname="Reseller, main actions" name="Create a new rate" time="0">
     </testcase>

@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="9" failures="0" time="101.145">
-  <testsuite name="Reseller, main actions" errors="0" failures="0" skipped="0" timestamp="2019-12-27T10:09:38" time="100.321" tests="9">
-    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="20.437">
+<testsuites name="jest tests" tests="8" failures="0" time="92.345">
+  <testsuite name="Reseller, main actions" errors="0" failures="0" skipped="0" timestamp="2019-12-27T10:50:30" time="91.57" tests="8">
+    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="20.625">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new client for a current reseller" name="Reseller, main actions Create a new client for a current reseller" time="7.502">
+    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="11.189">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="11.561">
+    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="12.742">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="12.608">
+    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="9.791">
     </testcase>
-    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="9.739">
+    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="20.476">
     </testcase>
-    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="21.857">
+    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="4.741">
     </testcase>
-    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="4.371">
+    <testcase classname="Client, main actions change user information" name="Client, main actions change user information" time="3.782">
     </testcase>
-    <testcase classname="Client, main actions change user information" name="Client, main actions change user information" time="4.786">
-    </testcase>
-    <testcase classname="Client, main actions delete user" name="Client, main actions delete user" time="5.314">
+    <testcase classname="Client, main actions delete user" name="Client, main actions delete user" time="6.177">
     </testcase>
   </testsuite>
 </testsuites>
