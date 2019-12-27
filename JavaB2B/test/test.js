@@ -30,10 +30,10 @@ describe('Reseller, main actions', () => {
   });
   test('Login as reseller', async () => {
     await util.login(driver, page.loginUrl, page.resellerEmail, page.resellerPassword);
-    await util.findByXpathAndClick(driver, "//div/a[text() = ' Login as Client ']");
+    // await util.findByXpathAndClick(driver, "//div/a[text() = ' Login as Client ']");
   }, 30000);
 
-  /*test('Create a new client for a current reseller', async () => {
+  test('Create a new client for a current reseller', async () => {
     await util.findByXpathAndClick(driver, page.createNewClientButtonXpath);
     await util.findAndType(driver, page.nameFieldXpath, clientName);
     await util.findAndType(driver, page.emailFieldXpath, clientEmail);
@@ -56,7 +56,7 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, page.sortButton);
     const createdclient = await util.findElementWithXpath(driver, "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']")
     await createdclient.click();
-  });*/
+  });
   test('Create a new rate', async () => {
     await util.findByXpathAndClick(driver, page.ratesMenuOption);
     await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
@@ -154,7 +154,7 @@ test('create new user', async (done) => {
   await util.findAndType(driver, page.userEmailFieldXpath, userEmail);
   await util.findByXpathAndClick(driver,page.userCreationNextStepButton);
   await util.findByXpathAndClick(driver, page.userCreationDoneButton);
-  await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);
+  await util.findElementWithXpath(driver, page.createdUserBeforeUpdate);
   await done();
 });
 
