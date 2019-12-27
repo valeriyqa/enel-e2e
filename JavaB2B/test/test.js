@@ -139,14 +139,7 @@ describe('Client, main actions', () => {
 
 
 test('Login as client', async (done) => {
-  try {
-
     await util.login(driver, page.loginUrl, page.clientEmail, page.clientPassword);
-  }catch
-  {
-    driver.refresh();
-    await util.login(driver, page.loginUrl, page.clientEmail, page.clientPassword);
-  }
    await done();
 },40000);
 
