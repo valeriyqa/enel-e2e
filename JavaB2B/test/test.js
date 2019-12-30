@@ -158,7 +158,7 @@ test('create new user', async (done) => {
   await done();
 });
 
-/*test('change user information', async (done) => {
+test('change user information', async (done) => {
   try {
     await util.findByXpathAndClick(driver, page.UsersButton);
     console.log(page.createdUserBeforeUpdate);
@@ -182,9 +182,9 @@ test ('delete user', async (done) => {
   await util.findByXpathAndClick(driver, page.confirmDeleteUserButton);
   await util.findByXpathAndClick(driver, page.viewUsersButton);
   await done();
-});*/
+});
 
-/*test('connect with stripe', async (done) => {
+test('connect with stripe', async (done) => {
   await driver.wait(sleep(2000), 3000);
   await util.findByXpathAndClick(driver, page.clientsIcon);
   await driver.wait(sleep(2000), 3000);
@@ -195,5 +195,5 @@ test ('delete user', async (done) => {
   await util.findByXpathAndClick(driver, page.connectWithStripeButton);
   await util.findElementWithXpath(driver, page.skipRegisterForm);
   await done();
-});*/
+});
 });

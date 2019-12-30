@@ -13,7 +13,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.changedUserSurName = "+Pumpkin";
     this.loginUrl = "https://enterprise-new.dev.juice.net";
     this.resellerPassword = "12qw!@QW";
-    this.resellerEmail = "parkhval+r3alfaautotest@gmail.com";
+    this.resellerEmail = "parkhval+r4alfaauto@gmail.com";
     this.clientEmail = "parkhval+c4alfa@gmail.com";
     this.clientPassword= "12qw!@QW";
     this.pathToLXLSFile = `${__dirname}/users.xlsx`;

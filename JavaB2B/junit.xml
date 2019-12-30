@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="7" failures="0" time="108.774">
-  <testsuite name="Reseller, main actions" errors="0" failures="0" skipped="0" timestamp="2019-12-27T15:19:29" time="107.979" tests="7">
-    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="21.148">
+<testsuites name="jest tests" tests="5" failures="0" time="56.449">
+  <testsuite name="Client, main actions" errors="0" failures="0" skipped="0" timestamp="2019-12-30T08:55:15" time="55.517" tests="5">
+    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="24.693">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new client for a current reseller" name="Reseller, main actions Create a new client for a current reseller" time="17.712">
+    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="8.567">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="12.886">
+    <testcase classname="Client, main actions change user information" name="Client, main actions change user information" time="4.231">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="12.895">
+    <testcase classname="Client, main actions delete user" name="Client, main actions delete user" time="5.667">
     </testcase>
-    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="11.493">
-    </testcase>
-    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="25.367">
-    </testcase>
-    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="4.361">
+    <testcase classname="Client, main actions connect with stripe" name="Client, main actions connect with stripe" time="10.295">
     </testcase>
   </testsuite>
 </testsuites>
