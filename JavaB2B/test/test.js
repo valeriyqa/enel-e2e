@@ -7,6 +7,8 @@ import * as util from './utils';
 const sleep = (milliseconds) => {
   return new Promise(resolve => setTimeout(resolve, milliseconds))
 };
+const fs = require('fs');
+
 const today = new Date();
 const clientName = "client autotest"  + today;
 const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
@@ -95,8 +97,7 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, page.confirmDeleteButton);
     await done();
   }, 50000);
-  test('location test', async (done) => {
-
+  test('location test', async (done) => {await driver.wait(sleep(2000), 4000);
   await util.findByXpathAndClick(driver, page.locationsMenuOption);
   await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
   await driver.wait(sleep(3000), 4000);
@@ -156,10 +157,17 @@ test('create new user', async (done) => {
   await util.findByXpathAndClick(driver,page.userCreationNextStepButton);
   await util.findByXpathAndClick(driver, page.userCreationDoneButton);
   await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);
+  await driver.wait(sleep(2000), 3000);
   await done();
 });
 
 test('change user information', async (done) => {
+  driver.takeScreenshot().then(function(data){
+    const base64Data = data.replace(/^data:image\/png;base64,/,"")
+    fs.writeFile("out.png", base64Data, 'base64', function(err) {
+      if(err) console.log(err);
+    });
+  });
     await util.findByXpathAndClick(driver, page.UsersButton);
     console.log(page.createdUserBeforeUpdate);
     await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);

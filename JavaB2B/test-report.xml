@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="10" failures="0" time="107.808" timestamp="2019-12-30T09:52:58">
+  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="10" failures="0" time="109.726" timestamp="2019-12-30T12:48:40">
     <properties>
     </properties>
     <testcase classname="Reseller, main actions" name="Login as reseller" time="0">
