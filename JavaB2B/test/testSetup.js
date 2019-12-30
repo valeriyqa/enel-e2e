@@ -38,6 +38,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.zipCode = "//input[@id='input-zip']";
     this.timeZone = "//mat-select[@formcontrolname = 'timeZone']";
     this.createButton = "//button/span[text() = 'Create']";
+    this.matDialogContainer = "//mat-dialog-container";
     this.viewClientsButton = "//flat-button/button/span[text()='View clients']/../..";
     this.sortButton = "//span[text() = 'Client Name']";
     // this.createdClientInList = "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']";

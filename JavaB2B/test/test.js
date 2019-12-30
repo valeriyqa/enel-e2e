@@ -50,6 +50,7 @@ describe('Reseller, main actions', () => {
     //  await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.createButton);
     await driver.wait(sleep(5000), 5000);
+    await util.findElementWithXpath(driver, page.matDialogContainer)
     await util.findElementWithXpath(driver, page.viewClientsButton);
     await util.findByXpathAndClick(driver, page.viewClientsButton);
     await util.findByXpathAndClick(driver, page.sortButton);

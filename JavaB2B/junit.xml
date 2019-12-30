@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="5" failures="0" time="56.449">
-  <testsuite name="Client, main actions" errors="0" failures="0" skipped="0" timestamp="2019-12-30T08:55:15" time="55.517" tests="5">
-    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="24.693">
+<testsuites name="jest tests" tests="10" failures="0" time="108.581">
+  <testsuite name="Reseller, main actions" errors="0" failures="0" skipped="0" timestamp="2019-12-30T09:52:58" time="107.808" tests="10">
+    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="20.064">
     </testcase>
-    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="8.567">
+    <testcase classname="Reseller, main actions Create a new client for a current reseller" name="Reseller, main actions Create a new client for a current reseller" time="7.469">
     </testcase>
-    <testcase classname="Client, main actions change user information" name="Client, main actions change user information" time="4.231">
+    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="11.278">
     </testcase>
-    <testcase classname="Client, main actions delete user" name="Client, main actions delete user" time="5.667">
+    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="12.573">
     </testcase>
-    <testcase classname="Client, main actions connect with stripe" name="Client, main actions connect with stripe" time="10.295">
+    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="9.754">
+    </testcase>
+    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="19.562">
+    </testcase>
+    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="4.25">
+    </testcase>
+    <testcase classname="Client, main actions change user information" name="Client, main actions change user information" time="3.316">
+    </testcase>
+    <testcase classname="Client, main actions delete user" name="Client, main actions delete user" time="5.033">
+    </testcase>
+    <testcase classname="Client, main actions connect with stripe" name="Client, main actions connect with stripe" time="12.342">
     </testcase>
   </testsuite>
 </testsuites>
