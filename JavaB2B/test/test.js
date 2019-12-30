@@ -160,7 +160,6 @@ test('create new user', async (done) => {
 });
 
 test('change user information', async (done) => {
-  try {
     await util.findByXpathAndClick(driver, page.UsersButton);
     console.log(page.createdUserBeforeUpdate);
     await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);
@@ -169,9 +168,7 @@ test('change user information', async (done) => {
     await util.findByXpathAndClick(driver, page.changedUserSaveButton);
     await driver.wait(sleep(2000), 3000);
     await done();
-  }
-  catch (error) {console.log(error)}
-});
+  });
 
 test ('delete user', async (done) => {
   await util.findByXpathAndClick(driver, page.UsersButton);
