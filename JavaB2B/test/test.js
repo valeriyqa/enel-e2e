@@ -155,7 +155,7 @@ test('create new user', async (done) => {
   await util.findAndType(driver, page.userEmailFieldXpath, userEmail);
   await util.findByXpathAndClick(driver,page.userCreationNextStepButton);
   await util.findByXpathAndClick(driver, page.userCreationDoneButton);
-  await util.findElementWithXpath(driver, page.createdUserBeforeUpdate);
+  await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);
   await done();
 });
 
