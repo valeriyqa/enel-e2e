@@ -162,12 +162,14 @@ test('create new user', async (done) => {
 });
 
 test('change user information', async (done) => {
-  driver.takeScreenshot().then(function(data){
+  /*driver.takeScreenshot().then(function(data){
     const base64Data = data.replace(/^data:image\/png;base64,/,"")
     fs.writeFile("out.png", base64Data, 'base64', function(err) {
       if(err) console.log(err);
     });
-  });
+  });*/
+    await  console.log(page.UsersButton)
+  await util.findByXpathAndClick(driver, page.locationsMenuOption);
     await util.findByXpathAndClick(driver, page.UsersButton);
     console.log(page.createdUserBeforeUpdate);
     await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);
