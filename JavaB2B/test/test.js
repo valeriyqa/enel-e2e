@@ -171,7 +171,8 @@ test('change user information', async (done) => {
   });*/
   await driver.wait(sleep(5000), 6000);
     await  console.log(page.UsersButton)
-    await util.findByXpathAndClick(driver, page.UsersButton);
+    //await util.findByXpathAndClick(driver, page.UsersButton);
+  driver.get("https://enterprise-new.dev.juice.net/users");
     console.log(page.createdUserBeforeUpdate);
     await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);
     await util.findAndType(driver, page.changedUserFirstNameFieldXpath, page.changedUserName);

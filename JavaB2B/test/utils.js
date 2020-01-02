@@ -41,6 +41,7 @@ export async function login(driver, loginUrl, login, password, timeout = 20000)
 export async function findByXpathAndClick(driver, xpath,  timeout = 20000) {
     const el = await driver.wait(until.elementLocated(By.xpath(xpath)), timeout);
     await driver.findElement(By.xpath(xpath)).click();
+
 }
 
 export async function findAndType(driver, xpath, text, timeout = 2000){
