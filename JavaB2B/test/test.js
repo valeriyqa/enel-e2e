@@ -14,6 +14,7 @@ const clientName = "client autotest"  + today;
 const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
 const clientEmail = "parkhval+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
 
+/*
 describe('Reseller, main actions', () => {
   let driver;
   let page;
@@ -108,7 +109,7 @@ describe('Reseller, main actions', () => {
   await util.findByXpathAndClick(driver, page.locationCreateDoneButton);
   await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.viewLocationsButton);
-/*  await util.findByXpathAndClick(driver, page.createdLocationInTable);
+/!*  await util.findByXpathAndClick(driver, page.createdLocationInTable);
   await util.findByXpathAndClick(driver, page.sublocationsTab);
   await util.findByXpathAndClick(driver, page.addNewSublocation);
   await util.findAndType(driver, page.locationNameFieldXpath, "Sublocation name asdasdasdas dasd asd asd asd asd");
@@ -116,16 +117,17 @@ describe('Reseller, main actions', () => {
   await util.findByXpathAndClick(driver, page.locationCreateNextButton);
   await util.findByXpathAndClick(driver, page.locationCreateDoneButton);
   await driver.wait(sleep(3000), 4000);
-  await util.findByXpathAndClick(driver, page.viewLocationsButton);*/
+  await util.findByXpathAndClick(driver, page.viewLocationsButton);*!/
   await done();
   }, 50000);
  });
+*/
 
 
 describe('Client, main actions', () => {
   let driver;
   let page;
-  jest.setTimeout(30000);
+  jest.setTimeout(40000);
   beforeAll(async () => {
     driver = new webdriver.Builder().forBrowser("chrome").build();
     driver.manage().window().maximize();
@@ -143,7 +145,7 @@ describe('Client, main actions', () => {
 test('Login as client', async (done) => {
     await util.login(driver, page.loginUrl, page.clientEmail, page.clientPassword);
    await done();
-},40000);
+});
 
 test('create new user', async (done) => {
   await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
@@ -157,7 +159,6 @@ test('create new user', async (done) => {
   await util.findByXpathAndClick(driver,page.userCreationNextStepButton);
   await util.findByXpathAndClick(driver, page.userCreationDoneButton);
   await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);
-  await driver.wait(sleep(2000), 3000);
   await done();
 });
 
@@ -168,8 +169,8 @@ test('change user information', async (done) => {
       if(err) console.log(err);
     });
   });*/
+  await driver.wait(sleep(5000), 6000);
     await  console.log(page.UsersButton)
-  await util.findByXpathAndClick(driver, page.locationsMenuOption);
     await util.findByXpathAndClick(driver, page.UsersButton);
     console.log(page.createdUserBeforeUpdate);
     await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);
