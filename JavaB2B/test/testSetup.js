@@ -2,6 +2,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
  export default class SignInPage {
 
   constructor() {
+    const ENV_Alfa_URL = process.env.alfa_env;
     const today = new Date();
     const clientName = "client autotest"  + today;
     this.locationName = "Autotest location " + today;
@@ -42,7 +43,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.viewClientsButton = "//flat-button/button/span[text()='View clients']/../..";
     this.sortButton = "//span[text() = 'Client Name']";
     // this.createdClientInList = "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']";
-  //endregion ##############################################
+  //endregion
 //region RATE
       this.ratesMenuOption = "//a[@href = '/rates']";
       this.freeRateHref = "//a[@href = '/rates/00000000-0000-0000-0000-000000000000']";

@@ -141,7 +141,7 @@ describe('Client, main actions', () => {
 
 
 test('Login as client', async (done) => {
-    await util.login(driver, page.loginUrl, page.clientEmail, page.clientPassword);
+    await util.login(driver, page.ENV_Alfa_URL, page.clientEmail, page.clientPassword);
    await done();
 },40000);
 
