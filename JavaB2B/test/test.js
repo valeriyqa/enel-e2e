@@ -141,7 +141,7 @@ describe('Client, main actions', () => {
 
 
 test('Login as client', async (done) => {
-    await util.login(driver, page.ENV_Alfa_URL, page.clientEmail, page.clientPassword);
+    await util.login(driver, page.loginUrl, page.clientEmail, page.clientPassword);
    await done();
 },40000);
 
@@ -161,7 +161,7 @@ test('create new user', async (done) => {
   await done();
 });
 
-/*test('change user information', async (done) => {
+test('change user information', async (done) => {
   driver.takeScreenshot().then(function(data){
     const base64Data = data.replace(/^data:image\/png;base64,/,"")
     fs.writeFile("out.png", base64Data, 'base64', function(err) {
@@ -188,7 +188,7 @@ test ('delete user', async (done) => {
   await util.findByXpathAndClick(driver, page.confirmDeleteUserButton);
   await util.findByXpathAndClick(driver, page.viewUsersButton);
   await done();
-});*/
+});
 
 test('connect with stripe', async (done) => {
   await driver.wait(sleep(2000), 3000);

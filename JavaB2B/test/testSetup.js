@@ -2,7 +2,6 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
  export default class SignInPage {
 
   constructor() {
-    const ENV_Alfa_URL = process.env.alfa_env;
     const today = new Date();
     const clientName = "client autotest"  + today;
     this.locationName = "Autotest location " + today;
