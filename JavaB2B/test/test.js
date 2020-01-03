@@ -172,7 +172,7 @@ test('change user information', async (done) => {
   await driver.wait(sleep(5000), 6000);
     await  console.log(page.UsersButton)
     //await util.findByXpathAndClick(driver, page.UsersButton);
-  driver.get("https://enterprise-new.dev.juice.net/users");
+    driver.get("https://enterprise-new.dev.juice.net/users");
     console.log(page.createdUserBeforeUpdate);
     await util.findByXpathAndClick(driver, page.createdUserBeforeUpdate);
     await util.findAndType(driver, page.changedUserFirstNameFieldXpath, page.changedUserName);
@@ -183,7 +183,7 @@ test('change user information', async (done) => {
   });
 
 test ('delete user', async (done) => {
-  await util.findByXpathAndClick(driver, page.UsersButton);
+  driver.get("https://enterprise-new.dev.juice.net/users");
   console.log (page.createdUser);
   await util.findByXpathAndClick(driver, page.createdUser);
   await driver.wait(sleep(2000), 3000);

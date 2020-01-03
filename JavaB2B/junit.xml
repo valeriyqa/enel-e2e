@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="5" failures="0" time="58.102">
-  <testsuite name="Client, main actions" errors="0" failures="0" skipped="0" timestamp="2020-01-02T12:26:05" time="57.335" tests="5">
-    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="26.457">
+<testsuites name="jest tests" tests="5" failures="0" time="59.871">
+  <testsuite name="Client, main actions" errors="0" failures="0" skipped="0" timestamp="2020-01-03T09:57:01" time="59.107" tests="5">
+    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="25.333">
     </testcase>
-    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="4.695">
+    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="5.927">
     </testcase>
-    <testcase classname="Client, main actions change user information" name="Client, main actions change user information" time="8.957">
+    <testcase classname="Client, main actions change user information" name="Client, main actions change user information" time="9.776">
     </testcase>
-    <testcase classname="Client, main actions delete user" name="Client, main actions delete user" time="5.07">
+    <testcase classname="Client, main actions delete user" name="Client, main actions delete user" time="6.418">
     </testcase>
-    <testcase classname="Client, main actions connect with stripe" name="Client, main actions connect with stripe" time="10.212">
+    <testcase classname="Client, main actions connect with stripe" name="Client, main actions connect with stripe" time="10.1">
     </testcase>
   </testsuite>
 </testsuites>

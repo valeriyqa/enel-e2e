@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="5" failures="0" time="57.335" timestamp="2020-01-02T12:26:05">
+  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="5" failures="0" time="59.107" timestamp="2020-01-03T09:57:01">
     <properties>
     </properties>
     <testcase classname="Client, main actions" name="Login as client" time="0">
