@@ -101,7 +101,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.userCreationDoneButton = "//flat-button/button/span[text()='Done']";
     this.createdUser = "//div/a[text()='"+ this.userName + this.changedUserName + " " +  this.userSurName + this.changedUserSurName+"']";
     this.createdUserBeforeUpdate = "//div/a[text()='"+ this.userName +" "+ this.userSurName +"']";
-    this.UsersButton = "//a/span[text() = 'Users']";
+    this.UsersButton = "//a[@href = '/users']";
     this.changedUserFirstNameFieldXpath = "//input[@formcontrolname = 'firstName']";
     this.changedUserLastNameFieldXpath = "//input[@formcontrolname = 'lastName']";
     this.changedUserSaveButton = "//flat-button/button/span[text()=' Save ']";
