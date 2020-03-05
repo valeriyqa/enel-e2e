@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="5" failures="0" time="59.871">
-  <testsuite name="Client, main actions" errors="0" failures="0" skipped="0" timestamp="2020-01-03T09:57:01" time="59.107" tests="5">
-    <testcase classname="Client, main actions Login as client" name="Client, main actions Login as client" time="25.333">
+<testsuites name="jest tests" tests="9" failures="0" time="80.164">
+  <testsuite name="Cloud emulator craete device" errors="0" failures="0" skipped="0" timestamp="2020-03-05T10:16:43" time="79.343" tests="9">
+    <testcase classname="Cloud emulator craete device Get a cloud amulator token" name="Cloud emulator craete device Get a cloud amulator token" time="1.136">
     </testcase>
-    <testcase classname="Client, main actions create new user" name="Client, main actions create new user" time="5.927">
+    <testcase classname="Cloud emulator craete device Create a new template" name="Cloud emulator craete device Create a new template" time="0.926">
     </testcase>
-    <testcase classname="Client, main actions change user information" name="Client, main actions change user information" time="9.776">
+    <testcase classname="Cloud emulator craete device Run a created  template" name="Cloud emulator craete device Run a created  template" time="0">
     </testcase>
-    <testcase classname="Client, main actions delete user" name="Client, main actions delete user" time="6.418">
+    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="23.872">
     </testcase>
-    <testcase classname="Client, main actions connect with stripe" name="Client, main actions connect with stripe" time="10.1">
+    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="9.68">
+    </testcase>
+    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="12.528">
+    </testcase>
+    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="11.734">
+    </testcase>
+    <testcase classname="Reseller, main actions RFID test reseller side" name="Reseller, main actions RFID test reseller side" time="6.448">
+    </testcase>
+    <testcase classname="Reseller, main actions Add cloud device" name="Reseller, main actions Add cloud device" time="10.572">
     </testcase>
   </testsuite>
 </testsuites>

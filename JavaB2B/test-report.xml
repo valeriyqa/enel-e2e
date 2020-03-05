@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="5" failures="0" time="59.107" timestamp="2020-01-03T09:57:01">
+  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="9" failures="0" time="79.343" timestamp="2020-03-05T10:16:43">
     <properties>
     </properties>
-    <testcase classname="Client, main actions" name="Login as client" time="0">
+    <testcase classname="Cloud emulator craete device" name="Get a cloud amulator token" time="0">
     </testcase>
-    <testcase classname="Client, main actions" name="create new user" time="0">
+    <testcase classname="Cloud emulator craete device" name="Create a new template" time="0">
     </testcase>
-    <testcase classname="Client, main actions" name="change user information" time="0">
+    <testcase classname="Cloud emulator craete device" name="Run a created  template" time="0">
     </testcase>
-    <testcase classname="Client, main actions" name="delete user" time="0">
+    <testcase classname="Reseller, main actions" name="Login as reseller" time="0">
     </testcase>
-    <testcase classname="Client, main actions" name="connect with stripe" time="0">
+    <testcase classname="Reseller, main actions" name="Create a new rate" time="0">
+    </testcase>
+    <testcase classname="Reseller, main actions" name="Create a new group" time="0">
+    </testcase>
+    <testcase classname="Reseller, main actions" name="location test" time="0">
+    </testcase>
+    <testcase classname="Reseller, main actions" name="RFID test reseller side" time="0">
+    </testcase>
+    <testcase classname="Reseller, main actions" name="Add cloud device" time="0">
     </testcase>
     <system-out/>
     <system-err/>

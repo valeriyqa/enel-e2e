@@ -3,15 +3,18 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
 
   constructor() {
     const today = new Date();
+    this.chargepointId = "autotest" + today.getMonth() + today.getDay() + today.getHours() +  today.getMinutes();
+    this.wssEmulatorUrl = "wss://ocpp-us-dev-connector.azurewebsites.net/ocppj/noauth/valeriy/" + this.chargepointId;
     const clientName = "client autotest"  + today;
     this.locationName = "Autotest location " + today;
-    const clientEmail = "parkhval+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
-    const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "betaautotest@gmail.com";
+    const clientEmail = "parkhval+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "alfaautotest@gmail.com";
+    const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "alfaautotest@gmail.com";
+    this.cardIDString = "VA" + today.getMonth() + today.getDay() + today.getHours() +  today.getMinutes();
     this.userName = "AutoTest_user" + today.getDay() + today.getHours() +  today.getMinutes();
     this.userSurName = "AutoTest_SurName";
     this.changedUserName = "+Vasya";
     this.changedUserSurName = "+Pumpkin";
-    this.loginUrl = "https://enterprise-new.dev.juice.net";
+    this.loginUrl = "https://enterprise.dev.juice.net/";
     this.resellerPassword = "12qw!@QW";
     this.resellerEmail = "parkhval+r4alfaauto@gmail.com";
     this.clientEmail = "parkhval+c4alfa@gmail.com";
@@ -25,6 +28,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.createNewClientButtonXpath =   "//fab-button";
     this.resellerDashboardUrl = this.loginUrl +  "/companies";
     //endregion
+
     //region #########NEW CLIENT FORM###################
     this.nameFieldXpath = "//input[@formcontrolname = 'name']";
     this.emailFieldXpath = "//input[@formcontrolname = 'email']";
@@ -42,8 +46,9 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.viewClientsButton = "//flat-button/button/span[text()='View clients']/../..";
     this.sortButton = "//span[text() = 'Client Name']";
     // this.createdClientInList = "//datatable-scroller/datatable-row-wrapper/datatable-body-row/div/datatable-body-cell  /div/a[text()='" + clientName + "']/../../../datatable-body-cell/div/a[text() = ' Login as Client ']";
-  //endregion
-//region RATE
+    //endregion
+
+    //region RATE
       this.ratesMenuOption = "//a[@href = '/rates']";
       this.freeRateHref = "//a[@href = '/rates/00000000-0000-0000-0000-000000000000']";
       this.globalAddButtonXpath = "//fab-button/a[@class = 'accent add']";
@@ -55,9 +60,9 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
       this.saveOnEditButton = "//flat-button[@icon = 'icon-save']";
       this.alertOkButton = "//flat-button/button/span[text() = 'Ok']/../..";
       this.editRateName = "//input[@formcontrolname = 'name']";
-//endregion
+      //endregion
 
-//region groups
+      //region groups
       this.groupsMenuOption = "//a[@href = '/users/groups']";
       this.newGroupSpan = "//button/span[text() = 'New group']/..";
       this.groupNameInput = "//input[@name='name']";
@@ -74,9 +79,9 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
       this.saveUserSearchButton = "//flat-button/button/span[text()='Save']";
       this.deleteGroupButton = "//flat-button/button/span[text()='Delete']";
       this.confirmDeleteButton = "(//flat-button/button/span[text()='Delete'])[2]/../..";
-//endregion
-    //region locations
+    //endregion
 
+    //region locations
     this.locationsMenuOption = "//a[@href = '/locations']";
     this.newLocationSpan = "//button/span[text() = 'New location']/..";
     this.locationNameFieldXpath = "//input[@formcontrolname = 'name']";
@@ -86,11 +91,13 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.createdLocationInTable = "//tbody/tr/td/div/div/div/a[text()='" + this.locationName + "']";
     this.sublocationsTab = "//div[text()='Sublocations']";
     this.addNewSublocation = "//fab-button/a/span[text()='Add New']";
+    this.acDevicessettingstab = "//div[text()='AC units']";
+    this.dcDevicessettingstab = "//div[text()='DC units']";
+
     //endregion
 
 
     //region users
-
     this.newUserSpan = "//button[@id='btn-add-user']";
     this.userNameFieldXpath = "//input[@name='name']";
     this.userSurnameFieldXpath = "//input[@name='surname']";
@@ -110,16 +117,30 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.viewUsersButton = "//flat-button/button/span[text()='View users']";
     //endregion
 
-
-
     //region Stripe
-
     this.clientsIcon = "//app-icon[@iconname='icon-single-user']";
     this.clientsIcon2 = "//div[@class='user-info center-both']/app-icon";
     this.paymentTab = "//div[text()='Payment']";
     this.stripeTab = "//div[text()='Stripe']";
     this.connectWithStripeButton = "//flat-button/button/span[text()='Connect with Stripe']";
     this.skipRegisterForm = "//a[@id='skip-account-app']";
+    //endregion
+
+    //region RFID
+    this.addRfidButtonSpan = "//button[@id='btn-add-rfid']";
+    this.cardID = "//input[@formcontrolname='rfid']";
+    this.cardCreateDoneButton = "//flat-button/button/span[text()=' Done ']";
+    this.createdRfidCard = "//a[text()='" + this.cardIDString + "']";
+    //endregion
+
+    //region Device
+    this.addDiviceButton = "//button[@id='btn-add-device']";
+    this.deviceIdField = "//input[@formcontrolname='serialNumber']";
+    this.deviceNameField = "//input[@formcontrolname='name']";
+    this.locationSelect = "//mat-select[@name='locations']";
+    this.addDeviceNextStepButton = "//flat-button/button/span[text()='Next']";
+    this.addDeviceDoneButton = "//flat-button/button/span[text()='Done']";
+    this.viewDevicesButton = "//flat-button/button/span[text()='View devices']";
     //endregion
   }
 
