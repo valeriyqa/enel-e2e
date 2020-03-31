@@ -18,6 +18,7 @@ const clientName = "client autotest"  + today;
 const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "alfaautotest@gmail.com";
 const clientEmail = "parkhval+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "alfaautotest@gmail.com";
 const deviceName = "Autotest device" + today.getDay() + today.getHours() +  today.getMinutes();
+const admintoken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmRldi5qdWljZS5uZXQvaWRlbnRpdHkiLCJhdWQiOiJodHRwczovL2FjY291bnRzLmRldi5qdWljZS5uZXQvaWRlbnRpdHkvcmVzb3VyY2VzIiwiZXhwIjoxNTg4MjMxNzk1LCJuYmYiOjE1ODU2Mzk3OTUsImNsaWVudF9pZCI6ImIyYi51aSIsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJyb2xlcyIsImFwaSJdLCJzdWIiOiI0ZmJhMGI2Yy0wNmY5LTQ5MzktYjEyNi0xYWI0NzdiMTVlMTYiLCJhdXRoX3RpbWUiOjE1ODU2Mzk3OTUsImlkcCI6Imlkc3J2IiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW5AZW1vdG9yd2Vya3MuY29tIiwiZW1haWwiOiJhZG1pbkBlbW90b3J3ZXJrcy5jb20iLCJlbWFpbF92ZXJpZmllZCI6InRydWUiLCJyb2xlIjpbIkFkbWlucyIsIkNhciBBZG1pbiIsIkRpcmVjdG9yeUFkbWlucyIsIkVuZXJneUdyb3VwIEFkbWluIiwiU3VwZXIgQWRtaW5zIl0sImdpdmVuX25hbWUiOiJhZG1pbkBlbW90b3J3ZXJrcy5jb20iLCJmYW1pbHlfbmFtZSI6Im5vdCBzdXBwb3J0ZWQiLCJhbXIiOlsicGFzc3dvcmQiXX0.JJVw9YJUnzaJ8LBIC__loYA9uZmzHOmVydyA-L3Geq2AxkfZ7sxFuIKIRDGcMV1QTZe9V82PhzKSv_Py_6g5EXZa32siH8hqiGyWKlXm1rdkUSXElMc-Fl_0xR67EQkwNuomvASQ6D8pmQBiL1P6tXeNjhpEoEgepwkrLN4JoEinui7TiADF0r2S2xZSaHPY7VqwrRg3Hgf1bdgq__DP0bJM0HFOZG1FNwpXxEdsel5TN6q-ZDZI_7V4np7PsI79WR0xhmXUR7IzsHKRgyrG_8kO3yU6X8CYB1VyghTb-efNJOMwynSYobJqR1i0T-_QpCfar_rrkuY6a6_4UpuDGg"
 
 describe('Cloud emulator craete device', function()  {
   test('Get a cloud amulator token',  function (done) {
@@ -194,7 +195,7 @@ describe('Reseller, main actions', () => {
     await util.findAndType(driver, page.rateName, page.rateNameString);
     await util.findByXpathAndClick(driver, page.saveRateButton);
     await util.findByXpathAndClick(driver, page.createdRateXpath);
-    await util.findAndType(driver, page.editRateName, page.rateNameString + "edited");
+    await util.findAndType(driver, page.editRateName, "edited");
     await util.findByXpathAndClick(driver, page.saveOnEditButton);
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.alertOkButton);
@@ -213,7 +214,7 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, page.usersTabOfGroups);
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.assignNewUSerButton);
-    await util.findAndType(driver, page.userSearchInput, "asd");
+    await util.findAndType(driver, page.userSearchInput, "parkh");
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.searchUserButton);
     await util.findByXpathAndClick(driver, page.selectUserCheckbox);
@@ -232,8 +233,6 @@ describe('Reseller, main actions', () => {
   await util.findAndType(driver, page.locationNameFieldXpath, page.locationName);
   await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.locationCreateNextButton);
-
-
   await util.findByXpathAndClick(driver, page.locationCreateDoneButton);
   await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.viewLocationsButton);
@@ -247,18 +246,57 @@ describe('Reseller, main actions', () => {
   await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.viewLocationsButton);*/
   await done();
-  }, 50000);
-
-  test('RFID test reseller side', async (done) => {
-    await driver.get(page.loginUrl + "/rfid");
-    await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
-    await driver.wait(sleep(2000), 4000);
-    await util.findByXpathAndClick(driver, page.addRfidButtonSpan);
-    await util.findAndType(driver, page.cardID, page.cardIDString);
-    await util.findByXpathAndClick(driver, page.cardCreateDoneButton);
-    await util.findByXpathAndClick(driver, page.createdRfidCard);
-    done();
   });
+
+    test('sublocation test', async (done) => {
+        await util.findByXpathAndClick(driver, page.createdLocationInTable);
+        await util.findByXpathAndClick(driver, page.sublocationsTab);
+        await util.findByXpathAndClick(driver, page.addLocationButton);
+        await util.findAndType(driver, page.sublocationNameFieldXpath, page.sublocationName);
+        await driver.wait(sleep(2000), 4000);
+        await util.findByXpathAndClick(driver, page.locationCreateNextButton);
+        await util.findByXpathAndClick(driver, page.loadBalanceSwitch);
+        await util.findAndType(driver, page.maxPowerField, "25");
+        await util.findByXpathAndClick(driver, page.acSettingsTab);
+        await util.findAndType(driver, page.maxPowerDCField, "25");
+        await util.findByXpathAndClick(driver, page.allowPublicAccessSwitch);
+        await util.findByXpathAndClick(driver,  page.selectRateDropdown);
+        await util.findByXpathAndClick(driver, page.specificRateValue);
+        await util.findByXpathAndClick(driver, page.dcSettingsTab);
+        await driver.wait(sleep(3000), 4000);
+        await util.findAndType(driver, page.maxPowerDCField, "25");
+        await util.findByXpathAndClick(driver, page.allowPublicAccessSwitch);
+            await util.findByXpathAndClick(driver, page.sublocationCreateDoneButton);
+        await driver.wait(sleep(3000), 4000);
+        await util.findByXpathAndClick(driver, page.viewLocationsButton);
+        await done();
+        /*const SelectParentLocation = await util.findElementWithXpath(driver, page.SelectParentLocation);
+      SelectParentLocation.selectedIndex = 0;*/
+    });
+
+  test('RFID add from admin side', async (done) => {
+
+          Request.post({
+              'headers': { 'content-type': 'application/json' ,
+                  'Authorization' : 'Bearer ' + admintoken},
+              'url': 'https://admin-api.dev.juice.net/api/v1/rfid-registry',
+              'body': JSON.stringify(
+                  [{"RFID":page.rfid,"SerialNumber":page.rfidSerialNumber}]
+              )
+          }, function (error, response, body)  {
+              console.log('\n\n*RFID CREATED*');
+              done();
+          });
+      });
+    test('RFID add from reseller side', async (done) => {
+        await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
+        await util.findByXpathAndClick(driver, page.addRfidButtonSpan);
+        await util.findAndType(driver, page.cardID, page.rfidSerialNumber);
+        await util.findByXpathAndClick(driver, page.cardCreateDoneButton);
+        await util.findByXpathAndClick(driver,page.createdRfidCard);
+        done();
+    });
+
   test('Add cloud device', async (done) => {
     await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
     await driver.wait(sleep(2000), 4000);
@@ -266,8 +304,9 @@ describe('Reseller, main actions', () => {
     await util.findAndType(driver, page.deviceIdField, "3737-BETA-"+ templateID + "-0");
     await util.findAndType(driver, page.deviceNameField, "Autotest device " + templateID);
     await util.findByXpathAndClick(driver, page.locationSelect);
-    await util.findByXpathAndClick(driver, "//mat-option[@id='mat-option-0']");
-    await driver.wait(sleep(3000), 4000);
+    await driver.wait(sleep(2000), 4000);
+    await util.findByXpathAndClick(driver, "//mat-option/span[text()=' " + page.locationName + " ']");
+    await driver.wait(sleep(5000), 6000);
     await util.findByXpathAndClick(driver, page.addDeviceNextStepButton);
     await util.findByXpathAndClick(driver, page.addDeviceDoneButton);
     await driver.wait(sleep(2000), 4000);
@@ -275,8 +314,7 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, "//a[text()='Autotest device "+templateID+"']");
     done();
   });
-
- });
+});
 /*describe('Client, main actions', () => {
   let driver;
   let page;

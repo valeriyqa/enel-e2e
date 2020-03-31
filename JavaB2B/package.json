@@ -30,7 +30,6 @@
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.6.2",
-    "allure": "0.0.0",
     "babel-jest": "^24.9.0",
     "babel-plugin-import": "^1.12.2",
     "babel-polyfill": "^6.26.0",

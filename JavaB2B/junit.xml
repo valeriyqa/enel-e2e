@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="9" failures="0" time="80.164">
-  <testsuite name="Cloud emulator craete device" errors="0" failures="0" skipped="0" timestamp="2020-03-05T10:16:43" time="79.343" tests="9">
-    <testcase classname="Cloud emulator craete device Get a cloud amulator token" name="Cloud emulator craete device Get a cloud amulator token" time="1.136">
+<testsuites name="jest tests" tests="11" failures="0" time="103.821">
+  <testsuite name="Cloud emulator craete device" errors="0" failures="0" skipped="0" timestamp="2020-03-31T10:37:35" time="103.014" tests="11">
+    <testcase classname="Cloud emulator craete device Get a cloud amulator token" name="Cloud emulator craete device Get a cloud amulator token" time="1.387">
     </testcase>
-    <testcase classname="Cloud emulator craete device Create a new template" name="Cloud emulator craete device Create a new template" time="0.926">
+    <testcase classname="Cloud emulator craete device Create a new template" name="Cloud emulator craete device Create a new template" time="1.171">
     </testcase>
     <testcase classname="Cloud emulator craete device Run a created  template" name="Cloud emulator craete device Run a created  template" time="0">
     </testcase>
-    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="23.872">
+    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="23.486">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="9.68">
+    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="16.225">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="12.528">
+    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="12.505">
     </testcase>
-    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="11.734">
+    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="11.797">
     </testcase>
-    <testcase classname="Reseller, main actions RFID test reseller side" name="Reseller, main actions RFID test reseller side" time="6.448">
+    <testcase classname="Reseller, main actions sublocation test" name="Reseller, main actions sublocation test" time="14.181">
     </testcase>
-    <testcase classname="Reseller, main actions Add cloud device" name="Reseller, main actions Add cloud device" time="10.572">
+    <testcase classname="Reseller, main actions RFID add from admin side" name="Reseller, main actions RFID add from admin side" time="1.514">
+    </testcase>
+    <testcase classname="Reseller, main actions RFID add from reseller side" name="Reseller, main actions RFID add from reseller side" time="2.094">
+    </testcase>
+    <testcase classname="Reseller, main actions Add cloud device" name="Reseller, main actions Add cloud device" time="16.135">
     </testcase>
   </testsuite>
 </testsuites>

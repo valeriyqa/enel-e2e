@@ -2,11 +2,16 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
  export default class SignInPage {
 
   constructor() {
+
     const today = new Date();
+    this.rfid = "RFIDVA" + today.getDay() + today.getHours() +  today.getMinutes();
+    this.rfidSerialNumber = "SNVA" + today.getDay() + today.getHours() +  today.getMinutes();
     this.chargepointId = "autotest" + today.getMonth() + today.getDay() + today.getHours() +  today.getMinutes();
     this.wssEmulatorUrl = "wss://ocpp-us-dev-connector.azurewebsites.net/ocppj/noauth/valeriy/" + this.chargepointId;
     const clientName = "client autotest"  + today;
+    this.sublocationName = "Autotest subloc " + today;
     this.locationName = "Autotest location " + today;
+    this.sublocationName = "Autotest sublocation " + today;
     const clientEmail = "parkhval+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "alfaautotest@gmail.com";
     const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "alfaautotest@gmail.com";
     this.cardIDString = "VA" + today.getMonth() + today.getDay() + today.getHours() +  today.getMinutes();
@@ -16,7 +21,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.changedUserSurName = "+Pumpkin";
     this.loginUrl = "https://enterprise.dev.juice.net/";
     this.resellerPassword = "12qw!@QW";
-    this.resellerEmail = "parkhval+r4alfaauto@gmail.com";
+    this.resellerEmail = "parkhval+r7alfa@gmail.com"; //parkhval+r7alfaautotest@gmail.com
     this.clientEmail = "parkhval+c4alfa@gmail.com";
     this.clientPassword= "12qw!@QW";
     this.pathToLXLSFile = `${__dirname}/users.xlsx`;
@@ -63,7 +68,7 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
       //endregion
 
       //region groups
-      this.groupsMenuOption = "//a[@href = '/users/groups']";
+      this.groupsMenuOption = "//a[@href = '/users-groups']";
       this.newGroupSpan = "//button/span[text() = 'New group']/..";
       this.groupNameInput = "//input[@name='name']";
       this.groupCreationNextStepButton = "//flat-button/button/span[text()='Next']";
@@ -85,14 +90,15 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.locationsMenuOption = "//a[@href = '/locations']";
     this.newLocationSpan = "//button/span[text() = 'New location']/..";
     this.locationNameFieldXpath = "//input[@formcontrolname = 'name']";
-    this.locationCreateNextButton = "//flat-button/button/span[text()='Next']";
-    this.locationCreateDoneButton = "//flat-button/button/span[text()='Done']";
+    this.locationCreateNextButton = "//button/span[text()='Next']";
+    this.locationCreateDoneButton = "//button/span[text()='Done']";
     this.viewLocationsButton = "//flat-button/button/span[text()='View locations']";
-    this.createdLocationInTable = "//tbody/tr/td/div/div/div/a[text()='" + this.locationName + "']";
+    this.createdLocationInTable = "//div/a[text()=' " + this.locationName + " ']";
     this.sublocationsTab = "//div[text()='Sublocations']";
     this.addNewSublocation = "//fab-button/a/span[text()='Add New']";
     this.acDevicessettingstab = "//div[text()='AC units']";
     this.dcDevicessettingstab = "//div[text()='DC units']";
+    this.sublocationNameFieldXpath = "//input[@formcontrolname = 'name']";
 
     //endregion
 
@@ -127,10 +133,10 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     //endregion
 
     //region RFID
-    this.addRfidButtonSpan = "//button[@id='btn-add-rfid']";
-    this.cardID = "//input[@formcontrolname='rfid']";
+    this.addRfidButtonSpan = "//button/span[text()='New RFID card']";
+    this.cardID = "//input[@formcontrolname='serialNumber']";
     this.cardCreateDoneButton = "//flat-button/button/span[text()=' Done ']";
-    this.createdRfidCard = "//a[text()='" + this.cardIDString + "']";
+    this.createdRfidCard = "//a[text()='" + this.rfidSerialNumber + "']";
     //endregion
 
     //region Device
@@ -141,6 +147,32 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.addDeviceNextStepButton = "//flat-button/button/span[text()='Next']";
     this.addDeviceDoneButton = "//flat-button/button/span[text()='Done']";
     this.viewDevicesButton = "//flat-button/button/span[text()='View devices']";
+
+    this.startChargingButton = "//button/span[text()=' Start ']";
+    this.plugStateIcon = "//app-icon[@ng-reflect-icon-name='icon-plug-type1']";
+    //endregion
+
+    //region Sublocation
+
+    this.addLocationButton = "//span[text()='Add New']";
+    this.CreateAnotherLocationButton = "//flat-button/button/span[text()='Create another']";
+
+    this.locationType = "//span/span[text()='Main location']";
+    this.SublocationType  = "//mat-option/span[text()='Sublocation']";
+    this.SelectParentLocation = "//mat-select[@aria-label = 'Select a location']";
+    this.LocationSelectDropdown = "//mat-option/span[@class = 'mat-option-text']";
+    this.sublocationCreateNextButton = "//flat-button/button/span[text()='Next']";
+    this.sublocationCreateDoneButton = "//flat-button/button/span[text()='Done']";
+    this.viewLocationsButton = "//flat-button/button/span[text()='View locations']";
+    this.loadBalanceSwitch = "//mat-slide-toggle[@id='toggle-lb']";
+    this.maxPowerField = "//input[@formcontrolname='maxPower']";
+    this.acSettingsTab = "//div[text()='AC units']";
+    this.maxPowerDCField = "//input[@formcontrolname='maxAllowed']";
+    this.maxPowerACField = "//input[@formcontrolname='maxAllowed']";
+    this.allowPublicAccessSwitch = "//mat-slide-toggle[@id='toggle-public-access']";
+    this.specificRateValue = "//mat-option/span[text()=' "+ this.rateNameString +"edited ']";
+    this.selectRateDropdown = "//mat-select[@id='select-rate']"
+    this.dcSettingsTab = "//div[text()='DC units']";
     //endregion
   }
 
