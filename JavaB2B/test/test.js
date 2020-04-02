@@ -237,6 +237,7 @@ describe('Reseller, main actions', () => {
   await util.findAndType(driver, page.locationNameFieldXpath, page.locationName);
   await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.locationCreateNextButton);
+      await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.locationCreateDoneButton);
   await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.viewLocationsButton);
@@ -296,7 +297,9 @@ describe('Reseller, main actions', () => {
         await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
         await util.findByXpathAndClick(driver, page.addRfidButtonSpan);
         await util.findAndType(driver, page.cardID, page.rfidSerialNumber);
+        await driver.wait(sleep(3000), 4000);
         await util.findByXpathAndClick(driver, page.cardCreateDoneButton);
+        await driver.wait(sleep(3000), 4000);
         await util.findByXpathAndClick(driver,page.createdRfidCard);
         done();
     });
@@ -342,7 +345,7 @@ test("plug the emulator device", async (done) =>{
         await util.findByXpathAndClick(driver, page.historyTab);
         await driver.wait(sleep(1000), 4000);
         await util.findElementWithXpath(driver, page.inUsediv);
-        await driver.wait(sleep(4000), 5000);
+        await driver.wait(sleep(5000), 6000);
         await util.findByXpathAndClick(driver, page.stopChargingButton);
 
         done();
