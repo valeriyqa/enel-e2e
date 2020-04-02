@@ -328,6 +328,7 @@ test("plug the emulator device", async (done) =>{
     await util.findByXpathAndClick(driver, page.addDeviceNextStepButton);
     await util.findByXpathAndClick(driver, page.selectRateDropdown);
     await util.findByXpathAndClick(driver, page.specificRateValue);
+    await driver.wait(sleep(2000), 4000);
     await util.findByXpathAndClick(driver, page.addDeviceDoneButton);
     await driver.wait(sleep(2000), 4000);
     await util.findByXpathAndClick(driver, page.viewDevicesButton);
