@@ -62,6 +62,9 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
       this.saveRateButton = "//flat-button/button/span[text()='Done']";
       this.rateNameString = "Autotest name";
       this.createdRateXpath = "//a[text() = '"+ this.rateNameString +"']";
+      this.ratePerSessionField = "//input[@id='input-per-session']";
+      this.ratePerHour = "//input[@id='input-per-hour']";
+      this.ratePerSession = "//input[@id='input-per-session']";
       this.saveOnEditButton = "//flat-button[@icon = 'icon-save']";
       this.alertOkButton = "//flat-button/button/span[text() = 'Ok']/../..";
       this.editRateName = "//input[@formcontrolname = 'name']";
@@ -147,9 +150,11 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.addDeviceNextStepButton = "//flat-button/button/span[text()='Next']";
     this.addDeviceDoneButton = "//flat-button/button/span[text()='Done']";
     this.viewDevicesButton = "//flat-button/button/span[text()='View devices']";
-
+    this.inUsediv = "//div[text()='In use']";
+    this.historyTab = "//div[text()='History']";
     this.startChargingButton = "//button/span[text()=' Start ']";
     this.plugStateIcon = "//app-icon[@ng-reflect-icon-name='icon-plug-type1']";
+    this.stopChargingButton = "//button/span[text()=' Stop ']";
     //endregion
 
     //region Sublocation
@@ -171,11 +176,8 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.maxPowerACField = "//input[@formcontrolname='maxAllowed']";
     this.allowPublicAccessSwitch = "//mat-slide-toggle[@id='toggle-public-access']";
     this.specificRateValue = "//mat-option/span[text()=' "+ this.rateNameString +"edited ']";
-    this.selectRateDropdown = "//mat-select[@id='select-rate']"
+    this.selectRateDropdown = "//mat-select[@id='select-rate']";
     this.dcSettingsTab = "//div[text()='DC units']";
     //endregion
   }
-
-
-
 }

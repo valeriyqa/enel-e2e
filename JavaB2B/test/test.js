@@ -90,7 +90,7 @@ describe('Cloud emulator craete device', function()  {
                     'url': 'https://emulator-api.beta.juice.net/api/v1/templates/' + templateID,
                     'body': JSON.stringify({
                         "isRunning": true,
-                        "pluggedIn": true
+                        "pluggedIn": false
                     })
                 });
             done();
@@ -193,6 +193,9 @@ describe('Reseller, main actions', () => {
     await driver.wait(sleep(3000), 4000);
     await util.findByXpathAndClick(driver, page.newRateSpan);
     await util.findAndType(driver, page.rateName, page.rateNameString);
+    await util.findAndType(driver, page.ratePerSessionField, "12");
+    await util.findAndType(driver, page.ratePerHour, "12");
+    await util.findAndType(driver, page.ratePerSession, "12");
     await util.findByXpathAndClick(driver, page.saveRateButton);
     await util.findByXpathAndClick(driver, page.createdRateXpath);
     await util.findAndType(driver, page.editRateName, "edited");
@@ -296,7 +299,21 @@ describe('Reseller, main actions', () => {
         await util.findByXpathAndClick(driver,page.createdRfidCard);
         done();
     });
-
+test("plug the emulator device", async (done) =>{
+    Request
+        .patch({
+            'headers': {
+                'content-type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            'url': 'https://emulator-api.beta.juice.net/api/v1/templates/' + templateID,
+            'body': JSON.stringify({
+                "isRunning": true,
+                "pluggedIn": true
+            })
+        });
+    done();
+});
   test('Add cloud device', async (done) => {
     await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
     await driver.wait(sleep(2000), 4000);
@@ -308,12 +325,25 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, "//mat-option/span[text()=' " + page.locationName + " ']");
     await driver.wait(sleep(5000), 6000);
     await util.findByXpathAndClick(driver, page.addDeviceNextStepButton);
+    await util.findByXpathAndClick(driver, page.selectRateDropdown);
+    await util.findByXpathAndClick(driver, page.specificRateValue);
     await util.findByXpathAndClick(driver, page.addDeviceDoneButton);
     await driver.wait(sleep(2000), 4000);
     await util.findByXpathAndClick(driver, page.viewDevicesButton);
     await util.findByXpathAndClick(driver, "//a[text()='Autotest device "+templateID+"']");
     done();
   });
+    test('Device interactions', async (done) => {
+
+        await util.findByXpathAndClick(driver, page.startChargingButton);
+        await driver.wait(sleep(2000), 4000);
+        await util.findByXpathAndClick(driver, page.historyTab);
+        await util.findElementWithXpath(driver, page.inUsediv);
+        await driver.wait(sleep(4000), 5000);
+        await util.findByXpathAndClick(driver, page.stopChargingButton);
+
+        done();
+    });
 });
 /*describe('Client, main actions', () => {
   let driver;

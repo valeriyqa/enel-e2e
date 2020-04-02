@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="11" failures="0" time="103.014" timestamp="2020-03-31T10:37:35">
+  <testsuite id="0" name="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" errors="0" package="C:\Users\Valeriy\Desktop\Work\Azure repo\e2e\JuiceBoxQA\JavaB2B\test\test.js" hostname="localhost" tests="13" failures="0" time="140.694" timestamp="2020-04-02T09:05:50">
     <properties>
     </properties>
     <testcase classname="Cloud emulator craete device" name="Get a cloud amulator token" time="0">
@@ -23,7 +23,11 @@
     </testcase>
     <testcase classname="Reseller, main actions" name="RFID add from reseller side" time="0">
     </testcase>
+    <testcase classname="Reseller, main actions" name="plug the emulator device" time="0">
+    </testcase>
     <testcase classname="Reseller, main actions" name="Add cloud device" time="0">
+    </testcase>
+    <testcase classname="Reseller, main actions" name="Device interactions" time="0">
     </testcase>
     <system-out/>
     <system-err/>
