@@ -19,10 +19,10 @@ import webdriver, {Builder, By, Key, until} from "selenium-webdriver";
     this.userSurName = "AutoTest_SurName";
     this.changedUserName = "+Vasya";
     this.changedUserSurName = "+Pumpkin";
-    this.loginUrl = "https://enterprise.dev.juice.net/";
+    this.loginUrl = "https://enterprise.beta.juice.net/";
     this.resellerPassword = "12qw!@QW";
-    this.resellerEmail = "parkhval+r7alfa@gmail.com"; //parkhval+r7alfaautotest@gmail.com
-    this.clientEmail = "parkhval+c4alfa@gmail.com";
+    this.resellerEmail = "parkhval+r5beta@gmail.com"; //parkhval+r7alfaautotest@gmail.com
+    this.clientEmail = "parkhval+c5beta@gmail.com";
     this.clientPassword= "12qw!@QW";
     this.pathToLXLSFile = `${__dirname}/users.xlsx`;
 
