@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="13" failures="0" time="141.542">
-  <testsuite name="Cloud emulator craete device" errors="0" failures="0" skipped="0" timestamp="2020-04-02T09:05:50" time="140.694" tests="13">
-    <testcase classname="Cloud emulator craete device Get a cloud amulator token" name="Cloud emulator craete device Get a cloud amulator token" time="1.268">
+<testsuites name="jest tests" tests="13" failures="0" time="150.532">
+  <testsuite name="Cloud emulator craete device" errors="0" failures="0" skipped="0" timestamp="2020-04-02T11:37:52" time="149.716" tests="13">
+    <testcase classname="Cloud emulator craete device Get a cloud amulator token" name="Cloud emulator craete device Get a cloud amulator token" time="1.178">
     </testcase>
-    <testcase classname="Cloud emulator craete device Create a new template" name="Cloud emulator craete device Create a new template" time="0.988">
+    <testcase classname="Cloud emulator craete device Create a new template" name="Cloud emulator craete device Create a new template" time="2.387">
     </testcase>
-    <testcase classname="Cloud emulator craete device Run a created  template" name="Cloud emulator craete device Run a created  template" time="0">
+    <testcase classname="Cloud emulator craete device Run a created  template" name="Cloud emulator craete device Run a created  template" time="0.001">
     </testcase>
-    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="29.605">
+    <testcase classname="Reseller, main actions Login as reseller" name="Reseller, main actions Login as reseller" time="35.014">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="17.593">
+    <testcase classname="Reseller, main actions Create a new rate" name="Reseller, main actions Create a new rate" time="10.547">
     </testcase>
-    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="12.689">
+    <testcase classname="Reseller, main actions Create a new group" name="Reseller, main actions Create a new group" time="17.267">
     </testcase>
-    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="11.897">
+    <testcase classname="Reseller, main actions location test" name="Reseller, main actions location test" time="16.419">
     </testcase>
-    <testcase classname="Reseller, main actions sublocation test" name="Reseller, main actions sublocation test" time="14.835">
+    <testcase classname="Reseller, main actions sublocation test" name="Reseller, main actions sublocation test" time="13.991">
     </testcase>
-    <testcase classname="Reseller, main actions RFID add from admin side" name="Reseller, main actions RFID add from admin side" time="2.165">
+    <testcase classname="Reseller, main actions RFID add from admin side" name="Reseller, main actions RFID add from admin side" time="1.396">
     </testcase>
-    <testcase classname="Reseller, main actions RFID add from reseller side" name="Reseller, main actions RFID add from reseller side" time="2.154">
+    <testcase classname="Reseller, main actions RFID add from reseller side" name="Reseller, main actions RFID add from reseller side" time="2.545">
     </testcase>
     <testcase classname="Reseller, main actions plug the emulator device" name="Reseller, main actions plug the emulator device" time="0">
     </testcase>
-    <testcase classname="Reseller, main actions Add cloud device" name="Reseller, main actions Add cloud device" time="17.139">
+    <testcase classname="Reseller, main actions Add cloud device" name="Reseller, main actions Add cloud device" time="23.86">
     </testcase>
-    <testcase classname="Reseller, main actions Device interactions" name="Reseller, main actions Device interactions" time="27.711">
+    <testcase classname="Reseller, main actions Device interactions" name="Reseller, main actions Device interactions" time="23.083">
     </testcase>
   </testsuite>
 </testsuites>

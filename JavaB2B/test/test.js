@@ -18,7 +18,7 @@ const clientName = "client autotest"  + today;
 const userEmail = "6dofik+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "alfaautotest@gmail.com";
 const clientEmail = "parkhval+c" + today.getDay() + today.getHours() +  today.getMinutes() +  "alfaautotest@gmail.com";
 const deviceName = "Autotest device" + today.getDay() + today.getHours() +  today.getMinutes();
-const admintoken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmRldi5qdWljZS5uZXQvaWRlbnRpdHkiLCJhdWQiOiJodHRwczovL2FjY291bnRzLmRldi5qdWljZS5uZXQvaWRlbnRpdHkvcmVzb3VyY2VzIiwiZXhwIjoxNTg4MjMxNzk1LCJuYmYiOjE1ODU2Mzk3OTUsImNsaWVudF9pZCI6ImIyYi51aSIsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJyb2xlcyIsImFwaSJdLCJzdWIiOiI0ZmJhMGI2Yy0wNmY5LTQ5MzktYjEyNi0xYWI0NzdiMTVlMTYiLCJhdXRoX3RpbWUiOjE1ODU2Mzk3OTUsImlkcCI6Imlkc3J2IiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW5AZW1vdG9yd2Vya3MuY29tIiwiZW1haWwiOiJhZG1pbkBlbW90b3J3ZXJrcy5jb20iLCJlbWFpbF92ZXJpZmllZCI6InRydWUiLCJyb2xlIjpbIkFkbWlucyIsIkNhciBBZG1pbiIsIkRpcmVjdG9yeUFkbWlucyIsIkVuZXJneUdyb3VwIEFkbWluIiwiU3VwZXIgQWRtaW5zIl0sImdpdmVuX25hbWUiOiJhZG1pbkBlbW90b3J3ZXJrcy5jb20iLCJmYW1pbHlfbmFtZSI6Im5vdCBzdXBwb3J0ZWQiLCJhbXIiOlsicGFzc3dvcmQiXX0.JJVw9YJUnzaJ8LBIC__loYA9uZmzHOmVydyA-L3Geq2AxkfZ7sxFuIKIRDGcMV1QTZe9V82PhzKSv_Py_6g5EXZa32siH8hqiGyWKlXm1rdkUSXElMc-Fl_0xR67EQkwNuomvASQ6D8pmQBiL1P6tXeNjhpEoEgepwkrLN4JoEinui7TiADF0r2S2xZSaHPY7VqwrRg3Hgf1bdgq__DP0bJM0HFOZG1FNwpXxEdsel5TN6q-ZDZI_7V4np7PsI79WR0xhmXUR7IzsHKRgyrG_8kO3yU6X8CYB1VyghTb-efNJOMwynSYobJqR1i0T-_QpCfar_rrkuY6a6_4UpuDGg"
+const admintoken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSIsImtpZCI6ImEzck1VZ01Gdjl0UGNsTGE2eUYzekFrZnF1RSJ9.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmJldGEuanVpY2UubmV0L2lkZW50aXR5IiwiYXVkIjoiaHR0cHM6Ly9hY2NvdW50cy5iZXRhLmp1aWNlLm5ldC9pZGVudGl0eS9yZXNvdXJjZXMiLCJleHAiOjE1ODg0MTY5MjQsIm5iZiI6MTU4NTgyNDkyNCwiY2xpZW50X2lkIjoiYjJiLnVpIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwiYXBpIl0sInN1YiI6IjRmYmEwYjZjLTA2ZjktNDkzOS1iMTI2LTFhYjQ3N2IxNWUxNiIsImF1dGhfdGltZSI6MTU4NTgyNDkyNCwiaWRwIjoiaWRzcnYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbkBlbW90b3J3ZXJrcy5jb20iLCJlbWFpbCI6ImFkbWluQGVtb3RvcndlcmtzLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjoidHJ1ZSIsInJvbGUiOlsiQWRtaW5zIiwiQ2FyIEFkbWluIiwiRGlyZWN0b3J5QWRtaW5zIiwiRW5lcmd5R3JvdXAgQWRtaW4iLCJTdXBlciBBZG1pbnMiXSwiZ2l2ZW5fbmFtZSI6ImFkbWluQGVtb3RvcndlcmtzLmNvbSIsImZhbWlseV9uYW1lIjoibm90IHN1cHBvcnRlZCIsImFtciI6WyJwYXNzd29yZCJdfQ.NOmdZXyJgWuH9lmr8su_NCMWV0Un7o6RwtGvvaa6lHktOR89pvsNhddur2P-hQvZuz9afLsq2sxDlXW6fGAMSJ6rCVOnKQINARp1G1ltLxiQA5zp-QkJn6zPjkYyKJzscl6O93q-TJ3k8p3quUiKsmZI54ryg_dOIMuVZHNNwoPpfm764xWL-3U4dSJnmMgD4SlhaH2NjrdxFppYbxqMfCcR3XNwQ5zHVjn3TOK__1NTa8_anoEbGioCODW1LtrDn5u7R0hc-Xb-kwPmt_JTfdAErui3QULLPnz_ZtTTD3bS_Q9rRw-9ChAHE5g9bYcI75rJTCSy5CR6dx2pc7erpw"
 
 describe('Cloud emulator craete device', function()  {
   test('Get a cloud amulator token',  function (done) {
@@ -49,7 +49,7 @@ describe('Cloud emulator craete device', function()  {
                     'title': deviceName,
                     'description': '',
                     'instanceCount': 1,
-                    'endpointId': 11,
+                    'endpointId': 7,
                     'capabilities': {
                         'batteryCapacityWh': 50000,
                         "numPhasesVehicle": 1,
@@ -160,7 +160,7 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, "//div/a[text() = ' Login as Client ']");
     await driver.wait(sleep(4000), 5000);
     done();
-  });
+  },40000);
 
   /*test('Create a new client for a current reseller', async () => {
     await util.findByXpathAndClick(driver, page.createNewClientButtonXpath);
@@ -222,6 +222,7 @@ describe('Reseller, main actions', () => {
     await util.findByXpathAndClick(driver, page.searchUserButton);
     await util.findByXpathAndClick(driver, page.selectUserCheckbox);
     await util.findByXpathAndClick(driver, page.saveUserSearchButton);
+      await driver.wait(sleep(2000), 4000);
     await util.findElementWithXpath(driver, page.deleteGroupButton);
     await util.findByXpathAndClick(driver, page.deleteGroupButton);
     await util.findByXpathAndClick(driver, page.confirmDeleteButton);
@@ -282,7 +283,7 @@ describe('Reseller, main actions', () => {
           Request.post({
               'headers': { 'content-type': 'application/json' ,
                   'Authorization' : 'Bearer ' + admintoken},
-              'url': 'https://admin-api.dev.juice.net/api/v1/rfid-registry',
+              'url': 'https://admin-api.beta.juice.net/api/v1/rfid-registry',
               'body': JSON.stringify(
                   [{"RFID":page.rfid,"SerialNumber":page.rfidSerialNumber}]
               )
@@ -338,6 +339,7 @@ test("plug the emulator device", async (done) =>{
         await util.findByXpathAndClick(driver, page.startChargingButton);
         await driver.wait(sleep(2000), 4000);
         await util.findByXpathAndClick(driver, page.historyTab);
+        await driver.wait(sleep(1000), 4000);
         await util.findElementWithXpath(driver, page.inUsediv);
         await driver.wait(sleep(4000), 5000);
         await util.findByXpathAndClick(driver, page.stopChargingButton);
