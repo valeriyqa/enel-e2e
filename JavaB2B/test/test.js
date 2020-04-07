@@ -242,20 +242,11 @@ describe('Reseller, main actions', () => {
   await util.findByXpathAndClick(driver, page.locationCreateDoneButton);
   await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.viewLocationsButton);
-/*  await util.findByXpathAndClick(driver, page.createdLocationInTable);
-  await util.findByXpathAndClick(driver, page.sublocationsTab);
-  await util.findByXpathAndClick(driver, page.addNewSublocation);
-  await util.findAndType(driver, page.locationNameFieldXpath, "Sublocation name asdasdasdas dasd asd asd asd asd");
-  await driver.wait(sleep(1000), 4000);
-  await util.findByXpathAndClick(driver, page.locationCreateNextButton);
-  await util.findByXpathAndClick(driver, page.locationCreateDoneButton);
-  await driver.wait(sleep(3000), 4000);
-  await util.findByXpathAndClick(driver, page.viewLocationsButton);*/
   await done();
   }
 catch (e) {
         await console.log(e);
-        done();
+        done(error);
     }
   });
 
@@ -285,7 +276,7 @@ catch (e) {
         }
         catch (e) {
             await console.log(e);
-            done();
+            done(error);
         }
         /*const SelectParentLocation = await util.findElementWithXpath(driver, page.SelectParentLocation);
       SelectParentLocation.selectedIndex = 0;*/
@@ -318,7 +309,7 @@ catch (e) {
     }
 catch (e) {
         await console.log(e);
-        done();
+        done(error);
     }
 
     });
@@ -360,7 +351,7 @@ test("plug the emulator device", async (done) =>{
   }
 catch (e) {
         await console.log(e);
-        done();
+        done(error);
     }
   }, 50000);
     test('Device interactions', async (done) => {
@@ -376,7 +367,7 @@ try {
     }
 catch (e) {
         await console.log(e);
-        done();
+        done(error);
     }
     },50000);
 });
