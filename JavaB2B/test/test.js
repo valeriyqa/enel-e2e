@@ -254,27 +254,32 @@ describe('Reseller, main actions', () => {
   });
 
     test('sublocation test', async (done) => {
-        await util.findByXpathAndClick(driver, page.createdLocationInTable);
-        await util.findByXpathAndClick(driver, page.sublocationsTab);
-        await util.findByXpathAndClick(driver, page.addLocationButton);
-        await util.findAndType(driver, page.sublocationNameFieldXpath, page.sublocationName);
-        await driver.wait(sleep(2000), 4000);
-        await util.findByXpathAndClick(driver, page.locationCreateNextButton);
-        await util.findByXpathAndClick(driver, page.loadBalanceSwitch);
-        await util.findAndType(driver, page.maxPowerField, "25");
-        await util.findByXpathAndClick(driver, page.acSettingsTab);
-        await util.findAndType(driver, page.maxPowerDCField, "25");
-        await util.findByXpathAndClick(driver, page.allowPublicAccessSwitch);
-        await util.findByXpathAndClick(driver,  page.selectRateDropdown);
-        await util.findByXpathAndClick(driver, page.specificRateValue);
-        await util.findByXpathAndClick(driver, page.dcSettingsTab);
-        await driver.wait(sleep(3000), 4000);
-        await util.findAndType(driver, page.maxPowerDCField, "25");
-        await util.findByXpathAndClick(driver, page.allowPublicAccessSwitch);
+        try {
+            await util.findByXpathAndClick(driver, page.createdLocationInTable);
+            await util.findByXpathAndClick(driver, page.sublocationsTab);
+            await util.findByXpathAndClick(driver, page.addLocationButton);
+            await util.findAndType(driver, page.sublocationNameFieldXpath, page.sublocationName);
+            await driver.wait(sleep(2000), 4000);
+            await util.findByXpathAndClick(driver, page.locationCreateNextButton);
+            await util.findByXpathAndClick(driver, page.loadBalanceSwitch);
+            await util.findAndType(driver, page.maxPowerField, "25");
+            await util.findByXpathAndClick(driver, page.acSettingsTab);
+            await util.findAndType(driver, page.maxPowerDCField, "25");
+            await util.findByXpathAndClick(driver, page.allowPublicAccessSwitch);
+            await util.findByXpathAndClick(driver, page.selectRateDropdown);
+            await util.findByXpathAndClick(driver, page.specificRateValue);
+            await util.findByXpathAndClick(driver, page.dcSettingsTab);
+            await driver.wait(sleep(3000), 4000);
+            await util.findAndType(driver, page.maxPowerDCField, "25");
+            await util.findByXpathAndClick(driver, page.allowPublicAccessSwitch);
             await util.findByXpathAndClick(driver, page.sublocationCreateDoneButton);
-        await driver.wait(sleep(3000), 4000);
-        await util.findByXpathAndClick(driver, page.viewLocationsButton);
-        await done();
+            await driver.wait(sleep(3000), 4000);
+            await util.findByXpathAndClick(driver, page.viewLocationsButton);
+            await done();
+        }
+        catch (e) {
+            await console.log(e);
+        }
         /*const SelectParentLocation = await util.findElementWithXpath(driver, page.SelectParentLocation);
       SelectParentLocation.selectedIndex = 0;*/
     });
