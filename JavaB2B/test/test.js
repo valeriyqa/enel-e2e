@@ -279,10 +279,11 @@ describe('Reseller, main actions', () => {
         }
         catch (e) {
             await console.log(e);
+            done();
         }
         /*const SelectParentLocation = await util.findElementWithXpath(driver, page.SelectParentLocation);
       SelectParentLocation.selectedIndex = 0;*/
-    });
+    }, 50000);
 
   test('RFID add from admin side', async (done) => {
 
