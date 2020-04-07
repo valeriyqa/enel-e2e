@@ -229,6 +229,7 @@ describe('Reseller, main actions', () => {
     await done();
   }, 50000);
   test('location test', async (done) => {
+      try {
   await driver.wait(sleep(2000), 4000);
   await util.findByXpathAndClick(driver, page.locationsMenuOption);
   await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
@@ -237,7 +238,7 @@ describe('Reseller, main actions', () => {
   await util.findAndType(driver, page.locationNameFieldXpath, page.locationName);
   await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.locationCreateNextButton);
-      await driver.wait(sleep(3000), 4000);
+  await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.locationCreateDoneButton);
   await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.viewLocationsButton);
@@ -251,6 +252,11 @@ describe('Reseller, main actions', () => {
   await driver.wait(sleep(3000), 4000);
   await util.findByXpathAndClick(driver, page.viewLocationsButton);*/
   await done();
+  }
+catch (e) {
+        await console.log(e);
+        done();
+    }
   });
 
     test('sublocation test', async (done) => {
@@ -300,6 +306,7 @@ describe('Reseller, main actions', () => {
           });
       });
     test('RFID add from reseller side', async (done) => {
+        try {
         await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
         await util.findByXpathAndClick(driver, page.addRfidButtonSpan);
         await util.findAndType(driver, page.cardID, page.rfidSerialNumber);
@@ -308,6 +315,12 @@ describe('Reseller, main actions', () => {
         await driver.wait(sleep(3000), 4000);
         await util.findByXpathAndClick(driver,page.createdRfidCard);
         done();
+    }
+catch (e) {
+        await console.log(e);
+        done();
+    }
+
     });
 test("plug the emulator device", async (done) =>{
     Request
@@ -325,6 +338,7 @@ test("plug the emulator device", async (done) =>{
     done();
 });
   test('Add cloud device', async (done) => {
+      try {
     await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
     await driver.wait(sleep(2000), 4000);
     await util.findByXpathAndClick(driver, page.addDiviceButton);
@@ -343,9 +357,14 @@ test("plug the emulator device", async (done) =>{
     await util.findByXpathAndClick(driver, page.viewDevicesButton);
     await util.findByXpathAndClick(driver, "//a[text()='Autotest device "+templateID+"']");
     done();
-  });
+  }
+catch (e) {
+        await console.log(e);
+        done();
+    }
+  }, 50000);
     test('Device interactions', async (done) => {
-
+try {
         await util.findByXpathAndClick(driver, page.startChargingButton);
         await driver.wait(sleep(2000), 4000);
         await util.findByXpathAndClick(driver, page.historyTab);
@@ -353,9 +372,13 @@ test("plug the emulator device", async (done) =>{
         await util.findElementWithXpath(driver, page.inUsediv);
         await driver.wait(sleep(5000), 6000);
         await util.findByXpathAndClick(driver, page.stopChargingButton);
-
         done();
-    });
+    }
+catch (e) {
+        await console.log(e);
+        done();
+    }
+    },50000);
 });
 /*describe('Client, main actions', () => {
   let driver;
