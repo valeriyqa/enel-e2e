@@ -384,7 +384,7 @@ try {
         await util.findByXpathAndClick(driver, page.historyTab);
         await driver.wait(sleep(1000), 4000);
         await util.findElementWithXpath(driver, page.inUsediv);
-        await driver.wait(sleep(5000), 6000);
+        await driver.wait(sleep(7000), 7000);
         await util.findByXpathAndClick(driver, page.stopChargingButton);
         done();
     }
