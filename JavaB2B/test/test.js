@@ -245,15 +245,22 @@ describe('Reseller, main actions', () => {
   await done();
   }
 catch (e) {
-        await console.log(e);
+    driver.takeScreenshot().then(function(data){
+        const base64Data = data.replace(/^data:image\/png;base64,/,"")
+        fs.writeFile("location.png", base64Data, 'base64', function(err) {
+            if(err) console.log(err);
+        });
+    });
         done(error);
     }
   });
 
     test('sublocation test', async (done) => {
         try {
+            await driver.wait(sleep(3000), 4000);
             await util.findByXpathAndClick(driver, page.createdLocationInTable);
             await util.findByXpathAndClick(driver, page.sublocationsTab);
+            await driver.wait(sleep(3000), 4000);
             await util.findByXpathAndClick(driver, page.addLocationButton);
             await util.findAndType(driver, page.sublocationNameFieldXpath, page.sublocationName);
             await driver.wait(sleep(2000), 4000);
@@ -270,12 +277,17 @@ catch (e) {
             await util.findAndType(driver, page.maxPowerDCField, "25");
             await util.findByXpathAndClick(driver, page.allowPublicAccessSwitch);
             await util.findByXpathAndClick(driver, page.sublocationCreateDoneButton);
-            await driver.wait(sleep(3000), 4000);
+            await driver.wait(sleep(4000), 4000);
             await util.findByXpathAndClick(driver, page.viewLocationsButton);
             await done();
         }
         catch (e) {
-            await console.log(e);
+            driver.takeScreenshot().then(function(data){
+                const base64Data = data.replace(/^data:image\/png;base64,/,"")
+                fs.writeFile("sublocation.png", base64Data, 'base64', function(err) {
+                    if(err) console.log(err);
+                });
+            });
             done(error);
         }
         /*const SelectParentLocation = await util.findElementWithXpath(driver, page.SelectParentLocation);
@@ -297,8 +309,9 @@ catch (e) {
           });
       });
     test('RFID add from reseller side', async (done) => {
-        try {
+        try {await driver.wait(sleep(3000), 4000);
         await util.findByXpathAndClick(driver, page.globalAddButtonXpath);
+        await driver.wait(sleep(2000), 4000);
         await util.findByXpathAndClick(driver, page.addRfidButtonSpan);
         await util.findAndType(driver, page.cardID, page.rfidSerialNumber);
         await driver.wait(sleep(3000), 4000);
@@ -308,7 +321,12 @@ catch (e) {
         done();
     }
 catch (e) {
-        await console.log(e);
+    driver.takeScreenshot().then(function(data){
+        const base64Data = data.replace(/^data:image\/png;base64,/,"")
+        fs.writeFile("addRfid.png", base64Data, 'base64', function(err) {
+            if(err) console.log(err);
+        });
+    });
         done(error);
     }
 
@@ -350,7 +368,12 @@ test("plug the emulator device", async (done) =>{
     done();
   }
 catch (e) {
-        await console.log(e);
+    driver.takeScreenshot().then(function(data){
+        const base64Data = data.replace(/^data:image\/png;base64,/,"")
+        fs.writeFile("addCloudDevice.png", base64Data, 'base64', function(err) {
+            if(err) console.log(err);
+        });
+    });
         done(error);
     }
   }, 50000);
@@ -366,6 +389,12 @@ try {
         done();
     }
 catch (e) {
+   driver.takeScreenshot().then(function(data){
+    const base64Data = data.replace(/^data:image\/png;base64,/,"")
+    fs.writeFile("device-interactions.png", base64Data, 'base64', function(err) {
+        if(err) console.log(err);
+    });
+});
         await console.log(e);
         done(error);
     }
